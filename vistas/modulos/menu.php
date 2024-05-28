@@ -1,121 +1,230 @@
-<aside class="main-sidebar">
+<!-- Main Sidebar Container -->
+<aside class="main-sidebar sidebar-dark-primary elevation-4">
+	<!-- Brand Logo -->
+	<a href="inicio" class="brand-link">
+		<img src="vistas/img/plantilla/icon-inventary-case.svg" alt="ISA2 Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+		<span class="brand-text font-weight-light">Sistema inventarios A2</span>
+	</a>
 
-	 <section class="sidebar">
+	<!-- Sidebar -->
+	<div class="sidebar">
+		<!-- Sidebar user (optional) -->
+		<div class="user-panel mt-3 pb-3 mb-3 d-flex">
+			<div class="image">
+				<img src="vistas/img/plantilla/icon-man1.svg" class="img-circle elevation-2" alt="User Image">
+			</div>
+			<div class="info">
+				<a href="#" class="d-block">Antonio Arenas</a>
+			</div>
+		</div>
 
-		<ul class="sidebar-menu">
+		<!-- SidebarSearch Form -->
+		<div class="form-inline">
+			<div class="input-group" data-widget="sidebar-search">
+				<input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">
+				<div class="input-group-append">
+					<button class="btn btn-sidebar">
+						<i class="fas fa-search fa-fw"></i>
+					</button>
+				</div>
+			</div>
+		</div>
 
-			<li class="active">
+		<!-- Sidebar Menu -->
+		<nav class="mt-2">
+			<ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+				<!-- Add icons to the links using the .nav-icon class
+               with font-awesome or any other icon font library -->
 
-				<a href="inicio">
 
-					<i class="fa fa-home"></i>
-					<span>Inicio</span>
+				<!-- /////////////////  #########################    ///////////////////////////// -->
 
-				</a>
+				<li class="nav-item">
+					<a href="usuarios" class=" active nav-link">
+						<i>
+							<img class="image nav-icon" src="vistas/img/plantilla/1-icon-config-user.svg" alt="User Image">
+						</i>
+						<p>
+							Usuarios
+						</p>
+					</a>
+				</li>
 
-			</li>
+				<!-- /////////////////  #########################    ///////////////////////////// -->
 
-			<li>
+				<li class="nav-item">
+					<a href="#" class="nav-link">
+						<i class="nav-icon fas fa-tachometer-alt"></i>
+						<p>
+							Dashboard
+							<i class="right fas fa-angle-left"></i>
+						</p>
+					</a>
+					<ul class="nav nav-treeview">
+						<li class="nav-item">
+							<a href="dashboard-v1" class="nav-link">
+								<i class="far fa-circle nav-icon"></i>
+								<p>Dashboard v1</p>
+							</a>
+						</li>
+						<li class="nav-item">
+							<a href="dashboard-v2" class="nav-link">
+								<i class="far fa-circle nav-icon"></i>
+								<p>Dashboard v2</p>
+							</a>
+						</li>
+					</ul>
+				</li>
 
-				<a href="usuarios">
 
-					<i class="fa fa-user"></i>
-					<span>Usuarios</span>
+				<!-- /////////// icono  /////////// -->
 
-				</a>
+				<li class="nav-item">
+					<a href="clientes" class=" nav-link">
+						<i>
+							<img class="image nav-icon" src="vistas/img/plantilla/1-icon-user.svg" alt="User Image">
+						</i>
+						<p>
+							Clientes
+						</p>
+					</a>
+				</li>
 
-			</li>
+				<!-- /////////////////  #########################    ///////////////////////////// -->
 
-			<li>
 
-				<a href="categorias">
+				<!-- /////////// icono  /////////// -->
 
-					<i class="fa fa-th"></i>
-					<span>Categorías</span>
+				<li class="nav-item">
+					<a href="producto" class=" nav-link">
+						<i>
+							<img class="image nav-icon" src="vistas/img/plantilla/1-icon-product.svg" alt="User Image">
+						</i>
+						<p>
+							Productos
+						</p>
+					</a>
+				</li>
 
-				</a>
+				<!-- /////////////////  #########################    ///////////////////////////// -->
 
-			</li>
 
-			<li>
 
-				<a href="productos">
+				<!-- <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i>
+                            <img class="image nav-icon" src="vistas/img/plantilla/1-icon-user.svg" alt="User Image">
+                        </i>
+                        <p>
+                            Cliente
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="cliente-crear" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Crear</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="cliente-consultar" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Consultar</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li> -->
 
-					<i class="fa fa-product-hunt"></i>
-					<span>Productos</span>
+				<!-- /////////// icono  /////////// -->
 
-				</a>
 
-			</li>
+				<li class="nav-item">
+					<a href="#" class="nav-link">
+						<i>
+							<img class="image nav-icon" src="vistas/img/plantilla/1-icon-product.svg" alt="User Image">
+						</i>
+						<p>
+							Producto
+							<i class="right fas fa-angle-left"></i>
+						</p>
+					</a>
+					<ul class="nav nav-treeview">
+						<li class="nav-item">
+							<a href="producto-crear" class="nav-link">
+								<i class="far fa-circle nav-icon"></i>
+								<p>Crear</p>
+							</a>
+						</li>
+						<li class="nav-item">
+							<a href="producto-consultar" class="nav-link">
+								<i class="far fa-circle nav-icon"></i>
+								<p>Consultar</p>
+							</a>
+						</li>
+					</ul>
+				</li>
 
-			<li>
+				<!-- /////////// icono  /////////// -->
 
-				<a href="clientes">
 
-					<i class="fa fa-users"></i>
-					<span>Clientes</span>
 
-				</a>
+				<li class="nav-item">
+					<a href="#" class="nav-link">
+						<i>
+							<img class="image nav-icon" src="vistas/img/plantilla/1-icon-invetory.svg" alt="User Image">
+						</i>
+						<p>
+							Inventario
+							<i class="right fas fa-angle-left"></i>
+						</p>
+					</a>
+					<ul class="nav nav-treeview">
+						<li class="nav-item">
+							<a href="inventario-entradas" class="nav-link">
+								<i class="far fa-circle nav-icon"></i>
+								<p>Entradas</p>
+							</a>
+						</li>
+						<li class="nav-item">
+							<a href="inventario-salidas" class="nav-link">
+								<i class="far fa-circle nav-icon"></i>
+								<p>Salidas</p>
+							</a>
+						</li>
+					</ul>
+				</li>
 
-			</li>
+				<!-- /////////// icono  ///////////
+                <li class="nav-item">
+                    <a href="../widgets.html" class="nav-link">
+                        <i class="nav-icon fas fa-th"></i>
+                        <p>
+                            Widgets
+                            <span class="right badge badge-danger">New</span>
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-copy"></i>
+                        <p>
+                            Layout Options
+                            <i class="fas fa-angle-left right"></i>
+                            <span class="badge badge-info right">6</span>
+                        </p>
+                    </a>
+                </li> -->
 
-			<li class="treeview">
+			</ul>
+		</nav>
 
-				<a href="#">
-
-					<i class="fa fa-list-ul"></i>
-					
-					<span>Ventas</span>
-					
-					<span class="pull-right-container">
-					
-						<i class="fa fa-angle-left pull-right"></i>
-
-					</span>
-
-				</a>
-
-				<ul class="treeview-menu">
-					
-					<li>
-
-						<a href="ventas">
-							
-							<i class="fa fa-circle-o"></i>
-							<span>Administrar ventas</span>
-
-						</a>
-
-					</li>
-
-					<li>
-
-						<a href="crear-venta">
-							
-							<i class="fa fa-circle-o"></i>
-							<span>Crear venta</span>
-
-						</a>
-
-					</li>
-
-					<li>
-
-						<a href="reportes">
-							
-							<i class="fa fa-circle-o"></i>
-							<span>Reporte de ventas</span>
-
-						</a>
-
-					</li>
-
-				</ul>
-
-			</li>
-
-		</ul>
-
-	 </section>
 
 </aside>
+
+
+<!-- <aside class="main-sidebar">
+
+    
+
+</aside> -->
