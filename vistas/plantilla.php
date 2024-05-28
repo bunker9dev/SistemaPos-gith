@@ -42,9 +42,9 @@ PLUGLIN JAVASCRIPT
   <script src="vistas/dist/js/adminlte.min.js"></script>
   <!-- AdminLTE for demo purposes -->
 
-
-
   <body class="hold-transition sidebar-mini">
+
+  <!-- <body class="hold-transition skin-blue sidebar-collapse  sidebar-mini"> -->
 <!-- <body class="hold-transition skin-blue sidebar-collapse sidebar-mini wrapper"> -->
 <!-- login-page -->
 
@@ -65,6 +65,12 @@ PLUGLIN JAVASCRIPT
 
   //   // MENU
     include "modulos/menu.php";
+
+
+//   // CONTENIDO
+    include "modulos/dashboard-v1.php";
+
+
 
   //   // CONTENIDO
   //   if (isset($_GET["ruta"])) {

@@ -1,4 +1,6 @@
 <!-- Main Sidebar Container -->
+
+
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
 	<!-- Brand Logo -->
 	<a href="inicio" class="brand-link">
@@ -37,18 +39,6 @@
                with font-awesome or any other icon font library -->
 
 
-				<!-- /////////////////  #########################    ///////////////////////////// -->
-
-				<li class="nav-item">
-					<a href="usuarios" class=" active nav-link">
-						<i>
-							<img class="image nav-icon" src="vistas/img/plantilla/1-icon-config-user.svg" alt="User Image">
-						</i>
-						<p>
-							Usuarios
-						</p>
-					</a>
-				</li>
 
 				<!-- /////////////////  #########################    ///////////////////////////// -->
 
@@ -74,6 +64,19 @@
 							</a>
 						</li>
 					</ul>
+				</li>
+
+				<!-- /////////////////  #########################    ///////////////////////////// -->
+
+				<li class="nav-item">
+					<a href="usuarios" class=" active nav-link">
+						<i>
+							<img class="image nav-icon" src="vistas/img/plantilla/1-icon-config-user.svg" alt="User Image">
+						</i>
+						<p>
+							Usuarios
+						</p>
+					</a>
 				</li>
 
 
@@ -102,6 +105,37 @@
 						</i>
 						<p>
 							Productos
+						</p>
+					</a>
+				</li>
+
+				<!-- /////////////////  #########################    ///////////////////////////// -->
+
+
+				<!-- /////////// icono  /////////// -->
+
+				<li class="nav-item">
+					<a href="inventario" class=" nav-link">
+						<i>
+							<img class="image nav-icon" src="vistas/img/plantilla/1-icon-invetory.svg" alt="inventario icon ">
+						</i>
+						<p>
+							Inventario
+						</p>
+					</a>
+				</li>
+
+				<!-- /////////////////  #########################    ///////////////////////////// -->
+
+				<!-- /////////// icono  /////////// -->
+
+				<li class="nav-item">
+					<a href="producto" class=" nav-link">
+						<i>
+							<img class="image nav-icon" src="vistas/img/plantilla/1-icon-cash-register.svg" alt="User Image">
+						</i>
+						<p>
+							Ventas
 						</p>
 					</a>
 				</li>
@@ -139,92 +173,11 @@
 				<!-- /////////// icono  /////////// -->
 
 
-				<li class="nav-item">
-					<a href="#" class="nav-link">
-						<i>
-							<img class="image nav-icon" src="vistas/img/plantilla/1-icon-product.svg" alt="User Image">
-						</i>
-						<p>
-							Producto
-							<i class="right fas fa-angle-left"></i>
-						</p>
-					</a>
-					<ul class="nav nav-treeview">
-						<li class="nav-item">
-							<a href="producto-crear" class="nav-link">
-								<i class="far fa-circle nav-icon"></i>
-								<p>Crear</p>
-							</a>
-						</li>
-						<li class="nav-item">
-							<a href="producto-consultar" class="nav-link">
-								<i class="far fa-circle nav-icon"></i>
-								<p>Consultar</p>
-							</a>
-						</li>
-					</ul>
-				</li>
-
-				<!-- /////////// icono  /////////// -->
 
 
 
-				<li class="nav-item">
-					<a href="#" class="nav-link">
-						<i>
-							<img class="image nav-icon" src="vistas/img/plantilla/1-icon-invetory.svg" alt="User Image">
-						</i>
-						<p>
-							Inventario
-							<i class="right fas fa-angle-left"></i>
-						</p>
-					</a>
-					<ul class="nav nav-treeview">
-						<li class="nav-item">
-							<a href="inventario-entradas" class="nav-link">
-								<i class="far fa-circle nav-icon"></i>
-								<p>Entradas</p>
-							</a>
-						</li>
-						<li class="nav-item">
-							<a href="inventario-salidas" class="nav-link">
-								<i class="far fa-circle nav-icon"></i>
-								<p>Salidas</p>
-							</a>
-						</li>
-					</ul>
-				</li>
+				<!-- <aside class="main-sidebar">
 
-				<!-- /////////// icono  ///////////
-                <li class="nav-item">
-                    <a href="../widgets.html" class="nav-link">
-                        <i class="nav-icon fas fa-th"></i>
-                        <p>
-                            Widgets
-                            <span class="right badge badge-danger">New</span>
-                        </p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link">
-                        <i class="nav-icon fas fa-copy"></i>
-                        <p>
-                            Layout Options
-                            <i class="fas fa-angle-left right"></i>
-                            <span class="badge badge-info right">6</span>
-                        </p>
-                    </a>
-                </li> -->
-
-			</ul>
-		</nav>
-
+    -->
 
 </aside>
-
-
-<!-- <aside class="main-sidebar">
-
-    
-
-</aside> -->

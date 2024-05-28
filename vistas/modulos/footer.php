@@ -1,6 +1,6 @@
 <footer class="main-footer">
 	
-	<strong>Copyright &copy; 2017 <a href="https://www.tutorialesatualcance.com" target="_blank">Tutoriales a tu Alcance</a>.</strong>
+	<strong>Copyright &copy; 2024 <a href="" target="_blank"></a>.</strong>
 
 	Todos los derechos reservados.
 
