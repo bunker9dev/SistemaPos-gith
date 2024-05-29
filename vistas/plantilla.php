@@ -42,22 +42,24 @@ PLUGLIN JAVASCRIPT
 <script src="vistas/dist/js/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->
 
-<body class="hold-transition sidebar-mini">
+<body class="hold-transition sidebar-mini ">
 
   <!-- <body class="hold-transition skin-blue sidebar-collapse  sidebar-mini"> -->
   <!-- <body class="hold-transition skin-blue sidebar-collapse sidebar-mini wrapper"> -->
   <!-- login-page -->
 
+  
+
   <div class="wrapper">
 
-
-
     <?php
+
+  
 
     // if (isset($_SESSION["iniciarSesion"]) && $_SESSION["iniciarSesion"] == "ok") {
 
 
-    //   echo '<div class="wrapper">';
+      // echo '<div class="wrapper">';
 
 
     //   // CABEZOTE
@@ -91,16 +93,16 @@ PLUGLIN JAVASCRIPT
 
         include "modulos/" . $_GET["ruta"] . ".php";
 
-            } else {
+      }else {
 
-              include "modulos/404.php";
-            }
-
-          } else {
-
-            include "modulos/inicio.php";
+        include "modulos/404.php";
       }
-    
+
+    }else {
+
+      include "modulos/inicio.php";
+    }
+
 
     // FOOTER
     include "modulos/footer.php";
@@ -112,13 +114,13 @@ PLUGLIN JAVASCRIPT
     //   include "modulos/login.php";
     // }
 
-
+    // echo '</div>';
     ?>
 
 
 
 
-  </div>
+  
 
 
 

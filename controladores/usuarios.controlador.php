@@ -21,7 +21,7 @@ class ControladorUsuarios
 
                 $respuesta = ModeloUsuarios::MdlMostrarUsuarios($tabla, $item, $valor);
 
-                // var_dump($respuesta["usuario"]);
+                var_dump($respuesta["usuario"]);
 
 
                 if (is_array($respuesta)) {
