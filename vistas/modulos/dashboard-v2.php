@@ -6,12 +6,12 @@
 
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Dashboard-v1</h1>
+            <h1>Dashboard-v2</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Inicio</a></li>
-              <li class="breadcrumb-item active">Dashboard V1</li>
+              <li class="breadcrumb-item active">Dashboard-v2</li>
             </ol>
           </div>
         </div>

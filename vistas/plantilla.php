@@ -30,104 +30,102 @@ PLUGLIN CSS
 
 
 
- <!-- ============================================
+<!-- ============================================
 PLUGLIN JAVASCRIPT
 ==============================================-->
 
-  <!-- jQuery -->
-  <script src="vistas/plugins/jquery/jquery.min.js"></script>
-  <!-- Bootstrap 4 -->
-  <script src="vistas/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <!-- AdminLTE App -->
-  <script src="vistas/dist/js/adminlte.min.js"></script>
-  <!-- AdminLTE for demo purposes -->
+<!-- jQuery -->
+<script src="vistas/plugins/jquery/jquery.min.js"></script>
+<!-- Bootstrap 4 -->
+<script src="vistas/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- AdminLTE App -->
+<script src="vistas/dist/js/adminlte.min.js"></script>
+<!-- AdminLTE for demo purposes -->
 
-  <body class="hold-transition sidebar-mini">
+<body class="hold-transition sidebar-mini">
 
   <!-- <body class="hold-transition skin-blue sidebar-collapse  sidebar-mini"> -->
-<!-- <body class="hold-transition skin-blue sidebar-collapse sidebar-mini wrapper"> -->
-<!-- login-page -->
+  <!-- <body class="hold-transition skin-blue sidebar-collapse sidebar-mini wrapper"> -->
+  <!-- login-page -->
 
-<div class="wrapper">
-
-
-
-  <?php
-
-  // if (isset($_SESSION["iniciarSesion"]) && $_SESSION["iniciarSesion"] == "ok") {
+  <div class="wrapper">
 
 
-  //   echo '<div class="wrapper">';
+
+    <?php
+
+    // if (isset($_SESSION["iniciarSesion"]) && $_SESSION["iniciarSesion"] == "ok") {
 
 
-  //   // CABEZOTE
+    //   echo '<div class="wrapper">';
+
+
+    //   // CABEZOTE
     include "modulos/cabezote.php";
 
-  //   // MENU
+    //   // MENU
     include "modulos/menu.php";
 
 
-//   // CONTENIDO
-    include "modulos/dashboard-v1.php";
+    //   // CONTENIDO
+    // include "modulos/ventas-reportes.php";
 
 
 
-  //   // CONTENIDO
-  //   if (isset($_GET["ruta"])) {
-  //     if (
-  //       $_GET["ruta"] == "inicio" ||
-  //       $_GET["ruta"] == "dashboard-v1" ||
-  //       $_GET["ruta"] == "dashboard-v2" ||
-  //       $_GET["ruta"] == "cliente-crear" ||
-  //       $_GET["ruta"] == "cliente-consultar" ||
-  //       $_GET["ruta"] == "producto-crear" ||
-  //       $_GET["ruta"] == "producto-consultar" ||
-  //       $_GET["ruta"] == "inventario-entradas" ||
-  //       $_GET["ruta"] == "inventario-salidas" ||
-  //       $_GET["ruta"] == "configuracion" ||
-  //       $_GET["ruta"] == "usuarios" ||
-  //       $_GET["ruta"] == "reportes" ||
-  //       $_GET["ruta"] == "salir") {
+    // CONTENIDO
+    if (isset($_GET["ruta"])) {
+      if (
+        $_GET["ruta"] == "inicio" ||
+        $_GET["ruta"] == "dashboard-v1" ||
+        $_GET["ruta"] == "dashboard-v2" ||
+        $_GET["ruta"] == "usuarios" ||
+        $_GET["ruta"] == "clientes" ||
+        $_GET["ruta"] == "productos" ||
+        $_GET["ruta"] == "inventario" ||
+        $_GET["ruta"] == "ventas-administrar" ||
+        $_GET["ruta"] == "ventas-crear" ||
+        $_GET["ruta"] == "ventas-reportes" ||
+        $_GET["ruta"] == "caja" ||
+        $_GET["ruta"] == "salir"
+      ) {
 
-  //       include "modulos/" .$_GET["ruta"]. ".php";
+        include "modulos/" . $_GET["ruta"] . ".php";
 
-  //     } else {
+            } else {
 
-  //       include "modulos/404.php";
-  //     }
+              include "modulos/404.php";
+            }
 
-  //   } else {
+          } else {
 
-  //     include "modulos/inicio.php";
-  //   }
-
-
-
+            include "modulos/inicio.php";
+      }
+    
 
     // FOOTER
     include "modulos/footer.php";
 
 
 
-  // } else {
+    // } else {
 
-  //   include "modulos/login.php";
-  // }
-
-
-  ?>
+    //   include "modulos/login.php";
+    // }
 
 
-
-
-</div>
+    ?>
 
 
 
- 
+
+  </div>
+
+
+
+
   <!-- <script src="vistas/dist/js/demo.js"></script> -->
 
-  <script src="js/plantilla.js"></script>
+  <script src="vistas/js/plantilla.js"></script>
 
 
 </body>
