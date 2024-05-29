@@ -115,7 +115,7 @@
 				<!-- /////////// icono  /////////// -->
 
 				<li class="nav-item">
-					<a href="inventario" class=" nav-link">
+					<a href="inventarios" class=" nav-link">
 						<i>
 							<img class="image nav-icon" src="vistas/img/plantilla/1-icon-invetory.svg" alt="inventario icon ">
 						</i>
