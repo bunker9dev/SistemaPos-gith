@@ -32,7 +32,7 @@
       </div>
 
       <div class="card-body">
-        <table id="usuarios1" class="table table-hover  table-bordered ">
+        <table id="usuarios1" class="table table-hover table-bordered tablas ">
 
           <thead>
             <tr>
@@ -341,56 +341,81 @@
   <div class="modal-dialog">
     <div class="modal-content">
 
-      <!-- Modal Header -->
-      <div class="modal-header" style="background-color: #3c8dbc; color: white;">
-        <h4 class="modal-title">agregar cliente</h4>
-        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-      </div>
+      <form role="form" method="post">
 
-      <!-- Modal body -->
-      <div class="modal-body">
+        <!-- Modal Header -->
+        <div class="modal-header" style="background-color: #3c8dbc; color: white;">
+          <h4 class="modal-title">agregar cliente</h4>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
 
-        <div class="card-body">
+        <!-- Modal body -->
+        <div class="modal-body">
 
-          <div class="form-group">
-            <div class="input-group">
-              <!-- <span class="input-group-addon"><i class="fa fa-user"></i></span> -->
-              <input type="text" class="form-control input-lg" name="nuevoNombre" placeholder="Ingresar nombre" required>
+          <div class="card-body">
+
+            <div class="form-group">
+              <div class="input-group">
+                <!-- <span class="input-group-addon"><i class="fa fa-user"></i></span> -->
+                <input type="text" class="form-control input-lg" name="nuevoNombre" placeholder="Ingresar nombre" required>
+              </div>
             </div>
+
+            <!-- ############# / entrada ########### -->
+
+            <div class="form-group">
+              <div class="input-group">
+                <!-- <span class="input-group-addon"><i class="fa fa-user"></i></span> -->
+                <input type="text" class="form-control input-lg" name="nuevoApellido" placeholder="Ingresar Apellidos" required>
+              </div>
+            </div>
+
+            <!-- ############# / entrada ########### -->
+
+            <div class="form-group">
+              <div class="input-group">
+                <!-- <span class="input-group-addon"><i class="fa-map-marker"></i></span> -->
+                <input type="text" class="form-control input-lg" name="nuevaCiudad" placeholder="Ingresar ciudad" required>
+              </div>
+            </div>
+
+            <!-- ############# / entrada ########### -->
+
           </div>
 
-          <!-- ############# / entrada ########### -->
 
-          <div class="form-group">
-            <div class="input-group">
-              <!-- <span class="input-group-addon"><i class="fa fa-user"></i></span> -->
-              <input type="text" class="form-control input-lg" name="nuevoApellido" placeholder="Ingresar Apellidos" required>
-            </div>
-          </div>
-
-          <!-- ############# / entrada ########### -->
-
-          <div class="form-group">
-            <div class="input-group">
-              <!-- <span class="input-group-addon"><i class="fa-map-marker"></i></span> -->
-              <input type="text" class="form-control input-lg" name="nuevaCiudad" placeholder="Ingresar ciudad" required>
-            </div>
-          </div>
-
-          <!-- ############# / entrada ########### -->
 
         </div>
 
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default pull-left" data-bs-dismiss="modal">Salir</button>
+          <button type="submit" class="btn btn-primary">Guardar cliente</button>
+        </div>
 
+      </form>
 
-      </div>
-
-      <!-- Modal footer -->
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default pull-left" data-bs-dismiss="modal">Salir</button>
-        <button type="submit" class="btn btn-primary" >Guardar cliente</button>
-      </div>
 
     </div>
   </div>
 </div>
+
+
+<!-- Page specific script  -->
+<script>
+  $(function () {
+    $("#example1").DataTable({
+      "responsive": true, "lengthChange": false, "autoWidth": false,
+      "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+    }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+    $('#example2').DataTable({
+      "paging": true,
+      "lengthChange": false,
+      "searching": false,
+      "ordering": true,
+      "info": true,
+      "autoWidth": false,
+      "responsive": true,
+    });
+  });
+</script>

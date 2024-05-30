@@ -1,53 +1,84 @@
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
-    <section class="content-header">
-      <div class="container-fluid">
+  <!-- Content Header (Page header) -->
+  <section class="content-header">
+    <div class="container-fluid">
 
-        <div class="row mb-2">
-          <div class="col-sm-6">
-            <h1>Administrar ventas</h1>
-          </div>
-          <div class="col-sm-6">
-            <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="inicio">Inicio</a></li>
-              <li class="breadcrumb-item active">Administrar ventas</li>
-            </ol>
-          </div>
+      <div class="row mb-2">
+        <div class="col-sm-6">
+          <h1>Administrar ventas</h1>
         </div>
-        
-      </div><!-- /.container-fluid -->
-    </section>
-
-    <!-- Main content -->
-    <section class="content">
-
-      <!-- Default box -->
-      <div class="card">
-        <div class="card-header">
-          <h3 class="card-title">Title</h3>
-
-          <div class="card-tools">
-            <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
-              <i class="fas fa-minus"></i>
-            </button>
-            <button type="button" class="btn btn-tool" data-card-widget="remove" title="Remove">
-              <i class="fas fa-times"></i>
-            </button>
-          </div>
+        <div class="col-sm-6">
+          <ol class="breadcrumb float-sm-right">
+            <li class="breadcrumb-item"><a href="#">Inicio</a></li>
+            <li class="breadcrumb-item active">Administrar ventas</li>
+          </ol>
         </div>
-        <div class="card-body">
-          Start creating your amazing application!
-        </div>
-        <!-- /.card-body -->
-        <div class="card-footer">
-          Footer
-        </div>
-        <!-- /.card-footer-->
       </div>
-      <!-- /.card -->
 
-    </section>
-    <!-- /.content -->
-  </div>
-  <!-- /.content-wrapper -->
+    </div><!-- /.container-fluid -->
+  </section>
+
+  <!-- Main content -->
+  <section class="content">
+
+    <!-- Default box -->
+    <div class="card">
+
+      <div class="card-header">
+        <button class="btn btn-primary" >
+          Agregar ventas
+        </button>
+      </div>
+
+      <div class="card-body">
+        <table id="usuarios1" class="table table-hover table-bordered tablas ">
+
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Remision</th>
+              <th>cliente</th>
+              <th>Vendedor</th>
+              <th>Forma de pago</th>
+              <th>Valor Total</th>
+              <th>Fecha</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>100001</td>
+              <td>Carlos Zapata</td>
+              <td>Antonio24</td>
+              <td>Efectivo</td>
+              <td>$200.000</td>
+              <td>30-05-24 09:52:02</td>
+              <td>
+                <div class="btn-group">
+                  <button class="btn btn-warning"> <i class="fal fa-print"></i> </button>
+                  <button class="btn btn-danger"><i class="fa fa-times"></i> </button>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+
+          <!-- ######## /tbody ######### -->
+
+          
+
+
+        </table>
+
+      </div>
+      <!-- /.card-body -->
+
+    </div>
+    <!-- /.card -->
+
+  </section>
+  <!-- /.content -->
+</div>
+<!-- /.content-wrapper -->

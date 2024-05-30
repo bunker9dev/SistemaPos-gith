@@ -69,7 +69,7 @@
 				<!-- /////////////////  #########################    ///////////////////////////// -->
 
 				<li class="nav-item">
-					<a href="usuarios" class=" active nav-link">
+					<a href="usuarios" class="nav-link">
 						<i>
 							<img class="image nav-icon" src="vistas/img/plantilla/1-icon-config-user.svg" alt="User Image">
 						</i>
@@ -144,7 +144,7 @@
                         <li class="nav-item">
                             <a href="ventas-administrar" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>Adminstrar ventas</p>
+                                <p>Administrar ventas</p>
                             </a>
                         </li>
 

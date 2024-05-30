@@ -4,3 +4,10 @@
 
 
 $('.sidebar-menu').tree()
+
+
+// DATA TABLE
+
+$(".tablas").dataTable();
+
+
