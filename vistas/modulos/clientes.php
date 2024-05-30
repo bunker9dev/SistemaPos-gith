@@ -54,7 +54,7 @@
               <td>2023-10-30</td>
               <td>
                 <div class="btn-group">
-                  <button class="btn btn-warning"> <i class="fal fa-pencil-alt"></i> </button>
+                  <button class="btn btn-warning"> <i class="fa fa-pencil-alt" aria-hidden="true"></i></button>
                   <button class="btn btn-danger"><i class="fa fa-times"></i> </button>
                 </div>
               </td>
@@ -72,7 +72,7 @@
               <td>2021-09-23</td>
               <td>
                 <div class="btn-group">
-                  <button class="btn btn-warning"> <i class="fal fa-pencil-alt"></i> </button>
+                  <button class="btn btn-warning"> <i class="fa fa-pencil-alt" aria-hidden="true"></i></button>
                   <button class="btn btn-danger"><i class="fa fa-times"></i> </button>
                 </div>
               </td>
@@ -90,7 +90,7 @@
               <td>2020-01-01</td>
               <td>
                 <div class="btn-group">
-                  <button class="btn btn-warning"> <i class="fal fa-pencil-alt"></i> </button>
+                  <button class="btn btn-warning"> <i class="fa fa-pencil-alt" aria-hidden="true"></i> </button>
                   <button class="btn btn-danger"><i class="fa fa-times"></i> </button>
                 </div>
               </td>
@@ -108,7 +108,7 @@
               <td>2020-01-01</td>
               <td>
                 <div class="btn-group">
-                  <button class="btn btn-warning"> <i class="fal fa-pencil-alt"></i> </button>
+                  <button class="btn btn-warning"> <i class="fa fa-pencil-alt" aria-hidden="true"></i> </button>
                   <button class="btn btn-danger"><i class="fa fa-times"></i> </button>
                 </div>
               </td>
@@ -126,7 +126,7 @@
               <td>2020-01-01</td>
               <td>
                 <div class="btn-group">
-                  <button class="btn btn-warning"> <i class="fal fa-pencil-alt"></i> </button>
+                  <button class="btn btn-warning"> <i class="fa fa-pencil-alt" aria-hidden="true"></i> </button>
                   <button class="btn btn-danger"><i class="fa fa-times"></i> </button>
                 </div>
               </td>
@@ -144,7 +144,7 @@
               <td>2020-01-01</td>
               <td>
                 <div class="btn-group">
-                  <button class="btn btn-warning"> <i class="fal fa-pencil-alt"></i> </button>
+                  <button class="btn btn-warning"> <i class="fa fa-pencil-alt" aria-hidden="true"></i> </button>
                   <button class="btn btn-danger"><i class="fa fa-times"></i> </button>
                 </div>
               </td>
@@ -162,7 +162,7 @@
               <td>2020-01-01</td>
               <td>
                 <div class="btn-group">
-                  <button class="btn btn-warning"> <i class="fal fa-pencil-alt"></i> </button>
+                  <button class="btn btn-warning"> <i class="fa fa-pencil-alt" aria-hidden="true"></i> </button>
                   <button class="btn btn-danger"><i class="fa fa-times"></i> </button>
                 </div>
               </td>
@@ -180,7 +180,7 @@
               <td>2020-01-01</td>
               <td>
                 <div class="btn-group">
-                  <button class="btn btn-warning"> <i class="fal fa-pencil-alt"></i> </button>
+                  <button class="btn btn-warning"> <i class="fa fa-pencil-alt" aria-hidden="true"></i> </button>
                   <button class="btn btn-danger"><i class="fa fa-times"></i> </button>
                 </div>
               </td>
@@ -198,7 +198,7 @@
               <td>2020-01-01</td>
               <td>
                 <div class="btn-group">
-                  <button class="btn btn-warning"> <i class="fal fa-pencil-alt"></i> </button>
+                  <button class="btn btn-warning"> <i class="fa fa-pencil-alt" aria-hidden="true"></i> </button>
                   <button class="btn btn-danger"><i class="fa fa-times"></i> </button>
                 </div>
               </td>
@@ -216,7 +216,7 @@
               <td>2020-01-01</td>
               <td>
                 <div class="btn-group">
-                  <button class="btn btn-warning"> <i class="fal fa-pencil-alt"></i> </button>
+                  <button class="btn btn-warning"> <i class="fa fa-pencil-alt" aria-hidden="true"></i> </button>
                   <button class="btn btn-danger"><i class="fa fa-times"></i> </button>
                 </div>
               </td>
@@ -234,7 +234,7 @@
               <td>2020-01-01</td>
               <td>
                 <div class="btn-group">
-                  <button class="btn btn-warning"> <i class="fal fa-pencil-alt"></i> </button>
+                  <button class="btn btn-warning"> <i class="fa fa-pencil-alt" aria-hidden="true"></i> </button>
                   <button class="btn btn-danger"><i class="fa fa-times"></i> </button>
                 </div>
               </td>
@@ -252,7 +252,7 @@
               <td>2020-01-01</td>
               <td>
                 <div class="btn-group">
-                  <button class="btn btn-warning"> <i class="fal fa-pencil-alt"></i> </button>
+                  <button class="btn btn-warning"> <i class="fa fa-pencil-alt" aria-hidden="true"></i> </button>
                   <button class="btn btn-danger"><i class="fa fa-times"></i> </button>
                 </div>
               </td>
@@ -270,7 +270,7 @@
               <td>2020-01-01</td>
               <td>
                 <div class="btn-group">
-                  <button class="btn btn-warning"> <i class="fal fa-pencil-alt"></i> </button>
+                  <button class="btn btn-warning"> <i class="fa fa-pencil-alt" aria-hidden="true"></i> </button>
                   <button class="btn btn-danger"><i class="fa fa-times"></i> </button>
                 </div>
               </td>
@@ -288,7 +288,7 @@
               <td>2020-01-01</td>
               <td>
                 <div class="btn-group">
-                  <button class="btn btn-warning"> <i class="fal fa-pencil-alt"></i> </button>
+                  <button class="btn btn-warning"> <i class="fa fa-pencil-alt" aria-hidden="true"></i> </button>
                   <button class="btn btn-danger"><i class="fa fa-times"></i> </button>
                 </div>
               </td>
@@ -306,7 +306,7 @@
               <td>2020-01-01</td>
               <td>
                 <div class="btn-group">
-                  <button class="btn btn-warning"> <i class="fal fa-pencil-alt"></i> </button>
+                  <button class="btn btn-warning"> <i class="fa fa-pencil-alt" aria-hidden="true"></i> </button>
                   <button class="btn btn-danger"><i class="fa fa-times"></i> </button>
                 </div>
               </td>

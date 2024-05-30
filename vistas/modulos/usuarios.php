@@ -58,7 +58,7 @@
               <td>2024-05-30 09:05:23</td>
               <td>
                   <div class="btn-group">
-                  <button class="btn btn-warning"> <i class="fal fa-pencil-alt"></i> </button>
+                  <button class="btn btn-warning"> <i class="fa fa-pencil-alt" aria-hidden="true"></i> </button>
                   <button class="btn btn-danger"><i class="fa fa-times"></i> </button>
                   </div>
               </td>
@@ -77,7 +77,7 @@
               <td>2024-05-30 08:26:58</td>
               <td>
                   <div class="btn-group">
-                  <button class="btn btn-warning"> <i class="fal fa-pencil-alt"></i> </button>
+                  <button class="btn btn-warning"> <i class="fa fa-pencil-alt" aria-hidden="true"></i> </button>
                   <button class="btn btn-danger"><i class="fa fa-times"></i> </button>
                   </div>
               </td>
@@ -96,7 +96,7 @@
               <td>2023-04-29 16:47:06</td>
               <td>
                   <div class="btn-group">
-                  <button class="btn btn-warning"> <i class="fal fa-pencil-alt"></i> </button>
+                  <button class="btn btn-warning"> <i class="fa fa-pencil-alt" aria-hidden="true"></i> </button>
                   <button class="btn btn-danger"><i class="fa fa-times"></i> </button>
                   </div>
               </td>
@@ -115,7 +115,7 @@
               <td>2024-05-30 08:39:42</td>
               <td>
                   <div class="btn-group">
-                  <button class="btn btn-warning"> <i class="fal fa-pencil-alt"></i> </button>
+                  <button class="btn btn-warning"> <i class="fa fa-pencil-alt" aria-hidden="true"></i> </button>
                   <button class="btn btn-danger"><i class="fa fa-times"></i> </button>
                   </div>
               </td>
@@ -134,7 +134,7 @@
               <td>2024-05-30 08:10:12</td>
               <td>
                   <div class="btn-group">
-                  <button class="btn btn-warning"> <i class="fal fa-pencil-alt"></i> </button>
+                  <button class="btn btn-warning"> <i class="fa fa-pencil-alt" aria-hidden="true"></i> </button>
                   <button class="btn btn-danger"><i class="fa fa-times"></i> </button>
                   </div>
               </td>

@@ -26,9 +26,11 @@
     <div class="card">
 
       <div class="card-header">
-        <button class="btn btn-primary" >
-          Agregar ventas
-        </button>
+        <a href="ventas-crear">
+          <button class="btn btn-primary">
+            Agregar ventas
+          </button>
+        </a>
       </div>
 
       <div class="card-body">
@@ -58,7 +60,7 @@
               <td>30-05-24 09:52:02</td>
               <td>
                 <div class="btn-group">
-                  <button class="btn btn-warning"> <i class="fal fa-print"></i> </button>
+                  <button class="btn btn-info"> <i class="fa fa-print" aria-hidden="true"></i> </button>
                   <button class="btn btn-danger"><i class="fa fa-times"></i> </button>
                 </div>
               </td>
@@ -67,7 +69,7 @@
 
           <!-- ######## /tbody ######### -->
 
-          
+
 
 
         </table>
