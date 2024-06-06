@@ -1,6 +1,6 @@
 <?php
 
-// session_start();
+session_start();
 
 ?>
 
@@ -27,44 +27,48 @@ PLUGLIN CSS
   <!-- Theme style -->
   <link rel="stylesheet" href="vistas/dist/css/adminlte.css">
 
-  <!-- DataTables -->
+  <!-- DataTables
   <link rel="stylesheet" href="vista/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
   <link rel="stylesheet" href="vista/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
   <link rel="stylesheet" href="vista/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
+ -->
+
+
+
+  <!-- ============================================
+PLUGLIN JAVASCRIPT
+==============================================-->
+
+  <!-- jQuery -->
+  <script src="vistas/plugins/jquery/jquery.min.js"></script>
+  <!-- Bootstrap 4 -->
+  <script src="vistas/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <!-- AdminLTE App -->
+  <script src="vistas/dist/js/adminlte.min.js"></script>
+  <!-- AdminLTE for demo purposes -->
+
+  <!-- DataTables  & Plugins -->
+  <script src="vistas/plugins/datatables/jquery.dataTables.min.js"></script>
+  <script src="vistas/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+  <script src="vistas/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+  <script src="vistas/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+  <script src="vistas/plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
+  <script src="vistas/plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
+  <script src="vistas/plugins/jszip/jszip.min.js"></script>
+  <script src="vistas/plugins/pdfmake/pdfmake.min.js"></script>
+  <script src="vistas/plugins/pdfmake/vfs_fonts.js"></script>
+  <script src="vistas/plugins/datatables-buttons/js/buttons.html5.min.js"></script>
+  <script src="vistas/plugins/datatables-buttons/js/buttons.print.min.js"></script>
+  <script src="vistas/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
+
+
 
 </head>
 
 
+<!-- <body class="hold-transition sidebar-mini "> -->
 
-<!-- ============================================
-PLUGLIN JAVASCRIPT
-==============================================-->
-
-<!-- jQuery -->
-<script src="vistas/plugins/jquery/jquery.min.js"></script>
-<!-- Bootstrap 4 -->
-<script src="vistas/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-<!-- AdminLTE App -->
-<script src="vistas/dist/js/adminlte.min.js"></script>
-<!-- AdminLTE for demo purposes -->
-
-  <!-- DataTables  & Plugins -->
-<script src="../../plugins/datatables/jquery.dataTables.min.js"></script>
-<script src="../../plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
-<script src="../../plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
-<script src="../../plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
-<script src="../../plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
-<script src="../../plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
-<script src="../../plugins/jszip/jszip.min.js"></script>
-<script src="../../plugins/pdfmake/pdfmake.min.js"></script>
-<script src="../../plugins/pdfmake/vfs_fonts.js"></script>
-<script src="../../plugins/datatables-buttons/js/buttons.html5.min.js"></script>
-<script src="../../plugins/datatables-buttons/js/buttons.print.min.js"></script>
-<script src="../../plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
-
-<body class="hold-transition sidebar-mini ">
-
-  <!-- <body class="hold-transition skin-blue sidebar-collapse  sidebar-mini"> -->
+<body class="hold-transition skin-blue sidebar-collapse sidebar-mini">
   <!-- <body class="hold-transition skin-blue sidebar-collapse sidebar-mini wrapper"> -->
   <!-- login-page -->
 
@@ -76,63 +80,61 @@ PLUGLIN JAVASCRIPT
 
 
 
-    // if (isset($_SESSION["iniciarSesion"]) && $_SESSION["iniciarSesion"] == "ok") {
+    if (isset($_SESSION["iniciarSesion"]) && $_SESSION["iniciarSesion"] == "ok") {
 
 
-    // echo '<div class="wrapper">';
+      // echo '<div class="wrapper>';
 
 
-    //   // CABEZOTE
-    include "modulos/cabezote.php";
+      //   // CABEZOTE
+      include "modulos/cabezote.php";
 
-    //   // MENU
-    include "modulos/menu.php";
-
-
-    //   // CONTENIDO
-    // include "modulos/ventas-reportes.php";
+      //   // MENU
+      include "modulos/menu.php";
 
 
+      //   // CONTENIDO
+      // include "modulos/ventas-reportes.php";
 
-    // CONTENIDO
-    if (isset($_GET["ruta"])) {
-      if (
-        $_GET["ruta"] == "inicio" ||
-        $_GET["ruta"] == "dashboard-v1" ||
-        $_GET["ruta"] == "dashboard-v2" ||
-        $_GET["ruta"] == "usuarios" ||
-        $_GET["ruta"] == "clientes" ||
-        $_GET["ruta"] == "productos" ||
-        $_GET["ruta"] == "inventarios" ||
-        $_GET["ruta"] == "ventas-administrar" ||
-        $_GET["ruta"] == "ventas-crear" ||
-        $_GET["ruta"] == "ventas-reportes" ||
-        $_GET["ruta"] == "caja" ||
-        $_GET["ruta"] == "salir"
-      ) {
 
-        include "modulos/" . $_GET["ruta"] . ".php";
+
+      // CONTENIDO
+      if (isset($_GET["ruta"])) {
+        if (
+          $_GET["ruta"] == "inicio" ||
+          $_GET["ruta"] == "dashboard-v1" ||
+          $_GET["ruta"] == "dashboard-v2" ||
+          $_GET["ruta"] == "usuarios" ||
+          $_GET["ruta"] == "clientes" ||
+          $_GET["ruta"] == "productos" ||
+          $_GET["ruta"] == "inventarios" ||
+          $_GET["ruta"] == "ventas-administrar" ||
+          $_GET["ruta"] == "ventas-crear" ||
+          $_GET["ruta"] == "ventas-reportes" ||
+          $_GET["ruta"] == "caja" ||
+          $_GET["ruta"] == "login" ||
+          $_GET["ruta"] == "salir"
+        ) {
+
+          include "modulos/" . $_GET["ruta"] . ".php";
+        } else {
+
+          include "modulos/404.php";
+        }
       } else {
 
-        include "modulos/404.php";
+        include "modulos/inicio.php";
       }
+
+
+      // FOOTER
+      include "modulos/footer.php";
     } else {
 
-      include "modulos/inicio.php";
+      include "modulos/login.php";
     }
 
-
-    // FOOTER
-    include "modulos/footer.php";
-
-
-
-    // } else {
-
-    //   include "modulos/login.php";
-    // }
-
-    // echo '</div>';
+    echo '</div>';
     ?>
 
 
@@ -147,7 +149,7 @@ PLUGLIN JAVASCRIPT
 
     <script src="vistas/js/plantilla.js"></script>
 
- 
+
 
 
 </body>

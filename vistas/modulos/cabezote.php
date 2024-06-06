@@ -1,50 +1,48 @@
-<nav class="main-header navbar navbar-expand navbar-white navbar-light">
-	<!-- Left navbar links -->
-	<ul class="navbar-nav">
-		<li class="nav-item">
-			<a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
-		</li>
-	</ul>
 
-	<!-- Right navbar links -->
-	<ul class="navbar-nav ml-auto">
+	<nav class="main-header navbar navbar-expand navbar-white navbar-light">
+		<!-- Left navbar links -->
+		<ul class="navbar-nav">
+			<li class="nav-item">
+				<a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+			</li>
+		</ul>
 
-		<a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
+		<!-- Right navbar links -->
+		<ul class="navbar-nav ml-auto">
 
-			<span class="sr-only">Toggle navigation</span>
+			<a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
 
-		</a>
+				<span class="sr-only">Toggle navigation</span>
 
-		<!-- perfil de usuario -->
+			</a>
 
-		<div class="navbar-custom-menu">
-			<ul class="nav navbar-nav">
-				<li class="dropdown user user-menu">
+			<!-- perfil de usuario -->
 
-					<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-						<img src="vistas/img/plantilla/1-icon-setting.svg" class="user-image">
-						<span class="hidden-xs">Usuario Administrador</span>
-					</a>
+			<div class="navbar-custom-menu">
+				<ul class="nav navbar-nav">
+					<li class="dropdown user user-menu">
 
-					<!-- Dropdown-toggle -->
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+							<img src="vistas/img/plantilla/1-icon-setting.svg" class="user-image">
+							<span class="hidden-xs">Usuario Administrador</span>
+						</a>
 
-					<ul class="dropdown-menu">
-						<li class="user-body">
-							<div class="pull-right">
-								<a href="salir" class="btn btn-default btn-flat">Salir</a>
-							</div>
-						</li>
-					</ul>
+						<!-- Dropdown-toggle -->
 
-				</li>
-			</ul>
-		</div>
-	</ul>
-</nav>
-<!-- /.navbar -->
+						<ul class="dropdown-menu">
+							<li class="user-body">
+								<div class="pull-right">
+									<a href="salir" class="btn btn-default btn-flat">Salir</a>
+								</div>
+							</li>
+						</ul>
 
-
-
+					</li>
+				</ul>
+			</div>
+		</ul>
+	</nav>
+	<!-- /.navbar -->
 
 
 
@@ -64,4 +62,7 @@
 
 
 
-<!--  -->
+
+
+
+	<!--  -->
