@@ -21,16 +21,16 @@
 		</div>
 
 		<!-- SidebarSearch Form -->
-		<div class="form-inline">
+		<!-- <div class="form-inline">
 			<div class="input-group" data-widget="sidebar-search">
-				<input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">
+				<input class="form-control form-control-sidebar" type="search" placeholder="Buscar" aria-label="Search">
 				<div class="input-group-append">
 					<button class="btn btn-sidebar">
 						<i class="fas fa-search fa-fw"></i>
 					</button>
 				</div>
 			</div>
-		</div>
+		</div> -->
 
 		<!-- Sidebar Menu -->
 		<nav class="mt-2">
@@ -44,7 +44,11 @@
 
 				<li class="nav-item">
 					<a href="#" class="nav-link">
-						<i class="nav-icon fas fa-tachometer-alt"></i>
+						<i>
+							<img class="image nav-icon" src="vistas/img/plantilla/1-icon_tacometro.svg" alt="User Image">
+						</i>
+
+						<!-- <i class="nav-icon fas fa-tachometer-alt"></i> -->
 						<p>
 							Dashboard
 							<i class="right fas fa-angle-left"></i>
@@ -98,7 +102,17 @@
 
 				<!-- /////////// icono  /////////// -->
 
-				<li class="nav-item">
+				<!-- <li class="nav-item">
+				<a href="#" class="nav-link">
+                        <i>
+                            <img class="image nav-icon" src="vistas/img/plantilla/1-icon-product.svg" alt="icon producto">
+                        </i>
+                        <p>
+                            Productos
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+
 					<a href="productos" class=" nav-link">
 						<i>
 							<img class="image nav-icon" src="vistas/img/plantilla/1-icon-product.svg" alt="User Image">
@@ -107,9 +121,57 @@
 							Productos
 						</p>
 					</a>
-				</li>
+				</li> -->
 
 				<!-- /////////////////  #########################    ///////////////////////////// -->
+
+
+
+
+				<li class="nav-item">
+					<a href="#" class="nav-link">
+						<i>
+							<img class="image nav-icon" src="vistas/img/plantilla/1-icon-product.svg" alt="icon prodcuto">
+						</i>
+						<p>
+							Productos
+							<i class="right fas fa-angle-left"></i>
+						</p>
+					</a>
+					<ul class="nav nav-treeview">
+
+						<li class="nav-item">
+							<a href="productos-crear-categoria" class="nav-link">
+								<i class="far fa-circle nav-icon"></i>
+								<p>Administrar categorías</p>
+							</a>
+						</li>
+
+						<li class="nav-item">
+							<a href="producto-administrar" class="nav-link">
+								<i class="far fa-circle nav-icon"></i>
+								<p>Administrar productos</p>
+							</a>
+						</li>
+
+						<!-- <li class="nav-item">
+                            <a href="ventas-reportes" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Reporte de ventas</p>
+                            </a>
+                        </li> -->
+
+					</ul>
+				</li>
+
+
+
+
+
+
+
+
+
 
 
 				<!-- /////////// icono  /////////// -->
@@ -130,40 +192,40 @@
 				<!-- /////////// icono  /////////// -->
 
 				<li class="nav-item">
-                    <a href="#" class="nav-link">
-                        <i>
-                            <img class="image nav-icon" src="vistas/img/plantilla/1-icon-sale.svg" alt="icon sale">
-                        </i>
-                        <p>
-                            Ventas
-                            <i class="right fas fa-angle-left"></i>
-                        </p>
-                    </a>
-                    <ul class="nav nav-treeview">
-
-                        <li class="nav-item">
-                            <a href="ventas-administrar" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Administrar ventas</p>
-                            </a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a href="ventas-crear" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Crear ventas</p>
-                            </a>
-                        </li>
+					<a href="#" class="nav-link">
+						<i>
+							<img class="image nav-icon" src="vistas/img/plantilla/1-icon-sale.svg" alt="icon sale">
+						</i>
+						<p>
+							Ventas
+							<i class="right fas fa-angle-left"></i>
+						</p>
+					</a>
+					<ul class="nav nav-treeview">
 
 						<li class="nav-item">
-                            <a href="ventas-reportes" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Reporte de ventas</p>
-                            </a>
-                        </li>
+							<a href="ventas-administrar" class="nav-link">
+								<i class="far fa-circle nav-icon"></i>
+								<p>Administrar ventas</p>
+							</a>
+						</li>
 
-                    </ul>
-                </li>
+						<li class="nav-item">
+							<a href="ventas-crear" class="nav-link">
+								<i class="far fa-circle nav-icon"></i>
+								<p>Crear ventas</p>
+							</a>
+						</li>
+
+						<li class="nav-item">
+							<a href="ventas-reportes" class="nav-link">
+								<i class="far fa-circle nav-icon"></i>
+								<p>Reporte de ventas</p>
+							</a>
+						</li>
+
+					</ul>
+				</li>
 
 				<!-- /////////////////  #########################    ///////////////////////////// -->
 
@@ -187,7 +249,7 @@
 
 
 
-				
+
 
 				<!-- /////////// icono  /////////// -->
 

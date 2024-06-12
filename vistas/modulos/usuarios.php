@@ -38,6 +38,7 @@
             <tr>
               <th>#</th>
               <th>Nombre</th>
+              <th>Apellidos</th>
               <th>Usuario</th>
               <th>Foto</th>
               <th>perfil</th>
@@ -50,7 +51,8 @@
           <tbody>
             <tr>
               <td>1</td>
-              <td>User Admin</td>
+              <td>User</td>
+              <td>Admin</td>
               <td>Admin</td>
               <td><img src="vistas/img/plantilla/icon-man1.svg" class="img-circle img-thumbnai" width="40px" alt="User Image"></td>
               <td>Administrador</td>
@@ -69,7 +71,8 @@
           <tbody>
             <tr>
               <td>2</td>
-              <td>Antonio Arenas</td>
+              <td>Antonio</td>
+              <td>Arenas</td>
               <td>Antonio24</td>
               <td><img src="vistas/img/plantilla/icon-man2.svg" class="img-circle img-thumbnai" width="40px" alt="User Image"></td>
               <td>vendedor</td>
@@ -88,7 +91,8 @@
           <tbody>
             <tr>
               <td>3</td>
-              <td>Luis Garces</td>
+              <td>Luis</td>
+              <td>Garces</td>
               <td>vendedor2</td>
               <td><img src="vistas/img/plantilla/icon-man3.svg" class="img-circle img-thumbnai" width="40px" alt="User Image"></td>
               <td>vendedor</td>
@@ -107,7 +111,8 @@
           <tbody>
             <tr>
               <td>4</td>
-              <td>Juan Perez</td>
+              <td>Juan</td>
+              <td>Perez</td>
               <td>Juan.p</td>
               <td><img src="vistas/img/plantilla/icon-man4.svg" class="img-circle img-thumbnai" width="40px" alt="User Image"></td>
               <td>bodeguero</td>
@@ -126,7 +131,8 @@
           <tbody>
             <tr>
               <td>5</td>
-              <td>Claudia Ortiz</td>
+              <td>Claudia</td>
+              <td>Ortiz</td>
               <td>Clau.o</td>
               <td><img src="vistas/img/plantilla/icon-woman1.svg" class="img-circle img-thumbnai" width="40px" alt="User Image"></td>
               <td>vendedor</td>

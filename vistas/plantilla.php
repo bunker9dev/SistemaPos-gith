@@ -107,6 +107,8 @@ PLUGLIN JAVASCRIPT
           $_GET["ruta"] == "usuarios" ||
           $_GET["ruta"] == "clientes" ||
           $_GET["ruta"] == "productos" ||
+          $_GET["ruta"] == "productos-administrar" ||
+          $_GET["ruta"] == "productos-crear-categoria" ||
           $_GET["ruta"] == "inventarios" ||
           $_GET["ruta"] == "ventas-administrar" ||
           $_GET["ruta"] == "ventas-crear" ||
