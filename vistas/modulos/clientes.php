@@ -32,7 +32,8 @@
       </div>
 
       <div class="card-body">
-        <table id="usuarios1" class="table table-hover table-bordered tablas ">
+        <!-- <table id="usuarios1" class="table table-bordered table-hover dt-responsive tablas "> -->
+        <table  class="table table-bordered table-hover dt-responsive tablas" width="100%">
 
           <thead>
             <tr>
@@ -59,11 +60,11 @@
                 </div>
               </td>
             </tr>
-          </tbody>
+          
 
           <!-- ######## /tbody ######### -->
 
-          <tbody>
+          
             <tr>
               <td>2</td>
               <td>Carlos</td>
@@ -77,11 +78,11 @@
                 </div>
               </td>
             </tr>
-          </tbody>
+          
 
           <!-- ######## /tbody ######### -->
 
-          <tbody>
+          
             <tr>
               <td>3</td>
               <td>Nombre cliente</td>
@@ -95,11 +96,11 @@
                 </div>
               </td>
             </tr>
-          </tbody>
+          
 
           <!-- ######## /tbody ######### -->
 
-          <tbody>
+          
             <tr>
               <td>4</td>
               <td>Nombre cliente</td>
@@ -113,11 +114,11 @@
                 </div>
               </td>
             </tr>
-          </tbody>
+          
 
           <!-- ######## /tbody ######### -->
 
-          <tbody>
+          
             <tr>
               <td>5</td>
               <td>Nombre cliente</td>
@@ -131,11 +132,11 @@
                 </div>
               </td>
             </tr>
-          </tbody>
+          
 
           <!-- ######## /tbody ######### -->
 
-          <tbody>
+          
             <tr>
               <td>6</td>
               <td>Nombre cliente</td>
@@ -149,11 +150,11 @@
                 </div>
               </td>
             </tr>
-          </tbody>
+          
 
           <!-- ######## /tbody ######### -->
 
-          <tbody>
+          
             <tr>
               <td>7</td>
               <td>Nombre cliente</td>
@@ -167,11 +168,11 @@
                 </div>
               </td>
             </tr>
-          </tbody>
+          
 
           <!-- ######## /tbody ######### -->
 
-          <tbody>
+          
             <tr>
               <td>8</td>
               <td>Nombre cliente</td>
@@ -185,11 +186,11 @@
                 </div>
               </td>
             </tr>
-          </tbody>
+          
 
           <!-- ######## /tbody ######### -->
 
-          <tbody>
+          
             <tr>
               <td>9</td>
               <td>Nombre cliente</td>
@@ -203,11 +204,11 @@
                 </div>
               </td>
             </tr>
-          </tbody>
+          
 
           <!-- ######## /tbody ######### -->
 
-          <tbody>
+          
             <tr>
               <td>10</td>
               <td>Nombre cliente</td>
@@ -221,11 +222,11 @@
                 </div>
               </td>
             </tr>
-          </tbody>
+          
 
           <!-- ######## /tbody ######### -->
 
-          <tbody>
+          
             <tr>
               <td>11</td>
               <td>Nombre cliente</td>
@@ -239,11 +240,11 @@
                 </div>
               </td>
             </tr>
-          </tbody>
+          
 
           <!-- ######## /tbody ######### -->
 
-          <tbody>
+          
             <tr>
               <td>12</td>
               <td>Nombre cliente</td>
@@ -257,11 +258,11 @@
                 </div>
               </td>
             </tr>
-          </tbody>
+          
 
           <!-- ######## /tbody ######### -->
 
-          <tbody>
+          
             <tr>
               <td>13</td>
               <td>Nombre cliente</td>
@@ -275,11 +276,11 @@
                 </div>
               </td>
             </tr>
-          </tbody>
+          
 
           <!-- ######## /tbody ######### -->
 
-          <tbody>
+          
             <tr>
               <td>14</td>
               <td>Nombre cliente</td>
@@ -293,11 +294,11 @@
                 </div>
               </td>
             </tr>
-          </tbody>
+          
 
           <!-- ######## /tbody ######### -->
 
-          <tbody>
+          
             <tr>
               <td>15</td>
               <td>Nombre cliente</td>
