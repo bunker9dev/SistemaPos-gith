@@ -37,7 +37,7 @@
 
           <thead>
             <tr>
-              <th>#</th>
+              <th style="width: 10px;">#</th>
               <th>Nombre</th>
               <th>Apellidos</th>
               <th>ciudad</th>
