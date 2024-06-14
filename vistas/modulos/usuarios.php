@@ -33,7 +33,7 @@
 
       <div class="card-body">
         <!-- <table  class="table table-bordered table-hover dt-responsive" width="100%"> -->
-        <table  class="table table-bordered table-hover dt-responsive tablas" width="100%">
+        <table class="table table-bordered table-hover dt-responsive tablas" width="100%">
 
           <thead>
             <tr>
@@ -66,10 +66,10 @@
                 </div>
               </td>
             </tr>
-          
 
-          <!-- ######## /tbody ######### -->
-        
+
+            <!-- ######## /tbody ######### -->
+
             <tr>
               <td>2</td>
               <td>Antonio</td>
@@ -86,10 +86,10 @@
                 </div>
               </td>
             </tr>
-          
 
-          <!-- ######## /tbody ######### -->
-        
+
+            <!-- ######## /tbody ######### -->
+
             <tr>
               <td>3</td>
               <td>Luis</td>
@@ -106,10 +106,10 @@
                 </div>
               </td>
             </tr>
-          
 
-          <!-- ######## /tbody ######### -->
-        
+
+            <!-- ######## /tbody ######### -->
+
             <tr>
               <td>4</td>
               <td>Juan</td>
@@ -126,10 +126,10 @@
                 </div>
               </td>
             </tr>
-          
 
-          <!-- ######## /tbody ######### -->
-        
+
+            <!-- ######## /tbody ######### -->
+
             <tr>
               <td>5</td>
               <td>Claudia</td>
@@ -273,10 +273,20 @@
           <button type="submit" class="btn btn-primary">Guardar Usuario</button>
 
         </div>
+
+        <?php
+
+          $crearUsuario = new ControladorUsuarios();
+          $crearUsuario -> ctrCrearUsuario();
+          
+
+        ?>
+
+
       </form>
 
     </div>
-   
+
 
 
 
