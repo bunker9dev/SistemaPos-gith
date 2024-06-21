@@ -39,7 +39,7 @@
             <tr>
               <th style="width: 10px;">#</th>
               <th>Nombre</th>
-              <th>Apellidos</th>
+              <th>Apellido</th>
               <th>ciudad</th>
               <th>fecha registro</th>
               <th>Acciones</th>
@@ -367,7 +367,7 @@
             <div class="form-group">
               <div class="input-group">
                 <!-- <span class="input-group-addon"><i class="fa fa-user"></i></span> -->
-                <input type="text" class="form-control input-lg" name="nuevoApellido" placeholder="Ingresar Apellidos" required>
+                <input type="text" class="form-control input-lg" name="nuevoApellido" placeholder="Ingresar apellido" required>
               </div>
             </div>
 

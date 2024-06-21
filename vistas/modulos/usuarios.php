@@ -1,7 +1,9 @@
-<!-- Content Wrapper. Contains page content -->
+
+
 <div class="content-wrapper">
-  <!-- Content Header (Page header) -->
+
   <section class="content-header">
+
     <div class="container-fluid">
 
       <div class="row mb-2">
@@ -39,8 +41,9 @@
             <tr>
               <th style="width:10px">#</th>
               <th>Nombre</th>
-              <th>Apellidos</th>
+              <th>apellido</th>
               <th>Usuario</th>
+              <!-- <th>Password</th> -->
               <th>Foto</th>
               <th>Perfil</th>
               <th>Estado</th>
@@ -52,9 +55,10 @@
           <tbody>
             <tr>
               <td>1</td>
-              <td>User</td>
+              <td>Ubeimar</td>
+              <td>Duque</td>
               <td>Admin</td>
-              <td>Admin</td>
+              <!-- <td>11111</td> -->
               <td><img src="vistas/img/plantilla/icon-man1.svg" class="img-circle img-thumbnai" width="40px" alt="User Image"></td>
               <td>Administrador</td>
               <td><button class="btn btn-success btn-xs">Activo</button></td>
@@ -167,20 +171,20 @@
 </div>
 <!-- /.content-wrapper -->
 
-<!-- ###########################
-#                              #
-#    MODAL AGREGAR CLIENTE     #
-#                              #
-################################-->
+
+
+<!--=====================================
+MODAL AGREGAR USUARIO
+======================================-->
 
 
 <!-- The Modal -->
-<div class="modal fade" id="modalAgregarUsuario">
+<div id="modalAgregarUsuario" class="modal fade" >
   <div class="modal-dialog">
     <div class="modal-content">
 
 
-      <form role="form" method="post" enctype="multipart/form-darta" action="">
+      <form role="form" method="post" enctype="multipart/form-darta" >
         <!-- Modal Header -->
         <div class="modal-header" style="background-color: #007bff; color:#ffffff">
           <h4 class="modal-title">Agregar usuario</h4>
@@ -196,17 +200,17 @@
             <div class="form-group">
               <div class="input-group mb-3">
                 <div class="input-group-prepend">
-                  <span class="input-group-text" id="basic-addon1"><i class="fa fa-user" aria-hidden="true"></i></span>
+                  <span class="input-group-text basic-addon1"><i class="fa fa-user" aria-hidden="true"></i></span>
                 </div>
                 <input type="text" class="form-control input-lg" name="nuevoNombre" placeholder="Ingresar Nombre" aria-label="Username" aria-describedby="basic-addon1" required>
               </div>
             </div>
 
-            <!-- Entrada apellidos -->
+            <!-- Entrada apellido -->
             <div class="form-group">
               <div class="input-group mb-3">
                 <div class="input-group-prepend">
-                  <span class="input-group-text" id="basic-addon1"><i class="fa fa-user" aria-hidden="true"></i></span>
+                  <span class="input-group-text basic-addon1"><i class="fa fa-user" aria-hidden="true"></i></span>
                 </div>
                 <input type="text" class="form-control input-lg" name="nuevoApellido" placeholder="Ingresar Apellido" aria-label="Username" aria-describedby="basic-addon1" required>
               </div>
@@ -217,9 +221,9 @@
             <div class="form-group">
               <div class="input-group mb-3">
                 <div class="input-group-prepend">
-                  <span class="input-group-text" id="basic-addon1"><i class="fa fa-key" aria-hidden="true"></i></span>
+                <span class="input-group-text basic-addon1"><i class="fa fa-key" aria-hidden="true"></i></span>
                 </div>
-                <input type="text" class="form-control input-lg" name="nuevoUsuario" placeholder="Ingresar Usuario" aria-label="keyname" aria-describedby="basic-addon1" required>
+                <input type="text" class="form-control input-lg" name="nuevoUsuario" placeholder="Ingresar Usuario" aria-label="keyname" aria-describedby="basic-addon1" id="nuevoUsuario" required>
               </div>
             </div>
 
@@ -228,9 +232,9 @@
             <div class="form-group">
               <div class="input-group mb-3">
                 <div class="input-group-prepend">
-                  <span class="input-group-text" id="basic-addon1"><i class="fa fa-lock" aria-hidden="true"></i></span>
+                  <span class="input-group-text basic-addon1"><i class="fa fa-lock" aria-hidden="true"></i></span>
                 </div>
-                <input type="password" class="form-control input-lg" name="nuevaContraseña" placeholder="Ingresar Contraseña" aria-label="lockname" aria-describedby="basic-addon1" required>
+                <input type="password" class="form-control input-lg" name="nuevoPassword" placeholder="Ingresar Contraseña" aria-label="lockname" aria-describedby="basic-addon1" required>
               </div>
             </div>
 
@@ -239,9 +243,9 @@
             <div class="form-group">
               <div class="input-group mb-3">
                 <div class="input-group-prepend">
-                  <span class="input-group-text" id="basic-addon1"><i class="fa fa-users" aria-hidden="true"></i></span>
+                  <span class="input-group-text basic-addon1"><i class="fa fa-users" aria-hidden="true"></i></span>
                 </div>
-                <select class="form-control input-lg" name="nuevoPerfil" id="">
+                <select class="form-control input-lg" name="nuevoPerfil" >
 
                   <option value="">Seleccionar Perfil</option>
 
@@ -259,12 +263,11 @@
               <div class="panel">SUBIR FOTO</div>
               <input type="file" id="nuevaFoto" name="nuevaFoto">
               <p class="help-block">Peso máximo de la foto 200 MB</p>
-              <img src="vistas/img/plantilla/1-icon-user-default.svg" alt="imagen perfil" class="img-thumbnail" width="100px">
+              <img src="vistas/img/plantilla/1-icon-user-default.svg" alt="imagen perfil" class="img-thumbnail previsualizar" width="100px">
 
             </div>
+
           </div>
-
-
 
         </div>
         <!-- Modal footer -->

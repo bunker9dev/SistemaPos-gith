@@ -39,7 +39,7 @@
             <tr>
               <th style="width:10px">#</th>
               <th>Nombre</th>
-              <th>Apellidos</th>
+              <th>Apellido</th>
               <th>Usuario</th>
               <th>Foto</th>
               <th>Perfil</th>
