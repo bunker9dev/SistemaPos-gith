@@ -44,15 +44,83 @@ class ControladorUsuarios
 
   static public function ctrCrearUsuario(){
 
-
-
     if (isset($_POST["nuevoNombre"])) {
 
       if (
         preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["nuevoNombre"]) &&
         preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["nuevoApellido"]) &&
-        preg_match('/^[a-zA-Z0-9]+$/', $_POST["nuevoUsuario"]) &&
+        preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ.]+$/', $_POST["nuevoUsuario"]) &&
         preg_match('/^[a-zA-Z0-9]+$/', $_POST["nuevoPassword"])) {
+
+	      // /*=============================================
+				// VALIDAR IMAGEN
+				// =============================================*/
+
+				// if(isset($_FILES["nuevaFoto"]["tmp_name"])){
+
+				// 	list($ancho, $alto) = getimagesize($_FILES["nuevaFoto"]["tmp_name"]);
+
+          
+
+
+
+				// 	$nuevoAncho = 500;
+				// 	$nuevoAlto = 500;
+
+				// 	/*=============================================
+				// 	CREAMOS EL DIRECTORIO DONDE VAMOS A GUARDAR LA FOTO DEL USUARIO
+				// 	=============================================*/
+
+				// 	$directorio = "vistas/img/usuarios/".$_POST["nuevoUsuario"];
+
+        //   if (!is_dir($directorio)) {
+        //     mkdir($directorio,0755);
+        // }
+
+
+				// // 	/*=============================================
+				// // 	DE ACUERDO AL TIPO DE IMAGEN APLICAMOS LAS FUNCIONES POR DEFECTO DE PHP
+				// // 	=============================================*/
+
+				// // 	if($_FILES["nuevaFoto"]["type"] == "image/jpeg"){
+
+				// // 		/*=============================================
+				// // 		GUARDAMOS LA IMAGEN EN EL DIRECTORIO
+				// // 		=============================================*/
+
+				// // 		$aleatorio = mt_rand(100,999);
+
+				// // 		$ruta = "vistas/img/usuarios/".$_POST["nuevoUsuario"]."/".$aleatorio.".jpg";
+
+				// // 		$origen = imagecreatefromjpeg($_FILES["nuevaFoto"]["tmp_name"]);						
+
+				// // 		$destino = imagecreatetruecolor($nuevoAncho, $nuevoAlto);
+
+				// // 		imagecopyresized($destino, $origen, 0, 0, 0, 0, $nuevoAncho, $nuevoAlto, $ancho, $alto);
+
+				// // 		imagejpeg($destino, $ruta);
+
+				// // 	}
+
+				// // 	if($_FILES["nuevaFoto"]["type"] == "image/png"){
+
+				// // 		/*=============================================
+				// // 		GUARDAMOS LA IMAGEN EN EL DIRECTORIO
+				// // 		=============================================*/
+
+				// // 		$aleatorio = mt_rand(100,999);
+
+				// // 		$ruta = "vistas/img/usuarios/".$_POST["nuevoUsuario"]."/".$aleatorio.".png";
+
+				// // 		$origen = imagecreatefrompng($_FILES["nuevaFoto"]["tmp_name"]);						
+
+				// // 		$destino = imagecreatetruecolor($nuevoAncho, $nuevoAlto);
+
+				// // 		imagecopyresized($destino, $origen, 0, 0, 0, 0, $nuevoAncho, $nuevoAlto, $ancho, $alto);
+
+				// // 		imagepng($destino, $ruta);
+				// 	// }
+				// }
 
           $tabla = "usuarios";
 
@@ -65,41 +133,33 @@ class ControladorUsuarios
 
           $respuesta = ModeloUsuarios::mdlIngresarUsuario($tabla, $datos);
 
+          if($respuesta == "ok") {
 
 
+                echo '<script>
 
+                Swal.fire({
+                icon: "successs",
+                title: "Usuario guardado",
+                text: "¡El usuario ha sido guradado correctamente!",
+                });
+              </script>';
+          }
 
       }else {
         
-        echo
-        'alert("¡El usuario no puede ir vacío o llevar caracteres especiales!");';
-       
-      //   echo '<script>
+        echo '<script>
 
-      //   swal({
-
-      //     type: "error",
-      //     title: "¡El usuario no puede ir vacío o llevar caracteres especiales!",
-      //     showConfirmButton: true,
-      //     confirmButtonText: "Cerrar"
-
-      //   }).then(function(result){
-
-      //     if(result.value){
-          
-      //       window.location = "usuarios";
-
-      //     }
-
-      //   });
-      
-
-      // </script>';
+                Swal.fire({
+                icon: "error",
+                title: "Ten en cuenta",
+                text: "¡El usuario no puede ir vacío o llevar caracteres especiales!",
+                });
+              </script>';
 
       }
     }
   }
-
 
 
 }
@@ -169,86 +229,7 @@ class ControladorUsuarios
 
 
   //   }
-// // }
 
-
-    
-        // } else {
-        //   echo '<script>
-
-
-    //       Swal.fire({
-    //         title: "EL Usuario no puede ir vacío o llevar caracteres especiales",
-    //         icon: "info",
-    //         html: `
-    //           "EL Usuario no puede ir vacío o llevar caracteres especiales"
-    //         `,
-    //         showCloseButton: true,
-    //         showCancelButton: true,
-    //         focusConfirm: false,
-    //         confirmButtonText: `
-    //           <i class="fa fa-thumbs-up"></i> Great!
-    //         `,
-    //         confirmButtonAriaLabel: "Thumbs up, great!",
-    //         cancelButtonText: `
-    //           <i class="fa fa-thumbs-down"></i>
-    //         `,
-    //         cancelButtonAriaLabel: "Thumbs down"
-
-    //         }). then((resulta) =>{
-
-    //             if(resultado.value) {
-
-    //              window.location = "usuarios";
-
-    //             }
-    //           }
-    //         });
-
-
-
-
-
-    //        // Swal.fire({
-    //       //   title: "EL Usuario no puede ir vacío o llevar caracteres especiales",
-    //       //   icon: "info",
-    //       //   html: `
-    //       //     You can use <b>bold text</b>,
-    //       //     <a href="#">links</a>,
-    //       //     and other HTML tags
-    //       //   `,
-    //       //   showCloseButton: true,
-    //       //   showCancelButton: true,
-    //       //   focusConfirm: false,
-    //       //   confirmButtonText: `
-    //       //     <i class="fa fa-thumbs-up"></i> Great!
-    //       //   `,
-    //       //   confirmButtonAriaLabel: "Thumbs up, great!",
-    //       //   cancelButtonText: `
-    //       //     <i class="fa fa-thumbs-down"></i>
-    //       //   `,
-    //       //   cancelButtonAriaLabel: "Thumbs down"
-    //       // });
-
-
-    //       // Swal.fire({
-    //       //   type: "error"
-    //       //   title: "EL Usuario no puede ir vacío o llevar caracteres especiales"
-    //       //   showConfirmButton: true,
-    //       //   confirmButtonText: "Cerrar",
-    //       //   closeOnConfirm: false
-
-    //       // }). then((resulta) =>{
-
-    //       //   if(resultado.value) {
-
-    //       //   window.location = "usuarios";
-
-
-
-
-
-            //       </script)';
 
 
 

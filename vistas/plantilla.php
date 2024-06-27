@@ -152,6 +152,7 @@ PLUGLIN CSS
     <!-- <script src="vistas/dist/js/demo.js"></script> -->
 
     <script src="vistas/js/plantilla.js"></script>
+    <script src="vistas/js/usuarios.js"></script>
 
 
 

@@ -172,7 +172,6 @@
 <!-- /.content-wrapper -->
 
 
-
 <!--=====================================
 MODAL AGREGAR USUARIO
 ======================================-->
@@ -184,7 +183,7 @@ MODAL AGREGAR USUARIO
     <div class="modal-content">
 
 
-      <form role="form" method="post" enctype="multipart/form-darta" >
+      <form role="form" method="post" enctype="multipart/form-data" >
         <!-- Modal Header -->
         <div class="modal-header" style="background-color: #007bff; color:#ffffff">
           <h4 class="modal-title">Agregar usuario</h4>
@@ -261,8 +260,8 @@ MODAL AGREGAR USUARIO
             <!-- Subir foto -->
             <div class="form-group">
               <div class="panel">SUBIR FOTO</div>
-              <input type="file" id="nuevaFoto" name="nuevaFoto">
-              <p class="help-block">Peso máximo de la foto 200 MB</p>
+              <input type="file" class="nuevaFoto" name="nuevaFoto">
+              <p class="help-block">Peso máximo de la foto 2MB</p>
               <img src="vistas/img/plantilla/1-icon-user-default.svg" alt="imagen perfil" class="img-thumbnail previsualizar" width="100px">
 
             </div>

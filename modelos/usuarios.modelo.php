@@ -31,8 +31,10 @@ class ModeloUsuarios
 
 		$stmt = null;
 	}
+	/*=====================================
+	REGISTRO DE USUARIOS
+	======================================*/
 
-	// REGISTRO DE USUARIOS
 
 	static public function mdlIngresarUsuario($tabla, $datos)
 	{
@@ -54,9 +56,6 @@ class ModeloUsuarios
 		}
 
 		$stmt = null;
-
-
-		// 	}
 
 
 	}
