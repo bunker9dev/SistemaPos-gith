@@ -3,8 +3,6 @@
     SUBIENDO FOTO DE USUARIO
 	=============================================*/
 
-    
-
     $(".nuevaFoto").change(function(){
         var imagen = this.files[0];
         console.log("imagen", imagen);
@@ -37,7 +35,6 @@
                     confirmButtonText: "Cerrar"
                 });
 
-      
   	}else{
 
   		var datosImagen = new FileReader;
@@ -51,7 +48,6 @@
 
   		})
     }
-
-  	
+	
 })
 
