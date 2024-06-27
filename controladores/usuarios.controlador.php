@@ -153,7 +153,7 @@ class ControladorUsuarios
                 Swal.fire({
                 icon: "error",
                 title: "Ten en cuenta",
-                text: "¡El usuario no puede ir vacío o llevar caracteres especiales!",
+                text: "¡El nombre y apellido no puede ir vacío o llevar caracteres especiales!",
                 });
               </script>';
 
