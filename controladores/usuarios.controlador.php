@@ -13,9 +13,10 @@ class ControladorUsuarios
     if (isset($_POST["ingreUsuario"])) {
 
       if (
-        preg_match('/^[a-zA-Z0-9]+$/', $_POST["ingreUsuario"]) &&
-        preg_match('/^[a-zA-Z0-9]+$/', $_POST["ingrePassword"])
-      ) {
+        preg_match('/^[a-zA-Z0-9.]+$/', $_POST["ingreUsuario"]) &&
+        preg_match('/^[a-zA-Z0-9]+$/', $_POST["ingrePassword"])) {
+
+
         $tabla = "usuarios";
 
         $item = "usuario";
@@ -24,9 +25,12 @@ class ControladorUsuarios
         $respuesta = ModeloUsuarios::MdlMostrarUsuarios($tabla, $item, $valor);
 
         // var_dump($respuesta["usuario"]);
+      
 
+        $auth = password_verify($_POST["ingrePassword"],$respuesta["password"]);
+        var_dump($auth);
 
-        if (is_array($respuesta) && $respuesta["usuario"] == $_POST["ingreUsuario"] && $respuesta["password"] == $_POST["ingrePassword"]) {
+          if (is_array($respuesta) && $respuesta["usuario"] == $_POST["ingreUsuario"] && $auth) {
 
 
           $_SESSION["iniciarSesion"] = "ok";
@@ -49,7 +53,7 @@ class ControladorUsuarios
       if (
         preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["nuevoNombre"]) &&
         preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["nuevoApellido"]) &&
-        preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ.]+$/', $_POST["nuevoUsuario"]) &&
+        preg_match('/^[a-zA-Z0-9.]+$/', $_POST["nuevoUsuario"]) &&
         preg_match('/^[a-zA-Z0-9]+$/', $_POST["nuevoPassword"])) {
 
 	      /*=============================================
@@ -122,10 +126,12 @@ class ControladorUsuarios
 
           $tabla = "usuarios";
 
+          $pass = password_hash($_POST["nuevoPassword"], PASSWORD_BCRYPT);
+
           $datos =  array("nombre" => $_POST["nuevoNombre"],
                           "apellido" => $_POST["nuevoApellido"],
                           "usuario" => $_POST["nuevoUsuario"],
-                          "password" => $_POST["nuevoPassword"],
+                          "password" => $pass,
                           "perfil" => $_POST["nuevoPerfil"],
                           "foto" => $ruta);
 
