@@ -56,13 +56,11 @@ class ControladorUsuarios
 				VALIDAR IMAGEN
 				=============================================*/
 
+        $ruta = "";
+
 				if(isset($_FILES["nuevaFoto"]["tmp_name"])){
 
 					list($ancho, $alto) = getimagesize($_FILES["nuevaFoto"]["tmp_name"]);
-
-          
-
-
 
 					$nuevoAncho = 500;
 					$nuevoAlto = 500;
@@ -128,7 +126,9 @@ class ControladorUsuarios
                           "apellido" => $_POST["nuevoApellido"],
                           "usuario" => $_POST["nuevoUsuario"],
                           "password" => $_POST["nuevoPassword"],
-                          "perfil" => $_POST["nuevoPerfil"]);
+                          "perfil" => $_POST["nuevoPerfil"],
+                          "foto" => $ruta);
+
           
 
           $respuesta = ModeloUsuarios::mdlIngresarUsuario($tabla, $datos);
