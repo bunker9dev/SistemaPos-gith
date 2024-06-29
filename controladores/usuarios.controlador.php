@@ -34,6 +34,14 @@ class ControladorUsuarios
 
 
           $_SESSION["iniciarSesion"] = "ok";
+						$_SESSION["id"] = $respuesta["id"];
+						$_SESSION["nombre"] = $respuesta["nombre"];
+            $_SESSION["apellido"] = $respuesta["apellido"];
+						$_SESSION["usuario"] = $respuesta["usuario"];
+						$_SESSION["foto"] = $respuesta["foto"];
+						$_SESSION["perfil"] = $respuesta["perfil"];
+
+
 
           echo '<script>
                       window.location = "inicio";
@@ -168,76 +176,21 @@ class ControladorUsuarios
   }
 
 
-}
-
-
   /*=============================================
-	REGISTRO DE USUARIO
-	=============================================*/
+  MOSTRAR USUARIO
+  =============================================*/
 
+  static public function ctrMostrarUsuarios($item, $valor){
 
-  // 
+		$tabla = "usuarios";
 
-  //   if (isset($_POST["nuevoNombre"])) {
+		$respuesta = ModeloUsuarios::MdlMostrarUsuarios($tabla, $item, $valor);
 
-      // if (
-      //   preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["nuevoNombre"]) &&
-      //   preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["nuevoApellido"]) &&
-      //   preg_match('/^[a-zA-Z0-9]+$/', $_POST["nuevoUsuario"]) &&
-      //   preg_match('/^[a-zA-Z0-9]+$/', $_POST["nuevoPassword"])
-      // ) 
-      // // {
-
-      //   //               $tabla = "usuarios";
-
-        //               $datos = array("nombre" => $_POST["nuevoNombre"],
-        //                             "apellido" => $_POST["nuevoapellido"],
-        //                             "usaurio" => $_POST["nuevoUsuario"],
-        //                             "password" => $_POST["nuevoPassword"],
-        //                             "perfil" => $_POST["nuevoPerfil"]);
-
-        //               $respuesta = ModeloUsuarios::mdlIngresarUsuario($tabla, $datos);
-
-
-      // } else {
-
-
-
-      //   echo '<script>
-          
-      //       Swal.fire({
-          
-      //         icon: "error",
-          
-      //         title: "¡El usuario no puede ir vacío o llevar caracteres especiales!",
-          
-      //         showConfirmButton: true,
-          
-      //         confirmButtonText: "Cerrar"
-          
-                    
-          
-      //       }).then(function(result){
-          
-                    
-          
-      //           if(result.value){
-      //             window.location = "usuarios";
-      //           }
-              
-      //         });
-      
-      //     </script>';
-      // }
-  //   }
-  // }
-
-
-
-  //   }
+		return $respuesta;
+  }
 
 
 
 
-
-
+  
+}

@@ -51,3 +51,15 @@
 	
 })
 
+
+  /*=============================================
+    EDITAR USUARIO
+	=============================================*/
+
+$(".btnEditarUsuario").click(function(){
+
+  var idUsuario = $(this).attr("idUsuario");
+
+  console.log("idUsuario", idUsuario);
+
+})
