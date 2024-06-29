@@ -264,7 +264,7 @@ MODAL EDITAR USUARIO
                 <div class="input-group-prepend">
                   <span class="input-group-text basic-addon1"><i class="fa fa-user" aria-hidden="true"></i></span>
                 </div>
-                <input type="text" class="form-control input-lg" name="editarNombre" value="" required>
+                <input type="text" class="form-control input-lg" id="editarNombre" name="editarNombre" value="" required>
               </div>
             </div>
 
@@ -274,7 +274,7 @@ MODAL EDITAR USUARIO
                 <div class="input-group-prepend">
                   <span class="input-group-text basic-addon1"><i class="fa fa-user" aria-hidden="true"></i></span>
                 </div>
-                <input type="text" class="form-control input-lg" name="editarApellido" value=""  required>
+                <input type="text" class="form-control input-lg" id="editarApellido" name="editarApellido" value=""  required>
               </div>
             </div>
 
@@ -285,7 +285,7 @@ MODAL EDITAR USUARIO
                 <div class="input-group-prepend">
                   <span class="input-group-text basic-addon1"><i class="fa fa-key" aria-hidden="true"></i></span>
                 </div>
-                <input type="text" class="form-control input-lg" name="editarUsuario" value=""  id="editarUsuario" required>
+                <input type="text" class="form-control input-lg" id="editarUsuario" name="editarUsuario" value=""  required>
               </div>
             </div>
 
@@ -296,7 +296,7 @@ MODAL EDITAR USUARIO
                 <div class="input-group-prepend">
                   <span class="input-group-text basic-addon1"><i class="fa fa-lock" aria-hidden="true"></i></span>
                 </div>
-                <input type="password" class="form-control input-lg" name="editarPassword" placeholder="Escriba Nueva Contraseña" aria-label="lockname" aria-describedby="basic-addon1" required>
+                <input type="password" class="form-control input-lg" id="editarPassword" name="editarPassword" placeholder="Escriba Nueva Contraseña" aria-label="lockname" aria-describedby="basic-addon1" required>
               </div>
             </div>
 

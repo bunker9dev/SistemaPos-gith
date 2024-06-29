@@ -28,10 +28,10 @@
 
 						if ($_SESSION["foto"] != ""){
 
-							echo '<img src="'.$_SESSION["foto"].'" class="user-image">';
+							echo '<img src="'.$_SESSION["foto"].'" class="user-image" alt="User Image">';
 
 						}else{
-							echo '<img src="vistas/img/plantilla/1-icon-setting.svg" class="user-image">';
+							echo '<img src="vistas/img/plantilla/1-icon-setting.svg" alt="User Image" class="user-image">';
 						}
 
 						?>
