@@ -285,7 +285,7 @@ MODAL EDITAR USUARIO
                 <div class="input-group-prepend">
                   <span class="input-group-text basic-addon1"><i class="fa fa-key" aria-hidden="true"></i></span>
                 </div>
-                <input type="text" class="form-control input-lg" id="editarUsuario" name="editarUsuario" value=""  required>
+                <input type="text" class="form-control input-lg" id="editarUsuario" name="editarUsuario" value=""  readonly>
               </div>
             </div>
 
@@ -297,7 +297,7 @@ MODAL EDITAR USUARIO
                   <span class="input-group-text basic-addon1"><i class="fa fa-lock" aria-hidden="true"></i></span>
                 </div>
 
-                <input type="password" class="form-control input-lg" id="editarPassword" name="editarPassword" placeholder="Escriba Nueva Contraseña" aria-label="lockname" aria-describedby="basic-addon1" required>
+                <input type="password" class="form-control input-lg" id="editarPassword" name="editarPassword" placeholder="Escriba Nueva Contraseña" aria-label="lockname" aria-describedby="basic-addon1">
 
                 <input type= "hidden" id="passwordActual" name="passwordActual">
 

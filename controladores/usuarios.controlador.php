@@ -29,7 +29,7 @@ class ControladorUsuarios
 
 
         $auth = password_verify($_POST["ingrePassword"], $respuesta["password"]);
-        var_dump($auth);
+        
 
         if (is_array($respuesta) && $respuesta["usuario"] == $_POST["ingreUsuario"] && $auth) {
 
@@ -55,6 +55,10 @@ class ControladorUsuarios
   }
 
 
+  /*=============================================
+	CREAR DE USUARIO
+	=============================================*/
+
   static public function ctrCrearUsuario()
   {
 
@@ -64,8 +68,7 @@ class ControladorUsuarios
         preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["nuevoNombre"]) &&
         preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["nuevoApellido"]) &&
         preg_match('/^[a-zA-Z0-9.]+$/', $_POST["nuevoUsuario"]) &&
-        preg_match('/^[a-zA-Z0-9]+$/', $_POST["nuevoPassword"])
-      ) {
+        preg_match('/^[a-zA-Z0-9]+$/', $_POST["nuevoPassword"])) {
 
         /*=============================================
 				VALIDAR IMAGEN
@@ -213,7 +216,10 @@ class ControladorUsuarios
 
 		if(isset($_POST["editarUsuario"])){
 
-			if(preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["editarNombre"])){
+			if(preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ. ]+$/', $_POST["editarNombre"])&&
+      preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ. ]+$/', $_POST["editarApellido"])){
+
+       
 
 				/*=============================================
 				VALIDAR IMAGEN
@@ -300,9 +306,9 @@ class ControladorUsuarios
 
 				if($_POST["editarPassword"] != ""){
 
-					if(preg_match('/^[a-zA-Z0-9]+$/ ', $_POST["editarPassword"])){
+					if(preg_match('/^[a-zA-Z0-9]+$/', $_POST["editarPassword"])){
 
-						$encriptar = crypt($_POST["editarPassword"], '$2a$07$asxx54ahjppf45sd87a5a4dDDGsystemdev$');
+						$pass = password_hash($_POST["nuevoPassword"], PASSWORD_BCRYPT);
 
 					}else{
 
@@ -326,15 +332,18 @@ class ControladorUsuarios
 
 				}else{
 
-					$encriptar = $_POST["passwordActual"];
+					$pass = $_POST["passwordActual"];
 
 				}
 
 				$datos = array("nombre" => $_POST["editarNombre"],
-							   "usuario" => $_POST["editarUsuario"],
-							   "password" => $encriptar,
-							   "perfil" => $_POST["editarPerfil"],
-							   "foto" => $ruta);
+                        "apellido" => $_POST["editarApellido"],
+                        "usuario" => $_POST["editarUsuario"],
+                        "password" => $pass,
+                        "perfil" => $_POST["editarPerfil"],
+                        "foto" => $ruta);
+                        
+
 
 				$respuesta = ModeloUsuarios::mdlEditarUsuario($tabla, $datos);
 
@@ -361,12 +370,14 @@ class ControladorUsuarios
 
 			}else{
 
+       
+
 				echo'<script>
 
 				 Swal.fire({
                 icon: "error",
                 title: "Ten en cuenta",
-                text: "¡El nombre y apellido no puede ir vacío o llevar caracteres especiales 123456789012345!",
+                text: "¡El nombre y apellido no puede ir vacío o llevar caracteres especiales bbbbbb!",
                 }).then(function(result){
 										if (result.value) {
 
