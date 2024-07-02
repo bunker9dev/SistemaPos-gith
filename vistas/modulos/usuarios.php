@@ -175,7 +175,7 @@ MODAL AGREGAR USUARIO
                 <div class="input-group-prepend">
                   <span class="input-group-text basic-addon1"><i class="fa fa-key" aria-hidden="true"></i></span>
                 </div>
-                <input type="text" class="form-control input-lg" name="nuevoUsuario" placeholder="Ingresar Usuario" aria-label="keyname" aria-describedby="basic-addon1" id="nuevoUsuario" required>
+                <input type="text" class="form-control input-lg" name="nuevoUsuario" placeholder="Ingresar Usuario" aria-label="keyname" aria-describedby="basic-addon1" id="nuevoUsuario" id="nuevoUsuario" required>
               </div>
             </div>
 
