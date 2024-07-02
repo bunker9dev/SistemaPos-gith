@@ -308,7 +308,7 @@ class ControladorUsuarios
 
 					if(preg_match('/^[a-zA-Z0-9]+$/', $_POST["editarPassword"])){
 
-						$pass = password_hash($_POST["nuevoPassword"], PASSWORD_BCRYPT);
+						$pass = password_hash($_POST["editarPassword"], PASSWORD_BCRYPT);
 
 					}else{
 
@@ -317,7 +317,7 @@ class ControladorUsuarios
 				         Swal.fire({
                     icon: "error",
                     title: "Ten en cuenta",
-                    text: "¡La contraseña no puede ir vacío o llevar caracteres especiales!  AAAAAAAAA",
+                    text: "¡La contraseña no puede ir vacío o llevar caracteres especiales!",
                     }).then(function(result){
 										if (result.value) {
 
@@ -353,8 +353,8 @@ class ControladorUsuarios
 
 				   Swal.fire({
                 icon: "successs",
-                title: "Usuario guardado",
-                text: "¡El usuario ha sido guardado correctamente!",
+                title: "Usuario Modificado",
+                text: "¡El usuario ha sido Modificado correctamente!",
                 }).then(function(result){
 										if (result.value) {
 

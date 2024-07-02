@@ -87,13 +87,11 @@ $(".btnEditarUsuario").click(function(){
 
           $(".previsualizar").attr("src", respuesta["foto"]);
 
-
-
         }
 
-
-
     }
+    
+    
 
   });
 
