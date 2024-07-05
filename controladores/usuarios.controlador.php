@@ -416,4 +416,54 @@ class ControladorUsuarios
       }
     }
   }
+
+
+	/*=============================================
+	BORRAR USUARIO
+	=============================================*/
+
+	static public function ctrBorrarUsuario(){
+
+		if(isset($_GET["idUsuario"])){
+
+			$tabla ="usuarios";
+			$datos = $_GET["idUsuario"];
+
+			if($_GET["fotoUsuario"] != ""){
+
+				unlink($_GET["fotoUsuario"]);
+				rmdir('vistas/img/usuarios/'.$_GET["usuario"]);
+
+			}
+
+			$respuesta = ModeloUsuarios::mdlBorrarUsuario($tabla, $datos);
+
+			if($respuesta == "ok"){
+
+				echo'<script>
+
+				Swal.fire({
+          title: "Usuario Borrado!",
+          text: "El Usuario ha sido borrado correctamente.",
+          icon: "success"
+          }).then(function(result){
+										if (result.value) {
+
+										window.location = "usuarios";
+
+										}
+									})
+
+				</script>';
+
+			}		
+
+		}
+
+	}
 }
+
+
+
+	
+
