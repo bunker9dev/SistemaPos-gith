@@ -43,7 +43,7 @@ class ModeloUsuarios
 
 
 	static public function mdlIngresarUsuario($tabla, $datos){
-		
+
 		$stmt = Conexion::conectar()->prepare("INSERT INTO $tabla(nombre, apellido, usuario, password, perfil, foto) VALUES (:nombre, :apellido, :usuario, :password, :perfil, :foto)");
 
 		$stmt->bindParam(":nombre", $datos["nombre"], PDO::PARAM_STR);
@@ -124,8 +124,6 @@ class ModeloUsuarios
 
 	}
 
-
-	
 	/*=============================================
 	BORRAR USUARIO
 	=============================================*/

@@ -56,7 +56,8 @@
     EDITAR USUARIO
 	=============================================*/
 
-$(".btnEditarUsuario").click(function(){
+// $(".btnEditarUsuario").click(function(){
+  $(document).on("click", ".btnEditarUsuario", function(){
 
   var idUsuario = $(this).attr("idUsuario");
 
@@ -121,24 +122,35 @@ $(".btnEditarUsuario").click(function(){
         contentType: false,
         processData: false,
         success: function(respuesta){
-  
+
+          Swal.fire({
+            icon: "successs",
+            title: "Usuario Modificado",
+            text: "¡El usuario ha sido Modificado correctamente!",
+            }).then(function(result){
+                if (result.value) {
+
+                window.location = "usuarios";
+
+                }
+              })
+
+
+
           if(window.matchMedia("(max-width:767px)").matches){
       
-             swal({
-              title: "El usuario ha sido actualizado",
-              type: "success",
-              confirmButtonText: "¡Cerrar!"
-            }).then(function(result) {
-              
-                if (result.value) {
-  
-                window.location = "usuarios";
-  
-              }
-  
-            });
-  
-  
+             Swal.fire({
+                icon: "successs",
+                title: "Usuario Modificado",
+                text: "¡El usuario ha sido Modificado correctamente!",
+                }).then(function(result){
+										if (result.value) {
+
+										window.location = "usuarios";
+
+										}
+									})
+
       }
         }
   
@@ -205,7 +217,6 @@ $("#nuevoUsuario").change(function(){
 ELIMINAR USUARIO
 =============================================*/
 $(document).on("click", ".btnEliminarUsuario", function(){
-// $(".btnEliminarUsuario").cick(function(){
 
   var idUsuario = $(this).attr("idUsuario");
   var fotoUsuario = $(this).attr("fotoUsuario");
