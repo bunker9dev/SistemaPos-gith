@@ -6,12 +6,12 @@
 
       <div class="row mb-2">
         <div class="col-sm-6">
-          <h1>Usuarios</h1>
+          <h1>Administrar Usuarios</h1>
         </div>
         <div class="col-sm-6">
           <ol class="breadcrumb float-sm-right">
             <li class="breadcrumb-item"><a href="inicio">Inicio</a></li>
-            <li class="breadcrumb-item active">Usuarios</li>
+            <li class="breadcrumb-item active"> Administrar Usuarios</li>
           </ol>
         </div>
       </div>
@@ -32,7 +32,6 @@
       </div>
 
       <div class="card-body">
-        <!-- <table  class="table table-bordered table-hover dt-responsive" width="100%"> -->
         <table class="table table-bordered table-hover dt-responsive tablas" width="100%">
 
           <thead>
@@ -41,7 +40,6 @@
               <th>Nombre</th>
               <th>apellido</th>
               <th>Usuario</th>
-              <!-- <th>Password</th> -->
               <th>Foto</th>
               <th>Perfil</th>
               <th>Estado</th>
@@ -127,7 +125,7 @@ MODAL AGREGAR USUARIO
 
 
 <!-- The Modal -->
-<div id="modalAgregarUsuario" class="modal fade">
+<div id="modalAgregarUsuario" class="modal fade" role="dialog">
   <div class="modal-dialog">
     <div class="modal-content">
 
@@ -249,7 +247,7 @@ MODAL EDITAR USUARIO
 
 
 <!-- The Modal -->
-<div id="modalEditarUsuario" class="modal fade">
+<div id="modalEditarUsuario" class="modal fade" role="dialog">
   <div class="modal-dialog">
     <div class="modal-content">
 
@@ -305,7 +303,7 @@ MODAL EDITAR USUARIO
                   <span class="input-group-text basic-addon1"><i class="fa fa-lock" aria-hidden="true"></i></span>
                 </div>
 
-                <input type="password" class="form-control input-lg" id="editarPassword" name="editarPassword" placeholder="Escriba Nueva Contraseña" aria-label="lockname" aria-describedby="basic-addon1">
+                <input type="password" class="form-control input-lg" id="editarPassword" name="editarPassword" placeholder="Escriba la Nueva Contraseña" aria-label="lockname" aria-describedby="basic-addon1">
 
                 <input type= "hidden" id="passwordActual" name="passwordActual">
 

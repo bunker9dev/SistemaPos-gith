@@ -1,14 +1,12 @@
 <?php
 
-class ControladorUsuarios
-{
+class ControladorUsuarios{
 
   /*=============================================
 	INGRESO DE USUARIO
 	=============================================*/
 
-  static public function ctrIngresoUsuario()
-  {
+  static public function ctrIngresoUsuario(){
 
     if (isset($_POST["ingreUsuario"])) {
 
@@ -73,7 +71,7 @@ class ControladorUsuarios
             
           } else {
 
-            echo '<br><div class="alert-danger">EL  Usuario aùn no esta Activado</div>';
+            echo '<br><div class="alert-danger">EL  Usuario aùn no esta activado</div>';
           }
 
         } else {
@@ -99,8 +97,7 @@ class ControladorUsuarios
         preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["nuevoNombre"]) &&
         preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["nuevoApellido"]) &&
         preg_match('/^[a-zA-Z0-9.]+$/', $_POST["nuevoUsuario"]) &&
-        preg_match('/^[a-zA-Z0-9]+$/', $_POST["nuevoPassword"])
-      ) {
+        preg_match('/^[a-zA-Z0-9]+$/', $_POST["nuevoPassword"])){
 
         /*=============================================
 				VALIDAR IMAGEN
@@ -119,7 +116,7 @@ class ControladorUsuarios
 					CREAMOS EL DIRECTORIO DONDE VAMOS A GUARDAR LA FOTO DEL USUARIO
 					=============================================*/
 
-          $directorio = "vistas/img/usuarios/" . $_POST["nuevoUsuario"];
+          $directorio = "vistas/img/usuarios/". $_POST["nuevoUsuario"];
 
           if (!is_dir($directorio)) {
             mkdir($directorio, 0755);
@@ -182,7 +179,7 @@ class ControladorUsuarios
           "foto" => $ruta
         );
 
-
+        // var_dump($datos);
 
         $respuesta = ModeloUsuarios::mdlIngresarUsuario($tabla, $datos);
 
