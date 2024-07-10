@@ -67,4 +67,17 @@ class ControladorCategorias{
 
 	}
 
+	/*=============================================
+	MOSTAR TIPO DE TELAS
+	=============================================*/
+	static public function ctrMostrarCategorias($item, $valor){
+
+		$tabla = "categoria";
+
+		$respuesta = ModeloCategorias::mdlMostrarCategorias($tabla, $item, $valor);
+
+		return $respuesta;
+	
+	}
+
 }

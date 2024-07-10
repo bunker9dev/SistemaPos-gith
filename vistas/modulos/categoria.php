@@ -1,7 +1,7 @@
-<!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
-  <!-- Content Header (Page header) -->
+  
   <section class="content-header">
+
     <div class="container-fluid">
 
       <div class="row mb-2">
@@ -25,17 +25,17 @@
     <!-- Default box -->
     <div class="card">
 
-      <div class="card-header">
+      <div class="card-header with-border">
         <button class="btn btn-primary" data-toggle="modal" data-target="#modalAgregarCategoria">
           Agregar Tipo de Tela
       </div>
 
       <div class="card-body">
-        <table id="" class="table table-hover table-bordered ">
+        <table class="table table-bordered table-hover dt-responsive tablas" width="100%">
 
           <thead>
             <tr>
-              <th>#</th>
+              <th style="width:10px">#</th>
               <th>Código</th>
               <th>Tipo de Tela</th>
               <th>Acciones</th>
@@ -43,69 +43,44 @@
           </thead>
 
           <tbody>
-            <tr>
-              <td>1</td>
-              <td>102</td>
-              <td>Importado</td>
-              <td>
-                  <div class="btn-group">
-                  <button class="btn btn-warning"> <i class="fa fa-pencil-alt" aria-hidden="true"></i> </button>
-                  <button class="btn btn-danger"><i class="fa fa-times"></i> </button>
-                  </div>
-              </td>
-            </tr>
-          </tbody>
 
-          <!-- ######## /tbody ######### -->
+       
+            <?php
 
-          <tbody>
-            <tr>
-              <td>2</td>
-              <td>120</td>
-              <td>Nacional</td>
-              <td>
-                  <div class="btn-group">
-                  <button class="btn btn-warning"> <i class="fa fa-pencil-alt" aria-hidden="true"></i> </button>
-                  <button class="btn btn-danger"><i class="fa fa-times"></i> </button>
-                  </div>
-              </td>
-            </tr>
-          </tbody>
+              $item = null;
+              $valor = null;
 
-          <!-- ######## /tbody ######### -->
+              $categorias = ControladorCategorias::ctrMostrarCategorias($item, $valor);
+              // var_dump($categorias);
 
 
-          <tbody>
-            <tr>
-              <td>3</td>
-              <td>152</td>
-              <td>Naturales</td>
-              <td>
-                  <div class="btn-group">
-                  <button class="btn btn-warning"> <i class="fa fa-pencil-alt" aria-hidden="true"></i> </button>
-                  <button class="btn btn-danger"><i class="fa fa-times"></i> </button>
-                  </div>
-              </td>
-            </tr>
-          </tbody>
+              foreach ($categorias as $key => $value) {
+              
+                echo ' <tr>
 
-          <!-- ######## /tbody ######### -->
+                        <td>'.($key+1).'</td>
+                        <td>'.$value["id"].'</td>
+                        <td class="text-uppercase">'.$value["categoria"].'</td>
 
-          
-          <tbody>
-            <tr>
-              <td>4</td>
-              <td>Sinteticos</td>
-              <td>
-                  <div class="btn-group">
-                  <button class="btn btn-warning"> <i class="fa fa-pencil-alt" aria-hidden="true"></i> </button>
-                  <button class="btn btn-danger"><i class="fa fa-times"></i> </button>
-                  </div>
-              </td>
-            </tr>
-          </tbody>
+                        <td>
 
-          <!-- ######## /tbody ######### -->
+                          <div class="btn-group">
+                              
+                            <button class="btn btn-warning btnEditarCategoria" idCategoria="'.$value["id"].'" data-toggle="modal" data-target="#modalEditarCategoria">  <i class="fa fa-pencil-alt" aria-hidden="true"></i> </button>
+
+                            <button class="btn btn-danger btnEliminarCategoria" idCategoria="'.$value["id"].'"><i class="fa fa-times"></i></button>
+
+                          </div>  
+
+                        </td>
+
+                      </tr>';
+              }
+
+            ?>
+
+
+
 
 
           
@@ -133,7 +108,6 @@
 #    MODAL AGREGAR CATEGORIA   #
 #                              #
 ################################-->
-id="modalAgregarCategoria">
 
 <!-- The Modal -->
 <div id="modalAgregarCategoria" class="modal fade" role="dialog">

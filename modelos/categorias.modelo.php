@@ -4,13 +4,38 @@ require_once "conexion.php";
 
 class ModeloCategorias
 {
+	/*=============================================
+	CREAR CATEGORIA
+	=============================================*/
+
+	static public function mdlIngresarCategoria($tabla, $datos){
+
+		$stmt = Conexion::conectar()->prepare("INSERT INTO $tabla(categoria, usuario) VALUES (:categoria, :usuario)");
+
+		$stmt->bindParam(":categoria", $datos["categoria"], PDO::PARAM_STR);
+		$stmt->bindParam(":usuario", $datos["usuario"], PDO::PARAM_STR);
+
+		if($stmt->execute()){
+
+			return "ok";
+
+		}else{
+
+			return "error";
+		
+		}
+
+		$stmt = null;
+
+	}
+
 
 
 	/*=====================================
 	MOSTRAR CATEGORIAS
 	======================================*/
 
-	static public function mdlMostrarCategoria($tabla, $item, $valor){
+	static public function mdlMostrarCategorias($tabla, $item, $valor){
 
 		if($item != null) {
 
@@ -37,32 +62,6 @@ class ModeloCategorias
 		$stmt = null;
 	}
 
-
-
-	/*=============================================
-	CREAR CATEGORIA
-	=============================================*/
-
-	static public function mdlIngresarCategoria($tabla, $datos){
-
-		$stmt = Conexion::conectar()->prepare("INSERT INTO $tabla(categoria, usuario) VALUES (:categoria, :usuario)");
-
-		$stmt->bindParam(":categoria", $datos["categoria"], PDO::PARAM_STR);
-		$stmt->bindParam(":usuario", $datos["usuario"], PDO::PARAM_STR);
-
-		if($stmt->execute()){
-
-			return "ok";
-
-		}else{
-
-			return "error";
-		
-		}
-
-		$stmt = null;
-
-	}
 
 
 }
