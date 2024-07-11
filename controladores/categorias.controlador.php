@@ -35,7 +35,7 @@ class ControladorCategorias
                         }).then(function(result){
                                                 if (result.value) {
         
-                                                window.location = "categoria";
+                                                window.location = "categorias";
         
                                                 }
                                             })
@@ -140,5 +140,38 @@ class ControladorCategorias
 	}
 
 
+	/*=============================================
+	BORRAR CATEGORIA
+	=============================================*/
+
+	static public function ctrBorrarCategoria(){
+
+		if(isset($_GET["idCategoria"])){
+
+			$tabla ="Categoria";
+			$datos = $_GET["idCategoria"];
+
+			$respuesta = ModeloCategorias::mdlBorrarCategoria($tabla, $datos);
+
+			if($respuesta == "ok"){
+
+				echo'<script>
+
+					Swal.fire({
+						title: "Usuario Borrado!",
+						text: "El Tipo de tela ha sido borrado correctamente.",
+						icon: "success"
+						}).then(function(result){
+							if (result.value) {
+
+								window.location = "categorias";
+							}
+						})
+
+					</script>';
+			}
+		}
+		
+	}
 
 }

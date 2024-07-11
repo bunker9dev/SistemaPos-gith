@@ -60,12 +60,37 @@ $(".btnEditarCategoria").click(function(){
      		$("#editarCategoria").val(respuesta["categoria"]);
 			$("#idCategoria").val(respuesta["id"]);
 			//  $("#editarUsuario").val(respuesta["Usuario"]);
-
-     		
-
      	}
+	})
+})
+
+
+
+/*=============================================
+ELIMINAR CATEGORIA
+=============================================*/
+$(".tablas").on("click", ".btnEliminarCategoria", function(){
+// $(".btnEliminarCategoria").click(function(){
+
+
+	var idCategoria = $(this).attr("idCategoria");
+
+	Swal.fire({
+        title: "¿Está seguro de borrar el tipo de Tela?",
+        text: "¡Si no lo está puede cancelar la accíón!",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Si, borrar Tela!"
+      }).then((result)=>{
+
+		if(result.value){
+	
+			window.location = "index.php?ruta=categorias&idCategoria="+idCategoria;
+	
+		}
 
 	})
-
 
 })
