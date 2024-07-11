@@ -118,7 +118,7 @@
 					<ul class="nav nav-treeview">
 
 						<li class="nav-item">
-							<a href="categoria" class="nav-link">
+							<a href="categorias" class="nav-link">
 								<i class="far fa-circle nav-icon"></i>
 								<p>Administrar tipo de Telas</p>
 							</a>

@@ -1,5 +1,5 @@
 <div class="content-wrapper">
-  
+
   <section class="content-header">
 
     <div class="container-fluid">
@@ -44,48 +44,41 @@
 
           <tbody>
 
-       
+
             <?php
 
-              $item = null;
-              $valor = null;
+            $item = null;
+            $valor = null;
 
-              $categorias = ControladorCategorias::ctrMostrarCategorias($item, $valor);
-              // var_dump($categorias);
+            $categorias = ControladorCategorias::ctrMostrarCategorias($item, $valor);
+            // var_dump($categorias);
 
 
-              foreach ($categorias as $key => $value) {
-              
-                echo ' <tr>
+            foreach ($categorias as $key => $value) {
 
-                        <td>'.($key+1).'</td>
-                        <td>'.$value["id"].'</td>
-                        <td class="text-uppercase">'.$value["categoria"].'</td>
+              echo ' <tr>
+
+                        <td>' . ($key + 1) . '</td>
+                        <td>' . $value["id"] . '</td>
+                        <td class="text-uppercase">' . $value["categoria"] . '</td>
 
                         <td>
 
                           <div class="btn-group">
                               
-                            <button class="btn btn-warning btnEditarCategoria" idCategoria="'.$value["id"].'" data-toggle="modal" data-target="#modalEditarCategoria">  <i class="fa fa-pencil-alt" aria-hidden="true"></i> </button>
+                            <button class="btn btn-warning btnEditarCategoria" idCategoria="' . $value["id"] . '" data-toggle="modal" data-target="#modalEditarCategoria">  <i class="fa fa-pencil-alt" aria-hidden="true"></i> </button>
 
-                            <button class="btn btn-danger btnEliminarCategoria" idCategoria="'.$value["id"].'"><i class="fa fa-times"></i></button>
+                            <button class="btn btn-danger btnEliminarCategoria" idCategoria="' . $value["id"] . '"><i class="fa fa-times"></i></button>
 
                           </div>  
 
                         </td>
 
                       </tr>';
-              }
+            }
 
             ?>
 
-
-
-
-
-          
-
-          
         </table>
 
 
@@ -127,26 +120,22 @@
           <div class="card-body">
 
 
-            <!-- Entrada nombre  -->
+            <!-- Entrada Tipo de Tela -->
             <div class="form-group">
               <div class="input-group mb-3">
                 <div class="input-group-prepend">
-                  <span class="input-group-text basic-addon1"><i class="fas fa-dice-d6"></i></span>
+                  <span class="input-group-text basic-addon1"> <i class="fas fa-layer-group"></i> </span>
                 </div>
-                <input type="text" class="form-control input-lg" name="nuevaCategoria" id="nuevaCategoria" placeholder="Ingresar Tipo de Tela" aria-label="Username" aria-describedby="basic-addon1" required>
+
+                <input type="text" class="form-control input-lg" name="nuevaCategoria" placeholder="Ingresar Tipo de Tela" aria-label="Telas" aria-describedby="basic-addon1" required>
+
               </div>
             </div>
 
 
             <!-- ############# / entrada ########### -->
 
-    
-
-
-
           </div>
-
-
 
         </div>
 
@@ -158,8 +147,8 @@
 
         <?php
 
-          $crearCategoria = new ControladorCategorias();
-          $crearCategoria -> ctrCrearCategoria();
+        $crearCategoria = new ControladorCategorias();
+        $crearCategoria->ctrCrearCategoria();
 
         ?>
 
@@ -171,11 +160,95 @@
 </div>
 
 
+
+<!--=====================================
+MODAL EDITAR CATEGORÍA
+======================================-->
+
+<div id="modalEditarCategoria" class="modal fade" role="dialog">
+
+  <div class="modal-dialog">
+
+    <div class="modal-content">
+
+      <form role="form" method="post">
+
+        <!--=====================================
+        CABEZA DEL MODAL
+        ======================================-->
+
+        <div class="modal-header" style="background:#3c8dbc; color:white">
+          
+          <h4 class="modal-title">Editar categoría</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+        </div>
+
+        <!--=====================================
+        CUERPO DEL MODAL
+        ======================================-->
+
+        <div class="modal-body">
+
+          <div class="box-body">
+
+            <!-- ENTRADA PARA EL NOMBRE -->
+
+
+            <!-- Entrada Tipo de Tela -->
+            <div class="form-group">
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text basic-addon1"> <i class="fas fa-layer-group"></i> </span>
+                </div>
+
+                <input type="text" class="form-control input-lg" name="editarCategoria" id="editarCategoria" required>
+                <input type="hidden" name="idCategoria" id="idCategoria" required>
+
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+        <!--=====================================
+        PIE DEL MODAL
+        ======================================-->
+
+        <div class="modal-footer">
+
+          <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Salir</button>
+
+          <button type="submit" class="btn btn-primary">Guardar cambios</button>
+
+        </div>
+
+        <?php
+
+          $editarCategoria = new ControladorCategorias();
+          $editarCategoria -> ctrEditarCategoria();
+
+        ?>
+
+      </form>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+
+
 <!-- Page specific script  -->
 <script>
-  $(function () {
+  $(function() {
     $("#example1").DataTable({
-      "responsive": true, "lengthChange": false, "autoWidth": false,
+      "responsive": true,
+      "lengthChange": false,
+      "autoWidth": false,
       "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
     }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
     $('#example2').DataTable({

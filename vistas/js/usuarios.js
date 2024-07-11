@@ -15,8 +15,6 @@
 
         $(".nuevaFoto").val("");
 
-        // alert("¡La imagen debe estar en formato JPG o PNG!")
-
                 Swal.fire({
                     icon: "error",
                     title: "Ten en cuenta",
@@ -56,7 +54,7 @@
     EDITAR USUARIO
 	=============================================*/
 
-// $(".btnEditarUsuario").click(function(){
+
   $(document).on("click", ".btnEditarUsuario", function(){
 
   var idUsuario = $(this).attr("idUsuario");

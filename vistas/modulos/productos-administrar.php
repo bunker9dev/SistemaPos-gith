@@ -202,12 +202,11 @@
             <div class="form-group">
               <div class="input-group mb-3">
                 <div class="input-group-prepend">
-                  <span class="input-group-text basic-addon1"> <i class="fa fa-random" aria-hidden="true"></i></span>
-                  <!-- <span class="input-group-text basic-addon1"><i class="fa fa-users" aria-hidden="true"></i></span> -->
+                  <span class="input-group-text basic-addon1"> <i class="fas fa-layer-group"></i> </span>
                 </div>
                 <select class="form-control input-lg" name="nuevaCategoria" id="">
 
-                  <option value="">Seleccionar categoria</option>
+                  <option value="">Seleccionar Tipo de tela</option>
 
                   <option value="Satin">Satin</option>
 
