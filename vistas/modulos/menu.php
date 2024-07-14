@@ -120,7 +120,14 @@
 						<li class="nav-item">
 							<a href="categorias" class="nav-link">
 								<i class="far fa-circle nav-icon"></i>
-								<p>Administrar tipo de Telas</p>
+								<p>Agregar tipo de Telas</p>
+							</a>
+						</li>
+
+						<li class="nav-item">
+							<a href="categorias" class="nav-link">
+								<i class="far fa-circle nav-icon"></i>
+								<p>Agregar color de Telas</p>
 							</a>
 						</li>
 
