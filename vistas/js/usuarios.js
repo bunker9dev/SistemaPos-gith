@@ -15,8 +15,6 @@
 
         $(".nuevaFoto").val("");
 
-        // alert("¡La imagen debe estar en formato JPG o PNG!")
-
                 Swal.fire({
                     icon: "error",
                     title: "Ten en cuenta",
@@ -56,7 +54,7 @@
     EDITAR USUARIO
 	=============================================*/
 
-// $(".btnEditarUsuario").click(function(){
+
   $(document).on("click", ".btnEditarUsuario", function(){
 
   var idUsuario = $(this).attr("idUsuario");
@@ -223,15 +221,15 @@ $(document).on("click", ".btnEliminarUsuario", function(){
   var usuario = $(this).attr("usuario");
 
   
-  Swal.fire({
-    title: "¿Está seguro de borrar el usuario?",
-    text: "¡Si no lo está puede cancelar la accíón!",
-    icon: "warning",
-    showCancelButton: true,
-    confirmButtonColor: "#3085d6",
-    cancelButtonColor: "#d33",
-    confirmButtonText: "Si, borrar usuario!"
-  })
+    Swal.fire({
+      title: "¿Está seguro de borrar el usuario?",
+      text: "¡Si no lo está puede cancelar la accíón!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Si, borrar usuario!"
+    })
   
  .then((result)=>{
 

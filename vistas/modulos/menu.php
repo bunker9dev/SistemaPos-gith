@@ -97,31 +97,8 @@
 					</a>
 				</li>
 
-				<!-- /////////////////  #########################    ///////////////////////////// -->
+		
 
-
-				<!-- /////////// icono  /////////// -->
-
-				<!-- <li class="nav-item">
-				<a href="#" class="nav-link">
-                        <i>
-                            <img class="image nav-icon" src="vistas/img/plantilla/1-icon-product.svg" alt="icon producto">
-                        </i>
-                        <p>
-                            Productos
-                            <i class="right fas fa-angle-left"></i>
-                        </p>
-                    </a>
-
-					<a href="productos" class=" nav-link">
-						<i>
-							<img class="image nav-icon" src="vistas/img/plantilla/1-icon-product.svg" alt="User Image">
-						</i>
-						<p>
-							Productos
-						</p>
-					</a>
-				</li> -->
 
 				<!-- /////////////////  #########################    ///////////////////////////// -->
 
@@ -141,14 +118,21 @@
 					<ul class="nav nav-treeview">
 
 						<li class="nav-item">
-							<a href="productos-crear-categoria" class="nav-link">
+							<a href="categorias" class="nav-link">
 								<i class="far fa-circle nav-icon"></i>
-								<p>Agregar tipo de Tela</p>
+								<p>Agregar tipo de Telas</p>
 							</a>
 						</li>
 
 						<li class="nav-item">
-							<a href="producto-administrar" class="nav-link">
+							<a href="categorias" class="nav-link">
+								<i class="far fa-circle nav-icon"></i>
+								<p>Agregar color de Telas</p>
+							</a>
+						</li>
+
+						<li class="nav-item">
+							<a href="productos-administrar" class="nav-link">
 								<i class="far fa-circle nav-icon"></i>
 								<p>Agregar Color de Tela</p>
 							</a>
