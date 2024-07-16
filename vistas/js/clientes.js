@@ -1,9 +1,9 @@
 /*=============================================
 EDITAR CLIENTE
 =============================================*/
-// $(".tablas").on("click", ".btnEditarCliente", function(){
+$(".tablas").on("click", ".btnEditarCliente", function(){
 
-$(".btnEditarCliente").click(function() {
+// $(".btnEditarCliente").click(function() {
 
 	var idCliente = $(this).attr("idCliente");
 
@@ -30,5 +30,38 @@ $(".btnEditarCliente").click(function() {
 	  }
 
   	})
+
+})
+
+
+
+/*=============================================
+ELIMINAR CLIENTE
+=============================================*/
+$(".tablas").on("click", ".btnEliminarCliente", function(){
+
+	var idCliente = $(this).attr("idCliente");
+  
+
+	
+      Swal.fire({
+        title: "¿Está seguro de borrar el Cliente?",
+        text: "¡Si no lo está puede cancelar la accíón!",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Si, borrar Cliente!"
+      })
+      
+    .then((result)=>{
+
+        if(result.value){
+
+          window.location = "index.php?ruta=clientes&idCliente="+idCliente;
+
+        }
+
+      })
 
 })

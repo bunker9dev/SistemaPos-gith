@@ -111,8 +111,7 @@ class ControladorClientes{
 					                    "ciudad"=>$_POST["editarCiudadCliente"],
                                         "creado_por"=>$_SESSION["usuario"]
                                     );
-var_dump($datosClientes);
-                
+
                 $respuesta = ModeloClientes::mdlEditarCliente($tabla, $datosClientes);
 
                 if ($respuesta == "ok") {
@@ -163,5 +162,51 @@ var_dump($datosClientes);
     }
 
 
+    
 
+	/*=============================================
+	ELIMINAR CLIENTE
+	=============================================*/
+
+	static public function ctrEliminarCliente(){
+
+		if(isset($_GET["idCliente"])){
+
+			$tabla ="clientes";
+			$datos = $_GET["idCliente"];
+
+			$respuesta = ModeloClientes::mdlEliminarCliente($tabla, $datos);
+
+			if($respuesta == "ok"){
+
+				echo'<script>
+
+				Swal.fire({
+          title: "Cliente Borrado!",
+          text: "El Cliente ha sido borrado correctamente.",
+          icon: "success"
+          }).then(function(result){
+										if (result.value) {
+
+										window.location = "clientes";
+
+										}
+									})
+
+				</script>';
+
+			}		
+
+		}
+
+	}
 }
+
+
+
+	
+
+
+
+
+

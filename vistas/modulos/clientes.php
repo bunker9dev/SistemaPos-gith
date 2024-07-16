@@ -80,7 +80,7 @@
                         <td>
                         <div class="btn-group">
                           <button class="btn btn-warning btnEditarCliente" data-toggle="modal" data-target="#modalEditarCliente" idCliente="'.$value["idCliente"].'" > <i class="fa fa-pencil-alt" aria-hidden="true"></i> </button>
-                          <button class="btn btn-danger btnEliminarUsuario" ><i class="fa fa-times"></i> </button>
+                          <button class="btn btn-danger btnEliminarCliente" idCliente="'.$value["idCliente"].'" ><i class="fa fa-times"></i> </button>
                         </div>
                       </td>
 
@@ -267,6 +267,14 @@ MODAL EDITAR CLIENTE
 
   </div>
 </div>
+
+
+<?php
+
+        $eliminarCliente = new ControladorClientes();
+        $eliminarCliente -> ctrEliminarCliente();
+
+        ?>
 
 
 
