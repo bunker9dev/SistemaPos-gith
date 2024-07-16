@@ -66,5 +66,36 @@ class ModeloClientes{
 	}
 
 
+	/*=============================================
+	EDITAR CLIENTE
+	=============================================*/	
+
+	static public function mdlEditarCliente($tabla, $datosClientes){
+
+        $stmt = Conexion::conectar()->prepare("UPDATE $tabla SET nombre = :nombre,  apellido = :apellido, ciudad = :ciudad, creado_por = :creado_por WHERE idCliente =:idCliente");
+
+		$stmt->bindParam(":idCliente", $datosClientes["idCliente"], PDO::PARAM_STR);
+        $stmt->bindParam(":nombre", $datosClientes["nombre"], PDO::PARAM_STR);
+        $stmt->bindParam(":apellido", $datosClientes["apellido"], PDO::PARAM_STR);
+        $stmt->bindParam(":ciudad", $datosClientes["ciudad"], PDO::PARAM_STR);
+        $stmt->bindParam(":creado_por", $datosClientes["creado_por"], PDO::PARAM_STR);
+
+		var_dump($stmt);
+
+        if($stmt->execute()){
+
+			return "ok";
+
+		}else{
+
+			return "error";
+		
+		}
+
+		$stmt = null;
+
+    }
+
+
 
 }

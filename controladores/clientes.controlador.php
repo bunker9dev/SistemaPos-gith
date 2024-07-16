@@ -90,4 +90,78 @@ class ControladorClientes{
 	}
 
 
+    
+	/*=============================================
+	EDITAR CLIENTE
+	=============================================*/
+
+    static public function ctrEditarCliente(){
+        if(isset($_POST["editarNombreCliente"])){
+
+
+            if(preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["editarNombreCliente"]) &&
+               preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["editarApellidoCliente"]) &&
+               preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["editarCiudadCliente"]) ){
+
+                $tabla = "clientes";
+
+                $datosClientes = array("idCliente"=>$_POST["idCliente"],
+                                        "nombre"=>$_POST["editarNombreCliente"],
+					                    "apellido"=>$_POST["editarApellidoCliente"],
+					                    "ciudad"=>$_POST["editarCiudadCliente"],
+                                        "creado_por"=>$_SESSION["usuario"]
+                                    );
+var_dump($datosClientes);
+                
+                $respuesta = ModeloClientes::mdlEditarCliente($tabla, $datosClientes);
+
+                if ($respuesta == "ok") {
+
+
+                    echo '<script>
+          
+                          Swal.fire({
+                          icon: "successs",
+                          title: "Cliente Actualizado",
+                          text: "¡El Cliente ha sido Actualizado correctamente!",
+                          }).then(function(result){
+                                                  if (result.value) {
+          
+                                                  window.location = "clientes";
+          
+                                                  }
+                                              })
+                        </script>';
+                  }
+
+
+               }else{
+
+                    echo '<script>
+            
+                            Swal.fire({
+                            icon: "error",
+                            title: "Ten en cuenta",
+                            text: "¡Los datos no puede ir vacíos o llevar caracteres especiales!",
+                            }).then(function(result){
+                                     if (result.value) {
+            
+                                         window.location = "clientes";
+            
+                                    }
+                                })
+                          </script>';
+            }
+
+
+    
+        }
+
+
+
+
+    }
+
+
+
 }
