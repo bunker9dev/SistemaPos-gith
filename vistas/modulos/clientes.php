@@ -27,7 +27,7 @@
 
       <div class="card-header">
         <button class="btn btn-primary" data-toggle="modal" data-target="#modalAgregarCliente">
-          Agregar cliente
+          Agregar Cliente
         </button>
       </div>
 
@@ -40,281 +40,58 @@
               <th style="width: 10px;">#</th>
               <th>Nombre</th>
               <th>Apellido</th>
-              <th>ciudad</th>
-              <th>fecha registro</th>
+              <th>Ciudad</th>
+              <th>Compras</th>
+              <th>Fecha última compra</th>
+              <th>Fecha de registro</th>
               <th>Acciones</th>
             </tr>
           </thead>
 
           <tbody>
-            <tr>
-              <td>1</td>
-              <td>Antonio</td>
-              <td>Arenas</td>
-              <td>Medellin</td>
-              <td>2023-10-30</td>
-              <td>
-                <div class="btn-group">
-                  <button class="btn btn-warning"> <i class="fa fa-pencil-alt" aria-hidden="true"></i></button>
-                  <button class="btn btn-danger"><i class="fa fa-times"></i> </button>
-                </div>
-              </td>
-            </tr>
-          
 
-          <!-- ######## /tbody ######### -->
+            <?php
 
-          
-            <tr>
-              <td>2</td>
-              <td>Carlos</td>
-              <td>zapata</td>
-              <td>cali</td>
-              <td>2021-09-23</td>
-              <td>
-                <div class="btn-group">
-                  <button class="btn btn-warning"> <i class="fa fa-pencil-alt" aria-hidden="true"></i></button>
-                  <button class="btn btn-danger"><i class="fa fa-times"></i> </button>
-                </div>
-              </td>
-            </tr>
-          
+              $item = null;
+              $valor = null;
 
-          <!-- ######## /tbody ######### -->
+              $clientes = ControladorClientes::ctrMostrarClientes($item, $valor);
+              
 
-          
-            <tr>
-              <td>3</td>
-              <td>Nombre cliente</td>
-              <td>Apellido cliente</td>
-              <td>ciudad cliente</td>
-              <td>2020-01-01</td>
-              <td>
-                <div class="btn-group">
-                  <button class="btn btn-warning"> <i class="fa fa-pencil-alt" aria-hidden="true"></i> </button>
-                  <button class="btn btn-danger"><i class="fa fa-times"></i> </button>
-                </div>
-              </td>
-            </tr>
-          
+              foreach ($clientes as $key => $value) {
+                
 
-          <!-- ######## /tbody ######### -->
+                echo '<tr>
 
-          
-            <tr>
-              <td>4</td>
-              <td>Nombre cliente</td>
-              <td>Apellido cliente</td>
-              <td>ciudad cliente</td>
-              <td>2020-01-01</td>
-              <td>
-                <div class="btn-group">
-                  <button class="btn btn-warning"> <i class="fa fa-pencil-alt" aria-hidden="true"></i> </button>
-                  <button class="btn btn-danger"><i class="fa fa-times"></i> </button>
-                </div>
-              </td>
-            </tr>
-          
+                        <td>'.($key+1).'</td>
 
-          <!-- ######## /tbody ######### -->
+                        <td>'.$value["nombre"].'</td>
 
-          
-            <tr>
-              <td>5</td>
-              <td>Nombre cliente</td>
-              <td>Apellido cliente</td>
-              <td>ciudad cliente</td>
-              <td>2020-01-01</td>
-              <td>
-                <div class="btn-group">
-                  <button class="btn btn-warning"> <i class="fa fa-pencil-alt" aria-hidden="true"></i> </button>
-                  <button class="btn btn-danger"><i class="fa fa-times"></i> </button>
-                </div>
-              </td>
-            </tr>
-          
+                        <td>'.$value["apellido"].'</td>
 
-          <!-- ######## /tbody ######### -->
+                        <td>'.$value["ciudad"].'</td>
 
-          
-            <tr>
-              <td>6</td>
-              <td>Nombre cliente</td>
-              <td>Apellido cliente</td>
-              <td>ciudad cliente</td>
-              <td>2020-01-01</td>
-              <td>
-                <div class="btn-group">
-                  <button class="btn btn-warning"> <i class="fa fa-pencil-alt" aria-hidden="true"></i> </button>
-                  <button class="btn btn-danger"><i class="fa fa-times"></i> </button>
-                </div>
-              </td>
-            </tr>
-          
+                        <td>'.$value["total_compras"].'</td>
 
-          <!-- ######## /tbody ######### -->
+                        <td>'.$value["ultima_compra"].'</td>
 
-          
-            <tr>
-              <td>7</td>
-              <td>Nombre cliente</td>
-              <td>Apellido cliente</td>
-              <td>ciudad cliente</td>
-              <td>2020-01-01</td>
-              <td>
-                <div class="btn-group">
-                  <button class="btn btn-warning"> <i class="fa fa-pencil-alt" aria-hidden="true"></i> </button>
-                  <button class="btn btn-danger"><i class="fa fa-times"></i> </button>
-                </div>
-              </td>
-            </tr>
-          
+                        <td>'.$value["fecha_registro"].'</td>
 
-          <!-- ######## /tbody ######### -->
+                        <td>
+                            <div class="btn-group">
+                              <button class="btn btn-warning"> <i class="fa fa-pencil-alt" aria-hidden="true"></i> </button>
+                              <button class="btn btn-danger"> <i class="fa fa-times"> </i> </button>
+                            </div>
+                          </td>
 
-          
-            <tr>
-              <td>8</td>
-              <td>Nombre cliente</td>
-              <td>Apellido cliente</td>
-              <td>ciudad cliente</td>
-              <td>2020-01-01</td>
-              <td>
-                <div class="btn-group">
-                  <button class="btn btn-warning"> <i class="fa fa-pencil-alt" aria-hidden="true"></i> </button>
-                  <button class="btn btn-danger"><i class="fa fa-times"></i> </button>
-                </div>
-              </td>
-            </tr>
-          
 
-          <!-- ######## /tbody ######### -->
+                      </tr>';
+              
+                }
 
-          
-            <tr>
-              <td>9</td>
-              <td>Nombre cliente</td>
-              <td>Apellido cliente</td>
-              <td>ciudad cliente</td>
-              <td>2020-01-01</td>
-              <td>
-                <div class="btn-group">
-                  <button class="btn btn-warning"> <i class="fa fa-pencil-alt" aria-hidden="true"></i> </button>
-                  <button class="btn btn-danger"><i class="fa fa-times"></i> </button>
-                </div>
-              </td>
-            </tr>
-          
+            ?>
 
-          <!-- ######## /tbody ######### -->
-
-          
-            <tr>
-              <td>10</td>
-              <td>Nombre cliente</td>
-              <td>Apellido cliente</td>
-              <td>ciudad cliente</td>
-              <td>2020-01-01</td>
-              <td>
-                <div class="btn-group">
-                  <button class="btn btn-warning"> <i class="fa fa-pencil-alt" aria-hidden="true"></i> </button>
-                  <button class="btn btn-danger"><i class="fa fa-times"></i> </button>
-                </div>
-              </td>
-            </tr>
-          
-
-          <!-- ######## /tbody ######### -->
-
-          
-            <tr>
-              <td>11</td>
-              <td>Nombre cliente</td>
-              <td>Apellido cliente</td>
-              <td>ciudad cliente</td>
-              <td>2020-01-01</td>
-              <td>
-                <div class="btn-group">
-                  <button class="btn btn-warning"> <i class="fa fa-pencil-alt" aria-hidden="true"></i> </button>
-                  <button class="btn btn-danger"><i class="fa fa-times"></i> </button>
-                </div>
-              </td>
-            </tr>
-          
-
-          <!-- ######## /tbody ######### -->
-
-          
-            <tr>
-              <td>12</td>
-              <td>Nombre cliente</td>
-              <td>Apellido cliente</td>
-              <td>ciudad cliente</td>
-              <td>2020-01-01</td>
-              <td>
-                <div class="btn-group">
-                  <button class="btn btn-warning"> <i class="fa fa-pencil-alt" aria-hidden="true"></i> </button>
-                  <button class="btn btn-danger"><i class="fa fa-times"></i> </button>
-                </div>
-              </td>
-            </tr>
-          
-
-          <!-- ######## /tbody ######### -->
-
-          
-            <tr>
-              <td>13</td>
-              <td>Nombre cliente</td>
-              <td>Apellido cliente</td>
-              <td>ciudad cliente</td>
-              <td>2020-01-01</td>
-              <td>
-                <div class="btn-group">
-                  <button class="btn btn-warning"> <i class="fa fa-pencil-alt" aria-hidden="true"></i> </button>
-                  <button class="btn btn-danger"><i class="fa fa-times"></i> </button>
-                </div>
-              </td>
-            </tr>
-          
-
-          <!-- ######## /tbody ######### -->
-
-          
-            <tr>
-              <td>14</td>
-              <td>Nombre cliente</td>
-              <td>Apellido cliente</td>
-              <td>ciudad cliente</td>
-              <td>2020-01-01</td>
-              <td>
-                <div class="btn-group">
-                  <button class="btn btn-warning"> <i class="fa fa-pencil-alt" aria-hidden="true"></i> </button>
-                  <button class="btn btn-danger"><i class="fa fa-times"></i> </button>
-                </div>
-              </td>
-            </tr>
-          
-
-          <!-- ######## /tbody ######### -->
-
-          
-            <tr>
-              <td>15</td>
-              <td>Nombre cliente</td>
-              <td>Apellido cliente</td>
-              <td>ciudad cliente</td>
-              <td>2020-01-01</td>
-              <td>
-                <div class="btn-group">
-                  <button class="btn btn-warning"> <i class="fa fa-pencil-alt" aria-hidden="true"></i> </button>
-                  <button class="btn btn-danger"><i class="fa fa-times"></i> </button>
-                </div>
-              </td>
-            </tr>
           </tbody>
-
-          <!-- ######## /tbody ######### -->
 
 
         </table>
@@ -330,11 +107,9 @@
 </div>
 <!-- /.content-wrapper -->
 
-<!-- ###########################
-#
-#    MODAL AGREGAR CLIENTE     #
-#                              #
-################################-->
+<!--=====================================
+MODAL AGREGAR CLIENTE
+======================================-->
 
 
 <!-- The Modal -->
@@ -342,12 +117,11 @@
   <div class="modal-dialog">
     <div class="modal-content">
 
-      <form role="form" method="post">
-
+    <form role="form" method="post" enctype="multipart/form-data">
         <!-- Modal Header -->
-        <div class="modal-header" style="background-color: #3c8dbc; color: white;">
-          <h4 class="modal-title">agregar cliente</h4>
-          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        <div class="modal-header" style="background-color: #007bff; color:#ffffff">
+          <h4 class="modal-title">Agregar Cliente</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
         </div>
 
         <!-- Modal body -->
@@ -358,7 +132,7 @@
             <div class="form-group">
               <div class="input-group">
                 <!-- <span class="input-group-addon"><i class="fa fa-user"></i></span> -->
-                <input type="text" class="form-control input-lg" name="nuevoNombre" placeholder="Ingresar nombre" required>
+                <input type="text" class="form-control input-lg" name="nuevoNombreCliente" placeholder="Ingresar nombre" required>
               </div>
             </div>
 
@@ -367,7 +141,7 @@
             <div class="form-group">
               <div class="input-group">
                 <!-- <span class="input-group-addon"><i class="fa fa-user"></i></span> -->
-                <input type="text" class="form-control input-lg" name="nuevoApellido" placeholder="Ingresar apellido" required>
+                <input type="text" class="form-control input-lg" name="nuevoApellidoCliente" placeholder="Ingresar apellido" required>
               </div>
             </div>
 
@@ -376,7 +150,7 @@
             <div class="form-group">
               <div class="input-group">
                 <!-- <span class="input-group-addon"><i class="fa-map-marker"></i></span> -->
-                <input type="text" class="form-control input-lg" name="nuevaCiudad" placeholder="Ingresar ciudad" required>
+                <input type="text" class="form-control input-lg" name="nuevaCiudadCliente" placeholder="Ingresar ciudad" required>
               </div>
             </div>
 
@@ -390,11 +164,18 @@
 
         <!-- Modal footer -->
         <div class="modal-footer">
-          <button type="button" class="btn btn-default pull-left" data-bs-dismiss="modal">Salir</button>
+          <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Salir</button>
           <button type="submit" class="btn btn-primary">Guardar cliente</button>
         </div>
 
       </form>
+
+      <?php
+
+      $crearcliente = new ControladorClientes();
+      $crearcliente->ctrCrearCliente();
+
+      ?>
 
 
     </div>

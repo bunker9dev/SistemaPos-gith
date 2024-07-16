@@ -143,23 +143,23 @@
 						<li class="nav-item">
 							<a href="productos-crear-categoria" class="nav-link">
 								<i class="far fa-circle nav-icon"></i>
-								<p>Administrar categorías</p>
+								<p>Agregar tipo de Tela</p>
 							</a>
 						</li>
 
 						<li class="nav-item">
 							<a href="producto-administrar" class="nav-link">
 								<i class="far fa-circle nav-icon"></i>
-								<p>Administrar productos</p>
+								<p>Agregar Color de Tela</p>
 							</a>
 						</li>
 
-						<!-- <li class="nav-item">
+						<li class="nav-item">
                             <a href="ventas-reportes" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>Reporte de ventas</p>
+                                <p>Administrar Productos</p>
                             </a>
-                        </li> -->
+                        </li>
 
 					</ul>
 				</li>
