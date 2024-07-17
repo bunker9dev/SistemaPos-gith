@@ -48,101 +48,47 @@
 
                     <tbody>
 
-                    
+                        <?php
 
-                        <tr>
-                            <td>1</td>
-                            <td>501</td>
-                            <td>Arena</td>
-                            <td>admin</td>
-                            <td>2023-10-30</td>
-                            <td>
-                                <div class="btn-group">
-                                    <button class="btn btn-warning"> <i class="fa fa-pencil-alt"
-                                            aria-hidden="true"></i></button>
-                                    <button class="btn btn-danger"><i class="fa fa-times"></i> </button>
-                                </div>
-                            </td>
-                        </tr>
+                            $item = null;
+                            $valor = null;
 
+                            $colores = ControladorColores::ctrMostrarColores($item, $valor);
+                            
+                            // var_dump($colores);
 
-                        <!-- ######## /tbody ######### -->
+                            foreach ($colores as $key => $value) {
 
+                            echo ' <tr>
 
-                        <tr> 
-                            <td>2</td>
-                            <td>502</td>
-                            <td>Amarillo</td>
-                            <td>admin</td>
-                            <td>2021-09-23</td>
-                            <td>
-                                <div class="btn-group">
-                                    <button class="btn btn-warning"> <i class="fa fa-pencil-alt"
-                                            aria-hidden="true"></i></button>
-                                    <button class="btn btn-danger"><i class="fa fa-times"></i> </button>
-                                </div>
-                            </td>
-                        </tr>
+                                        <td>' . ($key + 1) . '</td>
+                                        <td>' . $value["idColor"] . '</td>
+                                        <td class="text-uppercase">' . $value["color"] . '</td>
+                                        <td>' . $value["usuario"] . '</td>
+                                        <td>' . $value["fechaRegistro"] . '</td>
 
+                                        <td>
 
-                        <!-- ######## /tbody ######### -->
+                                        <div class="btn-group">
+                                            
+                                            <button class="btn btn-warning btnEditarCategoria" idCategoria="' . $value["idColor"] . '" data-toggle="modal" data-target="#modalEditarCategoria">  <i class="fa fa-pencil-alt" aria-hidden="true"></i> </button>
+
+                                            <button class="btn btn-danger btnEliminarCategoria" idCategoria="' . $value["idColor"] . '"><i class="fa fa-times"></i></button>
+
+                                        </div>  
+
+                                        </td>
+
+                                    </tr>';
+                            }
+
+                        ?>
 
 
-                        <tr>
-                            <td>3</td>
-                            <td>503</td>
-                            <td>Azul</td>
-                            <td>admin</td>
-                            <td>2020-01-01</td>
-                            <td>
-                                <div class="btn-group">
-                                    <button class="btn btn-warning"> <i class="fa fa-pencil-alt" aria-hidden="true"></i>
-                                    </button>
-                                    <button class="btn btn-danger"><i class="fa fa-times"></i> </button>
-                                </div>
-                            </td>
-                        </tr>
+                        
 
 
-                        <!-- ######## /tbody ######### -->
-
-
-                        <tr>
-                            <td>4</td>
-                            <td>504</td>
-                            <td>Blanco</td>
-                            <td>admin</td>
-                            <td>2020-01-01</td>
-                            <td>
-                                <div class="btn-group">
-                                    <button class="btn btn-warning"> <i class="fa fa-pencil-alt" aria-hidden="true"></i>
-                                    </button>
-                                    <button class="btn btn-danger"><i class="fa fa-times"></i> </button>
-                                </div>
-                            </td>
-                        </tr>
-
-
-                        <!-- ######## /tbody ######### -->
-
-
-                        <tr>
-                            <td>5</td>
-                            <td>505</td>
-                            <td>Beis</td>
-                            <td>admin</td>
-                            <td>2020-01-01</td>
-                            <td>
-                                <div class="btn-group">
-                                    <button class="btn btn-warning"> <i class="fa fa-pencil-alt" aria-hidden="true"></i>
-                                    </button>
-                                    <button class="btn btn-danger"><i class="fa fa-times"></i> </button>
-                                </div>
-                            </td>
-                        </tr>
-
-
-                        <!-- ######## /tbody ######### -->
+                     
 
 
 

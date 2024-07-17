@@ -65,6 +65,20 @@ class ControladorColores
 	}
 
 
+	/*=============================================
+	MOSTAR COLOR DE TELAS
+	=============================================*/
+	static public function ctrMostrarColores($item, $valor)
+	{
+
+		$tabla = "colores";
+
+		$respuesta = ModeloColores::mdlMostrarColores($tabla, $item, $valor);
+
+		return $respuesta;
+	}
+
+
 
 
 
