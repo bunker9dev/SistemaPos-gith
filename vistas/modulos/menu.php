@@ -125,7 +125,7 @@
 						</li>
 
 						<li class="nav-item">
-							<a href="#" class="nav-link">
+							<a href="colores" class="nav-link">
 								<i class="far fa-circle nav-icon"></i>
 								<p>Agregar Color de Tela</p>
 							</a>

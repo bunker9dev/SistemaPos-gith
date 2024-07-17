@@ -243,7 +243,7 @@
             <div class="form-group">
               <div class="input-group mb-3">
                 <div class="input-group-prepend">
-                  <span class="input-group-text basic-addon1"><i class="fas fa-palette"></i></span>
+                  <span class="input-group-text basic-addon1"> <i class="fas fa-palette"></i> </span>
                 </div>
                 <select class="form-control input-lg" name="nuevaDescripcion" id="">
 

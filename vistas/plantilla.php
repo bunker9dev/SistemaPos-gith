@@ -112,6 +112,7 @@ PLUGLIN CSS
           $_GET["ruta"] == "productos" ||
           $_GET["ruta"] == "productos-administrar" ||
           $_GET["ruta"] == "categorias" ||
+          $_GET["ruta"] == "colores" ||
           $_GET["ruta"] == "inventarios" ||
           $_GET["ruta"] == "ventas-administrar" ||
           $_GET["ruta"] == "ventas-crear" ||
@@ -155,6 +156,7 @@ PLUGLIN CSS
     <script src="vistas/js/usuarios.js"></script>
     <script src="vistas/js/categorias.js"></script>
     <script src="vistas/js/clientes.js"></script>
+    <script src="vistas/js/colores.js"></script>
 
 
 
