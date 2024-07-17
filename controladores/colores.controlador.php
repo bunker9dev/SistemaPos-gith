@@ -79,6 +79,69 @@ class ControladorColores
 	}
 
 
+	/*=============================================
+	EDITAR COLOR
+	=============================================*/
+
+	static public function ctrEditarColor(){
+
+		if(isset($_POST["editarColor"])){
+
+			if(preg_match('/^[#\.\-\a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["editarColor"])){
+
+				$tabla = "colores";
+
+				$datos = array(
+					"color" => $_POST["editarColor"],
+					"usuario" => $_SESSION["usuario"],
+					"idColor" => $_POST["idColor"],
+				);
+
+				var_dump($datos);
+
+				$respuesta = ModeloColores::mdlEditarColor($tabla, $datos);
+				
+				
+				if($respuesta == "ok"){
+
+					echo'<script>
+
+
+				   Swal.fire({
+						icon: "successs",
+						title: "Color Modificado",
+						text: "¡El tipo de Tela ha sido Modificado correctamente!",
+						}).then(function(result){
+								if (result.value) {
+
+									window.location = "colores";
+
+									}
+								})
+
+					</script>';
+				}
+			} else {
+
+				echo '<script>
+
+					Swal.fire({
+						icon: "error",
+						title: "Ten en cuenta",
+						text: "¡El Color no puede ir vacío o llevar caracteres especiales,!",
+						}).then(function(result){
+							if (result.value) {
+
+								window.location = "colores";
+
+								}
+							})
+
+			  	</script>';
+			}
+		}
+	}
+
 
 
 

@@ -71,9 +71,9 @@
 
                                         <div class="btn-group">
                                             
-                                            <button class="btn btn-warning btnEditarCategoria" idCategoria="' . $value["idColor"] . '" data-toggle="modal" data-target="#modalEditarCategoria">  <i class="fa fa-pencil-alt" aria-hidden="true"></i> </button>
+                                            <button class="btn btn-warning btnEditarColor" idColor="' . $value["idColor"] . '" data-toggle="modal" data-target="#modalEditarColor">  <i class="fa fa-pencil-alt" aria-hidden="true"></i> </button>
 
-                                            <button class="btn btn-danger btnEliminarCategoria" idCategoria="' . $value["idColor"] . '"><i class="fa fa-times"></i></button>
+                                            <button class="btn btn-danger btnEliminarColor" idColor="' . $value["idColor"] . '"><i class="fa fa-times"></i></button>
 
                                         </div>  
 
@@ -83,14 +83,6 @@
                             }
 
                         ?>
-
-
-                        
-
-
-                     
-
-
 
                     </tbody>
 
@@ -167,6 +159,88 @@
         </div>
     </div>
 </div>
+
+
+
+<!--=====================================
+MODAL EDITAR COLOR
+======================================-->
+
+<div id="modalEditarColor" class="modal fade" role="dialog">
+
+  <div class="modal-dialog">
+
+    <div class="modal-content">
+
+      <form role="form" method="post">
+
+        <!--=====================================
+        CABEZA DEL MODAL
+        ======================================-->
+
+        <div class="modal-header" style="background-color: #007bff; color:#ffffff">
+          
+          <h4 class="modal-title">Editar Color</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+        </div>
+
+        <!--=====================================
+        CUERPO DEL MODAL
+        ======================================-->
+
+        <div class="modal-body">
+
+          <div class="box-body">
+
+            <!-- ENTRADA PARA EL NOMBRE -->
+
+
+            <!-- Entrada Tipo de Tela -->
+            <div class="form-group">
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text basic-addon1"> <i class="fas fa-palette"></i> </span>
+                </div>
+
+                <input type="text" class="form-control input-lg" name="editarColor" id="editarColor" required>
+                <input type="hidden" name="idColor" id="idColor" required>
+
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+        <!--=====================================
+        PIE DEL MODAL
+        ======================================-->
+
+        <div class="modal-footer">
+
+          <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Salir</button>
+
+          <button type="submit" class="btn btn-primary">Guardar cambios</button>
+
+        </div>
+
+        <?php
+
+          $editarColor = new ControladorColores();
+          $editarColor -> ctrEditarColor();
+
+        ?>
+
+      </form>
+
+    </div>
+
+  </div>
+
+</div>
+
+
 
 
 <!-- Page specific script  -->

@@ -65,4 +65,38 @@ class ModeloColores
 
 
 
+	/*=============================================
+	EDITAR COLOR
+	=============================================*/
+
+	static public function mdlEditarColor($tabla, $datos){
+
+	
+
+		$stmt = Conexion::conectar()->prepare("UPDATE $tabla SET color = :color, usuario = :usuario WHERE idColor = :idColor");
+
+		$stmt -> bindParam(":color", $datos["color"], PDO::PARAM_STR);
+		$stmt -> bindParam(":idColor", $datos["idColor"], PDO::PARAM_INT);
+		$stmt -> bindParam(":usuario", $datos["usuario"], PDO::PARAM_STR);
+
+var_dump($stmt);
+
+		if($stmt->execute()){
+
+			return "ok";
+
+		}else{
+
+			return "error";
+		
+		}
+
+		$stmt = null;
+
+	}
+
+
+
+
+
 }
