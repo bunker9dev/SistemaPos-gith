@@ -39,12 +39,11 @@
             <tr>
               <th style="width:10px">#</th>
               <th>Código</th>
-              <th>Categoria</th>
-              <th>Descripción</th>
+              <th>Tipo de tela</th>
               <th>Color</th>
-              <th>metros</th>
+              <th>metros por rollo</th>
+              <th>stock</th>
               <th>Stock</th>
-              <th>Fecha compra</th>
               <th>Acciones</th>
             </tr>
           </thead>
@@ -220,7 +219,7 @@
 
 
             <!-- Entrada para seleccionar descripcion-->
-            <div class="form-group">
+            <!-- <div class="form-group">
               <div class="input-group mb-3">
                 <div class="input-group-prepend">
                   <span class="input-group-text basic-addon1"><i class="fa fa-adjust" aria-hidden="true"></i></span>
@@ -236,7 +235,7 @@
                   <option value="Estampado Infantil">Estampado Infantil</option>
                 </select>
               </div>
-            </div>
+            </div> -->
 
 
             <!-- Entrada para seleccionar Color-->
@@ -264,7 +263,7 @@
                 <div class="input-group-prepend">
                   <span class="input-group-text basic-addon1"><i class="fas fa-ruler"></i></span>
                 </div>
-                <input type="number" class="form-control input-lg" name="nuevoMetros" min ="0" placeholder="Ingresar Metros" aria-label="metros" aria-describedby="basic-addon1" required>
+                <input type="number" class="form-control input-lg" name="nuevoMetros" min ="0" placeholder="Ingresar Metros de cada rollo" aria-label="metros" aria-describedby="basic-addon1" required>
               </div>
             </div>
 
@@ -274,7 +273,7 @@
                 <div class="input-group-prepend">
                   <span class="input-group-text basic-addon1"><i class="fas fa-bullseye"></i></span>
                 </div>
-                <input type="number" class="form-control input-lg" name="nuevoRollos" min ="0" placeholder="Ingresar Cantidad Rollos" aria-label="rollos" aria-describedby="basic-addon1" required>
+                <input type="number" class="form-control input-lg" name="nuevoRollos" min ="0" placeholder="Ingresar Cantidad de Rollos" aria-label="rollos" aria-describedby="basic-addon1" required>
               </div>
             </div>
 

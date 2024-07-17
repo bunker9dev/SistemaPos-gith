@@ -9,6 +9,8 @@ class ControladorCategorias
 
 	static public function ctrCrearCategoria()
 	{
+		
+
 
 		if (isset($_POST["nuevaCategoria"])) {
 
