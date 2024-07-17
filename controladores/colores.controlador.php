@@ -110,7 +110,7 @@ class ControladorColores
 				   Swal.fire({
 						icon: "successs",
 						title: "Color Modificado",
-						text: "¡El tipo de Tela ha sido Modificado correctamente!",
+						text: "¡El Color ha sido Modificado correctamente!",
 						}).then(function(result){
 								if (result.value) {
 
@@ -143,6 +143,41 @@ class ControladorColores
 	}
 
 
+
+	
+	/*=============================================
+	BORRAR COLOR
+	=============================================*/
+
+	static public function ctrBorrarColor(){
+
+		if(isset($_GET["idColor"])){
+
+			$tabla ="Colores";
+			$datos = $_GET["idColor"];
+
+			$respuesta = ModeloColores::mdlBorrarColor($tabla, $datos);
+
+			if($respuesta == "ok"){
+
+				echo'<script>
+
+					Swal.fire({
+						title: "Color Borrado!",
+						text: "El color ha sido borrado correctamente.",
+						icon: "success"
+						}).then(function(result){
+							if (result.value) {
+
+								window.location = "colores";
+							}
+						})
+
+					</script>';
+			}
+		}
+		
+	}
 
 
 

@@ -96,6 +96,31 @@ var_dump($stmt);
 	}
 
 
+	
+	/*=============================================
+	BORRAR COLOR
+	=============================================*/
+
+	static public function mdlBorrarColor($tabla, $datos){
+
+		$stmt = Conexion::conectar()->prepare("DELETE FROM $tabla WHERE idColor = :idColor");
+
+		$stmt -> bindParam(":idColor", $datos, PDO::PARAM_INT);
+
+		if($stmt -> execute()){
+
+			return "ok";
+		
+		}else{
+
+			return "error";	
+
+		}
+
+		
+
+		$stmt = null;
+	}
 
 
 

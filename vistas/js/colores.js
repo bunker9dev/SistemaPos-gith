@@ -1,10 +1,10 @@
 
 
 /*=============================================
-EDITAR CATEGORIA
+EDITAR COLOR
 =============================================*/
+ $(".tablas").on("click", ".btnEditarColor", function(){
 
-$(".btnEditarColor").click(function(){
 
 	var idColor = $(this).attr("idColor");
 
@@ -34,28 +34,28 @@ $(".btnEditarColor").click(function(){
 /*=============================================
 ELIMINAR COLOR
 =============================================*/
-// $(".tablas").on("click", ".btnEliminarCategoria", function(){
-// // $(".btnEliminarCategoria").click(function(){
+$(".tablas").on("click", ".btnEliminarColor", function(){
 
 
-// 	var idCategoria = $(this).attr("idCategoria");
 
-// 	Swal.fire({
-//         title: "¿Está seguro de borrar el tipo de Tela?",
-//         text: "¡Si no lo está puede cancelar la accíón!",
-//         icon: "warning",
-//         showCancelButton: true,
-//         confirmButtonColor: "#3085d6",
-//         cancelButtonColor: "#d33",
-//         confirmButtonText: "Si, borrar Tela!"
-//       }).then((result)=>{
+	var idColor = $(this).attr("idColor");
 
-// 		if(result.value){
+	Swal.fire({
+        title: "¿Está seguro de borrar el color?",
+        text: "¡Si no lo está puede cancelar la accíón!",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Si, borrar Tela!"
+      }).then((result)=>{
+
+		if(result.value){
 	
-// 			window.location = "index.php?ruta=categorias&idCategoria="+idCategoria;
+			window.location = "index.php?ruta=colores&idColor="+idColor;
 	
-// 		}
+		}
 
-// 	})
+	})
 
-// })
+})

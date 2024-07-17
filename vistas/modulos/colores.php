@@ -240,7 +240,12 @@ MODAL EDITAR COLOR
 
 </div>
 
+<?php
 
+  $borrarColor = new ControladorColores();
+  $borrarColor -> ctrBorrarColor();
+
+?>
 
 
 <!-- Page specific script  -->
