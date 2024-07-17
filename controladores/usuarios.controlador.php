@@ -71,7 +71,7 @@ class ControladorUsuarios{
             
           } else {
 
-            echo '<br><div class="alert-danger">EL  Usuario aùn no esta activado</div>';
+            echo '<br><div class="alert-danger">EL  Usuario aùn no ha sido activado</div>';
           }
 
         } else {
