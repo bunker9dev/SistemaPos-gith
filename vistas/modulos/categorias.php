@@ -51,7 +51,7 @@
             $valor = null;
 
             $categorias = ControladorCategorias::ctrMostrarCategorias($item, $valor);
-            // var_dump($categorias);
+            
 
 
             foreach ($categorias as $key => $value) {
