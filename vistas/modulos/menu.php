@@ -132,7 +132,7 @@
 						</li>
 
 						<li class="nav-item">
-                            <a href="productos-administrar" class="nav-link">
+                            <a href="productos" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Administrar Productos</p>
                             </a>

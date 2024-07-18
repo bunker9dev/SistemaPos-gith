@@ -37,190 +37,71 @@
           <thead>
             <tr>
               <th>#</th>
-              <th>Id</th>
-              <th>ORIGEN</th>
-              <th>TIPO TELA</th>
-              <th>DESCRIPCION</th>
+              <th>Código</th>
+              <th>Tipo de Tela</th>
+              <th>Color</th>
+              <th>mtrs x rollo</th>
+              <th>Cantidad</th>
+              <th>Fecha Compra</th>
               <th>Acciones</th>
             </tr>
           </thead>
 
           <tbody>
-            <tr>
-              <td>1</td>
-              <td>1001001</td>
-              <td>NATURALES</td>
-              <td>LANA 100%</td>
-              <td>ALGODON</td>
-              <td>
-                <div class="btn-group">
-                  <button class="btn btn-warning"> <i class="fal fa-pencil-alt"></i> </button>
-                  <button class="btn btn-danger"><i class="fa fa-times"></i> </button>
-                </div>
-              </td>
-            </tr>
-          </tbody>
 
-          <!-- ######## /tbody ######### -->
 
-          <tbody>
-            <tr>
-              <td>2</td>
-              <td>1002001</td>
-              <td>NATURALES</td>
-              <td>LINO 100%</td>
-              <td>LINO</td>
-              <td>
-                <div class="btn-group">
-                  <button class="btn btn-warning"> <i class="fal fa-pencil-alt"></i> </button>
-                  <button class="btn btn-danger"><i class="fa fa-times"></i> </button>
-                </div>
-              </td>
-            </tr>
-          </tbody>
+            <?php
 
-          <!-- ######## /tbody ######### -->
+              $item = null;
+              $valor = null;
 
-          <tbody>
-            <tr>
-              <td>3</td>
-              <td>1003001</td>
-              <td>NATURALES</td>
-              <td>SEDA 100%</td>
-              <td>SEDA</td>
-              <td>
-                <div class="btn-group">
-                  <button class="btn btn-warning"> <i class="fal fa-pencil-alt"></i> </button>
-                  <button class="btn btn-danger"><i class="fa fa-times"></i> </button>
-                </div>
-              </td>
-            </tr>
-          </tbody>
+              $productos = ControladorProductos::ctrMostrarProductos($item, $valor);
 
-          <!-- ######## /tbody ######### -->
 
-          <tbody>
-            <tr>
-              <td>4</td>
-              <td>1004001</td>
-              <td>NATURALES</td>
-              <td>LANA 100%</td>
-              <td>LANA</td>
-              <td>
-                <div class="btn-group">
-                  <button class="btn btn-warning"> <i class="fal fa-pencil-alt"></i> </button>
-                  <button class="btn btn-danger"><i class="fa fa-times"></i> </button>
-                </div>
-              </td>
-            </tr>
-          </tbody>
+              // var_dump($productos);
 
-          <!-- ######## /tbody ######### -->
+              foreach ($productos as $key => $value) {
 
-          <tbody>
-            <tr>
-              <td>5</td>
-              <td>2001001</td>
-              <td>SINTETICOS</td>
-              <td>POLIESTER 100%</td>
-              <td>ANTIFLUIDO ESTAMPADO</td>
-              <td>
-                <div class="btn-group">
-                  <button class="btn btn-warning"> <i class="fal fa-pencil-alt"></i> </button>
-                  <button class="btn btn-danger"><i class="fa fa-times"></i> </button>
-                </div>
-              </td>
-            </tr>
-          </tbody>
+                echo ' <tr>
 
-          <!-- ######## /tbody ######### -->
+                          <td>' . ($key + 1) . '</td>
+                          <td>' .  $value["CodigoProducto"] . '</td>';
 
-          <tbody>
-            <tr>
-              <td>6</td>
-              <td>2001002</td>
-              <td>SINTETICOS</td>
-              <td>POLIESTER 100%</td>
-              <td>ANTIFLUIDO FE</td>
-              <td>
-                <div class="btn-group">
-                  <button class="btn btn-warning"> <i class="fal fa-pencil-alt"></i> </button>
-                  <button class="btn btn-danger"><i class="fa fa-times"></i> </button>
-                </div>
-              </td>
-            </tr>
-          </tbody>
+                          $item = "id";
+                          $valor = $value["idTela"];
+                          $categoria = ControladorCategorias::ctrMostrarCategorias($item, $valor);
+                          echo '<td class="text-uppercase">'.$categoria["categoria"].'</td>';
 
-          <!-- ######## /tbody ######### -->
+                          $item = "idColor";
+                          $valor = $value["idColor"];
+                          $categoria = ControladorColores::ctrMostrarColores($item, $valor);
+                          echo '<td class="text-uppercase">'.$categoria["color"].'</td>
 
-          <tbody>
-            <tr>
-              <td>7</td>
-              <td>2001003</td>
-              <td>SINTETICOS</td>
-              <td>POLIESTER 100%</td>
-              <td>ANTIFLUIDO TEXTILINA</td>
-              <td>
-                <div class="btn-group">
-                  <button class="btn btn-warning"> <i class="fal fa-pencil-alt"></i> </button>
-                  <button class="btn btn-danger"><i class="fa fa-times"></i> </button>
-                </div>
-              </td>
-            </tr>
-          </tbody>
+                          <td>' .  $value["metrosRollo"] . '</td>
+                          <td>' .  $value["cantidadRollos"] . '</td>
+                          <td>' .  $value["fechaCompra"] . '</td>
+                          <td>
 
-          <!-- ######## /tbody ######### -->
+                          <div class="btn-group">
+                              
+                            <button class="btn btn-warning btnEditarCategoria" idCategoria="' . $value["idProducto"] . '" data-toggle="modal" data-target="#modalEditarCategoria">  <i class="fa fa-pencil-alt" aria-hidden="true"></i> </button>
 
-          <tbody>
-            <tr>
-              <td>8</td>
-              <td>2002001</td>
-              <td>SINTETICOS</td>
-              <td>POLIESTER 100%</td>
-              <td>SATIN RIGIDO</td>
-              <td>
-                <div class="btn-group">
-                  <button class="btn btn-warning"> <i class="fal fa-pencil-alt"></i> </button>
-                  <button class="btn btn-danger"><i class="fa fa-times"></i> </button>
-                </div>
-              </td>
-            </tr>
-          </tbody>
+                            <button class="btn btn-danger btnEliminarCategoria" idCategoria="' . $value["idProducto"] . '"><i class="fa fa-times"></i></button>
 
-          <!-- ######## /tbody ######### -->
+                          </div>  
 
-          <tbody>
-            <tr>
-              <td>9</td>
-              <td>2004002</td>
-              <td>SINTETICOS</td>
-              <td>POLIESTER 100%</td>
-              <td>SATIN ESTAMPADO</td>
-              <td>
-                <div class="btn-group">
-                  <button class="btn btn-warning"> <i class="fal fa-pencil-alt"></i> </button>
-                  <button class="btn btn-danger"><i class="fa fa-times"></i> </button>
-                </div>
-              </td>
-            </tr>
-          </tbody>
+                        </td>
 
-          <!-- ######## /tbody ######### -->
+                      </tr>';
 
-          <tbody>
-            <tr>
-              <td>10</td>
-              <td>3001001</td>
-              <td>MEZCLADAS</td>
-              <td>ALGODON / POLIESTER</td>
-              <td>BAGALINA</td>
-              <td>
-                <div class="btn-group">
-                  <button class="btn btn-warning"> <i class="fal fa-pencil-alt"></i> </button>
-                  <button class="btn btn-danger"><i class="fa fa-times"></i> </button>
-                </div>
-              </td>
-            </tr>
+
+              }
+
+
+            ?>
+
+            
+
           </tbody>
 
           <!-- ######## /tbody ######### -->

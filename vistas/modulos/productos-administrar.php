@@ -39,11 +39,10 @@
             <tr>
               <th style="width:10px">#</th>
               <th>Código</th>
-              <th>Categoria</th>
-              <th>Descripción</th>
+              <th>tipo de tela</th>
               <th>Color</th>
-              <th>metros</th>
-              <th>Stock</th>
+              <th>Metros del rollo</th>
+              <th>Cantidad de rollos</th>
               <th>Fecha compra</th>
               <th>Acciones</th>
             </tr>
@@ -54,11 +53,10 @@
               <td>1</td>
               <td>22354548040</td>
               <td>Satin</td>
-              <td>Satin rigido</td>
               <td>Palo de rosa</td>
               <td>51</td>
               <td>25</td>
-              <td>2024-05-30 09:05:23</td>
+              <td>2024-05-30</td>
               <td>
                 <div class="btn-group">
                   <button class="btn btn-warning"> <i class="fa fa-pencil-alt" aria-hidden="true"></i> </button>
@@ -71,34 +69,13 @@
             <!-- ######## /tr ######### -->
 
             <tr>
-              <td>1</td>
+            <td>2</td>
               <td>22354548041</td>
               <td>Satin</td>
-              <td>Satin rigido</td>
               <td>Palo de rosa</td>
-              <td>50</td>
-              <td>12</td>
-              <td>2024-05-30 09:05:23</td>
-              <td>
-                <div class="btn-group">
-                  <button class="btn btn-warning"> <i class="fa fa-pencil-alt" aria-hidden="true"></i> </button>
-                  <button class="btn btn-danger"><i class="fa fa-times"></i> </button>
-                </div>
-              </td>
-            </tr>
-
-
-            <!-- ######## /tr ######### -->
-
-            <tr>
-              <td>1</td>
-              <td>22354548042</td>
-              <td>Satin</td>
-              <td>Satin rigido</td>
-              <td>Palo de rosa</td>
-              <td>50</td>
+              <td>51</td>
               <td>25</td>
-              <td>2024-05-30 09:05:23</td>
+              <td>2024-05-30</td>
               <td>
                 <div class="btn-group">
                   <button class="btn btn-warning"> <i class="fa fa-pencil-alt" aria-hidden="true"></i> </button>
@@ -111,14 +88,13 @@
             <!-- ######## /tr ######### -->
 
             <tr>
-              <td>1</td>
-              <td>22354548043</td>
+            <td>3</td>
+              <td>22354548040</td>
               <td>Satin</td>
-              <td>Satin rigido</td>
-              <td>Verde Menta</td>
-              <td>50</td>
-              <td>10</td>
-              <td>2024-05-30 09:05:23</td>
+              <td>Palo de rosa</td>
+              <td>51</td>
+              <td>25</td>
+              <td>2024-05-30</td>
               <td>
                 <div class="btn-group">
                   <button class="btn btn-warning"> <i class="fa fa-pencil-alt" aria-hidden="true"></i> </button>
@@ -131,14 +107,32 @@
             <!-- ######## /tr ######### -->
 
             <tr>
-              <td>1</td>
+            <td>4</td>
               <td>22354548044</td>
               <td>Satin</td>
-              <td>Satin rigido</td>
-              <td>Rojo</td>
-              <td>52</td>
-              <td>1</td>
-              <td>2024-05-30 09:05:23</td>
+              <td>Palo de rosa</td>
+              <td>51</td>
+              <td>25</td>
+              <td>2024-05-30</td>
+              <td>
+                <div class="btn-group">
+                  <button class="btn btn-warning"> <i class="fa fa-pencil-alt" aria-hidden="true"></i> </button>
+                  <button class="btn btn-danger"><i class="fa fa-times"></i> </button>
+                </div>
+              </td>
+            </tr>
+
+
+            <!-- ######## /tr ######### -->
+
+            <tr>
+              <<td>5</td>
+              <td>22354548045</td>
+              <td>Satin</td>
+              <td>Blanco</td>
+              <td>51</td>
+              <td>25</td>
+              <td>2024-05-30</td>
               <td>
                 <div class="btn-group">
                   <button class="btn btn-warning"> <i class="fa fa-pencil-alt" aria-hidden="true"></i> </button>
@@ -219,7 +213,7 @@
 
 
 
-            <!-- Entrada para seleccionar descripcion-->
+            <!-- Entrada para seleccionar descripcion
             <div class="form-group">
               <div class="input-group mb-3">
                 <div class="input-group-prepend">
@@ -236,7 +230,7 @@
                   <option value="Estampado Infantil">Estampado Infantil</option>
                 </select>
               </div>
-            </div>
+            </div> -->
 
 
             <!-- Entrada para seleccionar Color-->
