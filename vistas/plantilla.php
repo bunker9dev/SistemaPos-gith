@@ -157,6 +157,7 @@ PLUGLIN CSS
     <script src="vistas/js/categorias.js"></script>
     <script src="vistas/js/clientes.js"></script>
     <script src="vistas/js/colores.js"></script>
+    <script src="vistas/js/productos.js"></script>
 
 
 

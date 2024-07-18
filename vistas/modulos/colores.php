@@ -25,15 +25,15 @@
         <!-- Default box -->
         <div class="card">
 
-            <div class="card-header">
+            <div class="card-header with-border" >
                 <button class="btn btn-primary" data-toggle="modal" data-target="#modalAgregarColor">
                     Agregar Color
                 </button>
             </div>
 
             <div class="card-body">
-                <!-- <table id="usuarios1" class="table table-bordered table-hover dt-responsive tablas "> -->
-                <table class="table table-bordered table-hover dt-responsive tablas" width="100%">
+                
+            <table class="table table-bordered table-hover dt-responsive tablas" width="100%">
 
                     <thead>
                         <tr>
@@ -84,7 +84,7 @@
 
                         ?>
 
-                    </tbody>
+                    <!-- </tbody> -->
 
                     <!-- ######## /tbody ######### -->
 
