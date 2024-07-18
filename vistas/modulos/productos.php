@@ -135,9 +135,9 @@
       <form role="form" method="post">
 
         <!-- Modal Header -->
-        <div class="modal-header" style="background-color: #3c8dbc; color: white;">
+        <div class="modal-header" style="background-color: #007bff; color:#ffffff">
           <h4 class="modal-title">Agregar producto</h4>
-          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
         </div>
 
         <!-- Modal body -->
@@ -180,7 +180,7 @@
 
         <!-- Modal footer -->
         <div class="modal-footer">
-          <button type="button" class="btn btn-default pull-left" data-bs-dismiss="modal">Salir</button>
+          <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Salir</button>
           <button type="submit" class="btn btn-primary">Guardar Producto</button>
         </div>
 
