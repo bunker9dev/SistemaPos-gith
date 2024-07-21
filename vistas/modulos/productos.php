@@ -26,7 +26,7 @@
     <div class="card">
 
       <div class="card-header with-border">
-        <button class="btn btn-primary" data-toggle="modal" data-target="#modalAgregarCliente">
+        <button class="btn btn-primary" data-toggle="modal" data-target="#modalAgregarProducto">
           Agregar producto
         </button>
       </div>
@@ -41,68 +41,13 @@
               <th style="width:200px">Tipo de Tela</th>
               <th>Color</th>
               <th style="width:50px text-align:center;">mtrs x rollo</th>
-              <th style="width:50px text-align:center;">Cant</th>
+              <th style="width:50px text-align:center;">Stock</th>
               <th>Fecha Compra</th>
               <th>Acciones</th>
             </tr>
           </thead>
 
-          <tbody>
-
-
-            <?php
-
-              $item = null;
-              $valor = null;
-
-              $productos = ControladorProductos::ctrMostrarProductos($item, $valor);
-
-
-              // var_dump($productos);
-
-              foreach ($productos as $key => $value) {
-
-                echo ' <tr>
-
-                          <td>' . ($key + 1) . '</td>
-                          <td>' .  $value["CodigoProducto"] . '</td>';
-
-                          $item = "id";
-                          $valor = $value["idTela"];
-                          $categoria = ControladorCategorias::ctrMostrarCategorias($item, $valor);
-                          echo '<td class="text-uppercase">'.$categoria["categoria"].'</td>';
-
-                          $item = "idColor";
-                          $valor = $value["idColor"];
-                          $categoria = ControladorColores::ctrMostrarColores($item, $valor);
-                          echo '<td class="text-uppercase">'.$categoria["color"].'</td>
-
-                          <td style="width:50px text-align:center;">' .  $value["metrosRollo"] . '</td>
-                          <td style="width:50px text-align:center;">' .  $value["cantidadRollos"] . '</td>
-                          <td style="text-align:center;">' .  $value["fechaCompra"] . '</td>
-                          <td>
-
-                          <div class="btn-group">
-                              
-                            <button class="btn btn-warning btnEditarCategoria" idCategoria="' . $value["idProducto"] . '" data-toggle="modal" data-target="#modalEditarCategoria">  <i class="fa fa-pencil-alt" aria-hidden="true"></i> </button>
-
-                            <button class="btn btn-danger btnEliminarCategoria" idCategoria="' . $value["idProducto"] . '"><i class="fa fa-times"></i></button>
-
-                          </div>  
-
-                        </td>
-
-                      </tr>';
-
-
-              }
-
-
-            ?>
-
-            
-
-          </tbody>
+          
 
           <!-- ######## /tbody ######### -->
 
@@ -122,13 +67,13 @@
 
 <!-- ###########################
 #
-#    MODAL AGREGAR CLIENTE     #
+#    MODAL AGREGAR PRODUCTO     #
 #                              #
 ################################-->
 
 
 <!-- The Modal -->
-<div class="modal" id="modalAgregarCliente">
+<div class="modal" id="modalAgregarProducto">
   <div class="modal-dialog">
     <div class="modal-content">
 
@@ -147,8 +92,8 @@
 
             <div class="form-group">
               <div class="input-group">
-                <!-- <span class="input-group-addon"><i class="fa fa-user"></i></span> -->
-                <input type="text" class="form-control input-lg" name="nuevoOrigen" placeholder="Ingresar Origen" required>
+                <span class="input-group-text basic-addon1"> <i class="fas fa-layer-group"></i> </span>
+                <input type="text" class="form-control input-lg" name="nuevoTipoTela" placeholder="Ingresar tipo de tela" required>
               </div>
             </div>
 
@@ -156,23 +101,37 @@
 
             <div class="form-group">
               <div class="input-group">
-                <!-- <span class="input-group-addon"><i class="fa fa-user"></i></span> -->
-                <input type="text" class="form-control input-lg" name="nuevoTipoTela" placeholder="Ingresar Tipo Tela" required>
+              <span class="input-group-text basic-addon1"> <i class="fas fa-palette"></i> </span>
+                <input type="text" class="form-control input-lg" name="nuevoColorTela" placeholder="Ingresar Color Tela" required>
               </div>
             </div>
 
             <!-- ############# / entrada ########### -->
 
+             <!-- Entrada Metros  -->
+             <div class="form-group">
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text basic-addon1"><i class="fas fa-ruler"></i></span>
+                </div>
+                <input type="number" class="form-control input-lg" name="nuevoMetros" min ="0" placeholder="Ingresar Metros" aria-label="metros" aria-describedby="basic-addon1" required>
+              </div>
+            </div>
+
+            <!-- Entrada cantidad rollos -->
             <div class="form-group">
-              <div class="input-group">
-                <!-- <span class="input-group-addon"><i class="fa-map-marker"></i></span> -->
-                <input type="text" class="form-control input-lg" name="nuevaDescripcion" placeholder="Ingresar Descripcion" required>
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text basic-addon1"><i class="fas fa-bullseye"></i></span>
+                </div>
+                <input type="number" class="form-control input-lg" name="nuevoRollos" min ="0" placeholder="Ingresar Cantidad Rollos" aria-label="rollos" aria-describedby="basic-addon1" required>
               </div>
             </div>
-
-            <!-- ############# / entrada ########### -->
 
           </div>
+
+
+          
 
 
 

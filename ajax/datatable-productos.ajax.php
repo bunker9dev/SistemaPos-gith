@@ -41,6 +41,15 @@ class TablaProductos{
 
 		  	$categorias = ControladorCategorias::ctrMostrarCategorias($item, $valor);
 
+
+            $item = "id";
+            $valor = $productos[$i]["idTela"];
+            $categoria = ControladorCategorias::ctrMostrarCategorias($item, $valor);
+
+            $categoria2 ="<td class='text-uppercase'>".$categoria["categoria"]."</td>";
+
+
+
             /*=============================================
  	 		TRAEMOS LOS COLORES
   			=============================================*/ 
@@ -50,11 +59,33 @@ class TablaProductos{
 
 		  	$colores = ControladorColores::ctrMostrarColores($item, $valor);
 
+
+
+            /*=============================================
+            STOCK
+            =============================================*/ 
+
+            if($productos[$i]["stock"] <= 10){
+
+                $stock = "<button class='btn btn-danger'>".$productos[$i]["stock"]."</button>";
+
+            }else if($productos[$i]["stock"] > 11 && $productos[$i]["stock"] <= 15){
+
+                $stock = "<button class='btn btn-warning'>".$productos[$i]["stock"]."</button>";
+
+            }else{
+
+                $stock = "<button class='btn btn-success'>".$productos[$i]["stock"]."</button>";
+
+            }
+
+
+
             /*=============================================
             TRAEMOS LAS ACCIONES
             =============================================*/ 
 
-            $botones =  "<div class='btn-group'><button class='btn btn-warning btnEditarProducto' idProducto='".$productos[$i]["idProducto"]."' data-toggle='modal' data-target='#modalEditarProducto'> <i class='fa fa-pencil-alt' aria-hidden='true'></i> </button><button class='btn btn-danger btnEliminarProducto' idProducto='".$productos[$i]["idProducto"]."' ><i class='fa fa-times'></i></button></div>"; 
+            $botones =  "<div class='btn-group'><button class='btn btn-warning btnEditarProducto' idProducto='".$productos[$i]["idProducto"]."' data-toggle='modal' data-target='#modalEditarProducto'> <i class='fa fa-pencil-alt' aria-hidden='true'></i> </button><button class='btn btn-danger btnEliminarProducto' idProducto='".$productos[$i]["idProducto"]."'codigo='".$productos[$i]["CodigoProducto"]."' ><i class='fa fa-times'></i></button></div>"; 
             
 
        
@@ -62,10 +93,10 @@ class TablaProductos{
                 $datosJson .='[
                     "'.($i+1).'",
                     "'.$productos[$i]["CodigoProducto"].'",
-                    "'.$categorias["categoria"].'",
+                    "'.$categoria2.'",
                     "'.$colores["color"].'",
                     "'.$productos[$i]["metrosRollo"].'",
-                    "'.$productos[$i]["cantidadRollos"].'",
+                    "'.$stock.'",
                     "'.$productos[$i]["fechaCompra"].'",
                     "'.$botones.'"
                   ],';
