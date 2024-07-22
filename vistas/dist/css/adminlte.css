@@ -35431,7 +35431,10 @@ a.close.disabled, a.disabled.mailbox-attachment-close {
   left: 0;
   width: 100%;
   height: 100vh;
-  background-image: url(../../img/plantilla/1-TELAS6x1000.svg);
+  /* background-image: url(../../img/plantilla/1-TELAS6x1000.svg);
+   */
+  /* background-image: url(../../img/plantilla/loginMontaña.svg);  */
+  background-image: url(../../img/plantilla/loginMontaña.png); 
   background-size: cover;
   overflow: hidden;
   z-index: -1;
