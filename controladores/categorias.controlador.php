@@ -39,14 +39,14 @@ class ControladorCategorias
         
                                                 }
                                             })
- 
-                     </script>';
+
+                    </script>';
 				}
 			} else {
 
 				echo '<script>
 
-				 Swal.fire({
+				Swal.fire({
 					icon: "error",
 					title: "Ten en cuenta",
 					text: "¡El Tipo de Tela no puede ir vacío o llevar caracteres especiales!",
@@ -58,7 +58,7 @@ class ControladorCategorias
 								}
 										})
 
-			  	</script>';
+			</script>';
 			}
 		}
 	}
@@ -104,7 +104,7 @@ class ControladorCategorias
 					echo'<script>
 
 
-				   Swal.fire({
+				Swal.fire({
 						icon: "successs",
 						title: "Usuario Modificado",
 						text: "¡El tipo de Tela ha sido Modificado correctamente!",
@@ -134,7 +134,7 @@ class ControladorCategorias
 								}
 							})
 
-			  	</script>';
+				</script>';
 			}
 		}
 	}

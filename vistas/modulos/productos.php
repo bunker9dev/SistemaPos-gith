@@ -47,7 +47,7 @@
             </tr>
           </thead>
 
-          
+
 
           <!-- ######## /tbody ######### -->
 
@@ -89,7 +89,7 @@
 
         <!-- ############# / entrada ########### -->
 
-          
+
 
 
         <div class="modal-body">
@@ -98,13 +98,13 @@
 
 
             <!-- Entrada Fecha  -->
-
             <div class="form-group">
               <div class="input-group mb-3">
                 <div class="input-group-prepend">
                   <span class="input-group-text basic-addon1"> <i class="fas fa-calendar-alt"></i> </span>
                 </div>
-                <input type="date" class="form-control input-lg" name="nuevaFecha" placeholder="Ingresar Fecha Compra" aria-label="fecha" aria-describedby="basic-addon1" required>
+                <input type="date" class="form-control input-lg" name="nuevaFecha" id="nuevaFecha" placeholder="Ingresar Fecha Compra"
+                  aria-label="fecha" aria-describedby="basic-addon1" required>
               </div>
             </div>
 
@@ -112,8 +112,9 @@
             <div class="form-group">
               <div class="input-group">
                 <span class="input-group-text basic-addon1"> <i class="fas fa-layer-group"></i> </span>
-                <select type="text" class="form-control input-lg" name="nuevoTipoTela" placeholder="Ingresar tipo de tela" required>
-                <option value="">Selecionar tipo de tela</option>
+                <select type="text" class="form-control input-lg" name="nuevoTipoTela" id="nuevoTipoTela"
+                  placeholder="Ingresar tipo de tela" required>
+                  <option value="">Selecionar tipo de tela</option>
 
                   <?php
 
@@ -123,23 +124,25 @@
                   $categorias = ControladorCategorias::ctrMostrarCategorias($item, $valor);
 
                   foreach ($categorias as $key => $value) {
-                    
-                    echo '<option value="'.$value["categoria"].'">'.$value["categoria"].'</option>';
+
+                    echo '<option value="' . $value["id"] . '">' . $value["categoria"] . '</option>';
                   }
 
                   ?>
-  
+
                 </select>
               </div>
             </div>
 
-            <!-- ############# / entrada ########### -->
+            <!-- ############# / entrada color ########### -->
 
             <div class="form-group">
+
               <div class="input-group">
-              <span class="input-group-text basic-addon1"> <i class="fas fa-palette"></i> </span>
-                <select type="text" class="form-control input-lg" name="nuevoColorTela" placeholder="Ingresar Color Tela" required>
-                <option value="">Selecionar color de tela</option>
+                <span class="input-group-text basic-addon1"> <i class="fas fa-palette"></i> </span>
+                <select type="text" class="form-control input-lg" name="nuevoColorTela" id="nuevoColorTela" 
+                  placeholder="Ingresar Color Tela" required>
+                  <option value="">Selecionar color de tela</option>
 
                   <?php
 
@@ -149,56 +152,67 @@
                   $colores = ControladorColores::ctrMostrarColores($item, $valor);
 
                   foreach ($colores as $key => $value) {
-                    
-                    echo '<option value="'.$value["color"].'">'.$value["color"].'</option>';
+
+                    echo '<option value="' . $value["idColor"] . '">' . $value["color"] . '</option>';
                   }
 
                   ?>
-  
-                </select>  
-              
-              
+
+                </select>
+
               </div>
             </div>
 
             <!-- ############# / entrada ########### -->
 
             <!-- Entrada Metros  -->
-              <div class="form-group row">
-                
-                  <div class= "col-xs-6">
 
-                    <div class="input-group mb-3">
+            <div>
+
+
+              <div class="form-group row ">
+
+                <!-- Entrada metros rollos -->
+                <div class="col-6">
+                  <div class="input-group mb-3">
                     <div class="input-group-prepend">
                       <span class="input-group-text basic-addon1"><i class="fas fa-ruler"></i></span>
                     </div>
-                    <input type="number" class="form-control input-lg" name="nuevoMetros" min ="0" placeholder="Ingresar Metros" aria-label="metros" aria-describedby="basic-addon1" required>
+                    <input type="number" class="form-control input-lg" name="nuevoMetros" id="nuevoMetros" min="0"
+                      placeholder="Ingresar Metros" aria-label="metros" aria-describedby="basic-addon1" required>
                   </div>
+                </div>
 
+                <!-- Entrada cantidad rollos -->
 
-                  <div class= "col-xs-6">
-                    <div class="input-group mb-3">
+                <div class="col-6">
+                  <div class="input-group mb-3">
                     <div class="input-group-prepend">
                       <span class="input-group-text basic-addon1"><i class="fas fa-bullseye"></i></span>
                     </div>
-                    <input type="number" class="form-control input-lg" name="nuevoRollos" min ="0" placeholder="Ingresar Cantidad Rollos" aria-label="rollos" aria-describedby="basic-addon1" required>
+                    <input type="number" class="form-control input-lg" name="nuevoRollos" min="0"
+                      placeholder="stock" aria-label="rollos" aria-describedby="basic-addon1"
+                      required>
                   </div>
+                </div>
+
+              </div>
+
+            </div>
+
+            <!-- ############# / entrada ########### -->
+
+            <div class="form-group">
+              <div class="input-group">
+              <span class="input-group-text basic-addon1"> <i class="fab fa-slack"></i> </span>
+                <input type="text" class="form-control input-lg" name="nuevoCodigo" id="nuevoCodigo" placeholder="Código" value="" readonly>
 
 
 
               </div>
-
-
-              
-              
-              
             </div>
 
           </div>
-
-
-          
-
 
 
         </div>

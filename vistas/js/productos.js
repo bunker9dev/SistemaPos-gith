@@ -13,12 +13,117 @@ CARGAR LA TABLA DINÁMICA DE PRODUCTOS
 
 // })
 
+
+/*=============================================
+CAPTURANDO LA CATEGORIA PARA ASIGNAR CÓDIGO
+=============================================*/
+var codigoTela = "000";
+var codigoColor = "000";
+var codigoMetros = "00";
+
+$("#nuevoTipoTela").change(function(){
+
+	
+	codigoTela = $(this).val();
+
+	var datos = new FormData();
+	datos.append("codigoTela", codigoTela);
+
+	$.ajax({
+
+		url:"ajax/productos.ajax.php",
+		method: "POST",
+		data: datos,
+		cache: false,
+		contentType: false,
+		processData: false,
+		dataType:"json",
+		success:function(respuesta){
+
+		if(!respuesta ) {
+			var codigoTela =  codigoTela + codigoColor + codigoMetros;
+			$("#nuevoCodigo").val(codigoTela);
+		}else{
+			var codigoTela = respuesta["id"] + codigoColor + codigoMetros;;
+			$("#nuevoCodigo").val(codigoTela);
+		}
+
+			
+
+		}
+	
+	})
+
+
+	
+})
+
+
+$("#nuevoColorTela").change(function(){
+	
+	codigoColor = $(this).val();
+
+	var nuevoCodigo = codigoTela + codigoColor + codigoMetros;
+	
+	$("#nuevoCodigo").val(nuevoCodigo);
+
+	console.log("codigoColor", codigoColor);
+	
+})
+
+
+$("#nuevoMetros").change(function(){
+	
+	codigoMetros = $(this).val();
+
+	var nuevoCodigo = codigoTela + codigoColor + codigoMetros;
+	
+	$("#nuevoCodigo").val(nuevoCodigo);
+
+	console.log("codigoMetros", codigoMetros);
+	
+})
+
+
+	
+
+
+
+
+
+
+	// var datos = new FormData();
+	// datos.append("idProducto", idProducto);
+
+	// $.ajax({
+
+	// 	url:"ajax/productos.ajax.php",
+	// 	method: "POST",
+	// 	data: datos,
+	// 	cache: false,
+	// 	contentType: false,
+	// 	processData: false,
+	// 	dataType:"json",
+	// 	success:function(respuesta){
+	// 		console.log("respuesta", respuesta)
+
+	// 	}
+	
+	// })
+
+
+
+
+
+
+
+
 $('.tablaProductos').DataTable( {
     "ajax": "ajax/datatable-productos.ajax.php",
     "deferRender": true,
 	"retrieve": true,
 	"processing": true,
-	 "language": {
+	"language": {
 
 			"sProcessing":     "Procesando...",
 			"sLengthMenu":     "Mostrar _MENU_ registros",
