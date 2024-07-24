@@ -99,12 +99,13 @@
 
             <!-- Entrada Fecha  -->
             <div class="form-group">
+            <label for="fname">Fecha de compra:</label>
               <div class="input-group mb-3">
                 <div class="input-group-prepend">
                   <span class="input-group-text basic-addon1"> <i class="fas fa-calendar-alt"></i> </span>
                 </div>
-                <input type="date" class="form-control input-lg" name="nuevaFecha" id="nuevaFecha" placeholder="Ingresar Fecha Compra"
-                  aria-label="fecha" aria-describedby="basic-addon1" required>
+                <input type="date" class="form-control input-lg" name="nuevaFecha" id="nuevaFechaComnpra"
+                  placeholder="Ingresar Fecha Compra" aria-label="fecha" aria-describedby="basic-addon1" required>
               </div>
             </div>
 
@@ -140,7 +141,7 @@
 
               <div class="input-group">
                 <span class="input-group-text basic-addon1"> <i class="fas fa-palette"></i> </span>
-                <select type="text" class="form-control input-lg" name="nuevoColorTela" id="nuevoColorTela" 
+                <select type="text" class="form-control input-lg" name="nuevoColorTela" id="nuevoColorTela"
                   placeholder="Ingresar Color Tela" required>
                   <option value="">Selecionar color de tela</option>
 
@@ -190,9 +191,8 @@
                     <div class="input-group-prepend">
                       <span class="input-group-text basic-addon1"><i class="fas fa-bullseye"></i></span>
                     </div>
-                    <input type="number" class="form-control input-lg" name="nuevoRollos" min="0"
-                      placeholder="stock" aria-label="rollos" aria-describedby="basic-addon1"
-                      required>
+                    <input type="number" class="form-control input-lg" name="nuevoRollos" min="0" placeholder="stock"
+                      aria-label="rollos" aria-describedby="basic-addon1" required>
                   </div>
                 </div>
 
@@ -204,8 +204,9 @@
 
             <div class="form-group">
               <div class="input-group">
-              <span class="input-group-text basic-addon1"> <i class="fab fa-slack"></i> </span>
-                <input type="text" class="form-control input-lg" name="nuevoCodigo" id="nuevoCodigo" placeholder="Código" value="" readonly>
+                <span class="input-group-text basic-addon1"> <i class="fab fa-slack"></i> </span>
+                <input type="text" class="form-control input-lg" name="nuevoCodigo" id="nuevoCodigo"
+                  placeholder="Código" value="" readonly>
 
 
 

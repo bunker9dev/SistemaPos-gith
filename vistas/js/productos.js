@@ -17,44 +17,69 @@ CARGAR LA TABLA DINÁMICA DE PRODUCTOS
 /*=============================================
 CAPTURANDO LA CATEGORIA PARA ASIGNAR CÓDIGO
 =============================================*/
+
+var codigoFecha = "000000";
 var codigoTela = "000";
 var codigoColor = "000";
 var codigoMetros = "00";
+
+
+$("#nuevaFechaComnpra").change(function(){
+	
+	codigoFecha = $(this).val();
+	codigoFecha = codigoFecha.replace('-', '');
+	codigoFecha = codigoFecha.replace('-', '');
+	codigoFecha = codigoFecha.replace('20', '');
+
+	var nuevoCodigo = codigoFecha + codigoTela + codigoColor + codigoMetros;
+	
+	$("#nuevoCodigo").val(nuevoCodigo);
+
+	console.log("codigoFecha", codigoFecha);
+	
+})
+
+
+
 
 $("#nuevoTipoTela").change(function(){
 
 	
 	codigoTela = $(this).val();
 
-	var datos = new FormData();
-	datos.append("codigoTela", codigoTela);
+	// var datos = new FormData();
+	// datos.append("codigoTela", codigoTela);
 
-	$.ajax({
+	// $.ajax({
 
-		url:"ajax/productos.ajax.php",
-		method: "POST",
-		data: datos,
-		cache: false,
-		contentType: false,
-		processData: false,
-		dataType:"json",
-		success:function(respuesta){
+	// 	url:"ajax/productos.ajax.php",
+	// 	method: "POST",
+	// 	data: datos,
+	// 	cache: false,
+	// 	contentType: false,
+	// 	processData: false,
+	// 	dataType:"json",
+	// 	success:function(respuesta){
 
-		if(!respuesta ) {
-			var codigoTela =  codigoTela + codigoColor + codigoMetros;
-			$("#nuevoCodigo").val(codigoTela);
-		}else{
-			var codigoTela = respuesta["id"] + codigoColor + codigoMetros;;
-			$("#nuevoCodigo").val(codigoTela);
-		}
+	// 	if(!respuesta ) {
+	// 		var nuevoCodigo = codigoFecha + codigoTela + codigoColor + codigoMetros;
+	// 		$("#nuevoCodigo").val(codigoTela);
+	// 	}else{
+	// 		var nuevoCodigo = codigoFecha + codigoTela + codigoColor + codigoMetros;
+	// 		$("#nuevoCodigo").val(codigoTela);
+	// 	}
 
 			
 
-		}
+	// 	}
 	
-	})
+	// })
 
+	var nuevoCodigo = codigoFecha + codigoTela + codigoColor + codigoMetros;
+	
+	$("#nuevoCodigo").val(nuevoCodigo);
 
+	console.log("codigoTela", codigoTela);
 	
 })
 
@@ -63,7 +88,7 @@ $("#nuevoColorTela").change(function(){
 	
 	codigoColor = $(this).val();
 
-	var nuevoCodigo = codigoTela + codigoColor + codigoMetros;
+	var nuevoCodigo = codigoFecha + codigoTela + codigoColor + codigoMetros;
 	
 	$("#nuevoCodigo").val(nuevoCodigo);
 
@@ -76,7 +101,7 @@ $("#nuevoMetros").change(function(){
 	
 	codigoMetros = $(this).val();
 
-	var nuevoCodigo = codigoTela + codigoColor + codigoMetros;
+	var nuevoCodigo = codigoFecha + codigoTela + codigoColor + codigoMetros;
 	
 	$("#nuevoCodigo").val(nuevoCodigo);
 
