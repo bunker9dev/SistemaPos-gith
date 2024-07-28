@@ -24,7 +24,7 @@ var codigoColor = "000";
 var codigoMetros = "00";
 
 
-$("#nuevaFechaComnpra").change(function(){
+$("#nuevaFechaCompra").change(function(){
 	
 	codigoFecha = $(this).val();
 	codigoFecha = codigoFecha.replace('-', '');
@@ -38,8 +38,6 @@ $("#nuevaFechaComnpra").change(function(){
 	console.log("codigoFecha", codigoFecha);
 	
 })
-
-
 
 
 $("#nuevoTipoTela").change(function(){
@@ -110,31 +108,58 @@ $("#nuevoMetros").change(function(){
 })
 
 
-	
+
+/*=============================================
+EDITAR PRODUCTOS
+=============================================*/
+console.log("prueba" );
+$(".tablaProductos").on("click", "button.btnEditarProducto", function(){
+
+
+	// var idProducto = "prueba2"
+
+	var idProducto = $(this).attr("idProducto");
+	console.log(idProducto );
+
+	var datos = new FormData();
+    datos.append("idProducto", idProducto);
+
+     $.ajax({
+
+      url:"ajax/productos.ajax.php",
+      method: "POST",
+      data: datos,
+      cache: false,
+      contentType: false,
+      processData: false,
+      dataType:"json",
+      success:function(respuesta){
+
+		console.log("respuesta", respuesta );
+
+		
+	  }
+
+})
+
+})
 
 
 
 
 
 
-	// var datos = new FormData();
-	// datos.append("idProducto", idProducto);
 
-	// $.ajax({
 
-	// 	url:"ajax/productos.ajax.php",
-	// 	method: "POST",
-	// 	data: datos,
-	// 	cache: false,
-	// 	contentType: false,
-	// 	processData: false,
-	// 	dataType:"json",
-	// 	success:function(respuesta){
-	// 		console.log("respuesta", respuesta)
 
-	// 	}
-	
-	// })
+
+
+
+
+
+
+
+
 
 
 

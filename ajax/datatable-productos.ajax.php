@@ -12,15 +12,15 @@ require_once "../modelos/colores.modelo.php";
 class TablaProductos{
 
     /*=============================================
- 	 MOSTRAR LA TABLA DE PRODUCTOS
+ 	MOSTRAR LA TABLA DE PRODUCTOS
   	=============================================*/ 
 
     public function mostrarTablaProductos(){
 
         $item = null;
-    	$valor = null;
+        $valor = null;
 
-  		$productos = ControladorProductos::ctrMostrarProductos($item, $valor);	
+        $productos = ControladorProductos::ctrMostrarProductos($item, $valor);	
 
         // var_dump($productos);
 
@@ -28,18 +28,18 @@ class TablaProductos{
 
         $datosJson = '{
             "data": [';
-  
+
             for($i = 0; $i < count($productos); $i++){
 
-           
-        	/*=============================================
- 	 		TRAEMOS LA CATEGORÍA (tipo de tela)
-  			=============================================*/ 
 
-		  	$item = "id";
-		  	$valor = $productos[$i]["idTela"];
+        /*=============================================
+ 	 	TRAEMOS LA CATEGORÍA (tipo de tela)
+  		=============================================*/ 
 
-		  	$categorias = ControladorCategorias::ctrMostrarCategorias($item, $valor);
+		$item = "id";
+		$valor = $productos[$i]["idTela"];
+
+		$categorias = ControladorCategorias::ctrMostrarCategorias($item, $valor);
 
 
             $item = "id";
@@ -50,14 +50,14 @@ class TablaProductos{
 
 
 
-            /*=============================================
- 	 		TRAEMOS LOS COLORES
-  			=============================================*/ 
+        /*=============================================
+ 	 	TRAEMOS LOS COLORES
+  		=============================================*/ 
 
-		  	$item = "idColor";
-		  	$valor = $productos[$i]["idColor"];
+		$item = "idColor";
+		$valor = $productos[$i]["idColor"];
 
-		  	$colores = ControladorColores::ctrMostrarColores($item, $valor);
+		$colores = ControladorColores::ctrMostrarColores($item, $valor);
 
 
 
@@ -65,11 +65,11 @@ class TablaProductos{
             STOCK
             =============================================*/ 
 
-            if($productos[$i]["stock"] <= 10){
+            if($productos[$i]["stock"] == 0){
 
                 $stock = "<button class='btn btn-danger'>".$productos[$i]["stock"]."</button>";
 
-            }else if($productos[$i]["stock"] > 11 && $productos[$i]["stock"] <= 15){
+            }else if($productos[$i]["stock"] >= 1 && $productos[$i]["stock"] <= 10){
 
                 $stock = "<button class='btn btn-warning'>".$productos[$i]["stock"]."</button>";
 
@@ -88,8 +88,7 @@ class TablaProductos{
             $botones =  "<div class='btn-group'><button class='btn btn-warning btnEditarProducto' idProducto='".$productos[$i]["idProducto"]."' data-toggle='modal' data-target='#modalEditarProducto'> <i class='fa fa-pencil-alt' aria-hidden='true'></i> </button><button class='btn btn-danger btnEliminarProducto' idProducto='".$productos[$i]["idProducto"]."'codigo='".$productos[$i]["CodigoProducto"]."' ><i class='fa fa-times'></i></button></div>"; 
             
 
-       
-  
+
                 $datosJson .='[
                     "'.($i+1).'",
                     "'.$productos[$i]["CodigoProducto"].'",
@@ -99,17 +98,17 @@ class TablaProductos{
                     "'.$stock.'",
                     "'.$productos[$i]["fechaCompra"].'",
                     "'.$botones.'"
-                  ],';
-  
+                    ],';
+
             }
-  
+
             $datosJson = substr($datosJson, 0, -1);
-  
-           $datosJson .=   '] 
-  
-           }';
-          
-          echo $datosJson;
+
+            $datosJson .=   '] 
+
+            }';
+
+            echo $datosJson;
 
     }
 }
