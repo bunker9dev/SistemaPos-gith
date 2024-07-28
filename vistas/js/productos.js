@@ -17,7 +17,8 @@ CARGAR LA TABLA DINÁMICA DE PRODUCTOS
 /*=============================================
 CAPTURANDO LA CATEGORIA PARA ASIGNAR CÓDIGO
 =============================================*/
-
+var nuevoCodigo;
+var codigoDate;
 var codigoFecha = "000000";
 var codigoTela = "000";
 var codigoColor = "000";
@@ -26,15 +27,16 @@ var codigoMetros = "00";
 
 $("#nuevaFechaCompra").change(function(){
 	
-	codigoFecha = $(this).val();
+	codigoDate = $(this).val();
+	codigoFecha = codigoDate
 	codigoFecha = codigoFecha.replace('-', '');
 	codigoFecha = codigoFecha.replace('-', '');
 	codigoFecha = codigoFecha.replace('20', '');
 
-	var nuevoCodigo = codigoFecha + codigoTela + codigoColor + codigoMetros;
+	var nuevoCodigo = codigoFecha + codigoMetros + codigoColor + codigoTela ;
 	
 	$("#nuevoCodigo").val(nuevoCodigo);
-
+	console.log("codigoDate", codigoDate);
 	console.log("codigoFecha", codigoFecha);
 	
 })
@@ -73,7 +75,7 @@ $("#nuevoTipoTela").change(function(){
 	
 	// })
 
-	var nuevoCodigo = codigoFecha + codigoTela + codigoColor + codigoMetros;
+	var nuevoCodigo = codigoFecha + codigoMetros + codigoColor + codigoTela ;
 	
 	$("#nuevoCodigo").val(nuevoCodigo);
 
@@ -86,7 +88,7 @@ $("#nuevoColorTela").change(function(){
 	
 	codigoColor = $(this).val();
 
-	var nuevoCodigo = codigoFecha + codigoTela + codigoColor + codigoMetros;
+	var nuevoCodigo = codigoFecha + codigoMetros + codigoColor + codigoTela ;
 	
 	$("#nuevoCodigo").val(nuevoCodigo);
 
@@ -99,7 +101,7 @@ $("#nuevoMetros").change(function(){
 	
 	codigoMetros = $(this).val();
 
-	var nuevoCodigo = codigoFecha + codigoTela + codigoColor + codigoMetros;
+	var nuevoCodigo = codigoFecha + codigoMetros + codigoColor + codigoTela ;
 	
 	$("#nuevoCodigo").val(nuevoCodigo);
 
@@ -107,12 +109,22 @@ $("#nuevoMetros").change(function(){
 	
 })
 
+$("#nuevoRollos").change(function(){
+	
+	codigoStock = $(this).val();
+	console.log("codigoStock", codigoStock);
+	
+})
+
+
+
+
 
 
 /*=============================================
 EDITAR PRODUCTOS
 =============================================*/
-console.log("prueba" );
+
 $(".tablaProductos").on("click", "button.btnEditarProducto", function(){
 
 
@@ -124,21 +136,21 @@ $(".tablaProductos").on("click", "button.btnEditarProducto", function(){
 	var datos = new FormData();
     datos.append("idProducto", idProducto);
 
-     $.ajax({
+    $.ajax({
 
-      url:"ajax/productos.ajax.php",
-      method: "POST",
-      data: datos,
-      cache: false,
-      contentType: false,
-      processData: false,
-      dataType:"json",
-      success:function(respuesta){
+    url:"ajax/productos.ajax.php",
+    method: "POST",
+    data: datos,
+    cache: false,
+    contentType: false,
+    processData: false,
+    dataType:"json",
+    success:function(respuesta){
 
 		console.log("respuesta", respuesta );
 
 		
-	  }
+	}
 
 })
 

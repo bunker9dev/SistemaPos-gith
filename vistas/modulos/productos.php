@@ -104,7 +104,7 @@
                 <div class="input-group-prepend">
                   <span class="input-group-text basic-addon1"> <i class="fas fa-calendar-alt"></i> </span>
                 </div>
-                <input type="date" class="form-control input-lg" name="nuevaFecha" id="nuevaFechaCompra"
+                <input type="date" class="form-control input-lg" name="nuevaFechaCompra" id="nuevaFechaCompra"
                   placeholder="Ingresar Fecha Compra" aria-label="fecha" aria-describedby="basic-addon1" required>
               </div>
             </div>
@@ -191,7 +191,7 @@
                     <div class="input-group-prepend">
                       <span class="input-group-text basic-addon1"><i class="fas fa-bullseye"></i></span>
                     </div>
-                    <input type="number" class="form-control input-lg" name="nuevoRollos" min="0" placeholder="stock"
+                    <input type="number" class="form-control input-lg" name="nuevoRollos" id="nuevoRollos" min="0" placeholder="stock"
                       aria-label="rollos" aria-describedby="basic-addon1" required>
                   </div>
                 </div>
@@ -222,9 +222,18 @@
         <div class="modal-footer">
           <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Salir</button>
           <button type="submit" class="btn btn-primary">Guardar Producto</button>
+
+
         </div>
 
       </form>
+
+      <?php
+
+        $crearProducto = new ControladorProductos();
+        $crearProducto -> ctrCrearProducto();
+
+      ?>
 
 
     </div>
