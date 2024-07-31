@@ -3,7 +3,7 @@
 /*=============================================
 EDITAR COLOR
 =============================================*/
- $(".tablas").on("click", ".btnEditarColor", function(){
+$(".tablas").on("click", ".btnEditarColor", function(){
 
 
 	var idColor = $(this).attr("idColor");
@@ -14,18 +14,18 @@ EDITAR COLOR
 	$.ajax({
 		url: "ajax/colores.ajax.php",
 		method: "POST",
-      	data: datos,
-      	cache: false,
-     	contentType: false,
-     	processData: false,
-     	dataType:"json",
-     	success: function(respuesta){
+    data: datos,
+    cache: false,
+    contentType: false,
+    processData: false,
+    dataType:"json",
+    success: function(respuesta){
 
 			
-     		$("#editarColor").val(respuesta["color"]);
+    $("#editarColor").val(respuesta["color"]);
 			$("#idColor").val(respuesta["idColor"]);
 			//  $("#editarUsuario").val(respuesta["Usuario"]);
-     	}
+    }
 	})
 })
 
@@ -47,12 +47,14 @@ $(".tablas").on("click", ".btnEliminarColor", function(){
         showCancelButton: true,
         confirmButtonColor: "#3085d6",
         cancelButtonColor: "#d33",
-        confirmButtonText: "Si, borrar Tela!"
+        cancelButtonText: "Cancelar",
+        confirmButtonText: "Si, borrar Color!"
       }).then((result)=>{
 
 		if(result.value){
 	
 			window.location = "index.php?ruta=colores&idColor="+idColor;
+			// window.location = "colores";
 	
 		}
 

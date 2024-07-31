@@ -114,7 +114,7 @@ PLUGLIN CSS
           $_GET["ruta"] == "categorias" ||
           $_GET["ruta"] == "colores" ||
           $_GET["ruta"] == "inventarios" ||
-          $_GET["ruta"] == "ventas-administrar" ||
+          $_GET["ruta"] == "ventas" ||
           $_GET["ruta"] == "ventas-crear" ||
           $_GET["ruta"] == "ventas-reportes" ||
           $_GET["ruta"] == "caja" ||

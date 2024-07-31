@@ -3,6 +3,9 @@
 require_once "../controladores/categorias.controlador.php";
 require_once "../modelos/categorias.modelo.php";
 
+require_once "../controladores/productos.controlador.php";
+require_once "../modelos/productos.modelo.php";
+
 class AjaxProductos
 {
 
@@ -69,6 +72,8 @@ if(isset($_POST["codigoTela"])){
 /*=============================================
 EDITAR PRODUCTO
 =============================================*/ 
+
+
 
 if(isset($_POST["idProducto"])){
 

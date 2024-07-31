@@ -89,13 +89,9 @@
 
         <!-- ############# / entrada ########### -->
 
-
-
-
         <div class="modal-body">
 
           <div class="card-body">
-
 
             <!-- Entrada Fecha  -->
             <div class="form-group">
@@ -108,7 +104,6 @@
                   placeholder="Ingresar Fecha Compra" aria-label="fecha" aria-describedby="basic-addon1" required>
               </div>
             </div>
-
 
             <div class="form-group">
               <div class="input-group">
@@ -170,7 +165,6 @@
 
             <div>
 
-
               <div class="form-group row ">
 
                 <!-- Entrada metros rollos -->
@@ -208,8 +202,6 @@
                 <input type="text" class="form-control input-lg" name="nuevoCodigo" id="nuevoCodigo"
                   placeholder="Código" value="" readonly>
 
-
-
               </div>
             </div>
 
@@ -223,7 +215,6 @@
           <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Salir</button>
           <button type="submit" class="btn btn-primary">Guardar Producto</button>
 
-
         </div>
 
       </form>
@@ -234,7 +225,6 @@
         $crearProducto -> ctrCrearProducto();
 
       ?>
-
 
     </div>
   </div>
@@ -267,13 +257,9 @@
 
         <!-- ############# / entrada ########### -->
 
-
-
-
         <div class="modal-body">
 
           <div class="card-body">
-
 
             <!-- Entrada Fecha  -->
             <div class="form-group">
@@ -287,15 +273,31 @@
               </div>
             </div>
 
-
             <div class="form-group">
               <div class="input-group">
-                <span class="input-group-text basic-addon1"> <i class="fas fa-layer-group"></i> </span>
+                <!-- <span class="input-group-text basic-addon1"> <i class="fas fa-layer-group"></i> </span>
                 <select type="text" class="form-control input-lg" name="editarTipoTela" 
                   required>
-                  <option id="editarTipoTela"></option>
+                  <option id="editarTipoTela" value=""></option> -->
 
-                  
+                  <span class="input-group-text basic-addon1"> <i class="fas fa-layer-group"></i> </span>
+                <select type="text" class="form-control input-lg" name="editarTipoTela" id="editarTipoTela"
+                  placeholder="Ingresar tipo de tela" required>
+                  <option id="mostrarTipoTela"  value="">Selecionar tipo de tela</option>
+
+                  <?php
+
+                  $item = null;
+                  $valor = null;
+
+                  $categorias = ControladorCategorias::ctrMostrarCategorias($item, $valor);
+
+                  foreach ($categorias as $key => $value) {
+
+                    echo '<option value="' . $value["id"] . '">' . $value["categoria"] . '</option>';
+                  }
+
+                  ?>
 
                 </select>
               </div>
@@ -307,9 +309,24 @@
 
               <div class="input-group">
                 <span class="input-group-text basic-addon1"> <i class="fas fa-palette"></i> </span>
-                <select type="text" class="form-control input-lg" name="editarColorTela" 
+                <select type="text" class="form-control input-lg" name="editarColorTela" id="editarColorTela"
                   required>
-                  <option id="editarColorTela"></option>
+                  <option id="mostrarColorTela"></option>
+
+                  <?php
+
+                  $item = null;
+                  $valor = null;
+
+                  $colores = ControladorColores::ctrMostrarColores($item, $valor);
+
+                  foreach ($colores as $key => $value) {
+
+                    echo '<option value="' . $value["idColor"] . '">' . $value["color"] . '</option>';
+                  }
+
+                  ?>
+                  
 
                 </select>
 
@@ -357,8 +374,8 @@
             <div class="form-group">
               <div class="input-group">
                 <span class="input-group-text basic-addon1"> <i class="fab fa-slack"></i> </span>
-                <input type="text" class="form-control input-lg" name="nuevoCodigo" id="nuevoCodigo"
-                  placeholder="Código" value="" readonly>
+                <input type="text" class="form-control input-lg" name="editarCodigo" id="editarCodigo"
+                  value="" readonly>
 
 
 
@@ -372,12 +389,20 @@
 
         <!-- Modal footer -->
         <div class="modal-footer">
+
           <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Salir</button>
           <button type="submit" class="btn btn-primary">Guardar Cambios</button>
         
         </div>
 
       </form>
+      
+      <?php
+      
+        $editarProducto = new ControladorProductos();
+        $editarProducto -> ctrEditarProducto();
+      
+      ?>
 
       
 
@@ -385,6 +410,13 @@
   </div>
 </div>
 
+
+<?php
+
+$borrarColor = new ControladorProductos();
+$borrarColor -> ctrBorrarProducto();
+
+?>
 
 
 

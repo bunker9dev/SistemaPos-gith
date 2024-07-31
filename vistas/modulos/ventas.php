@@ -39,12 +39,13 @@
           <thead>
             <tr>
               <th>#</th>
-              <th>Remision</th>
-              <th>cliente</th>
+              <th>Código Remisión</th>
+              <th>Nombre Cliente</th>
+              <th>Apellido Cliente</th>
               <th>Vendedor</th>
               <th>Forma de pago</th>
               <th>Valor Total</th>
-              <th>Fecha</th>
+              <th>Fecha Venta</th>
               <th>Acciones</th>
             </tr>
           </thead>
@@ -53,7 +54,8 @@
             <tr>
               <td>1</td>
               <td>100001</td>
-              <td>Carlos Zapata</td>
+              <td>Carlos</td>
+              <td>Zapata</td>
               <td>Antonio24</td>
               <td>Efectivo</td>
               <td>$200.000</td>

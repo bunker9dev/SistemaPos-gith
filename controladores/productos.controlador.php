@@ -27,12 +27,11 @@ class ControladorProductos
 	{
 		if (isset($_POST["nuevoTipoTela"])) {
 
-
-var_dump($_POST["nuevoTipoTela"]);
+		var_dump($_POST["nuevoTipoTela"]);
 			
-
 			$tabla = "productos";
 			$datos = array(
+				"idProducto"=> $_POST["idProducto"],
 				"fechaCompra" => $_POST["nuevaFechaCompra"],
 				"CodigoProducto" => $_POST["nuevoCodigo"],
 				"idTela" => $_POST["nuevoTipoTela"],
@@ -43,11 +42,6 @@ var_dump($_POST["nuevoTipoTela"]);
 				
 			);
 			
-			
-			
-		
-
-
 			$respuesta = ModeloProductos::mdlIngresarProducto($tabla, $datos);
 
 			if ($respuesta == "ok") {
@@ -69,27 +63,68 @@ var_dump($_POST["nuevoTipoTela"]);
 				</script>';
 			}
 
+		} 
+
+	}
+
+	
+	/*=============================================
+	EDITAR PRODUCTOS
+	=============================================*/
+	static public function ctrEditarProducto()
+	{
+		if (isset($_POST["editarTipoTela"])) {
+
+	var_dump($_POST["editarTipoTela"]);
+	
+			
+			$tabla = "productos";
+			$datos = array(
+
+				// "idProducto" => $_POST["idProducto"],
+				// "CodigoProducto" => $_POST["editarCodigo"],
+				// "idTela" => $_POST["editarTipoTela"],
+				// "idColor" => $_POST["editarColorTela"],
+				// "metrosRollo" => $_POST["editarMetros"],
+				// "stock" => $_POST["editarRollos"],
+				// "usuario" => $_SESSION["usuario"],
+				// "fechaCompra" => $_POST["editarFechaCompra"]
+
+				"idProducto" => $_POST["idProducto"],
+				"CodigoProducto" => $_POST["editarNuevoCodigo"],
+				"idTela" => $_POST["editarCodigoTela"],
+				"idColor" => $_POST["editarCodigoColor"],
+				"metrosRollo" => $_POST["editarCodigoMetros"],
+				"stock" => $_POST["codigoStock"],
+				"usuario" => $_SESSION["usuario"],
+				"fechaCompra" => $_POST["editarCodigoFecha"]
+				
+			);
+			
+			var_dump($datos);	 
+			
+			$respuesta = ModeloProductos::mdlEditarProducto($tabla, $datos);
+
+			if ($respuesta == "ok") {
+
+				echo '<script>
+
+				Swal.fire({
+					icon: "successs",
+					title: "Modificado",
+					text: "¡El Producto ha sido Modificado correctamente!",
+					}).then(function(result){
+							if (result.value) {
+	
+								window.location = "productos";
+	
+								}
+					})
+
+				</script>';
+			}
 
 		} 
-		// else {
-
-		// 	echo '<script>
-
-		// 				Swal.fire({
-		// 					icon: "error",
-		// 					title: "Ten en cuenta",
-		// 					text: "¡El Producto no puede ir vacío o llevar caracteres especiales!",
-		// 					}).then(function(result){
-		// 							if (result.value) {
-
-		// 					window.location = "productos";
-
-		// 						}
-		// 								})
-
-		// 			</script>';
-
-		// }
 
 	}
 
@@ -97,4 +132,53 @@ var_dump($_POST["nuevoTipoTela"]);
 
 
 
+	/*=============================================
+	BOORAR PRODUCTOS
+	=============================================*/
+	static public function ctrBorrarProducto(){
+
+		if (isset($_GET["idProducto"])) {
+			
+			$tabla ="productos";
+			$datos = $_GET["idProducto"];
+
+			$respuesta = ModeloProductos::mdlBorrarProducto($tabla, $datos);
+
+			if($respuesta == "ok"){
+
+				echo'<script>
+
+					Swal.fire({
+						title: "Producto Borrado!",
+						text: "El Producto ha sido borrado correctamente.",
+						icon: "success"
+						}).then(function(result){
+							if (result.value) {
+
+								window.location = "Productos";
+							}
+						})
+
+					</script>';
+			}else{
+				echo'<script>
+
+				Swal.fire({
+					title: "problemas!",
+					text: "verificar.",
+					icon: "success"
+					}).then(function(result){
+						if (result.value) {
+
+							window.location = "Productos";
+						}
+					})
+
+				</script>';
+
+
+		}
+		
+	}
+	}
 }

@@ -41,13 +41,13 @@ class ControladorColores
                                                 }
                                             })
  
-                     </script>';
+                    </script>';
 				}
 			} else {
 
 				echo '<script>
 
-				 Swal.fire({
+				Swal.fire({
 					icon: "error",
 					title: "Ten en cuenta",
 					text: "¡El Color de Tela no puede ir vacío o llevar caracteres especiales!",
@@ -59,7 +59,7 @@ class ControladorColores
 								}
 										})
 
-			  	</script>';
+			</script>';
 			}
 		}
 	}
@@ -107,7 +107,7 @@ class ControladorColores
 					echo'<script>
 
 
-				   Swal.fire({
+				Swal.fire({
 						icon: "successs",
 						title: "Color Modificado",
 						text: "¡El Color ha sido Modificado correctamente!",
@@ -137,7 +137,7 @@ class ControladorColores
 								}
 							})
 
-			  	</script>';
+			</script>';
 			}
 		}
 	}

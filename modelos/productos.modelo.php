@@ -72,9 +72,75 @@ class ModeloProductos
 
 		$stmt = null;
 
+	}
 
 
+
+
+	/*=====================================
+	EDITAR PRODUCTOS
+	======================================*/
+
+	static public function mdlEditarProducto($tabla, $datos){
+
+
+		// var_dump($datos);	    
+	
+
+
+		$stmt = Conexion::conectar()->prepare("UPDATE $tabla SET CodigoProducto = :CodigoProducto, idTela = :idTela, idColor = :idColor, metrosRollo = :metrosRollo, stock = :stock, usuario = :usuario, fechaCompra = :fechaCompra WHERE idProducto = :idProducto");
+
+		
+		
+		$stmt->bindParam(":idProducto", $datos["idProducto"], PDO::PARAM_INT);
+		$stmt->bindParam(":CodigoProducto", $datos["CodigoProducto"], PDO::PARAM_INT);
+		$stmt->bindParam(":idTela", $datos["idTela"], PDO::PARAM_INT);
+		$stmt->bindParam(":idColor", $datos["idColor"], PDO::PARAM_INT);
+		$stmt->bindParam(":metrosRollo", $datos["metrosRollo"], PDO::PARAM_INT);
+		$stmt->bindParam(":stock", $datos["stock"], PDO::PARAM_INT);
+		$stmt->bindParam(":usuario", $datos["usuario"], PDO::PARAM_STR);
+		$stmt->bindParam(":fechaCompra", $datos["fechaCompra"], PDO::PARAM_STR_NATL);
+
+		var_dump($stmt);
+
+		if($stmt->execute()){
+
+			return "ok";
+
+		}else{
+
+			return "error";
+		
+		}
+
+		$stmt = null;
 
 	}
-	
+
+
+
+	/*=============================================
+	BORRAR PRODUCTO
+	=============================================*/
+
+	static public function mdlBorrarProducto($tabla, $datos){
+
+		$stmt = Conexion::conectar()->prepare("DELETE FROM $tabla WHERE idProducto = :idProducto");
+
+		$stmt -> bindParam(":idProducto", $datos, PDO::PARAM_INT);
+
+		if($stmt -> execute()){
+
+			return "ok";
+		
+		}else{
+
+			return "error";	
+
+		}
+
+		$stmt = null;
+
+	}
+
 }

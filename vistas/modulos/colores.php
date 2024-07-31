@@ -25,15 +25,15 @@
         <!-- Default box -->
         <div class="card">
 
-            <div class="card-header with-border" >
+            <div class="card-header with-border">
                 <button class="btn btn-primary" data-toggle="modal" data-target="#modalAgregarColor">
                     Agregar Color
                 </button>
             </div>
 
             <div class="card-body">
-                
-            <table class="table table-bordered table-hover dt-responsive tablas" width="100%">
+
+                <table class="table table-bordered table-hover dt-responsive tablas" width="100%">
 
                     <thead>
                         <tr>
@@ -50,14 +50,14 @@
 
                         <?php
 
-                            $item = null;
-                            $valor = null;
+                        $item = null;
+                        $valor = null;
 
-                            $colores = ControladorColores::ctrMostrarColores($item, $valor);
-                            
-                            // var_dump($colores);
+                        $colores = ControladorColores::ctrMostrarColores($item, $valor);
 
-                            foreach ($colores as $key => $value) {
+                        // var_dump($colores);
+                        
+                        foreach ($colores as $key => $value) {
 
                             echo ' <tr>
 
@@ -80,13 +80,13 @@
                                         </td>
 
                                     </tr>';
-                            }
+                        }
 
                         ?>
 
-                    <!-- </tbody> -->
+                        <!-- </tbody> -->
 
-                    <!-- ######## /tbody ######### -->
+                        <!-- ######## /tbody ######### -->
 
 
                 </table>
@@ -131,8 +131,9 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text basic-addon1"> <i class="fas fa-palette"></i> </span>
                                 </div>
-                                    <input type="text" class="form-control input-lg" name="nuevoColor"
-                                    placeholder="Ingresar color" aria-label="Color" aria-describedby="basic-addon1 required>" required>
+                                <input type="text" class="form-control input-lg" name="nuevoColor"
+                                    placeholder="Ingresar color" aria-label="Color"
+                                    aria-describedby="basic-addon1 required>" required>
                             </div>
                         </div>
 
@@ -149,8 +150,8 @@
 
                 <?php
 
-                    $crearColor = new ControladorColores();
-                    $crearColor->ctrCrearColor();
+                $crearColor = new ControladorColores();
+                $crearColor->ctrCrearColor();
 
                 ?>
 
@@ -168,82 +169,83 @@ MODAL EDITAR COLOR
 
 <div id="modalEditarColor" class="modal fade" role="dialog">
 
-  <div class="modal-dialog">
+    <div class="modal-dialog">
 
-    <div class="modal-content">
+        <div class="modal-content">
 
-      <form role="form" method="post">
+            <form role="form" method="post">
 
-        <!--=====================================
+                <!--=====================================
         CABEZA DEL MODAL
         ======================================-->
 
-        <div class="modal-header" style="background-color: #007bff; color:#ffffff">
-          
-          <h4 class="modal-title">Editar Color</h4>
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <div class="modal-header" style="background-color: #007bff; color:#ffffff">
 
-        </div>
+                    <h4 class="modal-title">Editar Color</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
 
-        <!--=====================================
+                </div>
+
+                <!--=====================================
         CUERPO DEL MODAL
         ======================================-->
 
-        <div class="modal-body">
+                <div class="modal-body">
 
-          <div class="box-body">
+                    <div class="box-body">
 
-            <!-- ENTRADA PARA EL NOMBRE -->
+                        <!-- ENTRADA PARA EL NOMBRE -->
 
 
-            <!-- Entrada Tipo de Tela -->
-            <div class="form-group">
-              <div class="input-group mb-3">
-                <div class="input-group-prepend">
-                  <span class="input-group-text basic-addon1"> <i class="fas fa-palette"></i> </span>
+                        <!-- Entrada Tipo de Tela -->
+                        <div class="form-group">
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text basic-addon1"> <i class="fas fa-palette"></i> </span>
+                                </div>
+
+                                <input type="text" class="form-control input-lg" name="editarColor" id="editarColor"
+                                    required>
+                                <input type="hidden" name="idColor" id="idColor" required>
+
+                            </div>
+                        </div>
+
+                    </div>
+
                 </div>
 
-                <input type="text" class="form-control input-lg" name="editarColor" id="editarColor" required>
-                <input type="hidden" name="idColor" id="idColor" required>
-
-              </div>
-            </div>
-
-          </div>
-
-        </div>
-
-        <!--=====================================
+                <!--=====================================
         PIE DEL MODAL
         ======================================-->
 
-        <div class="modal-footer">
+                <div class="modal-footer">
 
-          <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Salir</button>
+                    <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Salir</button>
 
-          <button type="submit" class="btn btn-primary">Guardar cambios</button>
+                    <button type="submit" class="btn btn-primary">Guardar cambios</button>
+
+                </div>
+
+                <?php
+
+                $editarColor = new ControladorColores();
+                $editarColor->ctrEditarColor();
+
+                ?>
+
+            </form>
 
         </div>
 
-        <?php
-
-          $editarColor = new ControladorColores();
-          $editarColor -> ctrEditarColor();
-
-        ?>
-
-      </form>
-
     </div>
-
-  </div>
 
 </div>
 
 <?php
 
-  $borrarColor = new ControladorColores();
-  $borrarColor -> ctrBorrarColor();
+$borrarColor = new ControladorColores();
+$borrarColor->ctrBorrarColor();
 
 ?>
 
