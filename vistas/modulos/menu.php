@@ -20,7 +20,7 @@
 							echo '<img src="'.$_SESSION["foto"].'" class="user-image img-circle elevation-2" alt="User Image">';
 
 						}else{
-							echo '<img src="vistas/img/plantilla/1-icon-setting.svg" alt="User Image" class="user-image img-circle elevation-2">';
+							echo '<img src="vistas/img/plantilla/icon-man1.svg" alt="User Image" class="user-image img-circle elevation-2">';
 						}
 
 						?>

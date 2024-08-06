@@ -1,13 +1,20 @@
 <?php
 
-// class ControladorPlantilla{
 
-// public function ctrPlantilla(){
+class ControladorVentas{
 
-// 	include "vistas/plantilla.php";
-// }
+	/*=============================================
+	MOSTRAR VENTAS
+	=============================================*/
 
+	static public function ctrMostrarVentas($item, $valor){
 
+		$tabla = "ventas";
 
+		$respuesta = ModeloVentas::mdlMostrarVentas($tabla, $item, $valor);
 
-// }
+		return $respuesta;
+
+	}
+
+}

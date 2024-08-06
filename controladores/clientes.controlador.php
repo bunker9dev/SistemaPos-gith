@@ -1,6 +1,7 @@
 <?php
 
-class ControladorClientes{
+class ControladorClientes
+{
 
 
     /*--=====================================
@@ -8,109 +9,177 @@ class ControladorClientes{
     ====================================== */
 
 
-    static public function ctrCrearCliente(){
-        if(isset($_POST["nuevoNombreCliente"])){
+    static public function ctrCrearCliente()
+    {
+        if (isset($_POST["nuevoNombreCliente"])) {
 
 
-            if(preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["nuevoNombreCliente"]) &&
-               preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["nuevoApellidoCliente"]) &&
-               preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["nuevaCiudadCliente"]) ){
+            if (
+                preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["nuevoNombreCliente"]) &&
+                preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["nuevoApellidoCliente"]) &&
+                preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["nuevaCiudadCliente"])
+            ) {
 
                 $tabla = "clientes";
 
-                $datosClientes = array("nombre"=>$_POST["nuevoNombreCliente"],
-					           "apellido"=>$_POST["nuevoApellidoCliente"],
-					           "ciudad"=>$_POST["nuevaCiudadCliente"],
-                               "creado_por"=>$_SESSION["usuario"]
-                            );
+                $datosClientes = array(
+                    "nombre" => $_POST["nuevoNombreCliente"],
+                    "apellido" => $_POST["nuevoApellidoCliente"],
+                    "ciudad" => $_POST["nuevaCiudadCliente"],
+                    "creado_por" => $_SESSION["usuario"]
+                );
 
-                
+
                 $respuesta = ModeloClientes::mdlIngresarCliente($tabla, $datosClientes);
 
                 if ($respuesta == "ok") {
 
 
                     echo '<script>
-          
-                          Swal.fire({
-                          icon: "successs",
-                          title: "Cliente guardado",
-                          text: "¡El Cliente ha sido guardado correctamente!",
-                          }).then(function(result){
-                                                  if (result.value) {
-          
-                                                  window.location = "clientes";
-          
-                                                  }
-                                              })
+                        Swal.fire({
+                        icon: "successs",
+                        title: "Cliente guardado",
+                        text: "¡El Cliente ha sido guardado correctamente!",
+                        }).then(function(result){
+                                            if (result.value) {
+                                                window.location = "clientes";
+                                                }
+                                            })
                         </script>';
-                  }
+                }
 
 
-               }else{
+            } else {
 
-                    echo '<script>
+                echo '<script>
             
                             Swal.fire({
                             icon: "error",
                             title: "Ten en cuenta",
                             text: "¡Los datos no puede ir vacíos o llevar caracteres especiales!",
                             }).then(function(result){
-                                     if (result.value) {
+                                    if (result.value) {
             
-                                         window.location = "clientes";
+                                        window.location = "clientes";
             
                                     }
                                 })
-                          </script>';
+                        </script>';
             }
-
-
-    
         }
-
-
-
-
     }
+
+
+    /*--=====================================
+    CREAR CLIENTES
+    ====================================== */
+
+
+    static public function ctrCrearCliente2()
+    {
+        if (isset($_POST["nuevoNombreCliente"])) {
+
+
+            if (
+                preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["nuevoNombreCliente"]) &&
+                preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["nuevoApellidoCliente"]) &&
+                preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["nuevaCiudadCliente"])
+            ) {
+
+                $tabla = "clientes";
+
+                $datosClientes = array(
+                    "nombre" => $_POST["nuevoNombreCliente"],
+                    "apellido" => $_POST["nuevoApellidoCliente"],
+                    "ciudad" => $_POST["nuevaCiudadCliente"],
+                    "creado_por" => $_SESSION["usuario"]
+                );
+
+
+                $respuesta = ModeloClientes::mdlIngresarCliente($tabla, $datosClientes);
+
+                if ($respuesta == "ok") {
+
+
+                    echo '<script>
+                        Swal.fire({
+                        icon: "successs",
+                        title: "Cliente guardado",
+                        text: "¡El Cliente ha sido guardado correctamente!",
+                        }).then(function(result){
+                                            if (result.value) {
+                                                window.location = "ventas-crear";
+                                                }
+                                            })
+                        </script>';
+                }
+
+
+            } else {
+
+                echo '<script>
+            
+                            Swal.fire({
+                            icon: "error",
+                            title: "Ten en cuenta",
+                            text: "¡Los datos no puede ir vacíos o llevar caracteres especiales!",
+                            }).then(function(result){
+                                    if (result.value) {
+            
+                                        window.location = "ventas-crear";
+            
+                                    }
+                                })
+                        </script>';
+            }
+        }
+    }
+
+
+
 
 
     /*--=====================================
     MOSTRAR CLIENTES
     ====================================== */
-    
-    static public function ctrMostrarClientes($item, $valor){
 
-		$tabla = "clientes";
+    static public function ctrMostrarClientes($item, $valor)
+    {
 
-		$respuesta = ModeloClientes::mdlMostrarClientes($tabla, $item, $valor);
+        $tabla = "clientes";
 
-		return $respuesta;
+        $respuesta = ModeloClientes::mdlMostrarClientes($tabla, $item, $valor);
 
-	}
+        return $respuesta;
 
-
-    
-	/*=============================================
-	EDITAR CLIENTE
-	=============================================*/
-
-    static public function ctrEditarCliente(){
-        if(isset($_POST["editarNombreCliente"])){
+    }
 
 
-            if(preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["editarNombreCliente"]) &&
-               preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["editarApellidoCliente"]) &&
-               preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["editarCiudadCliente"]) ){
+
+    /*=============================================
+       EDITAR CLIENTE
+       =============================================*/
+
+    static public function ctrEditarCliente()
+    {
+        if (isset($_POST["editarNombreCliente"])) {
+
+
+            if (
+                preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["editarNombreCliente"]) &&
+                preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["editarApellidoCliente"]) &&
+                preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["editarCiudadCliente"])
+            ) {
 
                 $tabla = "clientes";
 
-                $datosClientes = array("idCliente"=>$_POST["idCliente"],
-                                        "nombre"=>$_POST["editarNombreCliente"],
-					                    "apellido"=>$_POST["editarApellidoCliente"],
-					                    "ciudad"=>$_POST["editarCiudadCliente"],
-                                        "creado_por"=>$_SESSION["usuario"]
-                                    );
+                $datosClientes = array(
+                    "idCliente" => $_POST["idCliente"],
+                    "nombre" => $_POST["editarNombreCliente"],
+                    "apellido" => $_POST["editarApellidoCliente"],
+                    "ciudad" => $_POST["editarCiudadCliente"],
+                    "creado_por" => $_SESSION["usuario"]
+                );
 
                 $respuesta = ModeloClientes::mdlEditarCliente($tabla, $datosClientes);
 
@@ -131,12 +200,12 @@ class ControladorClientes{
                                                   }
                                               })
                         </script>';
-                  }
+                }
 
 
-               }else{
+            } else {
 
-                    echo '<script>
+                echo '<script>
             
                             Swal.fire({
                             icon: "error",
@@ -153,7 +222,7 @@ class ControladorClientes{
             }
 
 
-    
+
         }
 
 
@@ -162,24 +231,25 @@ class ControladorClientes{
     }
 
 
-    
 
-	/*=============================================
-	ELIMINAR CLIENTE
-	=============================================*/
 
-	static public function ctrEliminarCliente(){
+    /*=============================================
+       ELIMINAR CLIENTE
+       =============================================*/
 
-		if(isset($_GET["idCliente"])){
+    static public function ctrEliminarCliente()
+    {
 
-			$tabla ="clientes";
-			$datos = $_GET["idCliente"];
+        if (isset($_GET["idCliente"])) {
 
-			$respuesta = ModeloClientes::mdlEliminarCliente($tabla, $datos);
+            $tabla = "clientes";
+            $datos = $_GET["idCliente"];
 
-			if($respuesta == "ok"){
+            $respuesta = ModeloClientes::mdlEliminarCliente($tabla, $datos);
 
-				echo'<script>
+            if ($respuesta == "ok") {
+
+                echo '<script>
 
 				Swal.fire({
           title: "Cliente Borrado!",
@@ -195,16 +265,16 @@ class ControladorClientes{
 
 				</script>';
 
-			}		
+            }
 
-		}
+        }
 
-	}
+    }
 }
 
 
 
-	
+
 
 
 

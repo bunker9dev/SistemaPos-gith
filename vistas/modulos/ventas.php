@@ -27,9 +27,11 @@
 
       <div class="card-header">
         <a href="ventas-crear">
-          <button class="btn btn-primary">
-            Agregar ventas
-          </button>
+          <a href="ventas-crear">
+            <button class="btn btn-primary">
+              Agregar ventas
+            </button>
+          </a>
         </a>
       </div>
 
