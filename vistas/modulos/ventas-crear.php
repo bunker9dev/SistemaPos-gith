@@ -27,11 +27,11 @@
       ============================================= -->
 
 
-      <div class="col col-lg-5 col-sm-12">
+      <div class="col col-lg-6 col-sm-12">
         <div class="card card-success">
           <div class="card-header with-border"></div>
           <div class="card-body">
-            <form role="form" method="post">
+            <form role="form" method="post" class="formularioVenta">
               <div class="card">
 
                 <div class="form-group row ">
@@ -149,43 +149,12 @@
                 <!--=====================================
                 ENTRADA PRODUCTOS
                 ======================================-->
+                
                 <div class="form-group row nuevoProducto">
 
-                  <div class="col-sm-6" style="padding: rigth 0px">
-
-                    <div class="input-group-prepend">
-
-                      <span class="input-group-prepend"><button type="button" class="btn btn-danger btn-sm"> <i
-                            class="fa fa-times"></i> </button></span>
-
-                      <input type="text" class="form-control" id="agregarProducto" name="agregarProducto"
-                        placeholder="Descripcion del producto" required>
-
-                    </div>
-
-                  </div>
-
-                  <div class="col-sm-3">
-
-                    <input type="number" class="form-control" id="NuevaCantidadProducto" name="NuevaCantidadProducto"
-                      min="1" placeholder="0" required>
-
-                  </div>
-
-                  <div class="col-sm-3 align-self-end" style="padding: left 0px">
-
-                    <div class="input-group-prepend">
-
-
-                      <label class="input-group-text" for="inputGroupSelect01"> <i
-                          class="fas fa-dollar-sign"></i></label>
-
-                      <input type="number" min="1" class="form-control" id="nevoPrecioProducto"
-                        name="nuevoPrecioProducto" placeholder="000000" required>
-
-                    </div>
-                  </div>
+                  
                 </div>
+                <input type="hidden" id="listaProductos" name="listaProductos">
 
                 <!-- =============================================
                 BOTON AGREGAR PRODUCTOS 
@@ -293,18 +262,18 @@
       <!--=====================================
       LA TABLA DE PRODUCTOS
       ======================================-->
-      <div class="col col-lg-7  d-none d-lg-block ">
+      <div class="col col-lg-6  d-none d-lg-block ">
         <div class="card card-warning">
           <div class="card-header with-border"></div>
           <div class="card-body">
             <div class="card">
-              <table class="table table-bordered table-striped dt-responsive tablas">
+              <table class="table table-bordered table-striped dt-responsive tablaVentas">
 
                 <thead>
 
                   <tr>
                     <th style="width: 10px">#</th>
-                    <th>Código</th>
+                    <th style="width: 120px">Código</th>
                     <th>Tipo tela</th>
                     <th>Color</th>
                     <th>mtrs x rollo</th>
@@ -314,22 +283,7 @@
 
                 </thead>
 
-                <tbody>
-
-                  <tr>
-                    <td>1.</td>
-                    <td>2407114504101</td>
-                    <td>Antifluido F.E.</td>
-                    <td>AZUL CELESTE</td>
-                    <td>50</td>
-                    <td>20</td>
-                    <td>
-                      <div class="btn-group">
-                        <button type="button" class="btn btn-primary">Agregar</button>
-                      </div>
-                    </td>
-                  </tr>
-                  </tbody>
+                
 
             </table>
             </div>
@@ -427,3 +381,4 @@ MODAL AGREGAR CLIENTE
     </div>
   </div>
 </div>
+
