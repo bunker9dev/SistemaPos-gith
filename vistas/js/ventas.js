@@ -176,30 +176,21 @@ $(".tablaVentas tbody").on("click", "button.agregarProducto", function(){
                     icon: "error",
                     title: "Oops...",
                     text: "No hay stock disponible",
-                   
-                  });
+                
+                });
 
-                  $("button[idProducto='"+idProducto+"']").addClass("btn-primary agregarProducto");
+                $("button[idProducto='"+idProducto+"']").addClass("btn-primary agregarProducto");
 
                 return;
             }
                 
                 
-                // swal({
-                //     title: "No hay stock disponible",
-                //     type: "error",
-                //     confirmButtonText: "¡Cerrar!"
-                //     });
-
-                //     $("button[idProducto='"+idProducto+"']").addClass("btn-primary agregarProducto");
-
-                // return;
+        
 
 
+        $(".nuevoProducto").append(
 
-          	$(".nuevoProducto").append(
-
-               
+            
                 '<div class="row" style="padding:5px 10px">'+
 
                     '<div class="col-sm-6" style="padding: rigth 0px">'+
@@ -210,7 +201,7 @@ $(".tablaVentas tbody").on("click", "button.agregarProducto", function(){
 
 
 
-                            '<input type="text" class="form-contro nuevaDescripcionProducto" idProducto="'+idProducto+'" name="agregarProducto" value="'+ metros + color + tela  +'" required>'+
+                            '<input type="text" class="form-control nuevaDescripcionProducto" idProducto="'+idProducto+'" name="agregarProducto" value="'+ metros + color + tela  +'" required>'+
 
                         '</div>'+
 
@@ -354,8 +345,206 @@ $(".formularioVenta").on("click", "button.quitarProducto", function(){
 
 	}
 
-
-
-
 });
+
+
+
+
+/*=============================================
+AGREGANDO PRODUCTOS DESDE EL BOTÓN PARA DISPOSITIVOS
+=============================================*/
+
+// var numProducto = 0;
+
+$(".btnAgregarProducto").click(function(){
+
+	// numProducto ++;
+
+	var datos = new FormData();
+	datos.append("traerProductos", "ok");
+
+	$.ajax({
+
+        url:"ajax/productos.ajax.php",
+        method: "POST",
+        data: datos,
+        cache: false,
+        contentType: false,
+        processData: false,
+        dataType:"json",
+        success:function(respuesta){
+
+            console.log("respuesta",respuesta)
+
+// #################################
+// #################################
+// #######    Prueba    ############
+
+    var idCategoria = respuesta[2];
+    // var idCategoria = $(this).attr("idTela");
+    // var idCategoria = respuesta["idTela"];
+    console.log("idCategoria", idCategoria)
+
+    var datos = new FormData();
+	datos.append("idCategoria", idCategoria);
+
+    $.ajax({
+        url: "ajax/categorias.ajax.php",
+        method: "POST",
+        data: datos,
+        cache: false,
+        contentType: false,
+        processData: false,
+        dataType:"json",
+        success:function(respuesta){
+            console.log("respuesta", respuesta)
+
+         }
+        
+        }) 
+
+
+
+// #######   fin  Prueba    ########
+// #################################
+// #################################
+
+         
+
+	$(".nuevoProducto").append(
+
+
+                '<div class="row" style="padding:5px 10px">'+
+
+                    '<div class="col-sm-6" style="padding: rigth 0px">'+
+
+                        '<div class="input-group-prepend">'+
+
+                            '<span class="input-group-prepend"><button type="button" class="btn btn-danger btn-sm quitarProducto" idProducto><i class="fa fa-times"></i> </button></span>'+
+
+
+
+                            '<select class="form-control nuevaDescripcionProducto" idProducto name="nuevaDescripcionProducto"  required>'+
+
+                            '<option>Seleccione el producto</option>'+
+
+	                        '</select>'+ 
+
+                        '</div>'+
+
+                    '</div>'+
+
+                    '<div class="col-sm-1">'+
+
+                        '<input type="number" class="form-control" id="NuevaCantidadProducto" name="NuevaCantidadProducto" min="1" value = "1" stock required>'+
+
+                    '</div>'+
+
+                    '<div class="col-sm-2 align-self-end">'+
+
+                        '<div class="input-group-prepend">'+
+
+
+                            '<label class="input-group-text" for="inputGroupSelect01"> <i class="fas fa-dollar-sign"></i></label>'+
+
+                            '<input type="number" min="1" class="form-control" id="nevoPrecioProducto" name="nuevoPrecioProducto" value="" required>'+
+
+                        '</div>'+
+                    '</div>'+
+
+                    '<div class="col-sm-3 align-self-end" style="padding: left 0px">'+
+
+                            '<div class="input-group-prepend">'+
+
+
+                        '<label class="input-group-text" for="inputGroupSelect01"> <i class="fas fa-dollar-sign"></i></label>'+
+
+                        '<input type="number" min="1" class="form-control" id="nevoPrecioTotal" name="nuevoPrecioTotal" placeholder="000000" readonly>'+
+
+                    '</div>'+
+                '</div>'+
+            '</div>');
+
+             // AGREGAR LOS PRODUCTOS AL SELECT 
+
+	        respuesta.forEach(funcionForEach);
+
+	        function funcionForEach(item, index){
+
+                if(item.stock != 0){
+
+                    $(".nuevaDescripcionProducto").append(
+                        '<option idProducto="'+item.idProducto+'" value="'+item.idTela+'">'+item.idTela+'</option>'
+                    )
+                    $(".NuevaCantidadProducto").append(
+                        '<option idProducto="'+item.idProducto+'" value="'+item.metrosRollo+'">'+item.metrosRollo+'</option>'
+                    )
+                }
+
+            }
+        }
+
+    })     
+
+})     
+
+/*=============================================
+SELECCIONAR PRODUCTO
+=============================================*/
+$(".formularioVenta").on("change", "select.nuevaDescripcionProducto", function(){
+
+    var idCategoria = $(this).val();
+    // var idCategoria = $(this).attr("idTela");
+    console.log("idCategoria", idCategoria)
+
+    var datos = new FormData();
+	datos.append("idCategoria", idCategoria);
+
+    $.ajax({
+        url: "ajax/categorias.ajax.php",
+        method: "POST",
+        data: datos,
+        cache: false,
+        contentType: false,
+        processData: false,
+        dataType:"json",
+        success:function(respuesta){
+            console.log("respuesta", respuesta)
+
+         }
+        
+        }) 
+
+} )  
+            
+                
+                
+                // if(item.stock != 0){
+
+                //     $("#producto"+numProducto).append(
+
+                //             '<option idProducto="'+item.id+'" value="'+item.descripcion+'">'+item.descripcion+'</option>'
+                //     )
+
+                // }
+
+
+
+
+	//         // SUMAR TOTAL DE PRECIOS
+
+	//         sumarTotalPrecios()
+
+	//         // AGREGAR IMPUESTO
+
+	//         agregarImpuesto()
+
+	//         // AGRUPAR PRODUCTOS EN FORMATO JSON
+
+	//         listarProductos()
+
+	//         // PONER FORMATO AL PRECIO DE LOS PRODUCTOS
+
+	//         $(".nuevoPrecioProducto").number(true, 2);
+
 

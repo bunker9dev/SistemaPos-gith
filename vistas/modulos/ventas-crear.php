@@ -160,7 +160,7 @@
                 BOTON AGREGAR PRODUCTOS 
                 ============================================= -->
 
-                <button class="d-grid gap-2 col-4 mx-auto d-lg-none d-xxl-none btn btn-info" type="button">Agregar
+                <button class="d-grid gap-2 col-4 mx-auto d-lg-none d-xxl-none btn btn-info btnAgregarProducto" type="button">Agregar
                   Producto</button>
                 <hr>
 

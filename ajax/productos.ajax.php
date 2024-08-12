@@ -33,25 +33,32 @@ class AjaxProductos
     =============================================*/ 
 
     public $idProducto;
+    public $traerProductos;
 
     public function ajaxEditarProducto(){
 
-    $item = "idProducto";
-    $valor = $this->idProducto;
-    
+        if($this->traerProductos == "ok"){
+            $item = null;
+            $valor = null;
+            
+            $respuesta = ControladorProductos::ctrMostrarProductos($item, $valor);
+        
+        
+        
+            echo json_encode($respuesta);
+        }else{
+            $item = "id";
+            $valor = $this->idProducto;
+            
+            $respuesta = ControladorProductos::ctrMostrarProductos($item, $valor);
 
-    $respuesta = ControladorProductos::ctrMostrarProductos($item, $valor);
+            echo json_encode($respuesta);
 
-
-
-    echo json_encode($respuesta);
+        }
 
     }
 
 }
-
-
-
 
 
 
@@ -73,12 +80,22 @@ if(isset($_POST["codigoTela"])){
 EDITAR PRODUCTO
 =============================================*/ 
 
-
-
 if(isset($_POST["idProducto"])){
 
     $editarProducto = new AjaxProductos();
     $editarProducto -> idProducto = $_POST["idProducto"];
     $editarProducto -> ajaxEditarProducto();
+
+}
+
+/*=============================================
+TRAER PRODUCTOS
+=============================================*/ 
+
+if(isset($_POST["traerProductos"])){
+
+    $traerProductos = new AjaxProductos();
+    $traerProductos -> traerProductos = $_POST["traerProductos"];
+    $traerProductos -> ajaxEditarProducto();
 
 }
