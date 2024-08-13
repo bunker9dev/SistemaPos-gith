@@ -234,13 +234,13 @@ $(".tablaProductos").on("click", "button.btnEditarProducto", function(){
 			// console.log("editarCodigoFecha", editarCodigoFecha);
 			// console.log("editarCodigoMetros", editarCodigoMetros);
 
-			console.log("idProducto / idProducto1", idProducto);
-			console.log("CodigoProducto / editarNuevoCodigo1", editarNuevoCodigo);
-			console.log("idTela / editarCodigoTela1", editarCodigoTela);
-			console.log("idColor / editarCodigoColor1", editarCodigoColor);
-			console.log("metrosRoll / codigoMetros1", editarCodigoMetros);
-			console.log("stock / codigoStock1", editarCodigoStock);
-			console.log("fechaCompra / editarCodigoFechaok1", editarCodigoFecha);
+			// console.log("idProducto / idProducto1", idProducto);
+			// console.log("CodigoProducto / editarNuevoCodigo1", editarNuevoCodigo);
+			// console.log("idTela / editarCodigoTela1", editarCodigoTela);
+			// console.log("idColor / editarCodigoColor1", editarCodigoColor);
+			// console.log("metrosRoll / codigoMetros1", editarCodigoMetros);
+			// console.log("stock / codigoStock1", editarCodigoStock);
+			// console.log("fechaCompra / editarCodigoFechaok1", editarCodigoFecha);
 
 		}
 
@@ -324,13 +324,13 @@ $("#editarRollos").change(function(){
 })
 
 
-console.log("idProducto / idProducto", idProducto);
-console.log("CodigoProducto / editarNuevoCodigo", editarNuevoCodigo);
-console.log("idTela / editarCodigoTela", editarCodigoTela);
-console.log("idColor / editarCodigoColor", editarCodigoColor);
-console.log("metrosRoll / codigoMetros", editarCodigoMetros);
-console.log("stock / codigoStock", codigoStock);
-console.log("fechaCompra / editarCodigoFechaok", editarCodigoFecha);
+// console.log("idProducto / idProducto", idProducto);
+// console.log("CodigoProducto / editarNuevoCodigo", editarNuevoCodigo);
+// console.log("idTela / editarCodigoTela", editarCodigoTela);
+// console.log("idColor / editarCodigoColor", editarCodigoColor);
+// console.log("metrosRoll / codigoMetros", editarCodigoMetros);
+// console.log("stock / codigoStock", codigoStock);
+// console.log("fechaCompra / editarCodigoFechaok", editarCodigoFecha);
 
 
 

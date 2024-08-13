@@ -37,7 +37,7 @@
                 <div class="form-group row ">
 
                   <!--=====================================
-                ENTRADAREMISION
+                ENTRADA REMISION
                 ======================================-->
                   <div class="col-6">
                     <div class="input-group mb-3">
@@ -87,8 +87,9 @@
                       <div class="input-group-prepend">
                         <span class="input-group-text" id="basic-addon1"> Vendedor</span>
                       </div>
-                      <input type="text" class="form-control" id="nuevoVendedor" name="nuevoVendedor" value="<?php echo $_SESSION["usuario"]; ?>" readonly>
-                        <input type="hidden" name="idVendedor" value="<?php echo $_SESSION["id"]; ?>">
+                      <input type="text" class="form-control" id="nuevoVendedor" name="nuevoVendedor"
+                        value="<?php echo $_SESSION["usuario"]; ?>" readonly>
+                      <input type="hidden" name="idVendedor" value="<?php echo $_SESSION["id"]; ?>">
                     </div>
                   </div>
                 </div>
@@ -101,13 +102,14 @@
 
                   <div class="input-group mb-3">
                     <div class="input-group-prepend">
-                    <label class="input-group-text" for="seleccionarCliente"><i class="fa fa-user"></i></label>
+                      <label class="input-group-text" for="seleccionarCliente"><i class="fa fa-user"></i></label>
                     </div>
-                    <select class="form-control text-uppercase" id="seleccionarCliente" name="seleccionarCliente" required>
+                    <select class="form-control text-uppercase" id="seleccionarCliente" name="seleccionarCliente"
+                      required>
 
-                    <option value="">Seleccionar cliente</option>
+                      <option value="">Seleccionar cliente</option>
 
-                    <?php
+                      <?php
 
                       $item = null;
                       $valor = null;
@@ -116,17 +118,17 @@
 
                       foreach ($categorias as $key => $value) {
 
-                        echo '<option value="'.$value["id"].'">'.$value["nombre"]." ".$value["apellido"].'</option>';
+                        echo '<option value="' . $value["id"] . '">' . $value["nombre"] . " " . $value["apellido"] . '</option>';
 
                       }
 
-                    ?>
+                      ?>
 
                     </select>
 
 
 
-<!--                     
+                    <!--                     
                       <label class="input-group-text" for="inputGroupSelect01"><i class="fa fa-user"></i></label>
                     </div>
 
@@ -147,12 +149,102 @@
 
 
                 <!--=====================================
-                ENTRADA PRODUCTOS
+                ENTRADA PRODUCTOS TABLA 1
                 ======================================-->
-                
-                <div class="form-group row nuevoProducto">
 
-                  
+                <div class="form-group row nuevoProducto">
+                  <!-- <div class="col    ">
+
+                    <div class="card-body" style='padding:0px'>
+                      <div class="card">
+
+                        <table class="table table-bordered table-striped dt-responsive tablaVentasConsol">
+
+                          <thead>
+                            <tr>
+                              <th style="width: 10px">#</th>
+                              <th>Tipo tela</th>
+                              <th>Color</th>
+                              <th>mtrs x rollo</th>
+                              <th>Cant mts</th>
+                              <th>Cant rollos</th>
+                              <th>Valor mts</th>
+                              <th>X</th>
+                            </tr>
+                          </thead>
+
+                        </table>
+
+                      </div>
+                    </div>
+                  </div> -->
+
+                  <div class="container">
+                    <div class="row justify-content-start">
+                      <div class="col-5">
+                        Descricpcion 
+                      </div>
+                      <div class="col-1">
+                        Rollos
+                      </div>
+                      <div class="col-2">
+                        cant mts
+                      </div>
+                      <div class="col-2">
+                        Valor mts
+                      </div>
+                      <div class="col-2">
+                        Valor 
+                      </div>
+                    </div>
+                  </div>
+
+
+                  <!-- <div class="input-group-prepend"></div>
+
+        <span class="input-group-prepend"><button type="button" class="btn btn-danger btn-sm quitarProducto" ><i class="fa fa-times"></i> </button></span></div>
+
+
+
+        <input type="text" class="form-control nuevaDescripcionProducto" idProducto="'+idProducto+'" name="agregarProducto" value="'+ tela +color +  + metros + '" required></div>
+
+    </div></div>
+
+</div></div>
+
+<div class="col-sm-1"></div>
+
+    <input type="number" class="form-control" id="NuevaCantidadProducto" name="NuevaCantidadProducto" min="1" placeholder="0" required></div>
+
+</div></div>
+
+<div class="col-sm-2 align-self-end"></div>
+
+    <div class="input-group-prepend"></div>
+
+
+        <label class="input-group-text" for="inputGroupSelect01"> <i class="fas fa-dollar-sign"></i></label></div>
+
+        <input type="number" min="1" class="form-control" id="nevoPrecioProducto" name="nuevoPrecioProducto" placeholder="000000" required></div>
+
+    </div></div>
+</div></div>
+
+<div class="col-sm-3 align-self-end" style="padding: left 0px"></div>
+
+        <div class="input-group-prepend"></div>
+
+
+    <label class="input-group-text" for="inputGroupSelect01"> <i class="fas fa-dollar-sign"></i></label></div>
+
+    <input type="number" min="1" class="form-control" id="nevoPrecioTotal" name="nuevoPrecioTotal" placeholder="000000" readonly></div>
+
+</div></div>
+</div></div>
+</div> -->
+
+
+
                 </div>
                 <input type="hidden" id="listaProductos" name="listaProductos">
 
@@ -160,7 +252,8 @@
                 BOTON AGREGAR PRODUCTOS 
                 ============================================= -->
 
-                <button class="d-grid gap-2 col-4 mx-auto d-lg-none d-xxl-none btn btn-info btnAgregarProducto" type="button">Agregar
+                <button class="d-grid gap-2 col-4 mx-auto d-lg-none d-xxl-none btn btn-info btnAgregarProducto"
+                  type="button">Agregar
                   Producto</button>
                 <hr>
 
@@ -262,6 +355,8 @@
       <!--=====================================
       LA TABLA DE PRODUCTOS
       ======================================-->
+      <!-- <div class="col col-lg-6  d-none d-lg-block ">  // pendiente para camb iar el diseño en moviles -->
+
       <div class="col col-lg-6  d-none d-lg-block ">
         <div class="card card-warning">
           <div class="card-header with-border"></div>
@@ -283,9 +378,9 @@
 
                 </thead>
 
-                
 
-            </table>
+
+              </table>
             </div>
           </div>
         </div>
@@ -381,4 +476,3 @@ MODAL AGREGAR CLIENTE
     </div>
   </div>
 </div>
-

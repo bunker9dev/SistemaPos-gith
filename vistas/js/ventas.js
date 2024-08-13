@@ -1,6 +1,6 @@
-/*=============================================
-CARGAR LA TABLA DINÁMICA DE VENTAS
-=============================================*/
+// /*=============================================
+// CARGAR LA TABLA DINÁMICA DE VENTAS
+// =============================================*/
 
 // $.ajax({
 
@@ -49,6 +49,7 @@ $('.tablaVentas').DataTable( {
 } );
 
 
+
 /*=============================================
 AGREGANDO PRODUCTOS A LA VENTA DESDE LA TABLA
 =============================================*/
@@ -56,14 +57,15 @@ AGREGANDO PRODUCTOS A LA VENTA DESDE LA TABLA
 var NombreTela;
 var NombreColor;
 var metros;
-
+var stock;
+var idTela;
 
 $(".tablaVentas tbody").on("click", "button.agregarProducto", function(){
 
 	var idProducto = $(this).attr("idProducto");
-    console.log("idProducto", idProducto)
+    //console.log("idProductoOk", idProducto) // ok
 
-    console.log("nombretela23", NombreTela)
+    // console.log("nombretela23", NombreTela)
 
 
 
@@ -88,10 +90,9 @@ $(".tablaVentas tbody").on("click", "button.agregarProducto", function(){
                 console.log("respuesta", respuesta) 
 
                 
-                var stock =  respuesta["stock"];
-                var tela = respuesta["idTela"];
-                var color = respuesta["idColor"];
+                stock =  respuesta["stock"];
                 metros= respuesta["metrosRollo"];
+                idTela = respuesta["idTela"]
                 
                 
                 
@@ -109,7 +110,7 @@ $(".tablaVentas tbody").on("click", "button.agregarProducto", function(){
                         dataType:"json",
                         success:function(respuesta){
 
-                            // console.log("respuestaCategoria", respuesta) }
+                            //console.log("respuestaCategoria", respuesta) 
                 
                             NombreTela = (respuesta["categoria"]); 
                             console.log("NombreTela1", NombreTela) 
@@ -141,7 +142,7 @@ $(".tablaVentas tbody").on("click", "button.agregarProducto", function(){
                             // console.log("respuestaColor", respuesta) 
                             
                             NombreColor = respuesta["color"]; 
-                            // console.log("NombreColor", NombreColor) 
+                            //console.log("NombreColor", NombreColor) 
 
 
 
@@ -150,10 +151,10 @@ $(".tablaVentas tbody").on("click", "button.agregarProducto", function(){
                         
                     })
 
-                    console.log("NombreTela", NombreTela) 
+                    // console.log("NombreTela", NombreTela) 
                     
-                    console.log("NombreColor", NombreColor) 
-                    console.log("metros", metros) 
+                    // console.log("NombreColor", NombreColor) 
+                    // console.log("metros", metros) 
             
 
             
@@ -168,7 +169,7 @@ $(".tablaVentas tbody").on("click", "button.agregarProducto", function(){
 
 
           	// /*=============================================
-          	// EVITAR AGREGAR PRODUTO CUANDO EL STOCK ESTÁ EN CERO
+          	// EVITAR AGREGAR PRODUCTO CUANDO EL STOCK ESTÁ EN CERO
           	// =============================================*/
 
             if(stock == 0){
@@ -186,22 +187,20 @@ $(".tablaVentas tbody").on("click", "button.agregarProducto", function(){
                 
                 
         
-
+            var nombreVenta =  NombreTela + " " + NombreColor + " " + metros  + "mts "  ;
 
         $(".nuevoProducto").append(
 
             
                 '<div class="row" style="padding:5px 10px">'+
 
-                    '<div class="col-sm-6" style="padding: rigth 0px">'+
+                    '<div class="col-sm-5" style="padding: rigth 0px">'+
 
                         '<div class="input-group-prepend">'+
 
                             '<span class="input-group-prepend"><button type="button" class="btn btn-danger btn-sm quitarProducto" idProducto="'+idProducto+'"><i class="fa fa-times"></i> </button></span>'+
 
-
-
-                            '<input type="text" class="form-control nuevaDescripcionProducto" idProducto="'+idProducto+'" name="agregarProducto" value="'+ metros + color + tela  +'" required>'+
+                            '<input type="text" class="form-control nuevaDescripcionProducto" idProducto="'+idProducto+'" name="agregarProducto" value="'+ nombreVenta + '" readonly>'+
 
                         '</div>'+
 
@@ -209,7 +208,13 @@ $(".tablaVentas tbody").on("click", "button.agregarProducto", function(){
 
                     '<div class="col-sm-1">'+
 
-                        '<input type="number" class="form-control" id="NuevaCantidadProducto" name="NuevaCantidadProducto" min="1" placeholder="0" required>'+
+                        '<input type="number" class="form-control " id="NuevaCantidadProducto" name="NuevaCantidadProducto" min="1" value = "2" stock ="'+ stock + '" required>'+
+
+                    '</div>'+
+
+                    '<div class="col-sm-2">'+
+
+                        '<input type="number" class="form-control nuevaDescripcionProducto" idProducto="'+idProducto+'" name="NuevaCantidadMetros"  value ="' + (metros*2) + '" readonly>'+
 
                     '</div>'+
 
@@ -218,25 +223,25 @@ $(".tablaVentas tbody").on("click", "button.agregarProducto", function(){
                         '<div class="input-group-prepend">'+
 
 
-                            '<label class="input-group-text" for="inputGroupSelect01"> <i class="fas fa-dollar-sign"></i></label>'+
+                            // '<label class="input-group-text" for="inputGroupSelect01"> <i class="fas fa-dollar-sign"></i></label>'+
 
-                            '<input type="number" min="1" class="form-control" id="nevoPrecioProducto" name="nuevoPrecioProducto" placeholder="000000" required>'+
+                            '<input type="number" min="1" class="form-control" id="nevoPrecioProducto" name="nuevoPrecioProducto" value="" required>'+
 
                         '</div>'+
                     '</div>'+
 
-                    '<div class="col-sm-3 align-self-end" style="padding: left 0px">'+
+                    '<div class="col-sm-2 align-self-end" style="padding: left 0px">'+
 
                             '<div class="input-group-prepend">'+
 
 
-                        '<label class="input-group-text" for="inputGroupSelect01"> <i class="fas fa-dollar-sign"></i></label>'+
+                        // '<label class="input-group-text" for="inputGroupSelect01"> <i class="fas fa-dollar-sign"></i></label>'+
 
                         '<input type="number" min="1" class="form-control" id="nevoPrecioTotal" name="nuevoPrecioTotal" placeholder="000000" readonly>'+
 
                     '</div>'+
                 '</div>'+
-                '</div>') 
+            '</div>');
 
 	//         // SUMAR TOTAL DE PRECIOS
 
@@ -322,28 +327,28 @@ $(".formularioVenta").on("click", "button.quitarProducto", function(){
 
 	$("button.recuperarBoton[idProducto='"+idProducto+"']").addClass('btn-primary agregarProducto');
 
-	if($(".nuevoProducto").children().length == 0){
+	// if($(".nuevoProducto").children().length == 0){
 
-		$("#nuevoImpuestoVenta").val(0);
-		$("#nuevoTotalVenta").val(0);
-		$("#totalVenta").val(0);
-		$("#nuevoTotalVenta").attr("total",0);
+	// 	$("#nuevoImpuestoVenta").val(0);
+	// 	$("#nuevoTotalVenta").val(0);
+	// 	$("#totalVenta").val(0);
+	// 	$("#nuevoTotalVenta").attr("total",0);
 
-	}else{
+	// }else{
 
-		// SUMAR TOTAL DE PRECIOS
+	// 	// SUMAR TOTAL DE PRECIOS
 
-    	sumarTotalPrecios()
+    // 	sumarTotalPrecios()
 
-    	// AGREGAR IMPUESTO
+    // 	// AGREGAR IMPUESTO
 	        
-        agregarImpuesto()
+    //     agregarImpuesto()
 
-        // AGRUPAR PRODUCTOS EN FORMATO JSON
+    //     // AGRUPAR PRODUCTOS EN FORMATO JSON
 
-        listarProductos()
+    //     listarProductos()
 
-	}
+	// }
 
 });
 
@@ -383,10 +388,10 @@ $(".btnAgregarProducto").click(function(){
     var idCategoria = respuesta[2];
     // var idCategoria = $(this).attr("idTela");
     // var idCategoria = respuesta["idTela"];
-    console.log("idCategoria", idCategoria)
+    console.log("idCategorianuere", idCategoria)
 
     var datos = new FormData();
-	datos.append("idCategoria", idCategoria);
+	datos.append("idCategoria23", idCategoria);
 
     $.ajax({
         url: "ajax/categorias.ajax.php",
@@ -399,7 +404,7 @@ $(".btnAgregarProducto").click(function(){
         success:function(respuesta){
             console.log("respuesta", respuesta)
 
-         }
+        }
         
         }) 
 
@@ -409,14 +414,13 @@ $(".btnAgregarProducto").click(function(){
 // #################################
 // #################################
 
-         
 
 	$(".nuevoProducto").append(
 
 
                 '<div class="row" style="padding:5px 10px">'+
 
-                    '<div class="col-sm-6" style="padding: rigth 0px">'+
+                    '<div class="col-sm-5" style="padding: rigth 0px">'+
 
                         '<div class="input-group-prepend">'+
 
@@ -440,24 +444,30 @@ $(".btnAgregarProducto").click(function(){
 
                     '</div>'+
 
+                    '<div class="col-sm-2">'+
+
+                        '<input type="number" class="form-control" id="NuevaCantidadMetros" name="NuevaCantidadMetros" min="1" value = "1" stock readonly>'+
+
+                    '</div>'+
+
                     '<div class="col-sm-2 align-self-end">'+
 
                         '<div class="input-group-prepend">'+
 
 
-                            '<label class="input-group-text" for="inputGroupSelect01"> <i class="fas fa-dollar-sign"></i></label>'+
+                            // '<label class="input-group-text" for="inputGroupSelect01"> <i class="fas fa-dollar-sign"></i></label>'+
 
                             '<input type="number" min="1" class="form-control" id="nevoPrecioProducto" name="nuevoPrecioProducto" value="" required>'+
 
                         '</div>'+
                     '</div>'+
 
-                    '<div class="col-sm-3 align-self-end" style="padding: left 0px">'+
+                    '<div class="col-sm-2 align-self-end" style="padding: left 0px">'+
 
                             '<div class="input-group-prepend">'+
 
 
-                        '<label class="input-group-text" for="inputGroupSelect01"> <i class="fas fa-dollar-sign"></i></label>'+
+                        // '<label class="input-group-text" for="inputGroupSelect01"> <i class="fas fa-dollar-sign"></i></label>'+
 
                         '<input type="number" min="1" class="form-control" id="nevoPrecioTotal" name="nuevoPrecioTotal" placeholder="000000" readonly>'+
 
@@ -493,15 +503,16 @@ SELECCIONAR PRODUCTO
 =============================================*/
 $(".formularioVenta").on("change", "select.nuevaDescripcionProducto", function(){
 
-    var idCategoria = $(this).val();
+    var idProducto = $(this).attr("idProducto");
+
     // var idCategoria = $(this).attr("idTela");
-    console.log("idCategoria", idCategoria)
+    console.log("idProducto1234", idProducto)
 
     var datos = new FormData();
-	datos.append("idCategoria", idCategoria);
+	datos.append("idProdcuto", idProducto);
 
     $.ajax({
-        url: "ajax/categorias.ajax.php",
+        url: "ajax/productos.ajax.php",
         method: "POST",
         data: datos,
         cache: false,

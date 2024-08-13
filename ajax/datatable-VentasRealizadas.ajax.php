@@ -9,13 +9,13 @@ require_once "../modelos/categorias.modelo.php";
 require_once "../controladores/colores.controlador.php";
 require_once "../modelos/colores.modelo.php";
 
-class TablaProductosVentas{
+class TablaProductosVentasRealizadas{
 
     /*=============================================
     MOSTRAR LA TABLA DE PRODUCTOS
     =============================================*/ 
 
-    public function mostrarTablaProductosVentas(){
+    public function mostrarTablaProductosVentasRealizadas(){
 
 
         $item = null;
@@ -96,25 +96,16 @@ class TablaProductosVentas{
 
              */
 
-            // $datosJson .= '[
-            //                     "' . ($i + 1) . '",
-                                
-            //                     "' . $categoria2 . '",
-            //                     "' . $colores["color"] . '",
-            //                     "' . $productos[$i]["metrosRollo"] . '",
-                                
-            //                     ],';
-
             $datosJson .= '[
-                    "' . ($i + 1) . '",
-                    "' . $productos[$i]["CodigoProducto"] . '",
-                    "' . $categoria2 . '",
-                    "' . $colores["color"] . '",
-                    "' . $productos[$i]["metrosRollo"] . '",
-                    "' . $stock . '",
-                    "' . $botones . '"
-                    ],';
+                                "' . ($i + 1) . '",
+                                
+                                "' . $categoria2 . '",
+                                "' . $colores["color"] . '",
+                                "' . $productos[$i]["metrosRollo"] . '",
+                                
+                                ],';
 
+           
         }
 
         $datosJson = substr($datosJson, 0, -1);
@@ -132,8 +123,8 @@ class TablaProductosVentas{
 /*=============================================
 ACTIVAR TABLA DE PRODUCTOS
 =============================================*/
-$activarProductosVentas = new TablaProductosVentas();
-$activarProductosVentas -> mostrarTablaProductosVentas();
+$activarProductosVentasRealizadas = new TablaProductosVentasRealizadas();
+$activarProductosVentasRealizadas -> mostrarTablaProductosVentasRealizadas();
 
 
 
