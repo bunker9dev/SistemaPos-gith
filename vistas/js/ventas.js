@@ -208,7 +208,7 @@ $(".tablaVentas tbody").on("click", "button.agregarProducto", function(){
 
                     '<div class="col-sm-1">'+
 
-                        '<input type="number" class="form-control " id="NuevaCantidadProducto" name="NuevaCantidadProducto" min="1" value = "2" stock ="'+ stock + '" required>'+
+                        '<input  style="padding: left 0px" type="number" class="form-control " id="NuevaCantidadProducto" name="NuevaCantidadProducto" min="1" value = "2" stock ="'+ stock + '" required>'+
 
                     '</div>'+
 
@@ -271,24 +271,24 @@ $(".tablaVentas tbody").on("click", "button.agregarProducto", function(){
 CUANDO CARGUE LA TABLA CADA VEZ QUE NAVEGUE EN ELLA
 =============================================*/
 
-$(".tablaVentas").on("draw.dt", function(){
+// $(".tablaVentas").on("draw.dt", function(){
 
-	if(localStorage.getItem("quitarProducto") != null){
+// 	if(localStorage.getItem("quitarProducto") != null){
 
-		var listaIdProductos = JSON.parse(localStorage.getItem("quitarProducto"));
+// 		var listaIdProductos = JSON.parse(localStorage.getItem("quitarProducto"));
 
-		for(var i = 0; i < listaIdProductos.length; i++){
+// 		for(var i = 0; i < listaIdProductos.length; i++){
 
-			$("button.recuperarBoton[idProducto='"+listaIdProductos[i]["idProducto"]+"']").removeClass('btn-default');
-			$("button.recuperarBoton[idProducto='"+listaIdProductos[i]["idProducto"]+"']").addClass('btn-primary agregarProducto');
+// 			$("button.recuperarBoton[idProducto='"+listaIdProductos[i]["idProducto"]+"']").removeClass('btn-default');
+// 			$("button.recuperarBoton[idProducto='"+listaIdProductos[i]["idProducto"]+"']").addClass('btn-primary agregarProducto');
 
-		}
-
-
-	}
+// 		}
 
 
-})
+// 	}
+
+
+// })
 
 
 /*=============================================
@@ -380,40 +380,7 @@ $(".btnAgregarProducto").click(function(){
         dataType:"json",
         success:function(respuesta){
 
-            console.log("respuesta",respuesta)
-
-// #################################
-// #################################
-// #######    Prueba    ############
-
-    var idCategoria = respuesta[2];
-    // var idCategoria = $(this).attr("idTela");
-    // var idCategoria = respuesta["idTela"];
-    console.log("idCategorianuere", idCategoria)
-
-    var datos = new FormData();
-	datos.append("idCategoria23", idCategoria);
-
-    $.ajax({
-        url: "ajax/categorias.ajax.php",
-        method: "POST",
-        data: datos,
-        cache: false,
-        contentType: false,
-        processData: false,
-        dataType:"json",
-        success:function(respuesta){
-            console.log("respuesta", respuesta)
-
-        }
-        
-        }) 
-
-
-
-// #######   fin  Prueba    ########
-// #################################
-// #################################
+            console.log("respuesta general ",respuesta)
 
 
 	$(".nuevoProducto").append(
@@ -485,7 +452,8 @@ $(".btnAgregarProducto").click(function(){
                 if(item.stock != 0){
 
                     $(".nuevaDescripcionProducto").append(
-                        '<option idProducto="'+item.idProducto+'" value="'+item.idTela+'">'+item.idTela+'</option>'
+                        '<option name="'+item.idProducto+'" idProducto="'+item.idProducto+'" value="' + item.idTela + '">' + item.idTela + ' ' + item.idColor + ' ' + item.metrosRollo + ' mts ' +'</option>'
+
                     )
                     $(".NuevaCantidadProducto").append(
                         '<option idProducto="'+item.idProducto+'" value="'+item.metrosRollo+'">'+item.metrosRollo+'</option>'
@@ -507,7 +475,7 @@ $(".formularioVenta").on("change", "select.nuevaDescripcionProducto", function()
     var idProducto = $(this).attr("idProducto");
 
     // var idCategoria = $(this).attr("idTela");
-    console.log("idProducto1234", idProducto)
+    console.log("idProducto select", idProducto)
 
     var datos = new FormData();
 	datos.append("idProdcuto", idProducto);
@@ -523,7 +491,7 @@ $(".formularioVenta").on("change", "select.nuevaDescripcionProducto", function()
         success:function(respuesta){
             console.log("respuesta", respuesta)
 
-         }
+        }
         
         }) 
 
