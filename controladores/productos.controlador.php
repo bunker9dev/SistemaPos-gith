@@ -4,8 +4,8 @@ class ControladorProductos
 {
 
 	/*=============================================
-		  MOSTRAR PRODUCTOS
-		  =============================================*/
+			 MOSTRAR PRODUCTOS
+			 =============================================*/
 
 	static public function ctrMostrarProductos($item, $valor)
 	{
@@ -19,19 +19,18 @@ class ControladorProductos
 	}
 
 
-
 	/*=============================================
-	CREAR PRODUCTOS
-	=============================================*/
+	   CREAR PRODUCTOS
+	   =============================================*/
 	static public function ctrCrearProducto()
 	{
 		if (isset($_POST["nuevoTipoTela"])) {
 
-		var_dump($_POST["nuevoTipoTela"]);
-			
+			var_dump($_POST["nuevoTipoTela"]);
+
 			$tabla = "productos";
 			$datos = array(
-				"idProducto"=> $_POST["idProducto"],
+				"idProducto" => $_POST["idProducto"],
 				"fechaCompra" => $_POST["nuevaFechaCompra"],
 				"CodigoProducto" => $_POST["nuevoCodigo"],
 				"idTela" => $_POST["nuevoTipoTela"],
@@ -39,9 +38,9 @@ class ControladorProductos
 				"metrosRollo" => $_POST["nuevoMetros"],
 				"stock" => $_POST["nuevoRollos"],
 				"usuario" => $_SESSION["usuario"],
-				
+
 			);
-			
+
 			$respuesta = ModeloProductos::mdlIngresarProducto($tabla, $datos);
 
 			if ($respuesta == "ok") {
@@ -63,46 +62,33 @@ class ControladorProductos
 				</script>';
 			}
 
-		} 
+		}
 
 	}
 
-	
+
 	/*=============================================
-	EDITAR PRODUCTOS
-	=============================================*/
+	   EDITAR PRODUCTOS
+	   =============================================*/
 	static public function ctrEditarProducto()
 	{
-		if (isset($_POST["editarTipoTela"])) {
+		if (isset($_POST["UpdateProducto"])) {
 
-	var_dump($_POST["editarTipoTela"]);
-	
-			
 			$tabla = "productos";
 			$datos = array(
-
-				// "idProducto" => $_POST["idProducto"],
-				// "CodigoProducto" => $_POST["editarCodigo"],
-				// "idTela" => $_POST["editarTipoTela"],
-				// "idColor" => $_POST["editarColorTela"],
-				// "metrosRollo" => $_POST["editarMetros"],
-				// "stock" => $_POST["editarRollos"],
-				// "usuario" => $_SESSION["usuario"],
-				// "fechaCompra" => $_POST["editarFechaCompra"]
-
 				"idProducto" => $_POST["idProducto"],
-				"CodigoProducto" => $_POST["editarNuevoCodigo"],
-				"idTela" => $_POST["editarCodigoTela"],
-				"idColor" => $_POST["editarCodigoColor"],
-				"metrosRollo" => $_POST["editarCodigoMetros"],
-				"stock" => $_POST["codigoStock"],
+				"CodigoProducto" => $_POST["editarCodigo"],
+				"idTela" => $_POST["editarTipoTela"],
+				"idColor" => $_POST["editarColorTela"],
+				"metrosRollo" => $_POST["editarMetros"],
+				"stock" => $_POST["editarRollos"],
 				"usuario" => $_SESSION["usuario"],
-				"fechaCompra" => $_POST["editarCodigoFecha"]
-				
+				"fechaCompra" => $_POST["editarFechaCompra"]
+
 			);
-			
-			var_dump($datos);	 
-			
+
+			var_dump($datos);
+
 			$respuesta = ModeloProductos::mdlEditarProducto($tabla, $datos);
 
 			if ($respuesta == "ok") {
@@ -124,7 +110,7 @@ class ControladorProductos
 				</script>';
 			}
 
-		} 
+		}
 
 	}
 
@@ -133,20 +119,21 @@ class ControladorProductos
 
 
 	/*=============================================
-	BOORAR PRODUCTOS
-	=============================================*/
-	static public function ctrBorrarProducto(){
+	   BOORAR PRODUCTOS
+	   =============================================*/
+	static public function ctrBorrarProducto()
+	{
 
 		if (isset($_GET["idProducto"])) {
-			
-			$tabla ="productos";
+
+			$tabla = "productos";
 			$datos = $_GET["idProducto"];
 
 			$respuesta = ModeloProductos::mdlBorrarProducto($tabla, $datos);
 
-			if($respuesta == "ok"){
+			if ($respuesta == "ok") {
 
-				echo'<script>
+				echo '<script>
 
 					Swal.fire({
 						title: "Producto Borrado!",
@@ -160,8 +147,8 @@ class ControladorProductos
 						})
 
 					</script>';
-			}else{
-				echo'<script>
+			} else {
+				echo '<script>
 
 				Swal.fire({
 					title: "problemas!",
@@ -177,8 +164,8 @@ class ControladorProductos
 				</script>';
 
 
+			}
+
 		}
-		
-	}
 	}
 }

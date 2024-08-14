@@ -55,6 +55,7 @@ class AjaxProductos
             $valor = $this->idProducto;
 
             $respuesta = ControladorProductos::ctrMostrarProductos($item, $valor);
+            
 
             echo json_encode($respuesta);
 

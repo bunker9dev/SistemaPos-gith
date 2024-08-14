@@ -41,39 +41,11 @@ $("#nuevaFechaCompra").change(function(){
 	
 })
 
-
 $("#nuevoTipoTela").change(function(){
 
 	
 	codigoTela = $(this).val();
 
-	// var datos = new FormData();
-	// datos.append("codigoTela", codigoTela);
-
-	// $.ajax({
-
-	// 	url:"ajax/productos.ajax.php",
-	// 	method: "POST",
-	// 	data: datos,
-	// 	cache: false,
-	// 	contentType: false,
-	// 	processData: false,
-	// 	dataType:"json",
-	// 	success:function(respuesta){
-
-	// 	if(!respuesta ) {
-	// 		var nuevoCodigo = codigoFecha + codigoTela + codigoColor + codigoMetros;
-	// 		$("#nuevoCodigo").val(codigoTela);
-	// 	}else{
-	// 		var nuevoCodigo = codigoFecha + codigoTela + codigoColor + codigoMetros;
-	// 		$("#nuevoCodigo").val(codigoTela);
-	// 	}
-
-			
-
-	// 	}
-	
-	// })
 
 	var nuevoCodigo = codigoFecha + codigoMetros + codigoColor + codigoTela ;
 	
@@ -106,7 +78,6 @@ $("#nuevoMetros").change(function(){
 	$("#nuevoCodigo").val(nuevoCodigo);
 
 	
-	
 })
 
 $("#nuevoRollos").change(function(){
@@ -115,9 +86,6 @@ $("#nuevoRollos").change(function(){
 	console.log("codigoStock", codigoStock);
 	
 })
-
-
-
 
 
 
@@ -136,13 +104,8 @@ var editarCodigoFecha;
 
 $(".tablaProductos").on("click", "button.btnEditarProducto", function(){
 
-
-	// var idProducto = "prueba2"
-	$("#editarCodigo").val(nuevoCodigo);
-
-
 	idProducto = $(this).attr("idProducto");
-	// console.log(idProducto );
+	// console.log("idProducto", idProducto );
 
 	var datos = new FormData();
     datos.append("idProducto", idProducto);
@@ -158,92 +121,81 @@ $(".tablaProductos").on("click", "button.btnEditarProducto", function(){
     dataType:"json",
 		success:function(respuesta){
 
-			console.log("respuesta", respuesta );
-
-			// console.log(respuesta );
+			console.log("respuesta Paso1", respuesta );
 
 			$("#editarFechaCompra").val(respuesta["fechaCompra"]);
 			$("#editarMetros").val(respuesta["metrosRollo"]);
 			$("#editarRollos").val(respuesta["stock"]);
 			$("#editarCodigo").val(respuesta["CodigoProducto"]);
+			$("#idProducto").val(respuesta["idProducto"]);
 
-			editarCodigoFecha = (respuesta["fechaCompra"]);
-			editarCodigoFecha = editarCodigoFecha.replace('-', '');
+
+			editarCodigoDate = (respuesta["fechaCompra"]);
+			editarCodigoFecha = editarCodigoDate.replace('-', '');
 			editarCodigoFecha = editarCodigoFecha.replace('-', '');
 			editarCodigoFecha = editarCodigoFecha.replace('20', '');
 
 
 			editarCodigoMetros =(respuesta["metrosRollo"]);
 			editarCodigoStock =(respuesta["stock"]);
-			
 			editarNuevoCodigo = (respuesta["CodigoProducto"]);
+			editarCodigoTela = (respuesta["idTela"]);
+			editarCodigoColor = (respuesta["idColor"]);
 		
-			var datosCategoria = new FormData();
-			datosCategoria.append("idCategoria",respuesta["idTela"]);
+						var datosCategoria = new FormData();
+						datosCategoria.append("idCategoria",respuesta["idTela"]);
 
-				$.ajax({
+							$.ajax({
 
-					url:"ajax/categorias.ajax.php",
-					method: "POST",
-					data: datosCategoria,
-					cache: false,
-					contentType: false,
-					processData: false,
-					dataType:"json",
-					success:function(respuesta){
+								url:"ajax/categorias.ajax.php",
+								method: "POST",
+								data: datosCategoria,
+								cache: false,
+								contentType: false,
+								processData: false,
+								dataType:"json",
+								success:function(respuesta){
+
+									
+								// console.log("respuesta2", respuesta );
+							
+									$("#mostrarTipoTela").val(respuesta["id"]);
+									$("#mostrarTipoTela").html(respuesta["categoria"]);
+
+									editarCodigoTela = (respuesta["id"]);
+									// console.log("editarCodigoTela34", editarCodigoTela);
+
+									
+								}
+							
+							})
 
 						
-					// console.log("respuesta2", respuesta );
-				
-						$("#mostrarTipoTela").val(respuesta["id"]);
-						$("#mostrarTipoTela").html(respuesta["categoria"]);
+						var datosColor = new FormData();
+						datosColor.append("idColor",respuesta["idColor"]);
 
-						editarCodigoTela = (respuesta["id"]);
-						console.log("editarCodigoTela34", editarCodigoTela);
+						$.ajax({
 
+							url:"ajax/colores.ajax.php",
+							method: "POST",
+							data: datosColor,
+							cache: false,
+							contentType: false,
+							processData: false,
+							dataType:"json",
+							success:function(respuesta){
+
+								$("#mostrarColorTela").val(respuesta["idColor"]);
+								$("#mostrarColorTela").html(respuesta["color"]);
+
+								editarCodigoColor= (respuesta["idColor"]);
+									// console.log("editarCodigoColor", editarCodigoColor);
+
+							}
 						
-					}
-				
-				})
-
-			
-			var datosColor = new FormData();
-			datosColor.append("idColor",respuesta["idColor"]);
-
-			$.ajax({
-
-				url:"ajax/colores.ajax.php",
-				method: "POST",
-				data: datosColor,
-				cache: false,
-				contentType: false,
-				processData: false,
-				dataType:"json",
-				success:function(respuesta){
-
-					$("#mostrarColorTela").val(respuesta["idColor"]);
-					$("#mostrarColorTela").html(respuesta["color"]);
-
-					editarCodigoColor= (respuesta["idColor"]);
-						// console.log("editarCodigoColor", editarCodigoColor);
-
-				}
-			
-			})
-			// console.log("editarNuevoCodigo", editarNuevoCodigo);
-			// console.log("editarCodigoFecha", editarCodigoFecha);
-			// console.log("editarCodigoMetros", editarCodigoMetros);
-
-			// console.log("idProducto / idProducto1", idProducto);
-			// console.log("CodigoProducto / editarNuevoCodigo1", editarNuevoCodigo);
-			// console.log("idTela / editarCodigoTela1", editarCodigoTela);
-			// console.log("idColor / editarCodigoColor1", editarCodigoColor);
-			// console.log("metrosRoll / codigoMetros1", editarCodigoMetros);
-			// console.log("stock / codigoStock1", editarCodigoStock);
-			// console.log("fechaCompra / editarCodigoFechaok1", editarCodigoFecha);
+						})
 
 		}
-
 
 		
 	})
@@ -262,7 +214,8 @@ ASIGNAR NUEVO CODIGO
 
 
 $("#editarFechaCompra").change(function(){
-	
+
+
 	editarCodigoDate = $(this).val();
 	editarCodigoFecha = editarCodigoDate
 	editarCodigoFecha = editarCodigoFecha.replace('-', '');
@@ -272,8 +225,17 @@ $("#editarFechaCompra").change(function(){
 	var editarNuevoCodigo = editarCodigoFecha + editarCodigoMetros + editarCodigoColor + editarCodigoTela ;
 	
 	$("#editarCodigo").val(editarNuevoCodigo);
-	// console.log("editarCodigoDate", editarCodigoDate);
-	// console.log("editarCodigoFechaok", editarCodigoFecha);
+	
+	console.log  ("    ");
+	console.log("idProducto / idProductoPaso2Fecha", idProducto);
+	console.log("CodigoProducto / editarNuevoCodigoPaso2Fecha", editarNuevoCodigo);
+	console.log("idTela / editarCodigoTelaPaso2Fecha", editarCodigoTela);
+	console.log("idColor / editarCodigoColorPaso2Fecha", editarCodigoColor);
+	console.log("metrosRoll / codigoMetroPaso2Fecha", editarCodigoMetros);
+	console.log("stock / codigoStockPaso2Fecha", editarCodigoStock);
+	console.log("fechaCompra / editarCodigoFechaPaso2Fecha", editarCodigoDate);
+
+	
 	
 })
 
@@ -286,7 +248,15 @@ $("#editarTipoTela").change(function(){
 	
 	$("#editarCodigo").val(editarNuevoCodigo);
 
-	// console.log("editarCodigoTela", editarCodigoTela);
+			console.log  ("    ");
+			console.log("idProducto / idProductoPaso3TipoTela", idProducto);
+			console.log("CodigoProducto / editarNuevoCodigoPaso3TipoTela", editarNuevoCodigo);
+			console.log("idTela / editarCodigoTelaPaso3TipoTela", editarCodigoTela);
+			console.log("idColor / editarCodigoColorPaso3TipoTela", editarCodigoColor);
+			console.log("metrosRoll / codigoMetroPaso3TipoTela", editarCodigoMetros);
+			console.log("stock / codigoStockPaso3TipoTela", editarCodigoStock);
+			console.log("fechaCompra / editarCodigoFechaPaso3TipoTela", editarCodigoDate);
+
 })
 
 
@@ -318,14 +288,22 @@ $("#editarMetros").change(function(){
 
 $("#editarRollos").change(function(){
 	
-	codigoStock = $(this).val();
-	// console.log("codigoStock", codigoStock);
+	editarCodigoStock = $(this).val();
+
+	console.log  ("    ");
+			console.log("idProducto / idProductoPaso6Stock", idProducto);
+			console.log("CodigoProducto / editarNuevoCodigoPaso6Stock", editarNuevoCodigo);
+			console.log("idTela / editarCodigoTelaPaso6Stock", editarCodigoTela);
+			console.log("idColor / editarCodigoColorPaso6Stock", editarCodigoColor);
+			console.log("metrosRoll / codigoMetroPaso6Stock", editarCodigoMetros);
+			console.log("stock / codigoStockPaso6Stock", editarCodigoStock);
+			console.log("fechaCompra / editarCodigoFechaPaso6Stock", editarCodigoDate);
 	
 })
 
 
-// console.log("idProducto / idProducto", idProducto);
-// console.log("CodigoProducto / editarNuevoCodigo", editarNuevoCodigo);
+console.log("idProducto / idProductoF INICIAL", idProducto);
+console.log("CodigoProducto / editarNuevoCodigo INICIAL", editarNuevoCodigo);
 // console.log("idTela / editarCodigoTela", editarCodigoTela);
 // console.log("idColor / editarCodigoColor", editarCodigoColor);
 // console.log("metrosRoll / codigoMetros", editarCodigoMetros);
@@ -344,6 +322,9 @@ ELIMINAR PRODUCTOS
 
 
 $(".tablaProductos").on("click", "button.btnEliminarProducto", function(){
+
+
+
 
 	idProducto = $(this).attr("idProducto");
 	console.log("idProducto", idProducto);

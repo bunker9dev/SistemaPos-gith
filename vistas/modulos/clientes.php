@@ -195,9 +195,8 @@ MODAL EDITAR CLIENTE
 <div id="modalEditarCliente" class="modal fade" role="dialog">
   <div class="modal-dialog">
     <div class="modal-content">
-
-
       <form role="form" method="post" >
+        
         <!-- Modal Header -->
         <div class="modal-header" style="background-color: #007bff; color:#ffffff">
           <h4 class="modal-title">Editar Cliente</h4>

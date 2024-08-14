@@ -38,10 +38,11 @@
 /*=============================================
 EDITAR CATEGORIA
 =============================================*/
-
-$(".btnEditarCategoria").click(function(){
+$(".tablas").on("click", ".btnEditarCategoria", function(){
+// $(".btnEditarCategoria").click(function(){
 
 	var idCategoria = $(this).attr("idCategoria");
+	console.log("idCategoria", idCategoria) 
 
 	var datos = new FormData();
 	datos.append("idCategoria", idCategoria);
@@ -55,6 +56,7 @@ $(".btnEditarCategoria").click(function(){
      	processData: false,
      	dataType:"json",
      	success: function(respuesta){
+			console.log("respuesta", respuesta) 
 
 			
      		$("#editarCategoria").val(respuesta["categoria"]);

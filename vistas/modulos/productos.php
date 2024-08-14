@@ -95,7 +95,7 @@
 
             <!-- Entrada Fecha  -->
             <div class="form-group">
-            <label for="fname">Fecha de compra:</label>
+              <label for="fname">Fecha de compra:</label>
               <div class="input-group mb-3">
                 <div class="input-group-prepend">
                   <span class="input-group-text basic-addon1"> <i class="fas fa-calendar-alt"></i> </span>
@@ -185,8 +185,8 @@
                     <div class="input-group-prepend">
                       <span class="input-group-text basic-addon1"><i class="fas fa-bullseye"></i></span>
                     </div>
-                    <input type="number" class="form-control input-lg" name="nuevoRollos" id="nuevoRollos" min="0" placeholder="stock"
-                      aria-label="rollos" aria-describedby="basic-addon1" required>
+                    <input type="number" class="form-control input-lg" name="nuevoRollos" id="nuevoRollos" min="0"
+                      placeholder="stock" aria-label="rollos" aria-describedby="basic-addon1" required>
                   </div>
                 </div>
 
@@ -221,8 +221,8 @@
 
       <?php
 
-        $crearProducto = new ControladorProductos();
-        $crearProducto -> ctrCrearProducto();
+      $crearProducto = new ControladorProductos();
+      $crearProducto->ctrCrearProducto();
 
       ?>
 
@@ -247,43 +247,40 @@
 
       <form role="form" method="post">
 
-        <!-- Modal Header -->
+        <!--=====================================
+        CABEZA DEL MODAL
+        ======================================-->
         <div class="modal-header" style="background-color: #007bff; color:#ffffff">
           <h4 class="modal-title">Editar producto</h4>
           <button type="button" class="close" data-dismiss="modal">&times;</button>
         </div>
 
-        <!-- Modal body -->
-
-        <!-- ############# / entrada ########### -->
+        <!--=====================================
+        CUERPO DEL MODAL
+        ======================================-->
 
         <div class="modal-body">
-
           <div class="card-body">
 
             <!-- Entrada Fecha  -->
             <div class="form-group">
-            <label for="fname">Fecha de compra:</label>
+              <label for="fname">Fecha de compra:</label>
               <div class="input-group mb-3">
                 <div class="input-group-prepend">
                   <span class="input-group-text basic-addon1"> <i class="fas fa-calendar-alt"></i> </span>
                 </div>
                 <input type="date" class="form-control input-lg" name="editarFechaCompra" id="editarFechaCompra"
-                  placeholder=" Fecha Compra" aria-label="fecha" aria-describedby="basic-addon1" required>
+                  required>
+                <input type="hidden" id="idProducto" name="idProducto">
+                <input type="hidden" name="UpdateProducto">
               </div>
             </div>
 
             <div class="form-group">
               <div class="input-group">
-                <!-- <span class="input-group-text basic-addon1"> <i class="fas fa-layer-group"></i> </span>
-                <select type="text" class="form-control input-lg" name="editarTipoTela" 
-                  required>
-                  <option id="editarTipoTela" value=""></option> -->
-
-                  <span class="input-group-text basic-addon1"> <i class="fas fa-layer-group"></i> </span>
-                <select type="text" class="form-control input-lg" name="editarTipoTela" id="editarTipoTela"
-                  placeholder="Ingresar tipo de tela" required>
-                  <option id="mostrarTipoTela"  value="">Selecionar tipo de tela</option>
+                <span class="input-group-text basic-addon1"> <i class="fas fa-layer-group"></i> </span>
+                <select type="text" class="form-control input-lg" name="editarTipoTela" id="editarTipoTela" required>
+                  <option id="mostrarTipoTela" value=""></option>
 
                   <?php
 
@@ -303,14 +300,14 @@
               </div>
             </div>
 
+
             <!-- ############# / entrada color ########### -->
 
             <div class="form-group">
 
               <div class="input-group">
                 <span class="input-group-text basic-addon1"> <i class="fas fa-palette"></i> </span>
-                <select type="text" class="form-control input-lg" name="editarColorTela" id="editarColorTela"
-                  required>
+                <select type="text" class="form-control input-lg" name="editarColorTela" id="editarColorTela" required>
                   <option id="mostrarColorTela"></option>
 
                   <?php
@@ -326,7 +323,7 @@
                   }
 
                   ?>
-                  
+
 
                 </select>
 
@@ -360,7 +357,7 @@
                     <div class="input-group-prepend">
                       <span class="input-group-text basic-addon1"><i class="fas fa-bullseye"></i></span>
                     </div>
-                    <input type="number" class="form-control input-lg" name="editarRollos" id="editarRollos"  min="0" 
+                    <input type="number" class="form-control input-lg" name="editarRollos" id="editarRollos" min="0"
                       aria-label="rollos" aria-describedby="basic-addon1" required>
                   </div>
                 </div>
@@ -374,37 +371,36 @@
             <div class="form-group">
               <div class="input-group">
                 <span class="input-group-text basic-addon1"> <i class="fab fa-slack"></i> </span>
-                <input type="text" class="form-control input-lg" name="editarCodigo" id="editarCodigo"
-                  value="" readonly>
-
-
-
+                <input type="text" class="form-control input-lg" name="editarCodigo" id="editarCodigo" value=""
+                  readonly>
               </div>
             </div>
 
           </div>
-
-
         </div>
 
-        <!-- Modal footer -->
+
+
+
+        <!--=====================================
+        PIE DEL MODAL
+        ======================================-->
         <div class="modal-footer">
 
           <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Salir</button>
           <button type="submit" class="btn btn-primary">Guardar Cambios</button>
-        
+
         </div>
 
       </form>
-      
+
       <?php
-      
-        $editarProducto = new ControladorProductos();
-        $editarProducto -> ctrEditarProducto();
-      
+
+      $editarProducto = new ControladorProductos();
+      $editarProducto->ctrEditarProducto();
+
       ?>
 
-      
 
     </div>
   </div>
@@ -413,8 +409,8 @@
 
 <?php
 
-$borrarColor = new ControladorProductos();
-$borrarColor -> ctrBorrarProducto();
+$borrarProducto = new ControladorProductos();
+$borrarProducto->ctrBorrarProducto();
 
 ?>
 

@@ -176,8 +176,8 @@ MODAL EDITAR COLOR
             <form role="form" method="post">
 
                 <!--=====================================
-        CABEZA DEL MODAL
-        ======================================-->
+                CABEZA DEL MODAL
+                ======================================-->
 
                 <div class="modal-header" style="background-color: #007bff; color:#ffffff">
 
@@ -187,8 +187,8 @@ MODAL EDITAR COLOR
                 </div>
 
                 <!--=====================================
-        CUERPO DEL MODAL
-        ======================================-->
+                CUERPO DEL MODAL
+                ======================================-->
 
                 <div class="modal-body">
 
@@ -216,8 +216,8 @@ MODAL EDITAR COLOR
                 </div>
 
                 <!--=====================================
-        PIE DEL MODAL
-        ======================================-->
+                PIE DEL MODAL
+                ======================================-->
 
                 <div class="modal-footer">
 
