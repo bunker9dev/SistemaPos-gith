@@ -15,7 +15,6 @@ class ControladorProductos
 		$respuesta = ModeloProductos::mdlMostrarProductos($tabla, $item, $valor);
 
 		return $respuesta;
-
 	}
 
 
@@ -61,9 +60,7 @@ class ControladorProductos
 
 				</script>';
 			}
-
 		}
-
 	}
 
 
@@ -109,9 +106,7 @@ class ControladorProductos
 
 				</script>';
 			}
-
 		}
-
 	}
 
 
@@ -124,14 +119,14 @@ class ControladorProductos
 	static public function ctrBorrarProducto()
 	{
 
-		if (isset($_GET["idProducto"])) {
+		if (isset($_GET["idproducto"])) {
 
 			$tabla = "productos";
-			$datos = $_GET["idProducto"];
+			$datos = $_GET["idproducto"];
 
 			$respuesta = ModeloProductos::mdlBorrarProducto($tabla, $datos);
-	
-			
+
+
 			if ($respuesta == "ok") {
 
 				echo '<script>
@@ -149,9 +144,6 @@ class ControladorProductos
 
 					</script>';
 			}
-
 		}
-
 	}
 }
-

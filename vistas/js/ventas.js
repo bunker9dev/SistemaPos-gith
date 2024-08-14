@@ -6,290 +6,238 @@
 
 // 	url: "ajax/datatable-ventas.ajax.php",
 // 	success:function(respuesta){
-		
+
 // 		// console.log("respuesta", respuesta);
 
 // 	}
 
 // })
 
-
-$('.tablaVentas').DataTable( {
-    "ajax": "ajax/datatable-ventas.ajax.php",
-    "deferRender": true,
-	"retrieve": true,
-	"processing": true,
-	"language": {
-
-			"sProcessing":     "Procesando...",
-			"sLengthMenu":     "Mostrar _MENU_ registros",
-			"sZeroRecords":    "No se encontraron resultados",
-			"sEmptyTable":     "Ningún dato disponible en esta tabla",
-			"sInfo":           "Mostrando registros del _START_ al _END_ de un total de _TOTAL_",
-			"sInfoEmpty":      "Mostrando registros del 0 al 0 de un total de 0",
-			"sInfoFiltered":   "(filtrado de un total de _MAX_ registros)",
-			"sInfoPostFix":    "",
-			"sSearch":         "Buscar:",
-			"sUrl":            "",
-			"sInfoThousands":  ",",
-			"sLoadingRecords": "Cargando...",
-			"oPaginate": {
-			"sFirst":    "Primero",
-			"sLast":     "Último",
-			"sNext":     "Siguiente",
-			"sPrevious": "Anterior"
-			},
-			"oAria": {
-				"sSortAscending":  ": Activar para ordenar la columna de manera ascendente",
-				"sSortDescending": ": Activar para ordenar la columna de manera descendente"
-			}
-
-	}
-
-} );
-
-
+$(".tablaVentas").DataTable({
+  ajax: "ajax/datatable-ventas.ajax.php",
+  deferRender: true,
+  retrieve: true,
+  processing: true,
+  language: {
+    sProcessing: "Procesando...",
+    sLengthMenu: "Mostrar _MENU_ registros",
+    sZeroRecords: "No se encontraron resultados",
+    sEmptyTable: "Ningún dato disponible en esta tabla",
+    sInfo: "Mostrando registros del _START_ al _END_ de un total de _TOTAL_",
+    sInfoEmpty: "Mostrando registros del 0 al 0 de un total de 0",
+    sInfoFiltered: "(filtrado de un total de _MAX_ registros)",
+    sInfoPostFix: "",
+    sSearch: "Buscar:",
+    sUrl: "",
+    sInfoThousands: ",",
+    sLoadingRecords: "Cargando...",
+    oPaginate: {
+      sFirst: "Primero",
+      sLast: "Último",
+      sNext: "Siguiente",
+      sPrevious: "Anterior",
+    },
+    oAria: {
+      sSortAscending: ": Activar para ordenar la columna de manera ascendente",
+      sSortDescending:
+        ": Activar para ordenar la columna de manera descendente",
+    },
+  },
+});
 
 /*=============================================
 AGREGANDO PRODUCTOS A LA VENTA DESDE LA TABLA
 =============================================*/
 
-var NombreTela;
-var NombreColor;
+var NombreTela = "";
+var NombreColor = "";
 var metros;
 var stock;
 var idTela;
 
-$(".tablaVentas tbody").on("click", "button.agregarProducto", function(){
+$(".tablaVentas tbody").on("click", "button.agregarProducto", function () {
+  var idProducto = $(this).attr("idProducto");
+  console.log("este es el id que trae todo: " + idProducto);
+  //console.log("idProductoOk", idProducto) // ok
 
-	var idProducto = $(this).attr("idProducto");
-    //console.log("idProductoOk", idProducto) // ok
+  // console.log("nombretela23", NombreTela)
 
-    // console.log("nombretela23", NombreTela)
+  $(this).removeClass("btn-primary agregarProducto");
 
+  $(this).addClass("btn-default");
 
+  var datos = new FormData();
+  datos.append("idProducto", idProducto);
 
-	$(this).removeClass("btn-primary agregarProducto");
+  $.ajax({
+    url: "ajax/productos.ajax.php",
+    method: "POST",
+    data: datos,
+    cache: false,
+    contentType: false,
+    processData: false,
+    dataType: "json",
+    success: function (respuesta) {
+      console.log("respuesta", respuesta);
 
-	$(this).addClass("btn-default");
+      stock = respuesta["stock"];
+      metros = respuesta["metrosRollo"];
+      idTela = respuesta["idTela"];
 
-	var datos = new FormData();
-    datos.append("idProducto", idProducto);
+      var datosTela = new FormData();
+      datosTela.append("idCategoria", respuesta["idTela"]);
 
-        $.ajax({
+      $.ajax({
+        url: "ajax/categorias.ajax.php",
+        method: "POST",
+        data: datosTela,
+        cache: false,
+        contentType: false,
+        processData: false,
+        dataType: "json",
+        success: function (respuesta) {
+          console.log("respuestaCategoria", respuesta);
 
-            url:"ajax/productos.ajax.php",
-            method: "POST",
-            data: datos,
-            cache: false,
-            contentType: false,
-            processData: false,
-            dataType:"json",
-            success:function(respuesta){
+          NombreTela = respuesta["categoria"];
+          console.log("NombreTela1", NombreTela);
 
-                console.log("respuesta", respuesta) 
+          $("#mostrarTipoTela").val(respuesta["id"]);
+          $("#mostrarTipoTela").html(respuesta["categoria"]);
+        },
+      });
 
-                
-                stock =  respuesta["stock"];
-                metros= respuesta["metrosRollo"];
-                idTela = respuesta["idTela"]
-                
-                
-                
-                var datosTela = new FormData();
-                datosTela.append("idCategoria", respuesta["idTela"]);
+      var datosColor = new FormData();
+      datosColor.append("idColor", respuesta["idColor"]);
 
-                    $.ajax({
+      $.ajax({
+        url: "ajax/colores.ajax.php",
+        method: "POST",
+        data: datosColor,
+        cache: false,
+        contentType: false,
+        processData: false,
+        dataType: "json",
+        success: function (respuesta) {
+          console.log("Se re efecta");
+          NombreColor = respuesta["color"];
+        },
+      });
 
-                        url:"ajax/categorias.ajax.php",
-                        method: "POST",
-                        data: datosTela,
-                        cache: false,
-                        contentType: false,
-                        processData: false,
-                        dataType:"json",
-                        success:function(respuesta){
+      // console.log("NombreTela", NombreTela)
 
-                            //console.log("respuestaCategoria", respuesta) 
-                
-                            NombreTela = (respuesta["categoria"]); 
-                            console.log("NombreTela1", NombreTela) 
+      // console.log("NombreColor", NombreColor)
+      // console.log("metros", metros)
 
-                            $("#mostrarTipoTela").val(respuesta["id"]);
-                            $("#mostrarTipoTela").html(respuesta["categoria"]);
+      // /*=============================================
+      // EVITAR AGREGAR PRODUCTO CUANDO EL STOCK ESTÁ EN CERO
+      // =============================================*/
 
+      if (stock == 0) {
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: "No hay stock disponible",
+        });
 
-                        }
-				
-				    })
+        $("button[idProducto='" + idProducto + "']").addClass(
+          "btn-primary agregarProducto"
+        );
 
-
-
-                var datosColor = new FormData();
-                datosColor.append("idColor", respuesta["idColor"]);
-
-                    $.ajax({
-
-                        url:"ajax/colores.ajax.php",
-                        method: "POST",
-                        data: datosColor,
-                        cache: false,
-                        contentType: false,
-                        processData: false,
-                        dataType:"json",
-                        success:function(respuesta){
-
-                            // console.log("respuestaColor", respuesta) 
-                            
-                            NombreColor = respuesta["color"]; 
-                            //console.log("NombreColor", NombreColor) 
-
-
-
-                        }
-
-                        
-                    })
-
-                    // console.log("NombreTela", NombreTela) 
-                    
-                    // console.log("NombreColor", NombreColor) 
-                    // console.log("metros", metros) 
-            
-
-            
-            
-            
-            
-       
-
-        
-
-
-
-
-          	// /*=============================================
-          	// EVITAR AGREGAR PRODUCTO CUANDO EL STOCK ESTÁ EN CERO
-          	// =============================================*/
-
-            if(stock == 0){
-                Swal.fire({
-                    icon: "error",
-                    title: "Oops...",
-                    text: "No hay stock disponible",
-                
-                });
-
-                $("button[idProducto='"+idProducto+"']").addClass("btn-primary agregarProducto");
-
-                return;
-            }
-                
-                
-        
-            var nombreVenta =  NombreTela + " " + NombreColor + " " + metros  + "mts "  ;
+        return;
+      }
+      setTimeout(function () {
+        console.log("NombreTela : " + NombreTela);
+        console.log("NombreColor : " + NombreColor);
+        console.log("nombre de venta : " + nombreVenta);
+        var nombreVenta =
+          NombreTela + " " + NombreColor + " " + metros + "mts ";
+        console.log("nombre de venta : " + nombreVenta);
 
         $(".nuevoProducto").append(
+          '<div class="row" style="padding:5px 10px">' +
+            '<div class="col-sm-5" style="padding: rigth 0px">' +
+            '<div class="input-group-prepend">' +
+            '<span class="input-group-prepend"><button type="button" class="btn btn-danger btn-sm quitarProducto" idProducto="' +
+            idProducto +
+            '"><i class="fa fa-times"></i> </button></span>' +
+            '<input type="text" class="form-control nuevaDescripcionProducto" idProducto="' +
+            idProducto +
+            '" name="agregarProducto" value="' +
+            nombreVenta +
+            '" readonly>' +
+            "</div>" +
+            "</div>" +
+            '<div class="col-sm-1">' +
+            '<input type="number" class="form-control " id="NuevaCantidadProducto" name="NuevaCantidadProducto" min="1" value = "2" stock ="' +
+            stock +
+            '" required>' +
+            "</div>" +
+            '<div class="col-sm-2">' +
+            '<input type="number" class="form-control nuevaDescripcionProducto" idProducto="' +
+            idProducto +
+            '" name="NuevaCantidadMetros"  value ="' +
+            metros * 2 +
+            '" readonly>' +
+            "</div>" +
+            '<div class="col-sm-2 align-self-end">' +
+            '<div class="input-group-prepend">' +
+            // '<label class="input-group-text" for="inputGroupSelect01"> <i class="fas fa-dollar-sign"></i></label>'+
 
-            
-                '<div class="row" style="padding:5px 10px">'+
+            '<input type="number" min="1" class="form-control" id="nevoPrecioProducto" name="nuevoPrecioProducto" value="" required>' +
+            "</div>" +
+            "</div>" +
+            '<div class="col-sm-2 align-self-end" style="padding: left 0px">' +
+            '<div class="input-group-prepend">' +
+            // '<label class="input-group-text" for="inputGroupSelect01"> <i class="fas fa-dollar-sign"></i></label>'+
 
-                    '<div class="col-sm-5" style="padding: rigth 0px">'+
+            '<input type="number" min="1" class="form-control" id="nevoPrecioTotal" name="nuevoPrecioTotal" placeholder="000000" readonly>' +
+            "</div>" +
+            "</div>" +
+            "</div>"
+        );
+      }, 500);
 
-                        '<div class="input-group-prepend">'+
+      //         // SUMAR TOTAL DE PRECIOS
 
-                            '<span class="input-group-prepend"><button type="button" class="btn btn-danger btn-sm quitarProducto" idProducto="'+idProducto+'"><i class="fa fa-times"></i> </button></span>'+
+      //         sumarTotalPrecios()
 
-                            '<input type="text" class="form-control nuevaDescripcionProducto" idProducto="'+idProducto+'" name="agregarProducto" value="'+ nombreVenta + '" readonly>'+
+      //         // AGREGAR IMPUESTO
 
-                        '</div>'+
+      //         agregarImpuesto()
 
-                    '</div>'+
+      //         // AGRUPAR PRODUCTOS EN FORMATO JSON
 
-                    '<div class="col-sm-1">'+
+      //         listarProductos()
 
-                        '<input type="number" class="form-control " id="NuevaCantidadProducto" name="NuevaCantidadProducto" min="1" value = "2" stock ="'+ stock + '" required>'+
+      //         // PONER FORMATO AL PRECIO DE LOS PRODUCTOS
 
-                    '</div>'+
-
-                    '<div class="col-sm-2">'+
-
-                        '<input type="number" class="form-control nuevaDescripcionProducto" idProducto="'+idProducto+'" name="NuevaCantidadMetros"  value ="' + (metros*2) + '" readonly>'+
-
-                    '</div>'+
-
-                    '<div class="col-sm-2 align-self-end">'+
-
-                        '<div class="input-group-prepend">'+
-
-
-                            // '<label class="input-group-text" for="inputGroupSelect01"> <i class="fas fa-dollar-sign"></i></label>'+
-
-                            '<input type="number" min="1" class="form-control" id="nevoPrecioProducto" name="nuevoPrecioProducto" value="" required>'+
-
-                        '</div>'+
-                    '</div>'+
-
-                    '<div class="col-sm-2 align-self-end" style="padding: left 0px">'+
-
-                            '<div class="input-group-prepend">'+
-
-
-                        // '<label class="input-group-text" for="inputGroupSelect01"> <i class="fas fa-dollar-sign"></i></label>'+
-
-                        '<input type="number" min="1" class="form-control" id="nevoPrecioTotal" name="nuevoPrecioTotal" placeholder="000000" readonly>'+
-
-                    '</div>'+
-                '</div>'+
-            '</div>');
-
-	//         // SUMAR TOTAL DE PRECIOS
-
-	//         sumarTotalPrecios()
-
-	//         // AGREGAR IMPUESTO
-
-	//         agregarImpuesto()
-
-	//         // AGRUPAR PRODUCTOS EN FORMATO JSON
-
-	//         listarProductos()
-
-	//         // PONER FORMATO AL PRECIO DE LOS PRODUCTOS
-
-	//         $(".nuevoPrecioProducto").number(true, 2);
-
-      	
-
-            }
-        })
-				
-    })
-
+      //         $(".nuevoPrecioProducto").number(true, 2);
+    },
+  });
+});
 
 /*=============================================
 CUANDO CARGUE LA TABLA CADA VEZ QUE NAVEGUE EN ELLA
 =============================================*/
 
-$(".tablaVentas").on("draw.dt", function(){
+$(".tablaVentas").on("draw.dt", function () {
+  if (localStorage.getItem("quitarProducto") != null) {
+    var listaIdProductos = JSON.parse(localStorage.getItem("quitarProducto"));
 
-	if(localStorage.getItem("quitarProducto") != null){
-
-		var listaIdProductos = JSON.parse(localStorage.getItem("quitarProducto"));
-
-		for(var i = 0; i < listaIdProductos.length; i++){
-
-			$("button.recuperarBoton[idProducto='"+listaIdProductos[i]["idProducto"]+"']").removeClass('btn-default');
-			$("button.recuperarBoton[idProducto='"+listaIdProductos[i]["idProducto"]+"']").addClass('btn-primary agregarProducto');
-
-		}
-
-
-	}
-
-
-})
-
+    for (var i = 0; i < listaIdProductos.length; i++) {
+      $(
+        "button.recuperarBoton[idProducto='" +
+          listaIdProductos[i]["idProducto"] +
+          "']"
+      ).removeClass("btn-default");
+      $(
+        "button.recuperarBoton[idProducto='" +
+          listaIdProductos[i]["idProducto"] +
+          "']"
+      ).addClass("btn-primary agregarProducto");
+    }
+  }
+});
 
 /*=============================================
 QUITAR PRODUCTOS DE LA VENTA Y RECUPERAR BOTÓN
@@ -299,61 +247,56 @@ var idQuitarProducto = [];
 
 localStorage.removeItem("quitarProducto");
 
-$(".formularioVenta").on("click", "button.quitarProducto", function(){
+$(".formularioVenta").on("click", "button.quitarProducto", function () {
+  $(this).parent().parent().parent().parent().remove();
 
-	$(this).parent().parent().parent().parent().remove();
+  var idProducto = $(this).attr("idProducto");
 
-	var idProducto = $(this).attr("idProducto");
-
-	/*=============================================
+  /*=============================================
 	ALMACENAR EN EL LOCALSTORAGE EL ID DEL PRODUCTO A QUITAR
 	=============================================*/
 
-	if(localStorage.getItem("quitarProducto") == null){
+  if (localStorage.getItem("quitarProducto") == null) {
+    idQuitarProducto = [];
+  } else {
+    idQuitarProducto.concat(localStorage.getItem("quitarProducto"));
+  }
 
-		idQuitarProducto = [];
-	
-	}else{
+  idQuitarProducto.push({ idProducto: idProducto });
 
-		idQuitarProducto.concat(localStorage.getItem("quitarProducto"))
+  localStorage.setItem("quitarProducto", JSON.stringify(idQuitarProducto));
 
-	}
+  $("button.recuperarBoton[idProducto='" + idProducto + "']").removeClass(
+    "btn-default"
+  );
 
-	idQuitarProducto.push({"idProducto":idProducto});
+  $("button.recuperarBoton[idProducto='" + idProducto + "']").addClass(
+    "btn-primary agregarProducto"
+  );
 
-	localStorage.setItem("quitarProducto", JSON.stringify(idQuitarProducto));
+  // if($(".nuevoProducto").children().length == 0){
 
-	$("button.recuperarBoton[idProducto='"+idProducto+"']").removeClass('btn-default');
+  // 	$("#nuevoImpuestoVenta").val(0);
+  // 	$("#nuevoTotalVenta").val(0);
+  // 	$("#totalVenta").val(0);
+  // 	$("#nuevoTotalVenta").attr("total",0);
 
-	$("button.recuperarBoton[idProducto='"+idProducto+"']").addClass('btn-primary agregarProducto');
+  // }else{
 
-	// if($(".nuevoProducto").children().length == 0){
+  // 	// SUMAR TOTAL DE PRECIOS
 
-	// 	$("#nuevoImpuestoVenta").val(0);
-	// 	$("#nuevoTotalVenta").val(0);
-	// 	$("#totalVenta").val(0);
-	// 	$("#nuevoTotalVenta").attr("total",0);
+  // 	sumarTotalPrecios()
 
-	// }else{
+  // 	// AGREGAR IMPUESTO
 
-	// 	// SUMAR TOTAL DE PRECIOS
+  //     agregarImpuesto()
 
-    // 	sumarTotalPrecios()
+  //     // AGRUPAR PRODUCTOS EN FORMATO JSON
 
-    // 	// AGREGAR IMPUESTO
-	        
-    //     agregarImpuesto()
+  //     listarProductos()
 
-    //     // AGRUPAR PRODUCTOS EN FORMATO JSON
-
-    //     listarProductos()
-
-	// }
-
+  // }
 });
-
-
-
 
 /*=============================================
 AGREGANDO PRODUCTOS DESDE EL BOTÓN PARA DISPOSITIVOS
@@ -362,201 +305,166 @@ AGREGANDO PRODUCTOS DESDE EL BOTÓN PARA DISPOSITIVOS
 // var numProducto = 0;
 // $(".formularioCrearVentas").on("click", "btnAgregarProducto", function(){
 
-$(".btnAgregarProducto").click(function(){
+$(".btnAgregarProducto").click(function () {
+  // numProducto ++;
 
-	// numProducto ++;
+  var datos = new FormData();
+  datos.append("traerProductos", "ok");
 
-	var datos = new FormData();
-	datos.append("traerProductos", "ok");
+  $.ajax({
+    url: "ajax/productos.ajax.php",
+    method: "POST",
+    data: datos,
+    cache: false,
+    contentType: false,
+    processData: false,
+    dataType: "json",
+    success: function (respuesta) {
+      console.log("respuesta", respuesta);
 
-	$.ajax({
+      // #################################
+      // #################################
+      // #######    Prueba    ############
 
-        url:"ajax/productos.ajax.php",
-        method: "POST",
-        data: datos,
-        cache: false,
-        contentType: false,
-        processData: false,
-        dataType:"json",
-        success:function(respuesta){
+      var idCategoria = respuesta[2];
+      // var idCategoria = $(this).attr("idTela");
+      // var idCategoria = respuesta["idTela"];
+      console.log("idCategorianuere", idCategoria);
 
-            console.log("respuesta",respuesta)
+      var datos = new FormData();
+      datos.append("idCategoria23", idCategoria);
 
-// #################################
-// #################################
-// #######    Prueba    ############
-
-    var idCategoria = respuesta[2];
-    // var idCategoria = $(this).attr("idTela");
-    // var idCategoria = respuesta["idTela"];
-    console.log("idCategorianuere", idCategoria)
-
-    var datos = new FormData();
-	datos.append("idCategoria23", idCategoria);
-
-    $.ajax({
+      $.ajax({
         url: "ajax/categorias.ajax.php",
         method: "POST",
         data: datos,
         cache: false,
         contentType: false,
         processData: false,
-        dataType:"json",
-        success:function(respuesta){
-            console.log("respuesta", respuesta)
+        dataType: "json",
+        success: function (respuesta) {
+          console.log("respuesta", respuesta);
+        },
+      });
 
+      // #######   fin  Prueba    ########
+      // #################################
+      // #################################
+
+      $(".nuevoProducto").append(
+        '<div class="row" style="padding:5px 10px">' +
+          '<div class="col-sm-5" style="padding: rigth 0px">' +
+          '<div class="input-group-prepend">' +
+          '<span class="input-group-prepend"><button type="button" class="btn btn-danger btn-sm quitarProducto" idProducto><i class="fa fa-times"></i> </button></span>' +
+          '<select class="form-control nuevaDescripcionProducto" idProducto name="nuevaDescripcionProducto"  required>' +
+          "<option>Seleccione el producto</option>" +
+          "</select>" +
+          "</div>" +
+          "</div>" +
+          '<div class="col-sm-1">' +
+          '<input type="number" class="form-control" id="NuevaCantidadProducto" name="NuevaCantidadProducto" min="1" value = "1" stock required>' +
+          "</div>" +
+          '<div class="col-sm-2">' +
+          '<input type="number" class="form-control" id="NuevaCantidadMetros" name="NuevaCantidadMetros" min="1" value = "1" stock readonly>' +
+          "</div>" +
+          '<div class="col-sm-2 align-self-end">' +
+          '<div class="input-group-prepend">' +
+          // '<label class="input-group-text" for="inputGroupSelect01"> <i class="fas fa-dollar-sign"></i></label>'+
+
+          '<input type="number" min="1" class="form-control" id="nevoPrecioProducto" name="nuevoPrecioProducto" value="" required>' +
+          "</div>" +
+          "</div>" +
+          '<div class="col-sm-2 align-self-end" style="padding: left 0px">' +
+          '<div class="input-group-prepend">' +
+          // '<label class="input-group-text" for="inputGroupSelect01"> <i class="fas fa-dollar-sign"></i></label>'+
+
+          '<input type="number" min="1" class="form-control" id="nevoPrecioTotal" name="nuevoPrecioTotal" placeholder="000000" readonly>' +
+          "</div>" +
+          "</div>" +
+          "</div>"
+      );
+
+      // AGREGAR LOS PRODUCTOS AL SELECT
+
+      respuesta.forEach(funcionForEach);
+
+      function funcionForEach(item, index) {
+        if (item.stock != 0) {
+          $(".nuevaDescripcionProducto").append(
+            '<option idProducto="' +
+              item.idProducto +
+              '" value="' +
+              item.idTela +
+              '">' +
+              item.idTela +
+              "</option>"
+          );
+          $(".NuevaCantidadProducto").append(
+            '<option idProducto="' +
+              item.idProducto +
+              '" value="' +
+              item.metrosRollo +
+              '">' +
+              item.metrosRollo +
+              "</option>"
+          );
         }
-        
-        }) 
-
-
-
-// #######   fin  Prueba    ########
-// #################################
-// #################################
-
-
-	$(".nuevoProducto").append(
-
-
-                '<div class="row" style="padding:5px 10px">'+
-
-                    '<div class="col-sm-5" style="padding: rigth 0px">'+
-
-                        '<div class="input-group-prepend">'+
-
-                            '<span class="input-group-prepend"><button type="button" class="btn btn-danger btn-sm quitarProducto" idProducto><i class="fa fa-times"></i> </button></span>'+
-
-
-
-                            '<select class="form-control nuevaDescripcionProducto" idProducto name="nuevaDescripcionProducto"  required>'+
-
-                            '<option>Seleccione el producto</option>'+
-
-	                        '</select>'+ 
-
-                        '</div>'+
-
-                    '</div>'+
-
-                    '<div class="col-sm-1">'+
-
-                        '<input type="number" class="form-control" id="NuevaCantidadProducto" name="NuevaCantidadProducto" min="1" value = "1" stock required>'+
-
-                    '</div>'+
-
-                    '<div class="col-sm-2">'+
-
-                        '<input type="number" class="form-control" id="NuevaCantidadMetros" name="NuevaCantidadMetros" min="1" value = "1" stock readonly>'+
-
-                    '</div>'+
-
-                    '<div class="col-sm-2 align-self-end">'+
-
-                        '<div class="input-group-prepend">'+
-
-
-                            // '<label class="input-group-text" for="inputGroupSelect01"> <i class="fas fa-dollar-sign"></i></label>'+
-
-                            '<input type="number" min="1" class="form-control" id="nevoPrecioProducto" name="nuevoPrecioProducto" value="" required>'+
-
-                        '</div>'+
-                    '</div>'+
-
-                    '<div class="col-sm-2 align-self-end" style="padding: left 0px">'+
-
-                            '<div class="input-group-prepend">'+
-
-
-                        // '<label class="input-group-text" for="inputGroupSelect01"> <i class="fas fa-dollar-sign"></i></label>'+
-
-                        '<input type="number" min="1" class="form-control" id="nevoPrecioTotal" name="nuevoPrecioTotal" placeholder="000000" readonly>'+
-
-                    '</div>'+
-                '</div>'+
-            '</div>');
-
-             // AGREGAR LOS PRODUCTOS AL SELECT 
-
-	        respuesta.forEach(funcionForEach);
-
-	        function funcionForEach(item, index){
-
-                if(item.stock != 0){
-
-                    $(".nuevaDescripcionProducto").append(
-                        '<option idProducto="'+item.idProducto+'" value="'+item.idTela+'">'+item.idTela+'</option>'
-                    )
-                    $(".NuevaCantidadProducto").append(
-                        '<option idProducto="'+item.idProducto+'" value="'+item.metrosRollo+'">'+item.metrosRollo+'</option>'
-                    )
-                }
-
-            }
-        }
-
-    })     
-
-})     
+      }
+    },
+  });
+});
 
 /*=============================================
 SELECCIONAR PRODUCTO
 =============================================*/
-$(".formularioVenta").on("change", "select.nuevaDescripcionProducto", function(){
-
+$(".formularioVenta").on(
+  "change",
+  "select.nuevaDescripcionProducto",
+  function () {
     var idProducto = $(this).attr("idProducto");
 
     // var idCategoria = $(this).attr("idTela");
-    console.log("idProducto1234", idProducto)
+    console.log("idProducto1234", idProducto);
 
     var datos = new FormData();
-	datos.append("idProdcuto", idProducto);
+    datos.append("idProdcuto", idProducto);
 
     $.ajax({
-        url: "ajax/productos.ajax.php",
-        method: "POST",
-        data: datos,
-        cache: false,
-        contentType: false,
-        processData: false,
-        dataType:"json",
-        success:function(respuesta){
-            console.log("respuesta", respuesta)
+      url: "ajax/productos.ajax.php",
+      method: "POST",
+      data: datos,
+      cache: false,
+      contentType: false,
+      processData: false,
+      dataType: "json",
+      success: function (respuesta) {
+        console.log("respuesta", respuesta);
+      },
+    });
+  }
+);
 
-         }
-        
-        }) 
+// if(item.stock != 0){
 
-} )  
-            
-                
-                
-                // if(item.stock != 0){
+//     $("#producto"+numProducto).append(
 
-                //     $("#producto"+numProducto).append(
+//             '<option idProducto="'+item.id+'" value="'+item.descripcion+'">'+item.descripcion+'</option>'
+//     )
 
-                //             '<option idProducto="'+item.id+'" value="'+item.descripcion+'">'+item.descripcion+'</option>'
-                //     )
+// }
 
-                // }
+//         // SUMAR TOTAL DE PRECIOS
 
+//         sumarTotalPrecios()
 
+//         // AGREGAR IMPUESTO
 
+//         agregarImpuesto()
 
-	//         // SUMAR TOTAL DE PRECIOS
+//         // AGRUPAR PRODUCTOS EN FORMATO JSON
 
-	//         sumarTotalPrecios()
+//         listarProductos()
 
-	//         // AGREGAR IMPUESTO
+//         // PONER FORMATO AL PRECIO DE LOS PRODUCTOS
 
-	//         agregarImpuesto()
-
-	//         // AGRUPAR PRODUCTOS EN FORMATO JSON
-
-	//         listarProductos()
-
-	//         // PONER FORMATO AL PRECIO DE LOS PRODUCTOS
-
-	//         $(".nuevoPrecioProducto").number(true, 2);
-
-
+//         $(".nuevoPrecioProducto").number(true, 2);
