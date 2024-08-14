@@ -4,8 +4,8 @@ class ControladorProductos
 {
 
 	/*=============================================
-			 MOSTRAR PRODUCTOS
-			 =============================================*/
+				MOSTRAR PRODUCTOS
+				=============================================*/
 
 	static public function ctrMostrarProductos($item, $valor)
 	{
@@ -20,8 +20,8 @@ class ControladorProductos
 
 
 	/*=============================================
-	   CREAR PRODUCTOS
-	   =============================================*/
+		  CREAR PRODUCTOS
+		  =============================================*/
 	static public function ctrCrearProducto()
 	{
 		if (isset($_POST["nuevoTipoTela"])) {
@@ -68,8 +68,8 @@ class ControladorProductos
 
 
 	/*=============================================
-	   EDITAR PRODUCTOS
-	   =============================================*/
+		  EDITAR PRODUCTOS
+		  =============================================*/
 	static public function ctrEditarProducto()
 	{
 		if (isset($_POST["UpdateProducto"])) {
@@ -119,8 +119,8 @@ class ControladorProductos
 
 
 	/*=============================================
-	   BOORAR PRODUCTOS
-	   =============================================*/
+		  BOORAR PRODUCTOS
+		  =============================================*/
 	static public function ctrBorrarProducto()
 	{
 
@@ -130,7 +130,8 @@ class ControladorProductos
 			$datos = $_GET["idProducto"];
 
 			$respuesta = ModeloProductos::mdlBorrarProducto($tabla, $datos);
-
+	
+			
 			if ($respuesta == "ok") {
 
 				echo '<script>
@@ -142,30 +143,15 @@ class ControladorProductos
 						}).then(function(result){
 							if (result.value) {
 
-								window.location = "Productos";
+								window.location = "productos";
 							}
 						})
 
 					</script>';
-			} else {
-				echo '<script>
-
-				Swal.fire({
-					title: "problemas!",
-					text: "verificar.",
-					icon: "success"
-					}).then(function(result){
-						if (result.value) {
-
-							window.location = "Productos";
-						}
-					})
-
-				</script>';
-
-
 			}
 
 		}
+
 	}
 }
+

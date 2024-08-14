@@ -121,7 +121,7 @@ $(".tablaProductos").on("click", "button.btnEditarProducto", function(){
     dataType:"json",
 		success:function(respuesta){
 
-			console.log("respuesta Paso1", respuesta );
+			// console.log("respuesta Paso1", respuesta );
 
 			$("#editarFechaCompra").val(respuesta["fechaCompra"]);
 			$("#editarMetros").val(respuesta["metrosRollo"]);
@@ -302,8 +302,8 @@ $("#editarRollos").change(function(){
 })
 
 
-console.log("idProducto / idProductoF INICIAL", idProducto);
-console.log("CodigoProducto / editarNuevoCodigo INICIAL", editarNuevoCodigo);
+// console.log("idProducto / idProductoF INICIAL", idProducto);
+// console.log("CodigoProducto / editarNuevoCodigo INICIAL", editarNuevoCodigo);
 // console.log("idTela / editarCodigoTela", editarCodigoTela);
 // console.log("idColor / editarCodigoColor", editarCodigoColor);
 // console.log("metrosRoll / codigoMetros", editarCodigoMetros);
@@ -322,11 +322,11 @@ ELIMINAR PRODUCTOS
 
 
 $(".tablaProductos").on("click", "button.btnEliminarProducto", function(){
+// $(document).on("click", ".btnEliminarProducto", function(){
 
 
 
-
-	idProducto = $(this).attr("idProducto");
+	var idProducto = $(this).attr("idProducto");
 	console.log("idProducto", idProducto);
 
 	Swal.fire({

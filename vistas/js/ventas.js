@@ -360,6 +360,7 @@ AGREGANDO PRODUCTOS DESDE EL BOTÓN PARA DISPOSITIVOS
 =============================================*/
 
 // var numProducto = 0;
+// $(".formularioCrearVentas").on("click", "btnAgregarProducto", function(){
 
 $(".btnAgregarProducto").click(function(){
 

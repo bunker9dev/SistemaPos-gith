@@ -341,7 +341,7 @@ class ControladorUsuarios{
 
             echo '<script>
 
-				         Swal.fire({
+				        Swal.fire({
                     icon: "error",
                     title: "Ten en cuenta",
                     text: "¡La contraseña no puede ir vacío o llevar caracteres especiales!",
@@ -377,7 +377,7 @@ class ControladorUsuarios{
 
           echo '<script>
 
-				   Swal.fire({
+				  Swal.fire({
                 icon: "successs",
                 title: "Usuario Modificado",
                 text: "¡El usuario ha sido Modificado correctamente!",
@@ -397,7 +397,7 @@ class ControladorUsuarios{
 
         echo '<script>
 
-				 Swal.fire({
+				Swal.fire({
                 icon: "error",
                 title: "Ten en cuenta",
                 text: "¡El nombre y apellido no puede ir vacío o llevar caracteres especiales bbbbbb!",

@@ -119,8 +119,8 @@ class ModeloProductos
 
 
 	/*=============================================
-			 BORRAR PRODUCTO
-			 =============================================*/
+	BORRAR PRODUCTO
+	=============================================*/
 
 	static public function mdlBorrarProducto($tabla, $datos)
 	{
