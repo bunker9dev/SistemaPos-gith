@@ -393,13 +393,7 @@ $(".btnAgregarProducto").click(function () {
           $(".nuevaDescripcionProducto").append(
             '<option idProducto="' + item.idProducto +'" value="' + item.idTela +'">' + item.idTela + " " + item.idColor + " " + item.metrosRollo + " " + "mts" +"</option>"
           );
-          $(".NuevaCantidadProducto").append(
-            '<option idProducto="' +
-              item.idProducto +
-              '" value="' +
-              item.metrosRollo +
-              '">' +
-              item.metrosRollo +
+          $(".NuevaCantidadProducto").append('<option idProducto="' + item.idProducto +'" value="' + item.metrosRollo + '">' + item.metrosRollo +
               "</option>"
           );
         }
