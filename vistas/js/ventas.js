@@ -160,7 +160,7 @@ $(".tablaVentas tbody").on("click", "button.agregarProducto", function () {
             '<span class="input-group-prepend"><button type="button" class="btn btn-danger btn-sm quitarProducto" idProducto="' +
             idProducto +
             '"><i class="fa fa-times"></i> </button></span>' +
-            '<input type="text" class="form-control nuevaDescripcionProducto" idProducto="' +
+            '<input type="text" class="form-control nuevaDescripcionProducto" style="font-size: 12px" idProducto="' +
             idProducto +
             '" name="agregarProducto" value="' +
             nombreVenta +
@@ -168,29 +168,29 @@ $(".tablaVentas tbody").on("click", "button.agregarProducto", function () {
             "</div>" +
             "</div>" +
             '<div class="col-sm-1">' +
-            '<input type="number" class="form-control " id="NuevaCantidadProducto" name="NuevaCantidadProducto" min="1" value = "2" stock ="' +
+            '<input type="number" class="form-control " id="NuevaCantidadProducto" name="NuevaCantidadProducto"  min="1" value = "" stock ="' +
             stock +
-            '" required>' +
+            '"  style="font-size: 12px" required>' +
             "</div>" +
             '<div class="col-sm-2">' +
             '<input type="number" class="form-control nuevaDescripcionProducto" idProducto="' +
             idProducto +
             '" name="NuevaCantidadMetros"  value ="' +
-            metros * 2 +
-            '" readonly>' +
+            metros  +
+            '" style="font-size: 12px" readonly>' +
             "</div>" +
             '<div class="col-sm-2 align-self-end">' +
             '<div class="input-group-prepend">' +
             // '<label class="input-group-text" for="inputGroupSelect01"> <i class="fas fa-dollar-sign"></i></label>'+
 
-            '<input type="number" min="1" class="form-control" id="nevoPrecioProducto" name="nuevoPrecioProducto" value="" required>' +
+            '<input type="number" min="1" class="form-control" id="nevoPrecioProducto" name="nuevoPrecioProducto" value="" style="font-size: 12px" required>' +
             "</div>" +
             "</div>" +
             '<div class="col-sm-2 align-self-end" style="padding: left 0px">' +
             '<div class="input-group-prepend">' +
             // '<label class="input-group-text" for="inputGroupSelect01"> <i class="fas fa-dollar-sign"></i></label>'+
 
-            '<input type="number" min="1" class="form-control" id="nevoPrecioTotal" name="nuevoPrecioTotal" placeholder="000000" readonly>' +
+            '<input type="number" min="1" class="form-control" id="nevoPrecioTotal" name="nuevoPrecioTotal" placeholder="000000" style="font-size: 12px" readonly>' +
             "</div>" +
             "</div>" +
             "</div>"
@@ -391,13 +391,7 @@ $(".btnAgregarProducto").click(function () {
       function funcionForEach(item, index) {
         if (item.stock != 0) {
           $(".nuevaDescripcionProducto").append(
-            '<option idProducto="' +
-              item.idProducto +
-              '" value="' +
-              item.idTela +
-              '">' +
-              item.idTela +
-              "</option>"
+            '<option idProducto="' + item.idProducto +'" value="' + item.idTela +'">' + item.idTela + " " + item.idColor + " " + item.metrosRollo + " " + "mts" +"</option>"
           );
           $(".NuevaCantidadProducto").append(
             '<option idProducto="' +
@@ -427,7 +421,7 @@ $(".formularioVenta").on(
     console.log("idProducto1234", idProducto);
 
     var datos = new FormData();
-    datos.append("idProdcuto", idProducto);
+    datos.append("idProducto", idProducto);
 
     $.ajax({
       url: "ajax/productos.ajax.php",

@@ -108,14 +108,14 @@ if (isset($_POST["traerProductos"])) {
 
 }
 
-/*=============================================
-NOMBRE PRODUCTO
-=============================================*/
+// /*=============================================
+// NOMBRE PRODUCTO
+// =============================================*/
 
-if (isset($_POST["traerProductos"])) {
+// if (isset($_POST["traerProductos"])) {
 
-    $traerProductos = new AjaxProductos();
-    $traerProductos->traerProductos = $_POST["traerProductos"];
-    $traerProductos->ajaxEditarProducto();
+//     $traerProductos = new AjaxProductos();
+//     $traerProductos->traerProductos = $_POST["traerProductos"];
+//     $traerProductos->ajaxEditarProducto();
 
-}
+// }
