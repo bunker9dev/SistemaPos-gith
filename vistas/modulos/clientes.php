@@ -32,8 +32,8 @@
       </div>
 
       <div class="card-body">
-        <!-- <table id="Clientess1" class="table table-bordered table-hover dt-responsive tablas "> -->
-        <table  class="table table-bordered table-hover dt-responsive tablas" width="100%">
+        <!-- <table id="Clientess1" class="table table-bordered table-hover table-responsive tablas "> -->
+        <table  class="table table-bordered table-hover table-responsive tablas" width="100%">
 
           <thead>
             <tr>

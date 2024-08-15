@@ -32,7 +32,7 @@
       </div>
 
       <div class="card-body">
-        <table class="table table-bordered table-hover dt-responsive tablaProductos" width="100%">
+        <table class="table table-bordered table-hover table-responsive tablaProductos" width="100%">
 
           <thead>
             <tr>

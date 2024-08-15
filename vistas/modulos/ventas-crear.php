@@ -150,7 +150,7 @@
                     <div class="card-body" style='padding:0px'>
                       <div class="card">
 
-                        <table class="table table-bordered table-striped dt-responsive tablaVentasConsol">
+                        <table class="table table-bordered table-striped table-responsive tablaVentasConsol">
 
                           <thead>
                             <tr>
@@ -355,7 +355,7 @@
           <div class="card-body">
             <div class="card">
               <div class="table-responsive">
-                <table class="table table-bordered table-striped dt-responsive tablaVentas">
+                <table class="table table-bordered table-striped table-responsive tablaVentas">
 
                   <thead>
 

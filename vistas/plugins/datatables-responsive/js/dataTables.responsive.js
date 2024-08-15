@@ -76,7 +76,7 @@ var DataTable = $.fn.dataTable;
  *
  * Initialisation of Responsive is performed by:
  *
- * * Adding the class `responsive` or `dt-responsive` to the table. In this case
+ * * Adding the class `responsive` or `table-responsive` to the table. In this case
  *   Responsive will automatically be initialised with the default configuration
  *   options when the DataTable is created.
  * * Using the `responsive` option in the DataTables configuration options. This
@@ -1457,7 +1457,7 @@ $(document).on( 'preInit.dt.dtr', function (e, settings, json) {
 	}
 
 	if ( $(settings.nTable).hasClass( 'responsive' ) ||
-		 $(settings.nTable).hasClass( 'dt-responsive' ) ||
+		 $(settings.nTable).hasClass( 'table-responsive' ) ||
 		 settings.oInit.responsive ||
 		 DataTable.defaults.responsive
 	) {
