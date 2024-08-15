@@ -155,16 +155,6 @@ $(".tablaVentas tbody").on("click", "button.agregarProducto", function(){
                     
                     // console.log("NombreColor", NombreColor) 
                     // console.log("metros", metros) 
-            
-
-            
-            
-            
-            
-       
-
-        
-
 
 
 
@@ -192,7 +182,7 @@ $(".tablaVentas tbody").on("click", "button.agregarProducto", function(){
         $(".nuevoProducto").append(
 
             
-                '<div class="row" style="padding:5px 10px">'+
+                '<div class="row" style="padding:5px 10px; ">'+
 
                     '<div class="col-sm-5" style="padding: rigth 0px">'+
 
@@ -200,7 +190,7 @@ $(".tablaVentas tbody").on("click", "button.agregarProducto", function(){
 
                             '<span class="input-group-prepend"><button type="button" class="btn btn-danger btn-sm quitarProducto" idProducto="'+idProducto+'"><i class="fa fa-times"></i> </button></span>'+
 
-                            '<input type="text" class="form-control nuevaDescripcionProducto" idProducto="'+idProducto+'" name="agregarProducto" value="'+ nombreVenta + '" readonly>'+
+                            '<input type="text" class="form-control nuevaDescripcionProducto" idProducto="'+idProducto+'" name="agregarProducto" value="'+ nombreVenta + '"  style="font-size: 12px;" readonly>'+
 
                         '</div>'+
 
@@ -208,13 +198,13 @@ $(".tablaVentas tbody").on("click", "button.agregarProducto", function(){
 
                     '<div class="col-sm-1">'+
 
-                        '<input  style="padding: left 0px" type="number" class="form-control " id="NuevaCantidadProducto" name="NuevaCantidadProducto" min="1" value = "2" stock ="'+ stock + '" required>'+
+                        '<input  style="padding: left 0px" type="number" class="form-control " id="NuevaCantidadProducto" name="NuevaCantidadProducto" min="1" value = "" stock ="'+ stock + '" style="font-size: 12px;" required>'+
 
                     '</div>'+
 
                     '<div class="col-sm-2">'+
 
-                        '<input type="number" class="form-control nuevaDescripcionProducto" idProducto="'+idProducto+'" name="NuevaCantidadMetros"  value ="' + (metros*2) + '" readonly>'+
+                        '<input type="number" class="form-control nuevaDescripcionProducto" idProducto="'+idProducto+'" name="NuevaCantidadMetros"  value ="' + (metros) + '"  readonly>'+
 
                     '</div>'+
 
@@ -225,7 +215,7 @@ $(".tablaVentas tbody").on("click", "button.agregarProducto", function(){
 
                             // '<label class="input-group-text" for="inputGroupSelect01"> <i class="fas fa-dollar-sign"></i></label>'+
 
-                            '<input type="number" min="1" class="form-control" id="nevoPrecioProducto" name="nuevoPrecioProducto" value="" required>'+
+                            '<input type="number" min="1" class="form-control" id="nevoPrecioProducto" name="nuevoPrecioProducto" value=""  required>'+
 
                         '</div>'+
                     '</div>'+
@@ -237,7 +227,7 @@ $(".tablaVentas tbody").on("click", "button.agregarProducto", function(){
 
                         // '<label class="input-group-text" for="inputGroupSelect01"> <i class="fas fa-dollar-sign"></i></label>'+
 
-                        '<input type="number" min="1" class="form-control" id="nevoPrecioTotal" name="nuevoPrecioTotal" placeholder="000000" readonly>'+
+                        '<input type="number" min="1" class="form-control" id="nevoPrecioTotal" name="nuevoPrecioTotal" placeholder="000000"   readonly>'+
 
                     '</div>'+
                 '</div>'+
@@ -478,7 +468,7 @@ $(".formularioVenta").on("change", "select.nuevaDescripcionProducto", function()
     console.log("idProducto select", idProducto)
 
     var datos = new FormData();
-	datos.append("idProdcuto", idProducto);
+	datos.append("idProducto", idProducto);
 
     $.ajax({
         url: "ajax/productos.ajax.php",
@@ -489,7 +479,7 @@ $(".formularioVenta").on("change", "select.nuevaDescripcionProducto", function()
         processData: false,
         dataType:"json",
         success:function(respuesta){
-            console.log("respuesta", respuesta)
+            console.log("respuesta seleccionarProducto", respuesta)
 
         }
         

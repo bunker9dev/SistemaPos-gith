@@ -182,7 +182,7 @@
                   <div class="container">
                     <div class="row justify-content-start">
                       <div class="col-5">
-                        Descricpcion 
+                        Descricpcion
                       </div>
                       <div class="col-1">
                         Rollos
@@ -194,7 +194,7 @@
                         Valor mts
                       </div>
                       <div class="col-2">
-                        Valor 
+                        Valor
                       </div>
                     </div>
                   </div>
@@ -362,25 +362,28 @@
           <div class="card-header with-border"></div>
           <div class="card-body">
             <div class="card">
-              <table class="table table-bordered table-striped dt-responsive tablaVentas">
+              <div class="table-responsive">
+                <table class="table table-bordered table-striped dt-responsive tablaVentas">
 
-                <thead>
+                  <thead>
 
-                  <tr>
-                    <th style="width: 10px">#</th>
-                    <th style="width: 120px">Código</th>
-                    <th>Tipo tela</th>
-                    <th>Color</th>
-                    <th>mtrs x rollo</th>
-                    <th>stock</th>
-                    <th>Acciones</th>
-                  </tr>
+                    <tr>
+                      <th style="width: 10px">#</th>
+                      <th style="width: 120px">Código</th>
+                      <th>Tipo tela</th>
+                      <th>Color</th>
+                      <th>mtrs x rollo</th>
+                      <th>stock</th>
+                      <th>Acciones</th>
+                    </tr>
 
-                </thead>
+                  </thead>
 
 
 
-              </table>
+                </table>
+              </div>
+
             </div>
           </div>
         </div>
