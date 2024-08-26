@@ -21,9 +21,24 @@
 
     <section class="content">
 
-      <!-- Default box -->
-      <img src="vistas/img/plantilla/1-img-chart.png" alt="img chart">
-      
+      <div class="row">
+        <?php
+          include "inicio/cajas_superiores.php";
+        ?>
+      </div>
+
+      <div class="row">
+
+        <div class="col-lg-12">
+          <?php
+            include "inicio/cajas_superiores.php";
+          ?>
+        </div>
+      </div>
+
+
+
+    
     </section>
     <!-- /.content -->
   </div>
