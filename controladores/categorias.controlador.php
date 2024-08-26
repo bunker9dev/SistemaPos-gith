@@ -12,17 +12,28 @@ class ControladorCategorias
 
 		if (isset($_POST["nuevaCategoria"])) {
 
-			if (preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["nuevaCategoria"])) {
+			// if (preg_match('/^[#\.\-\a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["nuevoColor"]) &&
+			// 	preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["nuevaCategoria"])	
+			// 	) {
+
+		if (
+				preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["nuevaCategoria"])	
+				) {
 
 				$tabla = "categoria";
 
 				$datos = array(
+
+					"CodigoFabrica" => $_POST["nuevoCodigoFabrica"],
 					"categoria" => $_POST["nuevaCategoria"],
 					"usuario" => $_SESSION["usuario"]
 				);
-
-
+				var_dump($datos);
+				
+				
 				$respuesta = ModeloCategorias::mdlIngresarCategoria($tabla, $datos);
+
+				
 
 				if ($respuesta == "ok") {
 
@@ -53,7 +64,7 @@ class ControladorCategorias
 					}).then(function(result){
 							if (result.value) {
 
-							window.location = "categoria";
+							window.location = "categorias";
 
 								}
 										})
