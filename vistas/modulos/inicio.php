@@ -27,13 +27,7 @@
         ?>
       </div>
 
-      <div class="row">
-
-        <div class="col-lg-12">
-          <?php
-            include "inicio/cajas_superiores.php";
-          ?>
-        </div>
+      
       </div>
 
 

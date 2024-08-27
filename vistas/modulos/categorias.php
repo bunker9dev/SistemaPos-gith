@@ -52,8 +52,7 @@
             $valor = null;
 
             $categorias = ControladorCategorias::ctrMostrarCategorias($item, $valor);
-
-
+            
 
             foreach ($categorias as $key => $value) {
 
@@ -77,6 +76,7 @@
                         </td>
 
                       </tr>';
+                      
             }
 
             ?>
@@ -151,6 +151,10 @@
 
           </div>
 
+          <?php
+            var_dump($datos);
+          ?> 
+
         </div>
 
         <!-- Modal footer -->
@@ -160,7 +164,8 @@
         </div>
 
         <?php
-
+          
+    
         $crearCategoria = new ControladorCategorias();
         $crearCategoria->ctrCrearCategoria();
 

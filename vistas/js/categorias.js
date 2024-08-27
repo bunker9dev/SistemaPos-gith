@@ -58,7 +58,7 @@ $(".tablas").on("click", ".btnEditarCategoria", function(){
      	success: function(respuesta){
 			console.log("respuesta", respuesta) 
 
-			
+			$("#editarCodigoFabrica").val(respuesta["codigoFabrica"]);
      		$("#editarCategoria").val(respuesta["categoria"]);
 			$("#idCategoria").val(respuesta["id"]);
 			//  $("#editarUsuario").val(respuesta["Usuario"]);
