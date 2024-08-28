@@ -15,22 +15,21 @@
 			<div class="image">
 				<?php
 
-						if ($_SESSION["foto"] != ""){
+				if ($_SESSION["foto"] != "") {
 
-							echo '<img src="'.$_SESSION["foto"].'" class="user-image img-circle elevation-2" alt="User Image">';
+					echo '<img src="' . $_SESSION["foto"] . '" class="user-image img-circle elevation-2" alt="User Image">';
+				} else {
+					echo '<img src="vistas/img/plantilla/icon-man1.svg" alt="User Image" class="user-image img-circle elevation-2">';
+				}
 
-						}else{
-							echo '<img src="vistas/img/plantilla/icon-man1.svg" alt="User Image" class="user-image img-circle elevation-2">';
-						}
-
-						?>
+				?>
 			</div>
 			<div class="info">
-				<a href="#" class="d-block"><?php echo $_SESSION["nombre"]. " " .$_SESSION["apellido"];?></a>
+				<a href="#" class="d-block"><?php echo $_SESSION["nombre"] . " " . $_SESSION["apellido"]; ?></a>
 			</div>
 		</div>
 
-		
+
 
 		<!-- Sidebar Menu -->
 		<nav class="mt-2">
@@ -97,7 +96,7 @@
 					</a>
 				</li>
 
-		
+
 
 
 				<!-- /////////////////  #########################    ///////////////////////////// -->
@@ -132,29 +131,17 @@
 						</li>
 
 						<li class="nav-item">
-                            <a href="productos" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Administrar Productos</p>
-                            </a>
-                        </li>
+							<a href="productos" class="nav-link">
+								<i class="far fa-circle nav-icon"></i>
+								<p>Administrar Productos</p>
+							</a>
+						</li>
 
 					</ul>
 				</li>
 
 
 
-				<!-- /////////// icono  /////////// -->
-
-				<li class="nav-item">
-					<a href="inventarios" class=" nav-link">
-						<i>
-							<img class="image nav-icon" src="vistas/img/plantilla/1-icon-invetory.svg" alt="inventario icon ">
-						</i>
-						<p>
-							Inventario
-						</p>
-					</a>
-				</li>
 
 				<!-- /////////////////  #########################    ///////////////////////////// -->
 
