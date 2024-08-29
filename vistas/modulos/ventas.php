@@ -1,3 +1,9 @@
+<?php
+date_default_timezone_set('America/Bogota');
+?>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/brands.min.css" integrity="sha512-9YHSK59/rjvhtDcY/b+4rdnl0V4LPDWdkKceBl8ZLF5TB6745ml1AfluEU6dFWqwDw9lPvnauxFgpKvJqp7jiQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
   <!-- Content Header (Page header) -->
@@ -36,47 +42,20 @@
       </div>
 
       <div class="card-body">
-        <table id="usuarios1" class="table table-hover table-bordered tablas ">
-
-          <thead>
-            <tr>
-              <th>#</th>
-              <th>Código Remisión</th>
-              <th>Nombre Cliente</th>
-              <th>Apellido Cliente</th>
-              <th>Vendedor</th>
-              <th>Forma de pago</th>
-              <th>Valor Total</th>
-              <th>Fecha Venta</th>
-              <th>Acciones</th>
-            </tr>
-          </thead>
-
-          <tbody>
-            <tr>
-              <td>1</td>
-              <td>100001</td>
-              <td>Carlos</td>
-              <td>Zapata</td>
-              <td>Antonio24</td>
-              <td>Efectivo</td>
-              <td>$200.000</td>
-              <td>30-05-24 09:52:02</td>
-              <td>
-                <div class="btn-group">
-                  <button class="btn btn-info"> <i class="fa fa-print" aria-hidden="true"></i> </button>
-                  <button class="btn btn-danger"><i class="fa fa-times"></i> </button>
-                </div>
-              </td>
-            </tr>
-          </tbody>
-
-          <!-- ######## /tbody ######### -->
-
-
-
-
-        </table>
+        <div class="row">
+          <div class="col-3">
+            <label for="">Fecha Inicial:</label>
+            <input type="date" class="form-control" value="<?= date('Y-m-d', strtotime('-1 month')) ?>" id="FechIni">
+          </div>
+          <div class="col-3">
+            <label for="">Fecha Fin:</label>
+            <div class="input-group mb-3">
+              <input type="date" class="form-control" value="<?= date('Y-m-d', strtotime('+1 day')) ?>" id="FechFin">
+              <button class="btn btn-primary" onclick="ListVentas()"><i class="fa-solid fa-magnifying-glass"></i></button>
+            </div>
+          </div>
+        </div>
+        <div class="ListVentas" id="ListVentas"></div>
 
       </div>
       <!-- /.card-body -->
@@ -84,7 +63,42 @@
     </div>
     <!-- /.card -->
 
+    <!-- Modal detalle Factura-->
+    <div class="modal fade" id="DetailRem" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">Detalle Remisión # <span id="indReam"></span></h1>
+          </div>
+          <div class="modal-body">
+            <table class="table" id="tbdetail">
+              <thead>
+                <tr>
+                  <th scope="col">cod</th>
+                  <th scope="col">Producto</th>
+                  <th scope="col"># Rollos</th>
+                  <th scope="col">Precio Mt</th>
+                  <th scope="col">Total</th>
+                </tr>
+              </thead>
+              <tbody>
+              </tbody>
+            </table>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
   </section>
   <!-- /.content -->
 </div>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    ListVentas();
+  });
+</script>
+
 <!-- /.content-wrapper -->

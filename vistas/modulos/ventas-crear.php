@@ -25,53 +25,14 @@
       <!-- =============================================
       EL FORMULARIO
       ============================================= -->
-
-
       <div class="col col-lg-6 col-sm-12">
         <div class="card card-success">
           <div class="card-header with-border"></div>
           <div class="card-body">
-            <form role="form" method="post" class="formularioVenta">
+            <div class="formularioVenta">
               <div class="card">
 
                 <div class="form-group row ">
-
-                  <!--=====================================
-                ENTRADA REMISION
-                ======================================-->
-                  <div class="col-6">
-                    <div class="input-group mb-3">
-                      <div class="input-group-prepend">
-                        <span class="input-group-text basic-addon1"> Remisión </span>
-                      </div>
-                      <?php
-                      $item = null;
-                      $valor = null;
-
-                      $ventas = ControladorVentas::ctrMostrarVentas($item, $valor);
-
-                      if (!$ventas) {
-
-                        echo '<input type="text" class="form-control input-lg" name="nuevaVenta" id="nuevaVenta"
-                        value="100001" readonly>';
-                      } else {
-
-                        foreach ($ventas as $key => $value) {
-                        }
-
-                        $codigo = $value["codigo"] + 1;
-
-
-
-                        echo '<input type="text" class="form-control input-lg" name="nuevaVenta" id="nuevaVenta"
-                        value="' . $codigo . '" readonly>';
-                      }
-
-                      ?>
-
-                    </div>
-                  </div>
-
                   <!--=====================================
                   ENTRADA VENDEDOR
                   ======================================-->
@@ -81,26 +42,23 @@
                         <span class="input-group-text" id="basic-addon1"> Vendedor</span>
                       </div>
                       <input type="text" class="form-control" id="nuevoVendedor" name="nuevoVendedor"
-                        value="<?php echo $_SESSION["usuario"]; ?>" readonly>
-                      <input type="hidden" name="idVendedor" value="<?php echo $_SESSION["id"]; ?>">
+                        value="<?= $_SESSION["usuario"]; ?>" readonly>
+                      <input type="hidden" id="idVendedor" name="idVendedor" value="<?php echo $_SESSION["id"]; ?>">
                     </div>
                   </div>
                 </div>
-
-
                 <!--=====================================
                 ENTRADA CLIENTES
                 ======================================-->
                 <div class="form-group"> <!-- Entrada clientes -->
-
+                  <label for="" class="form-label">Seleccionar cliente: <span style="color: red;">*</span></label> <br>
                   <div class="input-group mb-3">
                     <div class="input-group-prepend">
-                      <label class="input-group-text" for="seleccionarCliente"><i class="fa fa-user"></i></label>
+                      <label class="input-group-text"><i class="fa fa-user"></i></label>
                     </div>
-                    <select class="form-control text-uppercase" id="seleccionarCliente" name="seleccionarCliente"
-                      required>
+                    <select class="form-control text-uppercase" id="idCliente" required>
 
-                      <option value="">Seleccionar cliente</option>
+                      <option value=""></option>
 
                       <?php
 
@@ -111,26 +69,10 @@
 
                       foreach ($categorias as $key => $value) {
 
-                        echo '<option value="' . $value["id"] . '">' . $value["nombre"] . " " . $value["apellido"] . '</option>';
+                        echo '<option value="' . $value["idCliente"] . '">' . $value["nombre"] . " " . $value["apellido"] . '</option>';
                       }
-
                       ?>
-
                     </select>
-
-
-
-                    <!--                     
-                      <label class="input-group-text" for="inputGroupSelect01"><i class="fa fa-user"></i></label>
-                    </div>
-
-                    <select class="custom-select" id="inputGroupSelect01" name="seleccionarCliente">
-                      <option selected>Cliente...</option>
-                      <option value="1">uno</option>
-                      <option value="2">dos</option>
-                      <option value="3">Tres</option>
-                    </select> -->
-
                     <span class="input-group-prepend"><button type="button" class="btn btn-default btn-sm"
                         data-toggle="modal" data-target="#modalAgregarCliente" data-dismiss="modal">Agregar
                         cliente</button>
@@ -145,6 +87,7 @@
                 ======================================-->
 
                 <div class="form-group row nuevoProducto">
+<<<<<<< HEAD
                   <!-- <div class="col    ">
 
                     <div class="card-body" style='padding:0px'>
@@ -171,12 +114,14 @@
                     </div>
                   </div> -->
 
+=======
+>>>>>>> DevDiego
                   <div class="container">
                     <div class="row justify-content-start">
-                      <div class="col-5">
+                      <div class="col-4">
                         Descricpcion
                       </div>
-                      <div class="col-1">
+                      <div class="col-2">
                         Rollos
                       </div>
                       <div class="col-2">
@@ -192,49 +137,6 @@
                   </div>
 
 
-                  <!-- <div class="input-group-prepend"></div>
-
-        <span class="input-group-prepend"><button type="button" class="btn btn-danger btn-sm quitarProducto" ><i class="fa fa-times"></i> </button></span></div>
-
-
-
-        <input type="text" class="form-control nuevaDescripcionProducto" idProducto="'+idProducto+'" name="agregarProducto" value="'+ tela +color +  + metros + '" required></div>
-
-    </div></div>
-
-</div></div>
-
-<div class="col-sm-1"></div>
-
-    <input type="number" class="form-control" id="NuevaCantidadProducto" name="NuevaCantidadProducto" min="1" placeholder="0" required></div>
-
-</div></div>
-
-<div class="col-sm-2 align-self-end"></div>
-
-    <div class="input-group-prepend"></div>
-
-
-        <label class="input-group-text" for="inputGroupSelect01"> <i class="fas fa-dollar-sign"></i></label></div>
-
-        <input type="number" min="1" class="form-control" id="nevoPrecioProducto" name="nuevoPrecioProducto" placeholder="000000" required></div>
-
-    </div></div>
-</div></div>
-
-<div class="col-sm-3 align-self-end" style="padding: left 0px"></div>
-
-        <div class="input-group-prepend"></div>
-
-
-    <label class="input-group-text" for="inputGroupSelect01"> <i class="fas fa-dollar-sign"></i></label></div>
-
-    <input type="number" min="1" class="form-control" id="nevoPrecioTotal" name="nuevoPrecioTotal" placeholder="000000" readonly></div>
-
-</div></div>
-</div></div>
-</div> -->
-
 
 
                 </div>
@@ -244,11 +146,16 @@
                 BOTON AGREGAR PRODUCTOS 
                 ============================================= -->
 
-                <button class="d-grid gap-2 col-4 mx-auto d-lg-none d-xxl-none btn btn-info btnAgregarProducto"
-                  type="button">Agregar
-                  Producto</button>
+                <div class="Mobille d-grid gap-2 col-10 mx-auto d-lg-none d-xxl-none ">
+                  <label for="exampleInputEmail1" class="form-label">Seleciona el producto:</label>
+                  <div class="input-group mb-3">
+                    <select class="form-control text-uppercase" id="productoSelect" aria-label="Small select example">
+                      <option selected> </option>
+                    </select>
+                    <button class="btn btn-primary btn-sm" onclick="agregarProducto(0,0)">Guardar</button>
+                  </div>
+                </div>
                 <hr>
-
                 <!-- =============================================
                 AGREGAR TOTAL VENTA
                 ============================================= -->
@@ -277,8 +184,8 @@
                       <label class="input-group-text" for="inputGroupSelect01"> <i
                           class="fas fa-dollar-sign"></i></label>
 
-                      <input type="number" min="1" class="form-control" id="nevoTotalProductos"
-                        name="nevoTotalProductos" placeholder="000000" readonly>
+                      <input type="tel" class="form-control" id="PrecioVenta"
+                        placeholder="000000" readonly>
 
                     </div>
                   </div>
@@ -294,13 +201,12 @@
                 <div class="form-group row">
 
                   <div class="col-sm-6" style="padding right:0px">
-
+                    <label for="" class="form-label">Seleccione método de pago<span style="color: red;">*</span>:</label> <br>
                     <div class="input-group">
-
                       <select class="form-control" id="nuevoMetodoPago" name="nuevoMetodoPago" required>
-                        <option value="">Seleccione método de pago</option>
-                        <option value="Contado">Efectivo</option>
-                        <option value="Credito">Crédito</option>
+                        <option value=""></option>
+                        <option value="1">Efectivo</option>
+                        <option value="2">Crédito</option>
                       </select>
 
                     </div>
@@ -308,14 +214,13 @@
                   </div>
 
                   <div class="col-sm-6" style="padding left:0px">
-
+                    <label for="" class="form-label">Seleccione Tiempo Credito:</label> <br>
                     <div class="input-group">
-
                       <select class="form-control" id="nuevoTiempoCredito" name="nuevoTiempoCredito" required>
-                        <option value="">Seleccione Tiempo Credito</option>
-                        <option value="treinta">30 días</option>
-                        <option value="sesenta">60 días</option>
-                        <option value="noventa">90 días</option>
+                        <option value=""></option>
+                        <option value="30">30 días</option>
+                        <option value="60">60 días</option>
+                        <option value="90">90 días</option>
                       </select>
 
                     </div>
@@ -327,16 +232,14 @@
                 AGREGAR BOTON GUARDAR
                 ============================================= -->
 
-                <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                  <button type="submit" class="btn btn-primary">Guardar venta</button>
-                </div>
+                <hr>
+                <center>
+                  <button type="submit" class="btn btn-primary" onclick="SaveVenta()"><i class="fa-solid fa-floppy-disk"></i> Guardar venta</button>
+                </center>
                 <br>
 
               </div>
-
-            </form>
-
-
+            </div>
           </div>
 
 
