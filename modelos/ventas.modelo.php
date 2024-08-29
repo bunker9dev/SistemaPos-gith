@@ -122,4 +122,16 @@ class ModeloVentas
 		$sql2 =  Conexion::conectar()->prepare($sql2);
 		$sql2->execute();
 	}
+	public function datosVen($idRem)
+	{
+		$sql = "SELECT tb1.idVentas,tb1.valorVenta,tb1.metodoPago,tb1.cantidadDias,tb1.fechaVenta,tb2.nombre,tb2.apellido,tb3.usuario
+		FROM ventas tb1 
+		INNER JOIN clientes tb2 on tb2.idCliente=tb1.idCliente
+		INNER JOIN usuarios tb3 on tb3.id
+		WHERE tb1.idVentas=$idRem";
+		$sql =  Conexion::conectar()->prepare($sql);
+		$sql->execute();
+		$row = $sql->fetch(PDO::FETCH_NAMED);
+		return $row;
+	}
 }
