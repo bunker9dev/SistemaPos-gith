@@ -40,8 +40,8 @@
               <th style="width:100px">Código</th>
               <th style="width:200px">Tipo de Tela</th>
               <th>Color</th>
-              <th style="width:50px text-align:center;">mtrs x rollo</th>
-              <th style="width:50px, text-align:center;">Stock</th>
+              <th style="width:50px, text-align:center">mtrs x rollo</th>
+              <th style="width:50px, text-align:center">Stock</th>
               <th>Fecha Compra</th>
               <th>Acciones</th>
             </tr>

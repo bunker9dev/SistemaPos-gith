@@ -33,7 +33,7 @@ $("#nuevaFechaCompra").change(function(){
 	codigoFecha = codigoFecha.replace('-', '');
 	codigoFecha = codigoFecha.replace('20', '');
 
-	var nuevoCodigo = codigoFecha + codigoMetros + codigoColor + codigoTela ;
+	var nuevoCodigo = codigoFecha + codigoTela + codigoColor + codigoMetros   ;
 	
 	$("#nuevoCodigo").val(nuevoCodigo);
 	console.log("codigoDate", codigoDate);
@@ -47,7 +47,7 @@ $("#nuevoTipoTela").change(function(){
 	codigoTela = $(this).val();
 
 
-	var nuevoCodigo = codigoFecha + codigoMetros + codigoColor + codigoTela ;
+	var nuevoCodigo = codigoFecha + codigoTela + codigoColor + codigoMetros   ;
 	
 	$("#nuevoCodigo").val(nuevoCodigo);
 
@@ -60,7 +60,7 @@ $("#nuevoColorTela").change(function(){
 	
 	codigoColor = $(this).val();
 
-	var nuevoCodigo = codigoFecha + codigoMetros + codigoColor + codigoTela ;
+	var nuevoCodigo = codigoFecha + codigoTela + codigoColor + codigoMetros   ;
 	
 	$("#nuevoCodigo").val(nuevoCodigo);
 
@@ -73,7 +73,7 @@ $("#nuevoMetros").change(function(){
 	
 	codigoMetros = $(this).val();
 
-	var nuevoCodigo = codigoFecha + codigoMetros + codigoColor + codigoTela ;
+	var nuevoCodigo = codigoFecha + codigoTela + codigoColor + codigoMetros   ;
 	
 	$("#nuevoCodigo").val(nuevoCodigo);
 
@@ -222,7 +222,7 @@ $("#editarFechaCompra").change(function(){
 	editarCodigoFecha = editarCodigoFecha.replace('-', '');
 	editarCodigoFecha = editarCodigoFecha.replace('20', '');
 
-	var editarNuevoCodigo = editarCodigoFecha + editarCodigoMetros + editarCodigoColor + editarCodigoTela ;
+	var editarNuevoCodigo = editarCodigoFecha + editarCodigoTela + editarCodigoColor  + editarCodigoMetros ;
 	
 	$("#editarCodigo").val(editarNuevoCodigo);
 	
@@ -244,7 +244,7 @@ $("#editarTipoTela").change(function(){
 
 	editarCodigoTela = $(this).val();
 
-	var editarNuevoCodigo = editarCodigoFecha + editarCodigoMetros + editarCodigoColor + editarCodigoTela ;
+	var editarNuevoCodigo = editarCodigoFecha + editarCodigoTela + editarCodigoColor  + editarCodigoMetros ;
 	
 	$("#editarCodigo").val(editarNuevoCodigo);
 
@@ -264,7 +264,7 @@ $("#editarColorTela").change(function(){
 	
 	editarCodigoColor = $(this).val();
 
-	var editarNuevoCodigo = editarCodigoFecha + editarCodigoMetros + editarCodigoColor + editarCodigoTela ;
+	var editarNuevoCodigo = editarCodigoFecha + editarCodigoTela + editarCodigoColor  + editarCodigoMetros ;
 	
 	$("#editarCodigo").val(editarNuevoCodigo);
 
@@ -277,7 +277,7 @@ $("#editarMetros").change(function(){
 	
 	editarCodigoMetros = $(this).val();
 
-	var editarNuevoCodigo = editarCodigoFecha + editarCodigoMetros + editarCodigoColor + editarCodigoTela ;
+	var editarNuevoCodigo = editarCodigoFecha + editarCodigoTela + editarCodigoColor  + editarCodigoMetros ;
 	
 	$("#editarCodigo").val(editarNuevoCodigo);
 

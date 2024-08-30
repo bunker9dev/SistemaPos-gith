@@ -37,6 +37,7 @@
             <tr>
               <th style="width:10px">#</th>
               <th>Código</th>
+              <th>Código Fabrica</th>
               <th>Tipo de Tela</th>
               <th>Acciones</th>
             </tr>
@@ -53,13 +54,13 @@
             $categorias = ControladorCategorias::ctrMostrarCategorias($item, $valor);
             
 
-
             foreach ($categorias as $key => $value) {
 
               echo ' <tr>
 
                         <td>' . ($key + 1) . '</td>
                         <td>' . $value["id"] . '</td>
+                          <td>' . $value["codigoFabrica"] . '</td>
                         <td class="text-uppercase">' . $value["categoria"] . '</td>
 
                         <td>
@@ -75,6 +76,7 @@
                         </td>
 
                       </tr>';
+                      
             }
 
             ?>
@@ -119,6 +121,19 @@
         <div class="modal-body">
           <div class="card-body">
 
+            <!-- Entrada Codigo Fabrica de Tela -->
+            <div class="form-group">
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text basic-addon1"> <i class="fas fa-code-branch"></i> </span>
+                </div>
+
+                <input type="text" class="form-control input-lg" name="nuevoCodigoFabrica"
+                  placeholder="Ingresar Codigo de Fabrica - opcional -" aria-label="Telas" aria-describedby="basic-addon1" >
+
+              </div>
+            </div>
+            <!-- ############# / entrada ########### -->
 
             <!-- Entrada Tipo de Tela -->
             <div class="form-group">
@@ -127,15 +142,18 @@
                   <span class="input-group-text basic-addon1"> <i class="fas fa-layer-group"></i> </span>
                 </div>
 
-                <input type="text" class="form-control input-lg" name="nuevaCategoria" placeholder="Ingresar Tipo de Tela" aria-label="Telas" aria-describedby="basic-addon1" required>
+                <input type="text" class="form-control input-lg" name="nuevaCategoria"
+                  placeholder="Ingresar Tipo de Tela" aria-label="Telas" aria-describedby="basic-addon1" required>
 
               </div>
             </div>
-
-
             <!-- ############# / entrada ########### -->
 
           </div>
+
+          <?php
+            var_dump($datos);
+          ?> 
 
         </div>
 
@@ -146,7 +164,8 @@
         </div>
 
         <?php
-
+          
+    
         $crearCategoria = new ControladorCategorias();
         $crearCategoria->ctrCrearCategoria();
 
@@ -178,7 +197,7 @@ MODAL EDITAR CATEGORÍA
         ======================================-->
 
         <div class="modal-header" style="background:#3c8dbc; color:white">
-          
+
           <h4 class="modal-title">Editar categoría</h4>
           <button type="button" class="close" data-dismiss="modal">&times;</button>
 
@@ -193,6 +212,20 @@ MODAL EDITAR CATEGORÍA
           <div class="box-body">
 
             <!-- ENTRADA PARA EL NOMBRE -->
+
+
+            <!-- Entrada CodigoFabrica de Tela -->
+            <div class="form-group">
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text basic-addon1"> <i class="fas fa-code-branch"></i> </span>
+                </div>
+
+                <input type="text" class="form-control input-lg" name="editarCodigoFabrica" id="editarCodigoFabrica" required>
+               
+
+              </div>
+            </div>
 
 
             <!-- Entrada Tipo de Tela -->
@@ -226,8 +259,8 @@ MODAL EDITAR CATEGORÍA
 
         <?php
 
-          $editarCategoria = new ControladorCategorias();
-          $editarCategoria -> ctrEditarCategoria();
+        $editarCategoria = new ControladorCategorias();
+        $editarCategoria->ctrEditarCategoria();
 
         ?>
 
@@ -241,8 +274,8 @@ MODAL EDITAR CATEGORÍA
 
 <?php
 
-  $borrarCategoria = new ControladorCategorias();
-  $borrarCategoria -> ctrBorrarCategoria();
+$borrarCategoria = new ControladorCategorias();
+$borrarCategoria->ctrBorrarCategoria();
 
 ?>
 
@@ -250,7 +283,7 @@ MODAL EDITAR CATEGORÍA
 
 <!-- Page specific script  -->
 <script>
-  $(function() {
+  $(function () {
     $("#example1").DataTable({
       "responsive": true,
       "lengthChange": false,

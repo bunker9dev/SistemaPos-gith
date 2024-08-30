@@ -12,17 +12,27 @@ class ControladorCategorias
 
 		if (isset($_POST["nuevaCategoria"])) {
 
-			if (preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["nuevaCategoria"])) {
+			if (preg_match('/^[#\.\-\a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["nuevoCodigoFabrica"]) ||
+				preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["nuevaCategoria"])	
+				) {
+
 
 				$tabla = "categoria";
 
 				$datos = array(
+
+					"codigoFabrica" => $_POST["nuevoCodigoFabrica"],
 					"categoria" => $_POST["nuevaCategoria"],
 					"usuario" => $_SESSION["usuario"]
 				);
+				
+				var_dump($datos);
 
-
+				
+				
 				$respuesta = ModeloCategorias::mdlIngresarCategoria($tabla, $datos);
+
+				
 
 				if ($respuesta == "ok") {
 
@@ -53,7 +63,7 @@ class ControladorCategorias
 					}).then(function(result){
 							if (result.value) {
 
-							window.location = "categoria";
+							window.location = "categorias";
 
 								}
 										})
@@ -84,17 +94,22 @@ class ControladorCategorias
 
 		if(isset($_POST["editarCategoria"])){
 
-			if(preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["editarCategoria"])){
-
+			//if(preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["editarCategoria"])){
+			
+			if (preg_match('/^[#\.\-\a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["editarCodigoFabrica"]) ||
+				preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["editarCategoria"])	
+				) {
 				$tabla = "categoria";
 
 				$datos = array(
+
+					"codigoFabrica" => $_POST["editarCodigoFabrica"],
 					"categoria" => $_POST["editarCategoria"],
 					"usuario" => $_SESSION["usuario"],
 					"id" => $_POST["idCategoria"],
 				);
 
-				var_dump($datos);
+				// var_dump($datos);
 
 				$respuesta = ModeloCategorias::mdlEditarCategoria($tabla, $datos);
 				

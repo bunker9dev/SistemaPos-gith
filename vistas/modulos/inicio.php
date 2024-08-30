@@ -233,3 +233,21 @@ $cabe = $control->Cabeceras();
 <!-- /.content -->
 </div>
 <!-- /.content-wrapper -->
+    <section class="content">
+
+      <div class="row">
+        <?php
+          include "inicio/cajas_superiores.php";
+        ?>
+      </div>
+
+      
+      </div>
+
+
+
+    
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->

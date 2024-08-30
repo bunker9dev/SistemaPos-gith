@@ -10,13 +10,16 @@ class ModeloCategorias
 
 	static public function mdlIngresarCategoria($tabla, $datos){
 
-		$stmt = Conexion::conectar()->prepare("INSERT INTO $tabla(categoria, usuario) VALUES (:categoria, :usuario)");
+		$stmt = Conexion::conectar()->prepare("INSERT INTO $tabla(codigoFabrica, categoria, usuario) VALUES (:codigoFabrica, :categoria, :usuario)");
 
+
+		$stmt->bindParam(":codigoFabrica", $datos["codigoFabrica"], PDO::PARAM_STR);
 		$stmt->bindParam(":categoria", $datos["categoria"], PDO::PARAM_STR);
 		$stmt->bindParam(":usuario", $datos["usuario"], PDO::PARAM_STR);
 
 		if($stmt->execute()){
 
+			
 			return "ok";
 
 		}else{
@@ -70,9 +73,11 @@ class ModeloCategorias
 
 	
 
-		$stmt = Conexion::conectar()->prepare("UPDATE $tabla SET categoria = :categoria, usuario = :usuario WHERE id = :id");
+		$stmt = Conexion::conectar()->prepare("UPDATE $tabla SET codigoFabrica = :codigoFabrica, categoria = :categoria, usuario = :usuario WHERE id = :id");
 
-		$stmt -> bindParam(":categoria", $datos["categoria"], PDO::PARAM_STR);
+		
+		$stmt -> bindParam(":codigoFabrica", $datos["codigoFabrica" ], PDO::PARAM_STR);
+		$stmt -> bindParam(":categoria", $datos["categoria" ], PDO::PARAM_STR);
 		$stmt -> bindParam(":id", $datos["id"], PDO::PARAM_INT);
 		$stmt -> bindParam(":usuario", $datos["usuario"], PDO::PARAM_STR);
 
