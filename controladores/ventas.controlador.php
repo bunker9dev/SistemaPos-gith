@@ -43,6 +43,7 @@ class ControladorVentas
 			"ValorPendiente" => $pendiente,
 			"metodoPago" => $_POST['nuevoMetodoPago'],
 			"cantidadDias" => $_POST['nuevoTiempoCredito'],
+			"userEla" => $_POST['userEla'],
 			"fechaVenta" => $fechaHoy,
 		);
 		$insert = $this->MODEL->SaveVenta($ventaPrin);
@@ -77,6 +78,11 @@ class ControladorVentas
 	{
 		$idVen = $_POST['idVen'];
 		$datos = $this->MODEL->detailRem($idVen);
+		echo json_encode($datos);
+	}
+	public function GetVendedor()
+	{
+		$datos = $this->MODEL->GetVendedor();
 		echo json_encode($datos);
 	}
 }

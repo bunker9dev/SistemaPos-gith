@@ -57,13 +57,7 @@
 						<li class="nav-item">
 							<a href="inicio" class="nav-link">
 								<i class="far fa-circle nav-icon"></i>
-								<p>Dashboard v1</p>
-							</a>
-						</li>
-						<li class="nav-item">
-							<a href="dashboard-v2" class="nav-link">
-								<i class="far fa-circle nav-icon"></i>
-								<p>Dashboard v2</p>
+								<p>General</p>
 							</a>
 						</li>
 					</ul>
@@ -173,12 +167,12 @@
 							</a>
 						</li>
 
-						<li class="nav-item">
+						<!-- <li class="nav-item">
 							<a href="ventas-reportes" class="nav-link">
 								<i class="far fa-circle nav-icon"></i>
 								<p>Reporte de ventas</p>
 							</a>
-						</li>
+						</li> -->
 
 					</ul>
 				</li>

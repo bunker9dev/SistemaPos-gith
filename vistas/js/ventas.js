@@ -239,13 +239,15 @@ function totalVenta() {
 
 async function SaveVenta() {
   var idVendedor = $("#idVendedor").val();
+  var userEla = $("#userEla").val();
+
   var idCliente = $("#idCliente").val();
   var nuevoTiempoCredito = $("#nuevoTiempoCredito").val();
   var nuevoMetodoPago = $("#nuevoMetodoPago").val();
 
   var PrecioVenta = $("#PrecioVenta").val().replace(/[,\.]/g, "");
 
-  if (nuevoMetodoPago === "" || idCliente === "") {
+  if (nuevoMetodoPago === "" || idCliente === "" || idVendedor === "") {
     alert("los espacios con * son obligatorios");
     return;
   }
@@ -286,6 +288,7 @@ async function SaveVenta() {
   formData.append("nuevoMetodoPago", nuevoMetodoPago);
   formData.append("productos", productosJSON);
   formData.append("PrecioVenta", PrecioVenta);
+  formData.append("userEla", userEla);
 
   try {
     let req2 = await fetch("controladores/ventas.controlador.php", {
@@ -294,10 +297,13 @@ async function SaveVenta() {
     });
 
     let res2 = await req2.text();
-    alert("Venta registrada exitosamente");
-
-    location.reload();
-
+    Swal.fire({
+      icon: "success",
+      text: "Venta registrada",
+    });
+    setTimeout(function () {
+      location.reload();
+    }, 2000);
     console.log(res2);
   } catch (error) {
     alert(error.message);
@@ -384,6 +390,30 @@ async function GetProdutos() {
       option.value = item.idProducto;
       option.textContent =
         item.CodigoProducto + "/" + item.categoria + "- " + item.color;
+      selectElement.appendChild(option); // Añadir la opción al select
+    });
+  } catch (error) {
+    // alert(error.message);
+    console.log(error.message);
+    console.log(error);
+  }
+}
+async function GetVendedor() {
+  let formData = new FormData();
+  formData.append("funcion", "GetVendedor");
+
+  try {
+    let req2 = await fetch("controladores/ventas.controlador.php", {
+      method: "POST",
+      body: formData,
+    });
+    let res2 = await req2.json();
+    let selectElement = document.getElementById("idVendedor");
+
+    res2.forEach(function (item) {
+      let option = document.createElement("option");
+      option.value = item.id;
+      option.textContent = item.usuario;
       selectElement.appendChild(option); // Añadir la opción al select
     });
   } catch (error) {
