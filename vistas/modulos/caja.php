@@ -30,7 +30,7 @@
 
       <div class="card-body">
         <div class="row">
-          <div class="col-3">
+          <div class="col-3 ">
             <label for="">Fecha Inicial:</label>
             <input type="date" class="form-control" value="<?= date('Y-m-d', strtotime('-1 month')) ?>" id="FechIni">
           </div>

@@ -166,13 +166,29 @@ function sumInd(con, stock, metros) {
   var CantidadMetros = $("#CantidadMetros-" + con).val();
 
   if (CantidadRollos > stock) {
-    alert("Valor super el stock disponible");
+
+    // alert("Valor super el stock disponible");
+
+    Swal.fire({
+      icon: "error",
+      title: "Oops...",
+      text: "Supera el stock disponible",
+    });
     $("#CantidadRollos-" + con).val(1);
     ("#CantidadMetros-" + con).val(metros);
     return;
   }
   if (CantidadRollos < 0) {
-    alert("No se aceptan valores menores a 0");
+
+    Swal.fire({
+      icon: "error",
+      title: "Oops...",
+      text: "No se aceptan valores menores a 0",
+    });
+
+    // alert("No se aceptan valores menores a 0");
+
+
     $("#CantidadRollos-" + con).val(1);
     ("#CantidadMetros-" + con).val(metros);
     return;
@@ -248,7 +264,15 @@ async function SaveVenta() {
   var PrecioVenta = $("#PrecioVenta").val().replace(/[,\.]/g, "");
 
   if (nuevoMetodoPago === "" || idCliente === "" || idVendedor === "") {
-    alert("los espacios con * son obligatorios");
+    
+    Swal.fire({
+      icon: "error",
+      title: "Oops...",
+      text: "Los espacios marcados con * son obligatorios ",
+    });
+
+
+    // alert("los espacios con * son obligatorios");
     return;
   }
   var productos = [];

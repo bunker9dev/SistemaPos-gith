@@ -42,7 +42,7 @@
                       <span class="input-group-text" id="basic-addon1"> Vendedor <span style="color: red;">*</span></span>
                     </div>
                     <select class="form-control" id="idVendedor" aria-label="Default select example">
-                      <option selected>Pensando</option>
+                      <option selected></option>
                     </select>
 
                   </div>
@@ -90,35 +90,6 @@
                 ======================================-->
 
                 <div class="form-group row nuevoProducto">
-<<<<<<< HEAD
-                  <!-- <div class="col    ">
-
-                    <div class="card-body" style='padding:0px'>
-                      <div class="card">
-
-                        <table class="table table-bordered table-striped table-responsive tablaVentasConsol">
-
-                          <thead>
-                            <tr>
-                              <th style="width: 10px">#</th>
-                              <th>Tipo tela</th>
-                              <th>Color</th>
-                              <th>mtrs x rollo</th>
-                              <th>Cant mts</th>
-                              <th>Cant rollos</th>
-                              <th>Valor mts</th>
-                              <th>X</th>
-                            </tr>
-                          </thead>
-
-                        </table>
-
-                      </div>
-                    </div>
-                  </div> -->
-
-=======
->>>>>>> DevDiego
                   <div class="container">
                     <div class="row justify-content-start">
                       <div class="col-4">

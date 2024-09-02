@@ -70,7 +70,7 @@ $list = $MODEL->GeneralStock();
                   <th>Acciones</th>
                 </tr>
               </thead>
->>>>>>> DevDiego
+>>>>>>> go
 
 
 
