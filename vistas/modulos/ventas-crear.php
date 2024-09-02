@@ -36,21 +36,24 @@
                   <!--=====================================
                   ENTRADA VENDEDOR
                   ======================================-->
-                  <div class="col-6">
-                    <div class="input-group">
-                      <div class="input-group-prepend">
-                        <span class="input-group-text" id="basic-addon1"> Vendedor</span>
-                      </div>
-                      <input type="text" class="form-control" id="nuevoVendedor" name="nuevoVendedor"
-                        value="<?= $_SESSION["usuario"]; ?>" readonly>
-                      <input type="hidden" id="idVendedor" name="idVendedor" value="<?php echo $_SESSION["id"]; ?>">
+
+                  <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" id="basic-addon1"> Vendedor <span style="color: red;">*</span></span>
                     </div>
+                    <select class="form-control" id="idVendedor" aria-label="Default select example">
+                      <option selected>Pensando</option>
+                    </select>
+
                   </div>
                 </div>
+
+                <input type="hidden" id="userEla" name="userEla" value="<?php echo $_SESSION["id"]; ?>">
                 <!--=====================================
                 ENTRADA CLIENTES
                 ======================================-->
                 <div class="form-group"> <!-- Entrada clientes -->
+
                   <label for="" class="form-label">Seleccionar cliente: <span style="color: red;">*</span></label> <br>
                   <div class="input-group mb-3">
                     <div class="input-group-prepend">
@@ -345,3 +348,9 @@ MODAL AGREGAR CLIENTE
     </div>
   </div>
 </div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    GetVendedor();
+  });
+</script>

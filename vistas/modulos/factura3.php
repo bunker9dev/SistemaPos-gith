@@ -3,7 +3,8 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/SistemaPos-gith/modelos/ventas.modelo
 $MODEL = new ModeloVentas;
 $idRem = $_GET['idRem'];
 $dtVen = $MODEL->datosVen($idRem);
-print_r($dtVen);
+$VenDet = $MODEL->Detventa($idRem);
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -11,7 +12,7 @@ print_r($dtVen);
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>factura 3</title>
+  <title>Remisión # <?= $idRem ?></title>
   <style>
     table,
     th,
@@ -35,7 +36,7 @@ print_r($dtVen);
       <picture>
         <img
           style="width: 200px"
-          src="../../vistas/img/plantilla/loginEverest3.png"
+          src="/SistemaPos-gith/vistas/img/plantilla/loginMontana.jpg"
           alt=" loginEverest3"
           loading="lazy" />
       </picture>
@@ -138,8 +139,13 @@ print_r($dtVen);
         border-block: 1px solid black;
       ">
     <!-- Fila Nueva -->
-    <div
-      style="
+    <?php $con = 1;
+    $cantRollos = 0;
+    foreach ($VenDet as $vd) {
+      $cantRollos = $cantRollos + $vd['CantidadRollo'];
+    ?>
+      <div
+        style="
           font-size: 12px;
           width: 750px;
           margin: 0 auto;
@@ -147,72 +153,23 @@ print_r($dtVen);
           grid-template-columns: 50px 250px 100px 100px 100px 150px;
           padding-block: 5px;
         ">
-      <div style="text-align: center">1</div>
-      <div>ANTIFLUIDO F.E.</div>
-      <div>AZUL CELESTE</div>
-      <div style="text-align: center">300</div>
-      <div style="text-align: center">$2.500</div>
-      <div style="text-align: center">$750.000</div>
-    </div>
-    <!-- Termina Fila  -->
-
-    <!-- Fila Nueva -->
-    <div
-      style="
-          font-size: 12px;
-          width: 750px;
-          margin: 0 auto;
-          display: grid;
-          grid-template-columns: 50px 250px 100px 100px 100px 150px;
-          padding-block: 5px;
-        ">
-      <div style="text-align: center">2</div>
-      <div>BENGALINA PANTALONERA</div>
-      <div>TORNASOL</div>
-      <div style="text-align: center">100</div>
-      <div style="text-align: center">$9.000</div>
-      <div style="text-align: center">$900.00</div>
-    </div>
-    <!-- Termina Fila  -->
-
-    <!-- Fila Nueva -->
-    <div
-      style="
-          font-size: 12px;
-          width: 750px;
-          margin: 0 auto;
-          display: grid;
-          grid-template-columns: 50px 250px 100px 100px 100px 150px;
-          padding-block: 5px;
-        ">
-      <div style="text-align: center">3</div>
-      <div>CHALIS LICRADO ESTAMPADO</div>
-      <div>PLATEADO</div>
-      <div style="text-align: center">352</div>
-      <div style="text-align: center">$12.000</div>
-      <div style="text-align: center">$4.224.000</div>
-    </div>
-    <!-- Termina Fila  -->
-
-    <!-- Fila Nueva -->
-
-    <div
-      style="
-          font-size: 12px;
-          width: 750px;
-          margin: 0 auto;
-          display: grid;
-          grid-template-columns: 50px 250px 100px 100px 100px 150px;
-          padding-block: 5px;
-        ">
-      <div style="text-align: center">4</div>
-      <div>CHANTILLY CON LENTEJUELAS</div>
-      <div># 1 TRADICIONAL</div>
-      <div style="text-align: center">50</div>
-      <div style="text-align: center">$8.500</div>
-      <div style="text-align: center">$425.000</div>
-    </div>
-    <!-- Termina Fila  -->
+        <div style="text-align: center"><?= $con ?></div>
+        <div>
+          <center>
+            <?= $vd['categoria'] ?>
+          </center>
+        </div>
+        <div>
+          <center>
+            <?= $vd['color'] ?>
+          </center>
+        </div>
+        <div style="text-align: center"><?= number_format($vd['CantMetro'], 00) ?></div>
+        <div style="text-align: center">$ <?= number_format($vd['PrecioMetro'], 00) ?></div>
+        <div style="text-align: center">$<?= number_format($vd['Total'], 00) ?></div>
+      </div>
+    <?php $con++;
+    } ?>
   </div>
 
   <br />
@@ -228,7 +185,7 @@ print_r($dtVen);
         grid-template-columns: 100px 100px auto 100px 150px;
       ">
     <div>Total Rollos</div>
-    <div>16</div>
+    <div><?= number_format($cantRollos, 00) ?></div>
     <div></div>
     <div style="text-align: center; font-weight: bold">SubTotal</div>
     <div style="text-align: center; font-weight: bold">$<?= number_format($dtVen['valorVenta'], 00) ?></div>

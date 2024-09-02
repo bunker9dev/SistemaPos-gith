@@ -124,7 +124,7 @@ class ModeloVentas
 	}
 	public function datosVen($idRem)
 	{
-		$sql = "SELECT tb1.idVentas,tb1.valorVenta,tb1.metodoPago,tb1.cantidadDias,tb1.fechaVenta,tb2.nombre,tb2.apellido,tb3.usuario
+		$sql = "SELECT tb1.idVentas,tb1.valorVenta,(CASE WHEN tb1.metodoPago = 1 then 'Efectivo' ELSE 'Credito' END) metodoPago,tb1.cantidadDias,tb1.fechaVenta,tb2.nombre,tb2.apellido,tb3.usuario
 		FROM ventas tb1 
 		INNER JOIN clientes tb2 on tb2.idCliente=tb1.idCliente
 		INNER JOIN usuarios tb3 on tb3.id
@@ -132,6 +132,31 @@ class ModeloVentas
 		$sql =  Conexion::conectar()->prepare($sql);
 		$sql->execute();
 		$row = $sql->fetch(PDO::FETCH_NAMED);
+		return $row;
+	}
+	public function Detventa($idRem)
+	{
+		$sql = "SELECT tb3.categoria,tb4.color,SUM(tb1.CantidadRollo) CantidadRollo,
+			SUM( (tb1.CantidadRollo*tb2.metrosRollo)) CantMetro, TRUNCATE(AVG(tb1.PrecioMetro), 0) PrecioMetro ,
+			SUM(((tb1.CantidadRollo* tb2.metrosRollo)*tb1.PrecioMetro))Total 
+			FROM ventasdetalle tb1
+			INNER JOIN productos tb2 on tb2.idProducto=tb1.idProducto
+			INNER JOIN categoria tb3 on tb3.id=tb2.idTela
+			INNER JOIN colores tb4 on tb4.idColor=tb2.idColor
+			where IdVenta=$idRem
+			GROUP BY tb3.categoria,tb4.color;";
+		$sql =  Conexion::conectar()->prepare($sql);
+		$sql->execute();
+		$row = $sql->fetchAll(PDO::FETCH_NAMED);
+		return $row;
+	}
+
+	public function GetVendedor()
+	{
+		$sql = "SELECT id,usuario FROM `usuarios` where perfil='Administrador' ANd estado=1;";
+		$sql =  Conexion::conectar()->prepare($sql);
+		$sql->execute();
+		$row = $sql->fetchAll(PDO::FETCH_NAMED);
 		return $row;
 	}
 }
