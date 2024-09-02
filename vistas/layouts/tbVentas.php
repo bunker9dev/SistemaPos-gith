@@ -26,7 +26,7 @@
                     <td><?= number_format($dt['ValorPendiente'], 00) ?></td>
                     <td>
                         <div class="btn-group">
-                            <button class="btn btn-info"> <i class="fa fa-print" aria-hidden="true"></i> </button>
+                            <a target="_blank" href="vistas/modulos/factura3.php?idRem=<?= $dt['idventas'] ?>" class="btn btn-info"> <i class="fa fa-print" aria-hidden="true"></i> </a>
                             <button class="btn btn-success" onclick="detailRem(<?= $dt['idventas'] ?>)"><i class="fa-solid fa-bars"></i> </button>
                         </div>
                     </td>

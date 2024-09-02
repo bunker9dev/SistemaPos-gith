@@ -21,7 +21,6 @@ class ModeloProductos
 			$stmt->execute();
 
 			return $stmt->fetch();
-
 		} else {
 
 			$stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla");
@@ -29,7 +28,6 @@ class ModeloProductos
 			$stmt->execute();
 
 			return $stmt->fetchAll();
-
 		}
 
 		$stmt = null;
@@ -65,15 +63,12 @@ class ModeloProductos
 		if ($stmt->execute()) {
 
 			return "ok";
-
 		} else {
 
 			return "error";
-
 		}
 
 		$stmt = null;
-
 	}
 
 
@@ -132,15 +127,22 @@ class ModeloProductos
 		if ($stmt->execute()) {
 
 			return "ok";
-
 		} else {
 
 			return "error";
-
 		}
 
 		$stmt = null;
-
 	}
-
+	public function GeneralStock()
+	{
+		$sql = "SELECT tb2.categoria Tela,tb3.color ,SUM(tb1.stock) stock ,SUM((tb1.metrosRollo * tb1.stock)) totalMts FROM productos tb1
+		INNER JOIN categoria tb2 on tb2.id=tb1.idTela
+		INNER JOIN colores tb3 on tb3.idColor=tb1.idColor
+		group BY tb2.categoria ,tb3.color;";
+		$sql =  Conexion::conectar()->prepare($sql);
+		$sql->execute();
+		$row = $sql->fetchAll(PDO::FETCH_NAMED);
+		return $row;
+	}
 }

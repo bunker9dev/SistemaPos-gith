@@ -124,10 +124,11 @@ class ModeloVentas
 	}
 	public function datosVen($idRem)
 	{
-		$sql = "SELECT tb1.idVentas,tb1.valorVenta,(CASE WHEN tb1.metodoPago = 1 then 'Efectivo' ELSE 'Credito' END) metodoPago,tb1.cantidadDias,tb1.fechaVenta,tb2.nombre,tb2.apellido,tb3.usuario
+		$sql = "SELECT tb1.idVentas,tb1.valorVenta,(CASE WHEN tb1.metodoPago = 1 then 'Efectivo' ELSE 'Credito' END) MetPago,tb1.cantidadDias,tb1.fechaVenta,tb2.nombre,tb2.apellido,tb3.usuario Ven ,tb4.usuario UsuEla
 		FROM ventas tb1 
 		INNER JOIN clientes tb2 on tb2.idCliente=tb1.idCliente
-		INNER JOIN usuarios tb3 on tb3.id
+		INNER JOIN usuarios tb3 on tb3.id=tb1.idVendedor
+		LEFT JOIN usuarios tb4 on tb4.id=tb1.userEla
 		WHERE tb1.idVentas=$idRem";
 		$sql =  Conexion::conectar()->prepare($sql);
 		$sql->execute();

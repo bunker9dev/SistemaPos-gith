@@ -1,4 +1,9 @@
-<div class="content-wrapper">
+<?php
+
+require_once $_SERVER['DOCUMENT_ROOT'] . '/SistemaPos-gith/modelos/productos.modelo.php';
+$MODEL = new ModeloProductos;
+$list = $MODEL->GeneralStock();
+?><div class="content-wrapper">
 
   <section class="content-header">
 
@@ -32,27 +37,56 @@
       </div>
 
       <div class="card-body">
-        <table class="table table-bordered table-hover dt-responsive tablaProductos" width="100%">
+        <div class="row">
+          <div class="col-lg-8">
+            <h3>Detallado Productos</h3>
+            <table class="table table-bordered table-hover dt-responsive tablaProductos" width="100%">
 
-          <thead>
-            <tr>
-              <th style="width:10px">#</th>
-              <th style="width:100px">Código</th>
-              <th style="width:200px">Tipo de Tela</th>
-              <th>Color</th>
-              <th style="width:50px text-align:center;">mtrs x rollo</th>
-              <th style="width:50px, text-align:center;">Stock</th>
-              <th>Fecha Compra</th>
-              <th>Acciones</th>
-            </tr>
-          </thead>
+              <thead>
+                <tr>
+                  <th style="width:10px">#</th>
+                  <th style="width:100px">Código</th>
+                  <th style="width:200px">Tipo de Tela</th>
+                  <th>Color</th>
+                  <th style="width:50px ;text-align:center;">mtrs x rollo</th>
+                  <th style="width:50px; text-align:center;">Stock</th>
+                  <th>Fecha Compra</th>
+                  <th>Acciones</th>
+                </tr>
+              </thead>
 
 
 
-          <!-- ######## /tbody ######### -->
+              <!-- ######## /tbody ######### -->
 
 
-        </table>
+            </table>
+          </div>
+          <div class="col-lg-4">
+            <h3>Resumen Productos</h3>
+            <table class="table table-bordered" id="informe">
+              <thead>
+                <tr>
+                  <th scope="col">Tela</th>
+                  <th scope="col">Color</th>
+                  <th scope="col">Stock</th>
+                  <th scope="col">Mts</th>
+                </tr>
+              </thead>
+              <tbody>
+                <?php foreach ($list as $lt) { ?>
+                  <tr>
+                    <td><?= $lt['Tela'] ?></td>
+                    <td><?= $lt['color'] ?></td>
+                    <td><?= $lt['stock'] ?></td>
+                    <td><?= $lt['totalMts'] ?></td>
+                  </tr> <?php } ?>
+
+              </tbody>
+            </table>
+          </div>
+        </div>
+
 
       </div>
       <!-- /.card-body -->
@@ -415,14 +449,18 @@ $borrarProducto->ctrBorrarProducto();
 ?>
 
 
-
+<script>
+  $("#informe").DataTable();
+</script>
 
 
 <!-- Page specific script  -->
 <script>
-  $(function () {
+  $(function() {
     $("#example1").DataTable({
-      "responsive": true, "lengthChange": false, "autoWidth": false,
+      "responsive": true,
+      "lengthChange": false,
+      "autoWidth": false,
       "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
     }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
     $('#example2').DataTable({
