@@ -62,6 +62,7 @@ async function AbonoPro() {
       body: formData,
     });
     let res2 = await req2.text();
+
     alert("Proceso exitoso");
     ListCredit();
     $("#AbonoRem").modal("hide"); // Abre el modal antes de cargar los datos
@@ -78,6 +79,10 @@ function CalculaVal() {
   var Calculo = parseFloat(val_Pend) - parseFloat(val_Abon);
 
   if (Calculo < 0) {
+    
+
+
+
     alert("No se puede poner mas del valor pendiente");
     $("#val_Abon").val(0);
     return;
