@@ -42,7 +42,7 @@
                       <span class="input-group-text" id="basic-addon1"> Vendedor <span style="color: red;">*</span></span>
                     </div>
                     <select class="form-control" id="idVendedor" aria-label="Default select example">
-                      <option selected></option>
+                      <option selected>Seleccione vendedor</option>
                     </select>
 
                   </div>
@@ -61,7 +61,7 @@
                     </div>
                     <select class="form-control text-uppercase" id="idCliente" required>
 
-                      <option value=""></option>
+                      <option value="">Seleccione Cliente</option>
 
                       <?php
 
