@@ -166,7 +166,6 @@ function sumInd(con, stock, metros) {
   var CantidadMetros = $("#CantidadMetros-" + con).val();
 
   if (CantidadRollos > stock) {
-
     // alert("Valor super el stock disponible");
 
     Swal.fire({
@@ -179,7 +178,6 @@ function sumInd(con, stock, metros) {
     return;
   }
   if (CantidadRollos < 0) {
-
     Swal.fire({
       icon: "error",
       title: "Oops...",
@@ -187,7 +185,6 @@ function sumInd(con, stock, metros) {
     });
 
     // alert("No se aceptan valores menores a 0");
-
 
     $("#CantidadRollos-" + con).val(1);
     ("#CantidadMetros-" + con).val(metros);
@@ -252,25 +249,39 @@ function totalVenta() {
   // Asignar el valor formateado al campo de PrecioTotal
   $("#PrecioVenta").val(valorFor);
 }
+function campoTiempo() {
+  console.log("Entra");
+  var valor = $("#nuevoMetodoPago").val();
+
+  if (valor === "2") {
+    $("#CampoTiempo").show();
+  } else {
+    $("#CampoTiempo").hide();
+  }
+}
 
 async function SaveVenta() {
   var idVendedor = $("#idVendedor").val();
   var userEla = $("#userEla").val();
 
+  console.log(idVendedor);
   var idCliente = $("#idCliente").val();
   var nuevoTiempoCredito = $("#nuevoTiempoCredito").val();
   var nuevoMetodoPago = $("#nuevoMetodoPago").val();
 
   var PrecioVenta = $("#PrecioVenta").val().replace(/[,\.]/g, "");
 
-  if (nuevoMetodoPago === "" || idCliente === "" || idVendedor === "") {
-    
+  if (
+    nuevoMetodoPago === "" ||
+    idCliente === "" ||
+    idVendedor === "" ||
+    idVendedor === "Seleccione vendedor"
+  ) {
     Swal.fire({
       icon: "error",
       title: "Oops...",
       text: "Los espacios marcados con * son obligatorios ",
     });
-
 
     // alert("los espacios con * son obligatorios");
     return;

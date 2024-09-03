@@ -12,7 +12,7 @@ session_start();
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 
-  <title>Sistema de Inventario A2</title>
+  <title>Sistema de Inventario E1</title>
   <link rel="icon" href="vistas/img/plantilla/1-icon-inventario-sia2.svg">
 
 

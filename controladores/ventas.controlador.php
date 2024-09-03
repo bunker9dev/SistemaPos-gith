@@ -1,7 +1,7 @@
 <?php
 date_default_timezone_set('America/Bogota');
 
-require_once $_SERVER['DOCUMENT_ROOT'] . '/SistemaPos-gith/modelos/ventas.modelo.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/modelos/ventas.modelo.php';
 
 class ControladorVentas
 {
@@ -69,7 +69,7 @@ class ControladorVentas
 	{
 		$datos = $this->MODEL->ListVentas($_POST['FechIni'], $_POST['FechFin']);
 		if ($datos) {
-			include($_SERVER['DOCUMENT_ROOT'] . '/SistemaPos-gith/vistas/layouts/tbVentas.php');
+			include($_SERVER['DOCUMENT_ROOT'] . '/vistas/layouts/tbVentas.php');
 		} else {
 			echo 'No hay datos';
 		}

@@ -52,7 +52,7 @@
             $valor = null;
 
             $categorias = ControladorCategorias::ctrMostrarCategorias($item, $valor);
-            
+
 
             foreach ($categorias as $key => $value) {
 
@@ -76,7 +76,6 @@
                         </td>
 
                       </tr>';
-                      
             }
 
             ?>
@@ -129,7 +128,7 @@
                 </div>
 
                 <input type="text" class="form-control input-lg" name="nuevoCodigoFabrica"
-                  placeholder="Ingresar Codigo de Fabrica - opcional -" aria-label="Telas" aria-describedby="basic-addon1" >
+                  placeholder="Ingresar Codigo de Fabrica - opcional -" aria-label="Telas" aria-describedby="basic-addon1">
 
               </div>
             </div>
@@ -151,9 +150,7 @@
 
           </div>
 
-          <?php
-            var_dump($datos);
-          ?> 
+
 
         </div>
 
@@ -164,8 +161,8 @@
         </div>
 
         <?php
-          
-    
+
+
         $crearCategoria = new ControladorCategorias();
         $crearCategoria->ctrCrearCategoria();
 
@@ -222,7 +219,7 @@ MODAL EDITAR CATEGORÍA
                 </div>
 
                 <input type="text" class="form-control input-lg" name="editarCodigoFabrica" id="editarCodigoFabrica" required>
-               
+
 
               </div>
             </div>
@@ -283,7 +280,7 @@ $borrarCategoria->ctrBorrarCategoria();
 
 <!-- Page specific script  -->
 <script>
-  $(function () {
+  $(function() {
     $("#example1").DataTable({
       "responsive": true,
       "lengthChange": false,

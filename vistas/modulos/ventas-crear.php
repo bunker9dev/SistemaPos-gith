@@ -174,10 +174,10 @@
 
                 <div class="form-group row">
 
-                  <div class="col-sm-6" style="padding right:0px">
+                  <div class="col-sm-6" style="padding-right:0px">
                     <label for="" class="form-label">Seleccione método de pago<span style="color: red;">*</span>:</label> <br>
                     <div class="input-group">
-                      <select class="form-control" id="nuevoMetodoPago" name="nuevoMetodoPago" required>
+                      <select class="form-control" id="nuevoMetodoPago" name="nuevoMetodoPago" required onchange="campoTiempo()">
                         <option value=""></option>
                         <option value="1">Efectivo</option>
                         <option value="2">Crédito</option>
@@ -187,7 +187,7 @@
 
                   </div>
 
-                  <div class="col-sm-6" style="padding left:0px">
+                  <div class="col-sm-6" style="padding-left:0px;display:none;" id="CampoTiempo">
                     <label for="" class="form-label">Seleccione Tiempo Credito:</label> <br>
                     <div class="input-group">
                       <select class="form-control" id="nuevoTiempoCredito" name="nuevoTiempoCredito" required>

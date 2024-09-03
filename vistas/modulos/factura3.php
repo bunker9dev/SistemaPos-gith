@@ -1,5 +1,5 @@
 <?php
-require_once $_SERVER['DOCUMENT_ROOT'] . '/SistemaPos-gith/modelos/ventas.modelo.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/modelos/ventas.modelo.php';
 $MODEL = new ModeloVentas;
 $idRem = $_GET['idRem'];
 $dtVen = $MODEL->datosVen($idRem);
@@ -49,7 +49,7 @@ $VenDet = $MODEL->Detventa($idRem);
           <picture>
             <img
               style="width: 200px ;height:150px;"
-              src="/SistemaPos-gith/<?= $dtVen['foto'] ?>"
+              src="/<?= $dtVen['foto'] ?>"
               alt=" loginEverest3"
               loading="lazy" />
           </picture>

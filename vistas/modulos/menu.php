@@ -5,7 +5,7 @@
 	<!-- Brand Logo -->
 	<a href="inicio" class="brand-link">
 		<img src="vistas/img/plantilla/icon-inventary-case.svg" alt="ISA2 Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-		<span class="brand-text font-weight-light">Sistema inventarios A2</span>
+		<span class="brand-text font-weight-light">Sistema inventario E1</span>
 	</a>
 
 	<!-- Sidebar -->

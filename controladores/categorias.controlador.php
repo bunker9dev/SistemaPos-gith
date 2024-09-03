@@ -39,7 +39,7 @@ class ControladorCategorias
 					echo '<script>
 
                     Swal.fire({
-                        icon: "successs",
+                        icon: "success",
                         title: "Agregado",
                         text: "¡El Tipo de tela ha sido agregado correctamente!",
                         }).then(function(result){
@@ -120,7 +120,7 @@ class ControladorCategorias
 
 
 				Swal.fire({
-						icon: "successs",
+						icon: "success",
 						title: "Usuario Modificado",
 						text: "¡El tipo de Tela ha sido Modificado correctamente!",
 						}).then(function(result){

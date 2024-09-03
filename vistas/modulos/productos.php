@@ -1,6 +1,6 @@
 <?php
 
-require_once $_SERVER['DOCUMENT_ROOT'] . '/SistemaPos-gith/modelos/productos.modelo.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/modelos/productos.modelo.php';
 $MODEL = new ModeloProductos;
 $list = $MODEL->GeneralStock();
 ?><div class="content-wrapper">
