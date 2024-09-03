@@ -63,11 +63,19 @@ async function AbonoPro() {
     });
     let res2 = await req2.text();
 
-    alert("Proceso exitoso");
+    Swal.fire({
+      icon: "success",
+      title: "Abonado",
+      text: "Abono agregado",
+    });
     ListCredit();
     $("#AbonoRem").modal("hide"); // Abre el modal antes de cargar los datos
   } catch (error) {
-    // alert(error.message);
+    Swal.fire({
+      icon: "error",
+      title: "Oops...",
+      text: "No se aceptan valores menores a 0",
+    });
     console.log(error.message);
     console.log(error);
   }
@@ -79,10 +87,6 @@ function CalculaVal() {
   var Calculo = parseFloat(val_Pend) - parseFloat(val_Abon);
 
   if (Calculo < 0) {
-    
-
-
-
     alert("No se puede poner mas del valor pendiente");
     $("#val_Abon").val(0);
     return;

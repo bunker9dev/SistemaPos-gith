@@ -124,7 +124,7 @@ class ModeloVentas
 	}
 	public function datosVen($idRem)
 	{
-		$sql = "SELECT tb1.idVentas,tb1.valorVenta,(CASE WHEN tb1.metodoPago = 1 then 'Efectivo' ELSE 'Credito' END) MetPago,tb1.cantidadDias,tb1.fechaVenta,tb2.nombre,tb2.apellido,tb3.usuario Ven ,tb4.usuario UsuEla
+		$sql = "SELECT tb1.idVentas,tb1.valorVenta,(CASE WHEN tb1.metodoPago = 1 then 'Efectivo' ELSE 'Credito' END) MetPago,tb1.cantidadDias,tb1.fechaVenta,tb2.nombre,tb2.apellido,tb3.usuario Ven ,tb4.usuario UsuEla,Tb3.foto
 		FROM ventas tb1 
 		INNER JOIN clientes tb2 on tb2.idCliente=tb1.idCliente
 		INNER JOIN usuarios tb3 on tb3.id=tb1.idVendedor
@@ -154,7 +154,7 @@ class ModeloVentas
 
 	public function GetVendedor()
 	{
-		$sql = "SELECT id,usuario FROM `usuarios` where perfil='Administrador' ANd estado=1;";
+		$sql = "SELECT id,usuario FROM `usuarios` where perfil='Vendedor' ANd estado=1;";
 		$sql =  Conexion::conectar()->prepare($sql);
 		$sql->execute();
 		$row = $sql->fetchAll(PDO::FETCH_NAMED);

@@ -72,7 +72,7 @@
             </table>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="Closemd()">Cerrar</button>
           </div>
         </div>
       </div>
@@ -118,10 +118,16 @@
   <!-- /.content -->
 </div>
 <!-- /.content-wrapper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
 
 <script src="vistas/js/caja.js"></script>
 <script>
   document.addEventListener('DOMContentLoaded', function() {
     ListCredit();
   });
+
+  function Closemd() {
+    $('#AbonoRem').modal('hide');
+  }
 </script>

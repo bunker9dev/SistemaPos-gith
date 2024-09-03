@@ -37,22 +37,7 @@ $list = $MODEL->GeneralStock();
       </div>
 
       <div class="card-body">
-<<<<<<< HEAD
-        <table class="table table-bordered table-hover table-responsive tablaProductos" width="100%">
 
-          <thead>
-            <tr>
-              <th style="width:10px">#</th>
-              <th style="width:100px">Código</th>
-              <th style="width:200px">Tipo de Tela</th>
-              <th>Color</th>
-              <th style="width:50px, text-align:center">mtrs x rollo</th>
-              <th style="width:50px, text-align:center">Stock</th>
-              <th>Fecha Compra</th>
-              <th>Acciones</th>
-            </tr>
-          </thead>
-=======
         <div class="row">
           <div class="col-lg-8">
             <h3>Detallado Productos</h3>
@@ -70,13 +55,6 @@ $list = $MODEL->GeneralStock();
                   <th>Acciones</th>
                 </tr>
               </thead>
->>>>>>> go
-
-
-
-              <!-- ######## /tbody ######### -->
-
-
             </table>
           </div>
           <div class="col-lg-4">

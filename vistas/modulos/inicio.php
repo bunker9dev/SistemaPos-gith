@@ -84,7 +84,7 @@ $cabe = $control->Cabeceras();
           <div class="icon">
             <i class="fas fa-chart-bar"></i>
           </div>
-          <a href="#" class="small-box-footer">Más Info <i class="fas fa-arrow-circle-right"></i></a>
+          <a href="caja" class="small-box-footer">Más Info <i class="fas fa-arrow-circle-right"></i></a>
         </div>
       </div>
 
