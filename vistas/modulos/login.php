@@ -12,7 +12,7 @@
             <div class="card-header text-center">
 
                 <!-- <a href="../../index2.html" class="h1"><b>SIA</b>2</a> -->
-                <img src="vistas/img/plantilla/1-logo-letras-negro.svg" alt="logo letras" class="img-fluid" styles="padding:30px 100px 0px 100px>">
+                <img src="vistas/img/plantilla/1-logo-letras-negro1.svg" alt="logo letras" class="img-fluid" styles="padding:30px 100px 0px 100px>">
 
             </div>
 
