@@ -1,7 +1,10 @@
 <?php
 
 //require_once $_SERVER['DOCUMENT_ROOT'] . '/discolnet/includes/conexion.php';
-require_once $_SERVER['DOCUMENT_ROOT'] . '/includes/conexion.php';
+// require_once $_SERVER['DOCUMENT_ROOT'] . '/includes/conexion.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/SistemaPos-gith/includes/conexion.php';  // para trabajar localhost
+
+
 require_once 'Spout/Autoloader/autoload.php';
 require_once 'Spout/Writer/WriterAbstract.php';
 

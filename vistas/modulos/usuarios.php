@@ -197,6 +197,8 @@ MODAL AGREGAR USUARIO
 
                   <option value="Administrador">Administrador</option>
 
+                  <option value="Secretaria">Secretaria</option>
+
                   <option value="Bodeguero">Bodeguero</option>
 
                   <option value="Vendedor">Vendedor</option>

@@ -1,8 +1,11 @@
 <?php
 date_default_timezone_set('America/Bogota');
 
-require_once $_SERVER['DOCUMENT_ROOT'] . '/modelos/dashboard.modelo.php';
-require_once $_SERVER['DOCUMENT_ROOT'] . '/guia/sqltoexcel/index.php';
+// require_once $_SERVER['DOCUMENT_ROOT'] . '/modelos/dashboard.modelo.php';
+// require_once $_SERVER['DOCUMENT_ROOT'] . '/guia/sqltoexcel/index.php';
+
+require_once $_SERVER['DOCUMENT_ROOT'] . '/SistemaPos-gith/modelos/dashboard.modelo.php';  // PAra trabajar en local host
+require_once $_SERVER['DOCUMENT_ROOT'] . '/SistemaPos-gith/guia/sqltoexcel/index.php';  // PAra trabajar en local host
 
 class ControladorDash
 {

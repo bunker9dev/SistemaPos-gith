@@ -1,7 +1,8 @@
 <?php
 date_default_timezone_set('America/Bogota');
 
-require_once $_SERVER['DOCUMENT_ROOT'] . '/modelos/caja.modelo.php';
+// require_once $_SERVER['DOCUMENT_ROOT'] . '/modelos/caja.modelo.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/SistemaPos-gith/modelos/caja.modelo.php';
 
 class ControladorCaja
 {
@@ -21,7 +22,10 @@ class ControladorCaja
     {
         $datos = $this->MODEL->ListCredit($_POST['FechIni'], $_POST['FechFin']);
         if ($datos) {
-            include($_SERVER['DOCUMENT_ROOT'] . '/vistas/layouts/tbCredit.php');
+            // include($_SERVER['DOCUMENT_ROOT'] . '/vistas/layouts/tbCredit.php');
+
+            include($_SERVER['DOCUMENT_ROOT'] . '/SistemaPos-gith/vistas/layouts/tbCredit.php'); // PAra trabajar en local host
+
         } else {
             echo 'No hay datos';
         }

@@ -1,6 +1,7 @@
 <?php
 
-require_once $_SERVER['DOCUMENT_ROOT'] . '/modelos/productos.modelo.php';
+// require_once $_SERVER['DOCUMENT_ROOT'] . '/modelos/productos.modelo.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/SistemaPos-gith/modelos/productos.modelo.php';  // para trabajar localhost
 $MODEL = new ModeloProductos;
 $list = $MODEL->GeneralStock();
 ?><div class="content-wrapper">
@@ -59,7 +60,7 @@ $list = $MODEL->GeneralStock();
           </div>
           <div class="col-lg-4">
             <h3>Resumen Productos</h3>
-            <table class="table table-bordered" id="informe">
+            <table class="table table-bordered tablas" id="informe">
               <thead>
                 <tr>
                   <th scope="col">Tela</th>
