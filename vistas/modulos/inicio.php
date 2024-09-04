@@ -30,13 +30,6 @@ $cabe = $control->Cabeceras();
     align-items: center;
     /* Centrar verticalmente el contenido dentro del contenedor */
   }
-
-  /* Asegurar que el canvas se ajuste al contenedor */
-  canvas {
-    display: block;
-    width: 100%;
-    height: 100%;
-  }
 </style>
 <div class="content-wrapper">
   <!-- Content Header (Page header) -->
@@ -143,10 +136,8 @@ $cabe = $control->Cabeceras();
             </div>
           </h5>
           <div class="card-body">
-            <div class="container">
-              <div class="chart-container">
-                <canvas id="myChart1"></canvas>
-              </div>
+            <div class="container" style=" height: 300px;">
+              <canvas id="myChart1"></canvas>
             </div>
           </div>
         </div>
@@ -164,10 +155,9 @@ $cabe = $control->Cabeceras();
             </div>
           </h5>
           <div class="card-body">
-            <div class="container">
-              <div class="chart-container">
-                <canvas id="myChart2"></canvas>
-              </div>
+            <div class="container" style=" height: 300px;">
+              <canvas id="myChart2"></canvas>
+
             </div>
           </div>
         </div>
@@ -185,10 +175,9 @@ $cabe = $control->Cabeceras();
             </div>
           </h5>
           <div class="card-body">
-            <div class="container">
-              <div class="chart-container">
-                <canvas id="myChart3"></canvas>
-              </div>
+            <div class="container" style=" height: 300px;">
+
+              <canvas id="myChart3"></canvas>
             </div>
           </div>
         </div>
@@ -206,10 +195,10 @@ $cabe = $control->Cabeceras();
             </div>
           </h5>
           <div class="card-body">
-            <div class="container">
-              <div class="chart-container">
-                <canvas id="myChart4"></canvas>
-              </div>
+            <div class="container" style=" height: 300px;">
+
+              <canvas id="myChart4"></canvas>
+
             </div>
           </div>
         </div>

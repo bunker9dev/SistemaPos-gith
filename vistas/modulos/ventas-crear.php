@@ -1,3 +1,20 @@
+<?php
+$perfil = $_SESSION['perfil'];
+$permisos = array('Administrador', 'Secretaria', 'Vendedor');
+
+if (in_array($perfil, $permisos)) {
+} else {
+  echo "<script>
+      Swal.fire({
+          icon: 'error',
+          title: 'Acceso denegado',
+          text: 'No tienes permiso para acceder a esta sección',
+      }).then(() => {
+          window.location.href = '/inicio'; 
+      });
+  </script>";
+  exit();
+} ?>
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
   <!-- Content Header (Page header) -->

@@ -1,3 +1,20 @@
+<?php
+$perfil = $_SESSION['perfil'];
+$permisos = array('Administrador', 'Secretaria');
+
+if (in_array($perfil, $permisos)) {
+} else {
+  echo "<script>
+      Swal.fire({
+          icon: 'error',
+          title: 'Acceso denegado',
+          text: 'No tienes permiso para acceder a esta sección',
+      }).then(() => {
+          window.location.href = '/inicio'; 
+      });
+  </script>";
+  exit();
+} ?>
 <div class="content-wrapper">
 
   <section class="content-header">
@@ -60,7 +77,7 @@
             foreach ($usuarios as $key => $value) {
 
               echo ' <tr>
-                      <td>' . ($key +1).' </td>
+                      <td>' . ($key + 1) . ' </td>
                       <td>' . $value["nombre"] . '</td>
                       <td>' . $value["apellido"] . '</td>
                       <td>' . $value["usuario"] . '</td>';
@@ -76,20 +93,18 @@
 
               echo '<td>' . $value["perfil"] . '</td>';
 
-              if($value["estado"] != 0) {
-                
-                echo '<td><button class="btn btn-success btn-xs btnActivar" idUsuario="'.$value["id"].'" estadoUsuario="0" >Activo</button></td>';
+              if ($value["estado"] != 0) {
 
-              }else{
+                echo '<td><button class="btn btn-success btn-xs btnActivar" idUsuario="' . $value["id"] . '" estadoUsuario="0" >Activo</button></td>';
+              } else {
 
-                echo '<td><button class="btn btn-danger btn-xs btnActivar" idUsuario="'.$value["id"].'" estadoUsuario="1" >Desactivado</button></td>';
-
+                echo '<td><button class="btn btn-danger btn-xs btnActivar" idUsuario="' . $value["id"] . '" estadoUsuario="1" >Desactivado</button></td>';
               }
-                      echo '<td>' . $value["ultimo_login"] . '</td>
+              echo '<td>' . $value["ultimo_login"] . '</td>
                       <td>
                         <div class="btn-group">
-                          <button class="btn btn-warning btnEditarUsuario" idUsuario="'.$value["id"].'" data-toggle="modal" data-target="#modalEditarUsuario" > <i class="fa fa-pencil-alt" aria-hidden="true"></i> </button>
-                          <button class="btn btn-danger btnEliminarUsuario" idUsuario="'.$value["id"].'" fotoUsuario="'.$value["foto"].'" usuario="'.$value["usuario"].'"><i class="fa fa-times"></i> </button>
+                          <button class="btn btn-warning btnEditarUsuario" idUsuario="' . $value["id"] . '" data-toggle="modal" data-target="#modalEditarUsuario" > <i class="fa fa-pencil-alt" aria-hidden="true"></i> </button>
+                          <button class="btn btn-danger btnEliminarUsuario" idUsuario="' . $value["id"] . '" fotoUsuario="' . $value["foto"] . '" usuario="' . $value["usuario"] . '"><i class="fa fa-times"></i> </button>
                         </div>
                       </td>
                     </tr> ';
@@ -200,6 +215,9 @@ MODAL AGREGAR USUARIO
                   <option value="Bodeguero">Bodeguero</option>
 
                   <option value="Vendedor">Vendedor</option>
+
+                  <option value="Secretaria">Secretaria</option>
+
                 </select>
               </div>
             </div>
@@ -280,7 +298,7 @@ MODAL EDITAR USUARIO
                 <div class="input-group-prepend">
                   <span class="input-group-text basic-addon1"><i class="fa fa-user" aria-hidden="true"></i></span>
                 </div>
-                <input type="text" class="form-control input-lg" id="editarApellido" name="editarApellido" value=""  required>
+                <input type="text" class="form-control input-lg" id="editarApellido" name="editarApellido" value="" required>
               </div>
             </div>
 
@@ -291,7 +309,7 @@ MODAL EDITAR USUARIO
                 <div class="input-group-prepend">
                   <span class="input-group-text basic-addon1"><i class="fa fa-key" aria-hidden="true"></i></span>
                 </div>
-                <input type="text" class="form-control input-lg" id="editarUsuario" name="editarUsuario" value=""  readonly>
+                <input type="text" class="form-control input-lg" id="editarUsuario" name="editarUsuario" value="" readonly>
               </div>
             </div>
 
@@ -305,7 +323,7 @@ MODAL EDITAR USUARIO
 
                 <input type="password" class="form-control input-lg" id="editarPassword" name="editarPassword" placeholder="Escriba la Nueva Contraseña" aria-label="lockname" aria-describedby="basic-addon1">
 
-                <input type= "hidden" id="passwordActual" name="passwordActual">
+                <input type="hidden" id="passwordActual" name="passwordActual">
 
               </div>
             </div>
@@ -369,8 +387,7 @@ MODAL EDITAR USUARIO
 
 <?php
 
-  $borrarUsuario = new ControladorUsuarios();
-  $borrarUsuario -> ctrBorrarUsuario();
+$borrarUsuario = new ControladorUsuarios();
+$borrarUsuario->ctrBorrarUsuario();
 
-?> 
-
+?>

@@ -1,5 +1,22 @@
 <!-- Content Wrapper. Contains page content -->
 
+<?php
+$perfil = $_SESSION['perfil'];
+$permisos = array('Administrador', 'Secretaria');
+
+if (in_array($perfil, $permisos)) {
+} else {
+  echo "<script>
+      Swal.fire({
+          icon: 'error',
+          title: 'Acceso denegado',
+          text: 'No tienes permiso para acceder a esta sección',
+      }).then(() => {
+          window.location.href = '/inicio'; 
+      });
+  </script>";
+  exit();
+} ?>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/brands.min.css" integrity="sha512-9YHSK59/rjvhtDcY/b+4rdnl0V4LPDWdkKceBl8ZLF5TB6745ml1AfluEU6dFWqwDw9lPvnauxFgpKvJqp7jiQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <div class="content-wrapper">
@@ -107,6 +124,36 @@
             <center>
               <button class="btn btn-primary btn-sm" onclick="AbonoPro()"><i class="fa-solid fa-cash-register"></i> Abonar</button>
             </center>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Modal detalle Factura-->
+    <div class="modal fade" id="HistoAbo" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">Historial Abonos Remisión #<span id="indReam"></span></h1>
+          </div>
+          <div class="modal-body">
+            <table class="table" id="HistoAbotb">
+              <thead>
+                <tr>
+                  <th scope="col">#Recibo caja</th>
+                  <th scope="col">Fecha</th>
+                  <th scope="col">Valor Anterior</th>
+                  <th scope="col">Valor Abonado</th>
+                  <th scope="col">valor pendiente</th>
+                  <th scope="col">Vendedor</th>
+                  <th scope="col">Recibo</th>
+                </tr>
+              </thead>
+              <tbody>
+              </tbody>
+            </table>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>

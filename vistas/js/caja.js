@@ -70,6 +70,10 @@ async function AbonoPro() {
     });
     ListCredit();
     $("#AbonoRem").modal("hide"); // Abre el modal antes de cargar los datos
+    window.open(
+      "/vistas/modulos/facturaReciboCaja.php?idAbo=" + res2 + "",
+      "_blank"
+    );
   } catch (error) {
     Swal.fire({
       icon: "error",
@@ -92,4 +96,48 @@ function CalculaVal() {
     return;
   }
   $("#val_Nue").val(formatNumber(Calculo));
+}
+
+async function HistoAbo(idVen) {
+  $("#indReam").html(idVen);
+  let formData = new FormData();
+  formData.append("funcion", "HistoAbo");
+  formData.append("idVen", idVen);
+
+  try {
+    let req2 = await fetch("controladores/caja.controlador.php", {
+      method: "POST",
+      body: formData,
+    });
+    let res2 = await req2.json();
+    console.log(res2);
+
+    // Limpiar la tabla antes de llenarla
+    $("#HistoAbotb tbody").empty();
+
+    // Iterar sobre los datos y agregar filas a la tabla
+    res2.forEach((item) => {
+      let row = `
+      <tr>
+        <td>${item.IdVentasAb}</td>
+        <td>${item.FechaAbon}</td>
+        <td>${formatNumber(item.valorActual)}</td>
+        <td>${formatNumber(item.ValorAbon)}</td>
+        <td>${formatNumber(item.Pendiente)}</td>
+        <td>${item.usuario}</td>
+        <td><a href="/vistas/modulos/facturaReciboCaja.php?idAbo=${
+          item.IdVentasAb
+        }" target="_blank" class="btn btn-primary btn-sm">Recibo</a></td>
+      </tr>
+    `;
+      $("#HistoAbotb tbody").append(row);
+    });
+
+    // Inicializar DataTable
+    $("#HistoAbotb").DataTable();
+  } catch (error) {
+    // alert(error.message);
+    console.log(error.message);
+    console.log(error);
+  }
 }

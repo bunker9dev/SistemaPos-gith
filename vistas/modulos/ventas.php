@@ -1,4 +1,21 @@
 <?php
+$perfil = $_SESSION['perfil'];
+$permisos = array('Administrador', 'Secretaria', 'Vendedor');
+
+if (in_array($perfil, $permisos)) {
+} else {
+  echo "<script>
+      Swal.fire({
+          icon: 'error',
+          title: 'Acceso denegado',
+          text: 'No tienes permiso para acceder a esta sección',
+      }).then(() => {
+          window.location.href = '/inicio'; 
+      });
+  </script>";
+  exit();
+} ?>
+<?php
 date_default_timezone_set('America/Bogota');
 ?>
 

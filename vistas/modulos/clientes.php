@@ -1,3 +1,20 @@
+<?php
+$perfil = $_SESSION['perfil'];
+$permisos = array('Administrador', 'Secretaria', 'Vendedor');
+
+if (in_array($perfil, $permisos)) {
+} else {
+  echo "<script>
+      Swal.fire({
+          icon: 'error',
+          title: 'Acceso denegado',
+          text: 'No tienes permiso para acceder a esta sección',
+      }).then(() => {
+          window.location.href = '/inicio'; 
+      });
+  </script>";
+  exit();
+} ?>
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
   <!-- Content Header (Page header) -->
@@ -33,7 +50,7 @@
 
       <div class="card-body">
         <!-- <table id="Clientess1" class="table table-bordered table-hover table-responsive tablas "> -->
-        <table  class="table table-bordered table-hover table-responsive tablas" width="100%">
+        <table class="table table-bordered table-hover table-responsive tablas" width="100%">
 
           <thead>
             <tr>
@@ -52,42 +69,41 @@
 
             <?php
 
-              $item = null;
-              $valor = null;
+            $item = null;
+            $valor = null;
 
-              $clientes = ControladorClientes::ctrMostrarClientes($item, $valor);
-              
+            $clientes = ControladorClientes::ctrMostrarClientes($item, $valor);
 
-              foreach ($clientes as $key => $value) {
-                
 
-                echo '<tr>
+            foreach ($clientes as $key => $value) {
 
-                        <td>'.($key+1).'</td>
 
-                        <td>'.$value["nombre"].'</td>
+              echo '<tr>
 
-                        <td>'.$value["apellido"].'</td>
+                        <td>' . ($key + 1) . '</td>
 
-                        <td>'.$value["ciudad"].'</td>
+                        <td>' . $value["nombre"] . '</td>
 
-                        <td>'.$value["total_compras"].'</td>
+                        <td>' . $value["apellido"] . '</td>
 
-                        <td>'.$value["ultima_compra"].'</td>
+                        <td>' . $value["ciudad"] . '</td>
 
-                        <td>'.$value["fecha_registro"].'</td>
+                        <td>' . $value["total_compras"] . '</td>
+
+                        <td>' . $value["ultima_compra"] . '</td>
+
+                        <td>' . $value["fecha_registro"] . '</td>
 
                         <td>
                         <div class="btn-group">
-                          <button class="btn btn-warning btnEditarCliente" data-toggle="modal" data-target="#modalEditarCliente" idCliente="'.$value["idCliente"].'" > <i class="fa fa-pencil-alt" aria-hidden="true"></i> </button>
-                          <button class="btn btn-danger btnEliminarCliente" idCliente="'.$value["idCliente"].'" ><i class="fa fa-times"></i> </button>
+                          <button class="btn btn-warning btnEditarCliente" data-toggle="modal" data-target="#modalEditarCliente" idCliente="' . $value["idCliente"] . '" > <i class="fa fa-pencil-alt" aria-hidden="true"></i> </button>
+                          <button class="btn btn-danger btnEliminarCliente" idCliente="' . $value["idCliente"] . '" ><i class="fa fa-times"></i> </button>
                         </div>
                       </td>
 
 
                       </tr>';
-              
-                }
+            }
 
             ?>
 
@@ -117,7 +133,7 @@ MODAL AGREGAR CLIENTE
   <div class="modal-dialog">
     <div class="modal-content">
 
-    <form role="form" method="post" enctype="multipart/form-data">
+      <form role="form" method="post" enctype="multipart/form-data">
         <!-- Modal Header -->
         <div class="modal-header" style="background-color: #007bff; color:#ffffff">
           <h4 class="modal-title">Agregar Cliente</h4>
@@ -131,7 +147,7 @@ MODAL AGREGAR CLIENTE
 
             <div class="form-group">
               <div class="input-group">
-              <span class="input-group-text basic-addon1"> <i class="fas fa-user"></i> </span>
+                <span class="input-group-text basic-addon1"> <i class="fas fa-user"></i> </span>
                 <input type="text" class="form-control input-lg" name="nuevoNombreCliente" placeholder="Ingresar nombre" required>
               </div>
             </div>
@@ -140,7 +156,7 @@ MODAL AGREGAR CLIENTE
 
             <div class="form-group">
               <div class="input-group">
-              <span class="input-group-text basic-addon1"> <i class="far fa-user"></i> </span>
+                <span class="input-group-text basic-addon1"> <i class="far fa-user"></i> </span>
                 <input type="text" class="form-control input-lg" name="nuevoApellidoCliente" placeholder="Ingresar apellido" required>
               </div>
             </div>
@@ -149,7 +165,7 @@ MODAL AGREGAR CLIENTE
 
             <div class="form-group">
               <div class="input-group">
-              <span class="input-group-text basic-addon1"> <i class="fas fa-city"></i> </span>
+                <span class="input-group-text basic-addon1"> <i class="fas fa-city"></i> </span>
                 <input type="text" class="form-control input-lg" name="nuevaCiudadCliente" placeholder="Ingresar ciudad" required>
               </div>
             </div>
@@ -195,8 +211,8 @@ MODAL EDITAR CLIENTE
 <div id="modalEditarCliente" class="modal fade" role="dialog">
   <div class="modal-dialog">
     <div class="modal-content">
-      <form role="form" method="post" >
-        
+      <form role="form" method="post">
+
         <!-- Modal Header -->
         <div class="modal-header" style="background-color: #007bff; color:#ffffff">
           <h4 class="modal-title">Editar Cliente</h4>
@@ -226,7 +242,7 @@ MODAL EDITAR CLIENTE
                 <div class="input-group-prepend">
                   <span class="input-group-text basic-addon1"> <i class="far fa-user"></i> </span>
                 </div>
-                <input type="text" class="form-control input-lg" id="editarApellidoCliente" name="editarApellidoCliente" value=""  required>
+                <input type="text" class="form-control input-lg" id="editarApellidoCliente" name="editarApellidoCliente" value="" required>
               </div>
             </div>
 
@@ -237,7 +253,7 @@ MODAL EDITAR CLIENTE
                 <div class="input-group-prepend">
                   <span class="input-group-text basic-addon1"> <i class="fas fa-city"></i> </span>
                 </div>
-                <input type="text" class="form-control input-lg" id="editarCiudadCliente" name="editarCiudadCliente" value=""  required>
+                <input type="text" class="form-control input-lg" id="editarCiudadCliente" name="editarCiudadCliente" value="" required>
               </div>
             </div>
 
@@ -255,7 +271,7 @@ MODAL EDITAR CLIENTE
         <?php
 
         $editarCliente = new ControladorClientes();
-        $editarCliente -> ctrEditarCliente();
+        $editarCliente->ctrEditarCliente();
 
         ?>
 
@@ -270,10 +286,10 @@ MODAL EDITAR CLIENTE
 
 <?php
 
-        $eliminarCliente = new ControladorClientes();
-        $eliminarCliente -> ctrEliminarCliente();
+$eliminarCliente = new ControladorClientes();
+$eliminarCliente->ctrEliminarCliente();
 
-        ?>
+?>
 
 
 
@@ -283,9 +299,11 @@ MODAL EDITAR CLIENTE
 
 <!-- Page specific script  -->
 <script>
-  $(function () {
+  $(function() {
     $("#example1").DataTable({
-      "responsive": true, "lengthChange": false, "autoWidth": false,
+      "responsive": true,
+      "lengthChange": false,
+      "autoWidth": false,
       "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
     }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
     $('#example2').DataTable({

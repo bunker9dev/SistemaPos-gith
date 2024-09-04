@@ -54,6 +54,8 @@ async function GrafAnual(FechIni, FechFin) {
           ],
         },
         options: {
+          responsive: true,
+          maintainAspectRatio: false, // Permite que el gráfico ocupe todo el espacio disponible
           scales: {
             y: {
               beginAtZero: true,
@@ -116,6 +118,7 @@ async function GrafProduct(FechIni, FechFin) {
         },
         options: {
           responsive: true,
+          maintainAspectRatio: false, // Permite que el gráfico ocupe todo el espacio disponible
         },
       });
     }
@@ -179,6 +182,9 @@ async function GrafVendedor(FechIni, FechFin) {
           ],
         },
         options: {
+          responsive: true,
+          maintainAspectRatio: false, // Permite que el gráfico ocupe todo el espacio disponible
+
           scales: {
             y: {
               beginAtZero: true,
@@ -243,6 +249,9 @@ async function GrafClientes(FechIni, FechFin) {
           ],
         },
         options: {
+          responsive: true,
+          maintainAspectRatio: false, // Permite que el gráfico ocupe todo el espacio disponible
+
           scales: {
             y: {
               beginAtZero: true,

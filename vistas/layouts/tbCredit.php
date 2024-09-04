@@ -47,6 +47,7 @@
                         <div class="btn-group">
                             <button class="btn btn-info" onclick="AbonoRem(<?= $dt['idventas'] ?>)"><i class="fa-solid fa-cash-register"></i></button>
                             <button class="btn btn-success" onclick="detailRem(<?= $dt['idventas'] ?>)"><i class="fa-solid fa-bars"></i> </button>
+                            <button class="btn btn-warning" onclick="HistoAbo(<?= $dt['idventas'] ?>)" data-bs-toggle="modal" data-bs-target="#HistoAbo">Historial</button>
                         </div>
                     </td>
                 </tr>
